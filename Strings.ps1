@@ -1,0 +1,6 @@
+$STR_ACCESSLEVEL_ALREADY_EXISTS = "Access level '{0}' already exists, please provide an other name"
+$STR_ACCESSLEVEL_ALREADY_ASSIGNED = "Access level '{0}' is already assigned to badgekey {1}"
+$STR_BADGEKEY_DOESNT_EXIST = "Badgekey '{0}' doesn't exist"
+$STR_ACCESSLEVEL_DOESNT_EXIST = "Access level '{0}' doesn't exist"
+$STR_BADGE_ALREADY_EXISTS = "A badge with id '{0}' already exists"
+$STR_CARDHOLDER_ALREADY_EXISTS = "A cardholder"
