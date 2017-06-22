@@ -140,8 +140,8 @@ $cmdlets = @(
 )
 
 # DEBUG SETTINGS
-$test_server='SRV-03'
-$test_account='BAVAKSEC\Administrator' 
+$test_server='localhost'
+$test_account='' 
 
 if($test_server -ne '.' -or $test_server -ne 'localhost') {
 	Set-Context -Server $test_server -Credential (Get-Credential $test_account)
