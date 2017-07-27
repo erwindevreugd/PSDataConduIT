@@ -139,15 +139,7 @@ $functions = @(
 $cmdlets = @(
 )
 
-# DEBUG SETTINGS
-$test_server='localhost'
-$test_account='' 
-
-if($test_server -ne '.' -or $test_server -ne 'localhost') {
-	Set-Context -Server $test_server -Credential (Get-Credential $test_account)
-} else {
-	Set-Context -Server $test_server
-}
+Set-Context -Server 'localhost'
 # END DEBUG SETTINGS
 
 Export-ModuleMember -Variable $variables -Alias $aliases -Function $functions -Cmdlet $cmdlets
