@@ -26,6 +26,12 @@ function Invoke-OpenDoor
         }
 
         $reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID
+
+        if($reader -eq $null) {
+            Write-Debug -Message "Reader id '$ReaderID' on panel id '$PanelID' does not exist"
+            return
+        }
+
 		$reader.OpenDoor.Invoke()
 
         Write-Verbose -Message ("Door opened '{0}'" -f $reader.Name)

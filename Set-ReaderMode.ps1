@@ -29,6 +29,12 @@ function Set-ReaderMode
         }
 
         $reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID
+
+        if($reader -eq $null) {
+            Write-Debug -Message "Reader id '$ReaderID' on panel id '$PanelID' does not exist"
+            return
+        }
+        
 		$reader.SetReaderMode.Invoke($Mode)
 
         Write-Verbose -Message ("Reader '{0}' mode set to '{1}'" -f $reader.Name, $Mode)

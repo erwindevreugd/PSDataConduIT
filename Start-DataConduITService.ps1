@@ -13,7 +13,9 @@ function Start-DataConduITService
     process {
         $service = Get-DataConduITService -Server $Server -Credential $Credential
 		[void]$service.StartService.Invoke();
+        
+        Write-Verbose -Message "DataConduIT Service started on '$Server'"
 
-		Get-DataConduITService -Server $Server -Credential $Credential
+        Get-DataConduITService -Server $Server -Credential $Credential
     }
 }

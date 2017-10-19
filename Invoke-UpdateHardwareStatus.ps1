@@ -24,6 +24,12 @@ function Invoke-UpdateHardwareStatus
         }
 
         $panel = Get-Panel @parameters
+
+        if($panel -eq $null) {
+            Write-Debug -Message "Panel id '$PanelID' does not exist"
+            return
+        }
+
 		$panel.UpdateHardwareStatus.Invoke()
 
         Write-Verbose -Message "Updated hardware status for panel '$($panel.Name)'"

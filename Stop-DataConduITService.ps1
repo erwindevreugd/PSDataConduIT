@@ -14,6 +14,8 @@ function Stop-DataConduITService
         $service = Get-DataConduITService -Server $Server -Credential $Credential
 		[void]$service.StopService.Invoke();
 
-		Get-DataConduITService -Server $Server -Credential $Credential
+        Write-Verbose -Message "DataConduIT Service stopped on '$Server'"
+        
+        Get-DataConduITService -Server $Server -Credential $Credential
     }
 }

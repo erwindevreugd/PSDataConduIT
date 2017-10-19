@@ -23,7 +23,13 @@ function Invoke-SetClock
             $parameters.Add("Credential", $Credential)
         }
 
-		$panel = Get-Panel @parameters
+        $panel = Get-Panel @parameters
+        
+        if($panel -eq $null) {
+            Write-Debug -Message "Panel id '$PanelID' does not exist"
+            return
+        }
+        
 		$panel.SetClock.Invoke()
 
         Write-Verbose -Message "Set clock on panel '$($panel.Name)'"

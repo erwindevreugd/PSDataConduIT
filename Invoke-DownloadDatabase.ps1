@@ -23,7 +23,13 @@ function Invoke-DownloadDatabase
             $parameters.Add("Credential", $Credential)
         }
 
-		$panel = Get-Panel @parameters
+        $panel = Get-Panel @parameters
+        
+        if($panel -eq $null) {
+            Write-Debug -Message "Panel id '$PanelID' does not exist"
+            return
+        }
+        
 		$panel.DownloadDatabase.Invoke()
 
         Write-Verbose -Message "Downloading database to panel '$($panel.Name)'"
