@@ -34,7 +34,7 @@ function Get-ReaderHardwareStatus
 
         $status = $reader.GetHardwareStatus.Invoke().Status
 
-		$readerStatus = [Enum]::GetValues([ReaderStatus]) | where { $_ -band $status } 	
+		$readerStatus = [Enum]::GetValues([ReaderStatus]) | where { $_ -band [int]$status } 	
 
 		Write-Output $readerStatus
     }

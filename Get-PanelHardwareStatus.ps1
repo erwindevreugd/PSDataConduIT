@@ -30,7 +30,7 @@ function Get-PanelHardwareStatus
 
         $status = $panel.GetHardwareStatus.Invoke().Status
 
-		$panelStatus = [Enum]::GetValues([PanelStatus]) | where { $_ -band $status }
+		$panelStatus = [Enum]::GetValues([PanelStatus]) | where { $_ -band [int]$status }
 
 		Write-Output $panelStatus
     }
