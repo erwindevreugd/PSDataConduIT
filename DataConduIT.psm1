@@ -21,6 +21,7 @@ Push-Location $psScriptRoot
 
 # DataConduIT Cmdlets
 . .\Add-AccessLevelAssignment.ps1
+. .\Add-AccessLevelReaderAssignment.ps1
 . .\Get-AccessGroup.ps1
 . .\Get-AccessLevel.ps1
 . .\Get-AccessLevelAssignment.ps1
@@ -84,6 +85,7 @@ $aliases = @(
 $functions = @(
 	# DataConduIT Cmdlets
 	'Add-AccessLevelAssignment',
+	'Add-AccessLevelReaderAssignment',
 	'Get-AccessGroup',
 	'Get-AccessLevel',
 	'Get-AccessLevelAssignment',
