@@ -25,7 +25,7 @@ function Get-ReaderHardwareStatus
             $parameters.Add("Credential", $Credential)
         }
 
-        $panel = Get-Panel @parameters -ID $PanelID
+        $panel = Get-Panel @parameters -PanelID $PanelID
 		$panel.UpdateHardwareStatus.Invoke()
 
 		$reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID
