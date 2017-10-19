@@ -24,6 +24,7 @@ Push-Location $psScriptRoot
 . .\Get-AccessGroup.ps1
 . .\Get-AccessLevel.ps1
 . .\Get-AccessLevelAssignment.ps1
+. .\Get-AccessLevelReaderAssignment
 . .\Get-Account.ps1
 . .\Get-Area.ps1
 . .\Get-Badge.ps1
