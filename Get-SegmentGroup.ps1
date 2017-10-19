@@ -10,14 +10,14 @@ function Get-SegmentGroup
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
-        [int]$SegmentID    
+        [int]$SegmentGroupID    
     )
 
     process {
         $query = "SELECT * FROM Lnl_SegmentGroup"
 
-        if($SegmentID) {
-            $query += " WHERE ID=$SegmentID"
+        if($SegmentGroupID) {
+            $query += " WHERE ID=$SegmentGroupID"
         }
 
         LogQuery $query
@@ -40,7 +40,7 @@ function Get-SegmentGroup
 				Path=$_.__PATH;
 				Credential=$Credential;
 
-				ID=$_.SegmentID;
+				SegmentGroupID=$_.ID;
 				Name=$_.NAME
 			}
 		}

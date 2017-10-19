@@ -40,7 +40,7 @@ function Get-Segment
 				Path=$_.__PATH;
 				Credential=$Credential;
 
-				ID=$_.SegmentID;
+				SegmentID=$_.ID;
 				Name=$_.NAME
 			}
 		}
