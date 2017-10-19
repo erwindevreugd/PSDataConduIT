@@ -16,7 +16,7 @@ function Get-PanelHardwareStatus
     process {
         $parameters = @{
             Server=$Server;
-            ID=$ID
+            PanelID=$PanelID
         }
 
         if($Credential -ne $null) {

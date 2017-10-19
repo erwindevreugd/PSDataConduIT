@@ -16,7 +16,7 @@ function Get-Panel
     process {
         $query = "SELECT * FROM Lnl_Panel WHERE __CLASS='Lnl_Panel'"
 
-        if($ID) {
+        if($PanelID) {
             $query += " AND ID=$PanelID"
         }
 
