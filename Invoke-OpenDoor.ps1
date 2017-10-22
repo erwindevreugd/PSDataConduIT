@@ -58,6 +58,6 @@ function Invoke-OpenDoor
 
 		$reader.OpenDoor.Invoke()
 
-        Write-Verbose -Message ("Door opened '{0}'" -f $reader.Name)
+        Write-Verbose -Message ("Door reader '$($reader.Name)' opened")
     }
 }
