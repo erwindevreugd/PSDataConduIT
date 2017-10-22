@@ -62,6 +62,11 @@ function Get-ReaderMode
 
         Write-Verbose -Message ("Reader '{0}' mode is '{1}'" -f $reader.Name, $mode)
 
-		Write-Output $mode
+        New-Object PSObject -Property @{
+            PanelID=$PanelID;
+            ReaderID=$ReaderID;
+            Name=$reader.Name;
+            Mode=$mode;
+        }
 	}
 }
