@@ -74,7 +74,27 @@ function Get-TimezoneInterval
 				Credential=$Credential;
 
 				TimezoneIntervalID=$_.ID;
-				TimezoneID=$_.TimezoneID;
+                TimezoneID=$_.TimezoneID;
+                
+                Monday=$_.MONDAY;
+                Thuesday=$_.THUESDAY;
+                Wednesday=$_.WEDNESDAY;
+                Thursday=$_.THURSDAY;
+                Friday=$_.FRIDAY;
+                Saturday=$_.SATURDAY;
+                Sunday=$_.SUNDAY;
+
+                HolidayType1=$_.HOLIDAYTYPE1;
+                HolidayType2=$_.HOLIDAYTYPE2;
+                HolidayType3=$_.HOLIDAYTYPE3;
+                HolidayType4=$_.HOLIDAYTYPE4;
+                HolidayType5=$_.HOLIDAYTYPE5;
+                HolidayType6=$_.HOLIDAYTYPE6;
+                HolidayType7=$_.HOLIDAYTYPE7;
+                HolidayType8=$_.HOLIDAYTYPE8;
+
+                StartTime=ToDateTime $_.STARTTIME;
+				EndTime=ToDateTime $_.ENDTIME;
 			}
 		}
     }
