@@ -53,14 +53,23 @@ function Get-ReaderMode
         if($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
-		
-		# Update panel hardware status so we can get the current reader mode
-		Get-Panel @parameters -PanelID $PanelID | Invoke-UpdateHardwareStatus
 
-        $reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID
+        if(($panel = Get-Panel @parameters -PanelID $PanelID) -eq $null) {
+            Write-Error -Message ("Panel id '$($PanelID)' was not found")
+            return
+        }
+
+        # Update panel hardware status so we can get the current reader mode
+        $panel | Invoke-UpdateHardwareStatus
+
+        if(($reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
+            Write-Error -Message ("Reader id '$($ReaderID)' on panel id '$($PanelID)' was not found")
+            return
+        }
+
 		$mode = MapEnum ([ReaderMode].AsType()) $reader.GetReaderMode.Invoke().Mode
 
-        Write-Verbose -Message ("Reader '{0}' mode is '{1}'" -f $reader.Name, $mode)
+        Write-Verbose -Message ("Reader '$($reader.Name)' on Panel '$($panel.Name)' reader mode is '$($mode)'")
 
         New-Object PSObject -Property @{
             PanelID=$PanelID;

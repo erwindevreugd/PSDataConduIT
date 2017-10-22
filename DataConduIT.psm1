@@ -142,8 +142,8 @@ $functions = @(
 $cmdlets = @(
 )
 
+# Set default context to localhost with no credentials
 Set-Context -Server 'localhost'
-# END DEBUG SETTINGS
 
 Export-ModuleMember -Variable $variables -Alias $aliases -Function $functions -Cmdlet $cmdlets
 

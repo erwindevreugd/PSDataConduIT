@@ -47,15 +47,13 @@ function Invoke-VisitSignOut
             $parameters.Add("Credential", $Credential)
         }
 
-        $visit = Get-Visit @parameters
-        
-        if($visit -eq $null) {
-            Write-Debug -Message "Visit id '$VisitID' does not exist"
+        if(($visit = Get-Visit @parameters) -eq $null) {
+            Write-Error -Message ("Visit id '$($VisitID)' not found")
             return
         }
         
 		$visit.SignOutVisit.Invoke()
 
-        Write-Verbose -Message "Visit '$($visit.VisitID)' signed out"
+        Write-Verbose -Message ("Visit '$($visit.VisitID)' signed out")
     }
 }

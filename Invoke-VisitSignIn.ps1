@@ -61,15 +61,13 @@ function Invoke-VisitSignIn
             $parameters.Add("Credential", $Credential)
         }
 
-        $visit = Get-Visit @parameters
-        
-        if($visit -eq $null) {
-            Write-Debug -Message "Visit id '$VisitID' does not exist"
+        if(($visit = Get-Visit @parameters) -eq $null) {
+            Write-Error -Message ("Visit id '$($VisitID)' not found")
             return
         }
 
 		$visit.SignInVisit.Invoke($BadgeTypeID, $PrinterName, $AssignedBadgeID)
 
-        Write-Verbose -Message "Visit '$($visit.VisitID)' signed in"
+        Write-Verbose -Message ("Visit '$($visit.VisitID)' signed in with badge id '$($AssignedBadgeID)'")
     }
 }

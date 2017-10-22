@@ -66,15 +66,18 @@ function Add-AccessLevelAssignment
         }
 
 		if(($accessLevel = Get-AccessLevel -AccessLevelID $AccessLevelID) -eq $null) {
-			throw $STR_ACCESSLEVEL_DOESNT_EXIST -f $AccessLevelID
+            Write-Error -Message ("Accesslevel with id '$($AccessLevelID)' not found")
+            return
 		}
 
-		if(($badge = Get-Badge -BadgeKey $BadgeKey) -eq $null) {
-			throw $STR_BADGEKEY_DOESNT_EXIST -f $BadgeKey
+		if((Get-Badge -BadgeKey $BadgeKey) -eq $null) {
+            Write-Error -Message ("BadgeKey '$($BadgeKey)' not found")
+            return
 		}
 
 		if((Get-AccessLevelAssignment -BadgeKey $BadgeKey -AccessLevelID $AccessLevelID) -ne $null) {
-			throw $STR_ACCESSLEVEL_ALREADY_ASSIGNED -f $accessLevel.Name, $BadgeKey
+            Write-Error -Message ("Accesslevel '$($accessLevel.Name)' is already assigned to BadgeKey '$($BadgeKey)'")
+            return
 		}
 
 		Set-WmiInstance @parameters -Arguments @{

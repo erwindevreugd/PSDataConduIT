@@ -46,15 +46,13 @@ function Invoke-DownloadFirmware
             $parameters.Add("Credential", $Credential)
         }
 
-        $panel = Get-Panel @parameters
-
-        if($panel -eq $null) {
-            Write-Debug -Message "Panel id '$PanelID' does not exist"
+        if(($panel = Get-Panel @parameters) -eq $null) {
+            Write-Error -Message ("Panel id '$($PanelID)' not found")
             return
         }
         
 		$panel.DownloadFirmware.Invoke()
 
-        Write-Verbose -Message "Downloaded firmware to panel '$($panel.Name)'"
+        Write-Verbose -Message ("Downloaded firmware to panel '$($panel.Name)'")
     }
 }

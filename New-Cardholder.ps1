@@ -78,10 +78,6 @@ function New-Cardholder
             $parameters.Add("Credential", $Credential)
         }
 
-		#if((Get-Badge -ID $ID) -ne $null) {
-		#	throw $STR_CARDHOLDER_ALREADY_EXISTS -f $
-		#}
-
 		Set-WmiInstance @parameters -Arguments @{
 			LASTNAME=$Lastname;
             FIRSTNAME=$Firstname;

@@ -56,7 +56,8 @@ function New-AccessLevel
         }
 
 		if((Get-AccessLevel -Name $Name) -ne $null) {
-			throw $STR_ACCESSLEVEL_ALREADY_EXISTS -f $Name
+            Write-Error -Message ("An accesslevel with name '$($name)' already exists")
+            return
 		}
 
 		Set-WmiInstance @parameters -Arguments @{

@@ -43,5 +43,7 @@ function Invoke-RefreshCache
         }
 
         Invoke-WmiMethod @parameters
+
+        Write-Verbose -Message ("Refreshing DataConduIT Manager cache on '$($Server)'")
     }
 }

@@ -40,9 +40,9 @@ function Set-Context
         }
 
         Set-Variable -Name Server -Value $Server -Scope Script
-        Write-Verbose -Message "Changed context server to '$Server'"
+        Write-Verbose -Message ("Changed context server to '$($Server)'")
 
         Set-Variable -Name Credential -Value $Credential -Scope Script
-        Write-Verbose -Message "Changed context credential to '$($Credential.UserName)'"
+        Write-Verbose -Message ("Changed context credential to '$($Credential.UserName)'")
     }
 }

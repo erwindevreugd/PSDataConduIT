@@ -42,11 +42,15 @@ function Start-DataConduITService
         [PSCredential]$Credential = $Script:Credential
     )
 
-    process {
-        $service = Get-DataConduITService -Server $Server -Credential $Credential
+    process {   
+        if((Get-DataConduITService -Server $Server -Credential $Credential) -eq $null) {
+            Write-Error -Message ("DataConduIT service not found on server '$($Server)'")
+            return
+        }
+
 		[void]$service.StartService.Invoke();
         
-        Write-Verbose -Message "DataConduIT Service started on '$Server'"
+        Write-Verbose -Message ("DataConduIT Service started on '$($Server)'")
 
         Get-DataConduITService -Server $Server -Credential $Credential
     }

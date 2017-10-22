@@ -56,15 +56,18 @@ function Set-ReaderMode
             $parameters.Add("Credential", $Credential)
         }
 
-        $reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID
+        if(($panel = Get-Panel @parameters -PanelID $PanelID) -eq $null) {
+            Write-Error -Message ("Panel id '$($PanelID)' not found")
+            return
+        }
 
-        if($reader -eq $null) {
-            Write-Debug -Message "Reader id '$ReaderID' on panel id '$PanelID' does not exist"
+        if(($reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
+            Write-Error -Message ("Reader id '$($ReaderID)' on panel id '$($PanelID)' not found")
             return
         }
         
 		$reader.SetReaderMode.Invoke($Mode)
 
-        Write-Verbose -Message ("Reader '{0}' mode set to '{1}'" -f $reader.Name, $Mode)
+        Write-Verbose -Message ("Reader '$($reader.Name)' on panel '$($panel.Name)' mode set to '$($Mode)'")
 	}
 }

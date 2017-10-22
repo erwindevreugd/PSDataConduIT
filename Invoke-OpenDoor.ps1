@@ -51,10 +51,8 @@ function Invoke-OpenDoor
             $parameters.Add("Credential", $Credential)
         }
 
-        $reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID
-
-        if($reader -eq $null) {
-            Write-Debug -Message "Reader id '$ReaderID' on panel id '$PanelID' does not exist"
+        if(($reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
+            Write-Error -Message ("Reader id '$($ReaderID)' on panel id '$($PanelID)' not found")
             return
         }
 

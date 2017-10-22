@@ -85,7 +85,8 @@ function New-Badge
         }
 
 		if((Get-Badge -BadgeID $BadgeID) -ne $null) {
-			throw $STR_BADGE_ALREADY_EXISTS -f $BadgeID
+            Write-Error -Message ("A badge with id '$($BadgeID)' already exists")
+            return
 		}
 
 		Set-WmiInstance @parameters -Arguments @{
