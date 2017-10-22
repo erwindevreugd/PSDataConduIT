@@ -55,6 +55,7 @@ Push-Location $psScriptRoot
 . .\Invoke-OpenDoor.ps1
 . .\Invoke-RefreshCache.ps1
 . .\Invoke-SetClock.ps1
+. .\Invoke-SetFirstCardUnlockMode.ps1
 . .\Invoke-UpdateHardwareStatus.ps1
 . .\Invoke-VisitSignIn.ps1
 . .\Invoke-VisitSignOut.ps1
@@ -119,6 +120,7 @@ $functions = @(
 	'Invoke-OpenDoor',
 	'Invoke-RefreshCache',
 	'Invoke-SetClock',
+	'Invoke-SetFirstCardUnlockMode',
 	'Invoke-UpdateHardwareStatus',
 	'Invoke-VisitSignIn',
 	'Invoke-VisitSignOut',
