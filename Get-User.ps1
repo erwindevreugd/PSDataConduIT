@@ -1,15 +1,65 @@
+<#
+    .SYNOPSIS
+    Gets an user.
+
+    .DESCRIPTION   
+    Gets all users or a single user if an user id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    
+    .EXAMPLE
+    Get-User
+    
+	LastChanged                 : 20/07/2017 06:32:27
+	FieldPermissionGroupID      :
+	Lastname                    : User
+	Server                      : SERVER
+	CardPermissionGroupID       : 6
+	SegmentID                   : 0
+	MonitoringPermissionGroupID : 9
+	Password                    :
+	AllowUnifiedLogon           :
+	Firstname                   : User
+	Credential                  :
+	Notes                       :
+	SuperClass                  : Lnl_Element
+	SystemPermissionGroupID     : 3
+	Created                     : 20/07/2017 06:32:27
+	UserID                      : 3
+	MonitoringZoneID            : 0
+	LogonID                     : USER
+	DatabaseID                  : 0
+	ComputerName                : SERVER
+	Class                       : Lnl_User
+	Path                        : \\SERVER\root\OnGuard:Lnl_User.ID=3
+	AutomaticallyCreated        : False
+	AllowManualLogon            :
+	Enabled                     : False
+    
+    .LINK
+    https://github.com/erwindevreugd/PSDataConduIT
+#>
 function Get-User
 {
     [CmdletBinding()]
     param
     (
-        [Parameter(Position=0, Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
-        [string]$Server = $Script:Server,
+        [Parameter(
+			Position=0, 
+			Mandatory=$false, 
+			ValueFromPipelineByPropertyName=$true,
+			HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+		[string]$Server = $Script:Server,
+		
+		[Parameter(
+			Position=1,
+			Mandatory=$false, 
+			ValueFromPipelineByPropertyName=$true,
+			HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+		[PSCredential]$Credential = $Script:Credential,
 
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
-        [PSCredential]$Credential = $Script:Credential,
-
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+			Mandatory=$false, 
+			ValueFromPipelineByPropertyName=$true,
+			HelpMessage='The user id parameter')]
         [int]$UserID    
     )
 

@@ -1,12 +1,32 @@
+<#
+    .SYNOPSIS
+    Refreshes the DataConduIT Manager cache.
+
+    .DESCRIPTION   
+    Refreshes the DataConduIT Manager cache .If the result return null, try the parameter "-Verbose" to get more details.
+    
+    .EXAMPLE
+    
+    .LINK
+    https://github.com/erwindevreugd/PSDataConduIT
+#>
 function Invoke-RefreshCache
 {
     [CmdletBinding()]
     param
     (
-        [Parameter(Position=0, Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Position=0, 
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
         [string]$Server = $Script:Server,
-
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        
+        [Parameter(
+            Position=1,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential
     )
 

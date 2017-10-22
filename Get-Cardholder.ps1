@@ -1,15 +1,67 @@
+<#
+    .SYNOPSIS
+    Gets a cardholder.
+
+    .DESCRIPTION   
+    Gets all cardholders or a single cardholder if a cardholder id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    
+    .EXAMPLE
+    Get-Cardholder
+    
+	Class             : Lnl_Cardholder
+	BuildingID        : 0
+	Path              : \\WS-084\root\OnGuard:Lnl_Cardholder.ID=1
+	PhoneNumber       :
+	OfficePhoneNumber :
+	Lastname          : Smith
+	Birthday          :
+	SSNO              :
+	PersonID          : 1
+	State             :
+	City              :
+	Floor             : 0
+	Credential        :
+	Address           :
+	LastChanged       : 19/10/2017 12:46:39
+	SuperClass        : Lnl_Person
+	Email             :
+	ZipCode           :
+	ComputerName      : SERVER
+	DivisionID        : 0
+	Extension         :
+	IsGrant           : False
+	Firstname         : John
+	DepartmentID      : 0
+	TitleID           : 0
+	Midname           :
+	Server            : SERVER
+    
+    .LINK
+    https://github.com/erwindevreugd/PSDataConduIT
+#>
 function Get-Cardholder
 {
     [CmdletBinding()]
     param
     (
-        [Parameter(Position=0, Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
-        [string]$Server = $Script:Server,
+        [Parameter(
+			Position=0, 
+			Mandatory=$false, 
+			ValueFromPipelineByPropertyName=$true,
+			HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+		[string]$Server = $Script:Server,
+		
+		[Parameter(
+			Position=1,
+			Mandatory=$false, 
+			ValueFromPipelineByPropertyName=$true,
+			HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+		[PSCredential]$Credential = $Script:Credential,
 
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
-        [PSCredential]$Credential = $Script:Credential,
-
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+			Mandatory=$false, 
+			ValueFromPipelineByPropertyName=$true,
+			HelpMessage='The person id parameter')]
         [int]$PersonID    
     )
 

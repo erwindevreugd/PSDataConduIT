@@ -1,24 +1,55 @@
+<#
+    .SYNOPSIS
+    Adds an accesslevel assignment to a badge.
+
+    .DESCRIPTION   
+    Adds an accesslevel assignment to a badge. Optionally you can provide an activation and deactivation date for the accesslevel assignment. If the result return null, try the parameter "-Verbose" to get more details.
+    
+    .EXAMPLE
+    Add-AccessLevelAssignment -BadgeKey 1 -AccessLevelID 1
+    
+    .LINK
+    https://github.com/erwindevreugd/PSDataConduIT
+#>
 function Add-AccessLevelAssignment
 {
     [CmdletBinding()]
     param
     (
-        [Parameter(Position=0, Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Position=0, 
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
         [string]$Server = $Script:Server,
 
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Position=1,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[Parameter(Mandatory=$true, ValueFromPipelineByPropertyName=$true)]
+		[Parameter(
+            Mandatory=$true, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The badgekey to which the accesslevel will be assigned')]
         [int]$BadgeKey,
 
-		[Parameter(Mandatory=$true, ValueFromPipelineByPropertyName=$true)]
+		[Parameter(
+            Mandatory=$true, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The accesslevel id to add to the accesslevel assignment')]
         [int]$AccessLevelID,
 
-		[Parameter(Mandatory=$false)]
+		[Parameter(
+            Mandatory=$false,
+            HelpMessage='The activation date of the accesslevel assignment')]
         [datetime]$Activate,
 
-		[Parameter(Mandatory=$false)]
+		[Parameter(
+            Mandatory=$false,
+            HelpMessage='The deactivation date of the accesslevel assignment')]
         [datetime]$Deactivate
     )
 

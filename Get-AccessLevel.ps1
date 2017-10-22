@@ -1,18 +1,58 @@
+<#
+    .SYNOPSIS
+    Gets an accesslevel.
+
+    .DESCRIPTION   
+    Gets all accesslevels or a single accesslevel if an accesslevel id or name is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    
+    .EXAMPLE
+    Get-AccessLevel
+    
+    ComputerName                 : SERVER
+    FirstCardUnlock              : False
+    Path                         : \\SERVER\root\OnGuard:Lnl_AccessLevel.ID=1
+    SegmentID                    : 0
+    Server                       : SERVER
+    SuperClass                   : Lnl_Element
+    AccessLevelID                : 1
+    Name                         : AccessLevel
+    Credential                   :
+    HasCommandAuthority          : False
+    Class                        : Lnl_AccessLevel
+    DownloadToIntelligentReaders : False
+    
+    .LINK
+    https://github.com/erwindevreugd/PSDataConduIT
+#>
 function Get-AccessLevel
 {
     [CmdletBinding()]
     param
     (
-        [Parameter(Position=0, Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Position=0, 
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
         [string]$Server = $Script:Server,
 
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Position=1,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The credentials used to authenitcate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The id of the accesslevel to get')]
         [int]$AccessLevelID,
 
-		[Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+		[Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the accesslevel to get')]
         [string]$Name
     )
 

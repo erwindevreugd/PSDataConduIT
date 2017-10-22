@@ -1,15 +1,53 @@
+<#
+    .SYNOPSIS
+    Gets a directory.
+
+    .DESCRIPTION   
+    Gets all directories or a single directory if a directory id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    
+    .EXAMPLE
+    Get-Directory
+    
+    Class        : Lnl_Directory
+    ComputerName : SERVER
+    StartNode    : dc=DOMAIN, dc=local
+    SuperClass   : Lnl_Element
+    UseSSL       : False
+    Credential   :
+    Name         : DOMAIN.local
+    Type         : MicrosoftActiveDirectory
+    Port         : 389
+    Path         : \\SERVER\root\OnGuard:Lnl_Directory.ID=1
+    Hostname     : DOMAIN.local
+    DirectoryID  : 1
+    Server       : SERVER
+    
+    .LINK
+    https://github.com/erwindevreugd/PSDataConduIT
+#>
 function Get-Directory
 {
     [CmdletBinding()]
     param
     (
-        [Parameter(Position=0, Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Position=0, 
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
         [string]$Server = $Script:Server,
-
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        
+        [Parameter(
+            Position=1,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The directory id parameter')]
         [int]$DirectoryID
     )
 

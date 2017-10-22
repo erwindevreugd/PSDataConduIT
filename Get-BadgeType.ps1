@@ -1,15 +1,49 @@
+<#
+    .SYNOPSIS
+    Gets a badge type.
+
+    .DESCRIPTION   
+    Gets all badge types or a single badge type if a badge type id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    
+    .EXAMPLE
+    Get-BadgeType
+    
+    ComputerName : SERVER
+    Path         : \\SERVER\root\OnGuard:Lnl_BadgeType.ID=1
+    Server       : SERVER
+    SuperClass   : Lnl_Element
+    Name         : Temporary
+    Credential   :
+    BadgeTypeID  : 1
+    Class        : Lnl_BadgeType
+    BadgeClass   :
+    
+    .LINK
+    https://github.com/erwindevreugd/PSDataConduIT
+#>
 function Get-BadgeType
 {
     [CmdletBinding()]
     param
     (
-        [Parameter(Position=0, Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Position=0, 
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
         [string]$Server = $Script:Server,
-
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        
+        [Parameter(
+            Position=1,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The badge type id parameter')]
         [int]$BadgeTypeID = $null
     )
 

@@ -1,15 +1,49 @@
+<#
+    .SYNOPSIS
+    Gets a timezone.
+
+    .DESCRIPTION   
+    Gets all timezones or a single timezone if a timezone id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    
+    .EXAMPLE
+    Get-Timezone
+    
+    ComputerName : SERVER
+    Path         : \\SERVER\root\OnGuard:Lnl_Timezone.ID=1
+    SegmentID    :
+    Server       : SERVER
+    SuperClass   : Lnl_Element
+    Name         : Never
+    TimezoneID   : 1
+    Credential   :
+    Class        : Lnl_Timezone
+    
+    .LINK
+    https://github.com/erwindevreugd/PSDataConduIT
+#>
 function Get-Timezone
 {
     [CmdletBinding()]
     param
     (
-        [Parameter(Position=0, Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Position=0, 
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
         [string]$Server = $Script:Server,
-
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        
+        [Parameter(
+            Position=1,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The timezone id parameter')]
         [int]$TimezoneID
     )
 

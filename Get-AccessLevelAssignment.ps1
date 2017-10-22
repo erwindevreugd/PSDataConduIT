@@ -1,18 +1,72 @@
+<#
+    .SYNOPSIS
+    Gets an accesslevel assignment.
+
+    .DESCRIPTION   
+    Gets all accesslevel assignments. If the result return null, try the parameter "-Verbose" to get more details.
+    
+    .EXAMPLE
+    Get-AccessLevelAssignment
+    
+    ComputerName  : SERVER
+    Path          : \\SERVER\root\OnGuard:Lnl_AccessLevelAssignment.AccessLevelID=1,BadgeKey=1
+    SegmentID     :
+    Server        : SERVER
+    SuperClass    : Lnl_Element
+    AccessLevelID : 1
+    BadgeKey      : 1
+    Activate      :
+    Credential    :
+    Class         : Lnl_AccessLevelAssignment
+    Deactivate    :
+    
+    .EXAMPLE
+    Get-AccessLevelAssignment -BadgeKey 1
+    
+    ComputerName  : SERVER
+    Path          : \\SERVER\root\OnGuard:Lnl_AccessLevelAssignment.AccessLevelID=1,BadgeKey=1
+    SegmentID     :
+    Server        : SERVER
+    SuperClass    : Lnl_Element
+    AccessLevelID : 1
+    BadgeKey      : 1
+    Activate      :
+    Credential    :
+    Class         : Lnl_AccessLevelAssignment
+    Deactivate    :
+
+    .LINK
+    https://github.com/erwindevreugd/PSDataConduIT
+#>
 function Get-AccessLevelAssignment
 {
     [CmdletBinding()]
     param
     (
-        [Parameter(Position=0, Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Position=0, 
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
         [string]$Server = $Script:Server,
-
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        
+        [Parameter(
+            Position=1,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The accesslevel id')]
         [int]$AccessLevelID = $null,
 
-		[Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+		[Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The badge key')]
         [int]$BadgeKey = $null
     )
 
