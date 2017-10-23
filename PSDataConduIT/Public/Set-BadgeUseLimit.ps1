@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Sets a reader to the specified reader mode.
+    Sets the use limit for a given badge.
 
     .DESCRIPTION   
-    Sets a reader to the specified reader mode. If the result return null, try the parameter "-Verbose" to get more details.
+    Sets the use limit for a given badge. If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
