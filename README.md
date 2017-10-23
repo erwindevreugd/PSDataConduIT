@@ -1,4 +1,6 @@
-# DataConduIT
+# PSDataConduIT
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](paypal.me/erwindevreugd)
 
 A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
 
@@ -435,3 +437,7 @@ SYNTAX:
 
 * Lenel, http://www.lenel.com/
 * DataConduIT Manual, http://www.lenel.com/assets/images/solutions/open-integration/DataConduIT.pdf
+
+## Donation
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](paypal.me/erwindevreugd)
