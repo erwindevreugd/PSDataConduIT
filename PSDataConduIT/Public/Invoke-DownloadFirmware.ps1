@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Downloads firmware to the specified panel.
+    Downloads firmware to the specified panel or reader.
 
     .DESCRIPTION   
-    Downloads firmware to the specified panel. If the result return null, try the parameter "-Verbose" to get more details.
+    Downloads firmware to the specified panel or reader. If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -12,7 +12,9 @@
 #>
 function Invoke-DownloadFirmware
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        DefaultParameterSetName='DownloadFirmwareToPanel'
+    )]
     param
     (
         [Parameter(
@@ -30,29 +32,56 @@ function Invoke-DownloadFirmware
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
+            ParameterSetName='DownloadFirmwareToPanel',
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID    
+        [Parameter(
+            ParameterSetName='DownloadFirmwareToReader',
+            Mandatory=$true, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The panel id parameter')]
+        [int]$PanelID,
+
+        [Parameter(
+            ParameterSetName='DownloadFirmwareToReader',
+            Mandatory=$true, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The reader id parameter')]
+        [int]$ReaderID   
     )
 
     process {
         $parameters = @{
             Server=$Server;
-            PanelID=$PanelID;
         }
 
         if($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($panel = Get-Panel @parameters) -eq $null) {
-            Write-Error -Message ("Panel id '$($PanelID)' not found")
-            return
-        }
+        switch ($PSCmdlet.ParameterSetName) {
+            "DownloadFirmwareToPanel" {
+                if(($panel = Get-Panel @parameters -PanelID $PanelID) -eq $null) {
+                    Write-Error -Message ("Panel id '$($PanelID)' not found")
+                    return
+                }
+                
+                $panel.DownloadFirmware.Invoke()
         
-		$panel.DownloadFirmware.Invoke()
-
-        Write-Verbose -Message ("Downloaded firmware to panel '$($panel.Name)'")
+                Write-Verbose -Message ("Downloaded firmware to panel '$($panel.Name)'")
+            }
+            "DownloadFirmwareToReader" {
+                if(($reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
+                    Write-Error -Message ("Reader id '$($ReaderID)' on panel id '$($PanelID)' not found")
+                    return
+                }
+                
+                $reader.DownloadFirmware.Invoke()
+        
+                Write-Verbose -Message ("Downloaded firmware to reader '$($reader.Name)'")
+            }
+            Default { return }
+        }
     }
 }
