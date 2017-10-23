@@ -54,6 +54,7 @@ Push-Location $psScriptRoot
 . .\Public\Invoke-DownloadFirmware.ps1
 . .\Public\Invoke-OpenDoor.ps1
 . .\Public\Invoke-RefreshCache.ps1
+. .\Public\Invoke-ResetUseLimit.ps1
 . .\Public\Invoke-SetClock.ps1
 . .\Public\Invoke-SetFirstCardUnlockMode.ps1
 . .\Public\Invoke-UpdateHardwareStatus.ps1
@@ -121,6 +122,7 @@ $functions = @(
 	'Invoke-DownloadFirmware',
 	'Invoke-OpenDoor',
 	'Invoke-RefreshCache',
+	'Invoke-ResetUseLimit',
 	'Invoke-SetClock',
 	'Invoke-SetFirstCardUnlockMode',
 	'Invoke-UpdateHardwareStatus',
