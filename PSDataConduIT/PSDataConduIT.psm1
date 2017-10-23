@@ -64,6 +64,7 @@ Push-Location $psScriptRoot
 . .\Public\New-Cardholder.ps1
 . .\Public\New-Visit.ps1
 . .\Public\Remove-AccessLevel.ps1
+. .\Public\Set-BadgeUseLimit.ps1
 . .\Public\Set-ReaderMode.ps1
 
 # DataConduIT Service Cmdlets
@@ -129,7 +130,8 @@ $functions = @(
     'New-Cardholder',
 	'New-Visit',
 	'Remove-AccessLevel',
-	'Set-ReaderMode'
+	'Set-BadgeUseLimit',
+	'Set-ReaderMode',
 
 	# DataConduIT Service Cmdlets
 	'Get-DataConduITService',
