@@ -63,6 +63,7 @@ Push-Location $psScriptRoot
 . .\Public\New-Badge.ps1
 . .\Public\New-Cardholder.ps1
 . .\Public\New-Visit.ps1
+. .\Public\New-Visitor.ps1
 . .\Public\Remove-AccessLevel.ps1
 . .\Public\Set-BadgeUseLimit.ps1
 . .\Public\Set-ReaderMode.ps1
@@ -129,6 +130,7 @@ $functions = @(
     'New-Badge',
     'New-Cardholder',
 	'New-Visit',
+	'New-Visitor',
 	'Remove-AccessLevel',
 	'Set-BadgeUseLimit',
 	'Set-ReaderMode',
