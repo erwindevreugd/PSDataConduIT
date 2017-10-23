@@ -1,6 +1,6 @@
 # PSDataConduIT
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](paypal.me/erwindevreugd)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/erwindevreugd)
 
 A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
 
@@ -440,4 +440,4 @@ SYNTAX:
 
 ## Donation
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](paypal.me/erwindevreugd)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/erwindevreugd)
