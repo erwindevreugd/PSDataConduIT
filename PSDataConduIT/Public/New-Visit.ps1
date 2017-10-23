@@ -79,7 +79,7 @@ function New-Visit
             $parameters.Add("Credential", $Credential)
         }
 
-        New-WmiInstance @parameters -Arguments @{
+        Set-WmiInstance @parameters -Arguments @{
 			CARDHOLDERID=$CardholderID;
 			VISITORID=$VisitorID;
 			SCHEDULED_TIMEIN=ToWmiDateTime $ScheduledTimeIn;

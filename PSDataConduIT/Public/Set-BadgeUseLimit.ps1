@@ -66,10 +66,10 @@ function Set-BadgeUseLimit
         }
 
         $badge.USELIMIT = $UseLimit
-        $badge.Put() | Out-Null; # Pipe to null to prevent output to console
+        
+        Set-WmiInstance -InputObject $badge |
+        Get-Badge
 
         Write-Verbose -Message ("Set use limit to '$($UseLimit)' for badge key '$($BadgeKey)'")
-
-        Get-Badge -BadgeKey $BadgeKey
     }
 }

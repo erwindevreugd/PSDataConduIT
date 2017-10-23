@@ -124,7 +124,7 @@ function New-Badge
             PIN=$Pin;
             USELIMIT=$UseLimit;
         } |
-			Select-Object *,@{L='BadgeID';E={$_.ID}} | 
-			Get-Badge
+        Select-Object *,@{L='BadgeID';E={$_.ID}} | 
+        Get-Badge
 	}
 }
