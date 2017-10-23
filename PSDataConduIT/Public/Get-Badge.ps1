@@ -93,18 +93,23 @@ function Get-Badge
 				Path=$_.__PATH;
 				Credential=$Credential;
 
-				Activate=ToDateTime($_.ACTIVATE);
-				Deactivate=ToDateTime($_.DEACTIVATE);
-				APBExempt=$_.APBEXEMPT;
 				BadgeKey=$_.BADGEKEY;
 				BadgeID=$_.ID;
 				PersonID=$_.PERSONID;
-				Status=$_.STATUS;
-				TwoManType=$_.TWO_MAN_TYPE;
 				BadgeTypeID=$_.TYPE;
+				Status=$_.STATUS;
+                Activate=ToDateTime($_.ACTIVATE);
+				Deactivate=ToDateTime($_.DEACTIVATE);
+				APBExempt=$_.APBEXEMPT;
+                DestinationExempt=($_.DEST_EXEMPT -eq 1);
+                DeadBoltOverride=$_.DEADBOLT_OVERRIDE;
+                ExtendedStrikeHeld=$_.EXTEND_STRIKE_HELD;
+                PassageMode=$_.PASSAGE_MODE;
 				UseLimit=$_.USELIMIT;
+
+				TwoManType=$_.TWO_MAN_TYPE;
 				LastChanged=ToDateTime($_.LASTCHANGED);
-				LastPrint=ToDateTime($_.LASTPRINT);
+                LastPrint=ToDateTime($_.LASTPRINT);
 			}
 		}
     }

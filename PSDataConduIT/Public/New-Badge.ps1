@@ -45,33 +45,53 @@ function New-Badge
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge type id of the new badge')]
-        [long]$BadgeTypeID
+        [long]$BadgeTypeID,
+
+        [Parameter(
+            Mandatory=$false,
+            HelpMessage='The activation date of the badge')]
+        [datetime]$Activate = ([DateTime]::Now),
+
+		[Parameter(
+            Mandatory=$false,
+            HelpMessage='The deactivation date of the badge')]
+        [datetime]$Deactivate = ([DateTime]::Now).AddYears(5),
+
+        [Parameter(
+            Mandatory=$false,
+            HelpMessage='Indicates whether the badge is exempted from anti-passback')]
+        [switch]$APBExempt,
+
+        [Parameter(
+            Mandatory=$false,
+            HelpMessage='Indicates whether the badge is exempted from destination assurance')]
+        [switch]$DestinationExempt,
+
+        [Parameter(
+            Mandatory=$false,
+            HelpMessage='Indicates whether the badge is allowed to override deadbolt')]
+        [switch]$DeadboltOverride,
+
+        [Parameter(
+            Mandatory=$false,
+            HelpMessage='Indicates whether the badge is using extended strike held time')]
+        [switch]$ExtendedStrikeHeldTime,
+
+        [Parameter(
+            Mandatory=$false,
+            HelpMessage='Indicates whether the badge is allowed to use passage mode')]
+        [switch]$PassageMode,
+
+        [Parameter(
+            Mandatory=$false,
+            HelpMessage='The pin code for the new badge')]
+        [string]$Pin,
+
+        [Parameter(
+            Mandatory=$false,
+            HelpMessage='The use limit for the new badge')]
+        [int]$UseLimit
     )
-
-    # DynamicParam {
-    #     # Set the dynamic parameters' name
-    #     $ParamName_BadgeType = 'BadgeType'
-    #     # Create the collection of attributes
-    #     $AttributeCollection = New-Object System.Collections.ObjectModel.Collection[System.Attribute]
-    #     # Create and set the parameters' attributes
-    #     $ParameterAttribute = New-Object System.Management.Automation.ParameterAttribute
-    #     $ParameterAttribute.Mandatory = $true
-    #     $ParameterAttribute.Position = 4
-    #     # Add the attributes to the attributes collection
-    #     $AttributeCollection.Add($ParameterAttribute) 
-    #     # Create the dictionary 
-    #     $RuntimeParameterDictionary = New-Object System.Management.Automation.RuntimeDefinedParameterDictionary
-    #     # Generate and set the ValidateSet 
-    #     $arrSet = (Get-BadgeType).Name
-    #     $ValidateSetAttribute = New-Object System.Management.Automation.ValidateSetAttribute($arrSet)    
-    #     # Add the ValidateSet to the attributes collection
-    #     $AttributeCollection.Add($ValidateSetAttribute)
-    #     # Create and return the dynamic parameter
-    #     $RuntimeParameter = New-Object System.Management.Automation.RuntimeDefinedParameter($ParamName_BadgeType, [string], $AttributeCollection)
-    #     $RuntimeParameterDictionary.Add($ParamName_BadgeType, $RuntimeParameter)
-
-    #     return $RuntimeParameterDictionary
-    # }
 
     process {
         $parameters = @{
@@ -93,7 +113,17 @@ function New-Badge
 			ID=$BadgeID;
             PERSONID=$PersonID;
             TYPE=$BadgeTypeID;
-            STATUS=1} |
+            STATUS=1;
+            ACTIVATE=ToWmiDateTime $Activate;
+            DEACTIVATE=ToWmiDateTime $Deactivate;
+            APBEXEMPT=$APBExempt.IsPresent;
+            DEST_EXEMPT=$DestinationExempt.IsPresent;
+            DEADBOLT_OVERRIDE=$DeadboltOverride.IsPresent;
+            EXTEND_STRIKE_HELD=$ExtendedStrikeHeldTime.IsPresent;
+            PASSAGE_MODE=$PassageMode.IsPresent;
+            PIN=$Pin;
+            USELIMIT=$UseLimit;
+        } |
 			Select-Object *,@{L='BadgeID';E={$_.ID}} | 
 			Get-Badge
 	}
