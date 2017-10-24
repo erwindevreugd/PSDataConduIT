@@ -30,7 +30,7 @@ function Add-AccessLevelReaderAssignment
         #     Class="Lnl_AccessLevelReaderAssignment";
         # }
 
-        throw $STR_NOT_SUPPORTED
+        throw $"Not supported by DataConduIT"
 
         # if($Credential -ne $null) {
         #     $parameters.Add("Credential", $Credential)
