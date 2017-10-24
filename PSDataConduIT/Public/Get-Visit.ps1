@@ -95,7 +95,8 @@ function Get-Visit
 				Credential=$Credential;
 			
 				VisitID=$_.ID;
-				VisitorID=$_.VISITORID;
+                VisitorID=$_.VISITORID;
+                VisitKey=$_.VISIT_KEY;
 				CardholderID=$_.CARDHOLDERID;
 				LastChanged=ToDateTime $_.LASTCHANGED;
 				Purpose=$_.PURPOSE;
