@@ -70,7 +70,7 @@ function Add-AccessLevelAssignment
             return
 		}
 
-		if((Get-Badge -BadgeKey $BadgeKey) -eq $null) {
+		if(($badge = Get-Badge -BadgeKey $BadgeKey) -eq $null) {
             Write-Error -Message ("BadgeKey '$($BadgeKey)' not found")
             return
 		}
@@ -85,6 +85,8 @@ function Add-AccessLevelAssignment
 			ACCESSLEVELID=$AccessLevelID; 
 			ACTIVATE=$Activate;
 			DEACTIVATE=$Deactivate} |
-			Get-AccessLevelAssignment
+            Get-AccessLevelAssignment
+            
+        Write-Verbose -Message ("Added accesslevel '$($accessLevel.Name)' to badge key '$($badge.BadgeKey)'")
 	}
 }
