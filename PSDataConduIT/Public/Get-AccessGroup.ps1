@@ -77,7 +77,9 @@ function Get-AccessGroup
 				SegmentID=$_.SegmentID;
 
 				AccessGroupID=$_.ID;
-				Name=$_.NAME;
+                Name=$_.NAME;
+                
+                AssignGroup=$_.AssignGroup;
 			}
 		}
     }
