@@ -99,8 +99,8 @@ function Get-Visit
 				CardholderID=$_.CARDHOLDERID;
 				LastChanged=ToDateTime $_.LASTCHANGED;
 				Purpose=$_.PURPOSE;
-				ScheduledTimeIn=ToDateTime $_.SCHEDULEDTIMEIN;
-				ScheduledTimeOut=ToDateTime $_.SCHEDULEDTIMEOUT;
+				ScheduledTimeIn=ToDateTime $_.SCHEDULED_TIMEIN;
+				ScheduledTimeOut=ToDateTime $_.SCHEDULED_TIMEOUT;
 				TimeIn=ToDateTime $_.TIMEIN;
 				TimeOut=ToDateTime $_.TIMEOUT;
 				VisitType=$_.TYPE;
