@@ -54,17 +54,38 @@ function Get-ReaderHardwareStatus
             $parameters.Add("Credential", $Credential)
         }
 
-        $panel = Get-Panel @parameters -PanelID $PanelID
-		$panel.UpdateHardwareStatus.Invoke()
+        if(($panels = Get-Panel @parameters -PanelID $PanelID) -eq $null) {
+            return
+        }
 
-		$reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID
+        if(($readers = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
+            return
+        }
 
-        Write-Verbose -Message "Getting hardware status for reader '$($reader.Name)'"
+        foreach($panel in $panels) {
+            try {
+                Write-Verbose -Message "Updating hardware status for panel '$($panel.Name)'"
+                $panel.UpdateHardwareStatus.Invoke() | Out-Null
+            }
+            catch {
+                Write-Warning -Message ("Failed to update hardware status for panel '$($panel.Name)'")
+            }
+        }	
 
-        $status = $reader.GetHardwareStatus.Invoke().Status
+        foreach($reader in $readers) {
+            try {
+                $status = $reader.GetHardwareStatus.Invoke().Status
+                $readerStatus = [Enum]::GetValues([ReaderStatus]) | Where-Object { $_ -band [int]$status } 	
 
-		$readerStatus = [Enum]::GetValues([ReaderStatus]) | where { $_ -band [int]$status } 	
+                Write-Verbose -Message ("Reader '$($reader.Name)' status is '$($readerStatus)'")
+            } 
+            catch {
+            }
 
-		Write-Output $readerStatus
+            New-Object PSObject -Property @{
+                Name=$reader.Name;
+                Status=$readerStatus;
+            }
+        }
     }
 }
