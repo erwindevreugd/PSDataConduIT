@@ -27,6 +27,20 @@ If you are connecting to a server other than **localhost** you only need the use
 
 Most cmdlets allow you to override the context server and credentials settings by specifing the `-Server` or `-Credential` parameters.
 
+## Getting Help
+
+To view the available command simply use the following command:
+
+```powershell
+Get-Command -Module PSDataConduIT
+```
+
+To view command specific help use the following command:
+
+```powershell
+Get-Help Get-Cardholder
+```
+
 ## Available Cmdlets
 
 ### Get-Context
