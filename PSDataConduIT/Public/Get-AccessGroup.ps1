@@ -44,13 +44,13 @@ function Get-AccessGroup
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The id of the accessgroup to get')]
-        [int]$AccessGroupID
+        [Nullable[int]]$AccessGroupID = $null
     )
 
     process { 
         $query = "SELECT * FROM Lnl_AccessGroup WHERE __CLASS='Lnl_AccessGroup'"
 
-        if($AccessGroupID) {
+        if($AccessGroupID -ne $null) {
             $query += " AND ID=$AccessGroupID"
         }
 

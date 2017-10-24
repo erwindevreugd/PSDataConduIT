@@ -76,7 +76,10 @@ function Get-BadgeType
 
 				BadgeTypeID=$_.ID;
 				Name=$_.NAME;
-				BadgeClass=$_.BADGECLASS;
+                BadgeClass=$_.BADGECLASS;
+                DefaultAccessGroup=$_.DEFAULTACCESSGROUP;
+                IsDisposable=$_.ISDISPOSABLE;
+                SegmentID=$_.SEGMENTID;
 			}
 		}
     }
