@@ -1,4 +1,6 @@
-# DataConduIT
+# PSDataConduIT
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/erwindevreugd)
 
 A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
 
@@ -24,6 +26,20 @@ If you are connecting to a server other than **localhost** you only need the use
 #### Override Context Server and Credentials
 
 Most cmdlets allow you to override the context server and credentials settings by specifing the `-Server` or `-Credential` parameters.
+
+## Getting Help
+
+To view the available command simply use the following command:
+
+```powershell
+Get-Command -Module PSDataConduIT
+```
+
+To view command specific help use the following command:
+
+```powershell
+Get-Help Get-Cardholder
+```
 
 ## Available Cmdlets
 
@@ -435,3 +451,7 @@ SYNTAX:
 
 * Lenel, http://www.lenel.com/
 * DataConduIT Manual, http://www.lenel.com/assets/images/solutions/open-integration/DataConduIT.pdf
+
+## Donation
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/erwindevreugd)
