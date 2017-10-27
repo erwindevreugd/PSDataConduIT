@@ -31,7 +31,14 @@ function Set-Context
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
-        [PSCredential]$Credential
+        [PSCredential]$Credential,
+
+        [Parameter(
+            Position=2,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The default event source used to send events to DataConduIT')]
+        [string]$EventSource = [String]::Empty
     )
 
     process {
@@ -44,5 +51,8 @@ function Set-Context
 
         Set-Variable -Name Credential -Value $Credential -Scope Script
         Write-Verbose -Message ("Changed context credential to '$($Credential.UserName)'")
+
+        Set-Variable -Name EventSource -Value $EventSource -Scope Script
+        Write-Verbose -Message ("Changed context event source to '$($EventSource)'")
     }
 }
