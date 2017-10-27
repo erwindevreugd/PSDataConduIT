@@ -8,7 +8,11 @@
     .EXAMPLE
     Get-Context
 
-    Server=localhost;Credential=none
+    Name                           Value
+    ----                           -----
+    Credential                     None
+    Server                         localhost
+    EventSource                    Not Set
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -21,9 +25,16 @@ function Get-Context
     )
 
     process {
-        $s = @{$true='localhost';$false=$Script:Server}[$Script:Server -eq '.']  
-        $c = @{$true='none';$false=$($Script:Credential.UserName)}[$Script:Credential -eq $null] 
-        
-        Write-Output ("Server={0};Credential={1};Event Source={2}" -f $s, $c, $Script:EventSource)
+        $server = @{$true='localhost';$false=$Script:Server}[$Script:Server -eq '.']  
+        $credential = @{$true='None';$false=$($Script:Credential.UserName)}[$Script:Credential -eq $null] 
+        $eventSource = @{$true='Not Set';$false=$($Script:EventSource)}[$Script:EventSource -eq [String]::Empty] 
+
+        $hash = @{
+            Server=$server;
+            Credential=$credential;
+            EventSource=$eventSource;
+        }
+
+        New-Object PSObject $hash
     }
 }
