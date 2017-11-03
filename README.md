@@ -452,6 +452,10 @@ SYNTAX:
 * Lenel, http://www.lenel.com/
 * DataConduIT Manual, http://www.lenel.com/assets/images/solutions/open-integration/DataConduIT.pdf
 
+## Trademark Acknowledgements
+
+* Lenel and OnGuard are registered trademarks of Lenel Systems.
+
 ## Donation
 
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/erwindevreugd)
