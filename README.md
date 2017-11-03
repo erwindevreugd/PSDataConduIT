@@ -9,6 +9,14 @@ A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
 * Windows PowerShell version 3.0 (at least)
 * A Lenel license for DataConduIT
 
+## Cmdlet Name Collision
+
+To avoid name collision between the cmdlet in this module and other cmdlets you can import this module with a prefix.
+
+```powershell
+Import-Module -Name PSDataConduIT -Prefix DC
+```
+
 ## Concepts
 
 ### Context
