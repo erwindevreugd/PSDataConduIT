@@ -77,7 +77,7 @@ function Get-MonitoringZone
 				MonitoringZoneID=$_.ID;
 				Name=$_.Name;
 				SegmentID=$_.SegmentID;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlMonitoringZone"
 		}
     }
 }

@@ -80,7 +80,7 @@ function Get-BadgeType
                 DefaultAccessGroup=$_.DEFAULTACCESSGROUP;
                 IsDisposable=$_.ISDISPOSABLE;
                 SegmentID=$_.SEGMENTID;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlBadgeType"
 		}
     }
 }

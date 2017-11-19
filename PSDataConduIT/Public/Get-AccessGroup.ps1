@@ -80,7 +80,7 @@ function Get-AccessGroup
                 Name=$_.NAME;
                 
                 AssignGroup=$_.AssignGroup;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessGroup"
 		}
     }
 }

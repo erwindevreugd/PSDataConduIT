@@ -113,7 +113,7 @@ function Get-Cardholder
 				State=$_.STATE;
 				City=$_.CITY;
 				ZipCode=$_.ZIP
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlCardholder"
 		}
     }
 }

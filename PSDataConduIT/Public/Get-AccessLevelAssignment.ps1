@@ -107,7 +107,7 @@ function Get-AccessLevelAssignment
 				BadgeKey=$_.BADGEKEY;
 				Activate=ToDateTime $_.ACTIVATE;
 				Deactivate=ToDateTime $_.DEACTIVATE;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevelAssignment"
 		}
     }
 }

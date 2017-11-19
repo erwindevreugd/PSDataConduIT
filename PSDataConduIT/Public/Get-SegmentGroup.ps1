@@ -66,7 +66,7 @@ function Get-SegmentGroup
 
 				SegmentGroupID=$_.ID;
 				Name=$_.NAME
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlSegmentGroup"
 		}
     }
 }

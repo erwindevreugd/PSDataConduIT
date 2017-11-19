@@ -99,7 +99,7 @@ function Get-Account
 				ExternalAccountID=$_.ACCOUNTID;
 				DirectoryID=$_.DIRECTORYID;
 				PersonID=$_.PERSONID;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlAccount"
 		}
     }
 }

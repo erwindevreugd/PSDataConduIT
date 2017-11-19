@@ -109,7 +109,7 @@ function Get-User
 				Notes=$_.Notes;
 				AutomaticallyCreated=$_.AutomaticallyCreated;
 				DatabaseID=$_.DatabaseID;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlUser"
 		}
     }
 }

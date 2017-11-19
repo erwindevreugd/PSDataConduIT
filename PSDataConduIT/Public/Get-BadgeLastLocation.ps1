@@ -89,7 +89,7 @@ function Get-BadgeLastLocation
 				IsReplicated=$_.IsFromReplication;
 				PanelID=$_.PanelID;
 				ReaderID=$_.ReaderID;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlBadgeLastLocation"
 		}
     }
 }

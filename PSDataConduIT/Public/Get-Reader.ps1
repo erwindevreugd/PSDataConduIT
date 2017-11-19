@@ -109,7 +109,7 @@ function Get-Reader
 				SetFirstCardUnlockMode=$_.SetFirstCardUnlockMode;
 				DownloadFirmware=$_.DownloadFirmware;
 				GetHardwareStatus=$_.GetHardwareStatus
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlReader"
 		}
     }
 }

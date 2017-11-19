@@ -48,7 +48,7 @@ function Get-CurrentUser
 
         Invoke-WmiMethod @parameters | ForEach-Object { New-Object PSObject -Property @{
 				User=$_.ReturnValue;
-			}
+			}  | Add-ObjectType -TypeName "DataConduIT.LnlCurrentUser"
 		}
     }
 }

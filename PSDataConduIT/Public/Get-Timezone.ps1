@@ -77,7 +77,7 @@ function Get-Timezone
 				TimezoneID=$_.ID;
 				Name=$_.Name;
 				SegmentID=$_.SegmentID;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlTimezone"
 		}
     }
 }

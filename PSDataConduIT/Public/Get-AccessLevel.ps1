@@ -94,7 +94,7 @@ function Get-AccessLevel
 				HasCommandAuthority=$_.HasCommandAuthority;
 				DownloadToIntelligentReaders=$_.DownloadToIntelligentReaders;
 				FirstCardUnlock=$_.FirstCardUnlock;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevel"
 		}
     }
 }

@@ -95,7 +95,7 @@ function Get-TimezoneInterval
 
                 StartTime=ToDateTime $_.STARTTIME;
 				EndTime=ToDateTime $_.ENDTIME;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlTimezoneInterval"
 		}
     }
 }

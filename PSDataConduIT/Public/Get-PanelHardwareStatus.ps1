@@ -75,7 +75,7 @@ function Get-PanelHardwareStatus
             New-Object PSObject -Property @{
                 Name=$panel.Name;
                 Status=$panelStatus;
-            }
+            } | Add-ObjectType -TypeName "DataConduIT.LnlPanelHardwareStatus"
         }
     }
 }

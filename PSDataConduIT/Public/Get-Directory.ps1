@@ -89,7 +89,7 @@ function Get-Directory
 				StartNode=$_.STARTNODE;
 				Type=MapEnum ([DirectoryType].AsType()) $_.TYPE;
 				UseSSL=$_.USESSL;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlDirectory"
 		}
     }
 }

@@ -106,7 +106,7 @@ function Get-Panel
 				Disconnect=$_.Disconnect;
 				SetClock=$_.SetClock;
 				GetHardwareStatus=$_.GetHardwareStatus
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlPanel"
 		}
     }
 }

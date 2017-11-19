@@ -79,7 +79,7 @@ function Get-UserAccount
 				AccountID=$_.AccountID;
 				DirectoryID=$_.DirectoryID;
 				UserID=$_.UserID;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlUserAccount"
 		}
     }
 }

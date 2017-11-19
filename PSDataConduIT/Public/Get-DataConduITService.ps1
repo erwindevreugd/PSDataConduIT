@@ -70,7 +70,7 @@ function Get-DataConduITService
 
 				StartService=$_.StartService;
 				StopService=$_.StopService;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlDataConduITService"
 		}
     }
 }
