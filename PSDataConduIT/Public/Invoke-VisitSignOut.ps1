@@ -34,7 +34,9 @@ function Invoke-VisitSignOut
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The visit id parameter')]
-        [int]$VisitID    
+        [int]$VisitID,
+
+        [switch]$PassThru
     )
 
     process {
@@ -55,5 +57,9 @@ function Invoke-VisitSignOut
 		$visit.SignOutVisit.Invoke()
 
         Write-Verbose -Message ("Visit '$($visit.VisitID)' signed out")
+
+        if($PassThru) {
+            Get-Visit @parameters
+        }
     }
 }

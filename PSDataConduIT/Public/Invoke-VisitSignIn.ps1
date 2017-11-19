@@ -48,7 +48,9 @@ function Invoke-VisitSignIn
 		[Parameter(
             Mandatory=$false,
             HelpMessage='The printer name parameter')]
-        [string]$PrinterName
+        [string]$PrinterName,
+
+        [switch]$PassThru
     )
 
     process {
@@ -69,5 +71,9 @@ function Invoke-VisitSignIn
 		$visit.SignInVisit.Invoke($BadgeTypeID, $PrinterName, $AssignedBadgeID)
 
         Write-Verbose -Message ("Visit '$($visit.VisitID)' signed in with badge id '$($AssignedBadgeID)'")
+    
+        if($PassThru) {
+            Get-Visit @parameters
+        }
     }
 }
