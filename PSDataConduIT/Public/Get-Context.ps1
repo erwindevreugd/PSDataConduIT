@@ -35,6 +35,6 @@ function Get-Context
             EventSource=$eventSource;
         }
 
-        New-Object PSObject $hash | Add-ObjectType -TypeName "DataConduIT.LnlContext"
+        New-Object PSObject -Property $hash | Add-ObjectType -TypeName "DataConduIT.LnlContext"
     }
 }
