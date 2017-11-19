@@ -12,7 +12,10 @@
 #>
 function Remove-AccessLevel
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact="High"
+    )]
     param
     (
         [Parameter(
@@ -36,7 +39,9 @@ function Remove-AccessLevel
         [int]$AccessLevelID,
 
 		[Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
-        [string]$Name
+        [string]$Name,
+
+        [switch]$Force
     )
 
     process { 
@@ -62,6 +67,10 @@ function Remove-AccessLevel
             $parameters.Add("Credential", $Credential)
         }
 
-        Get-WmiObject @parameters | Remove-WmiObject
+        $accessLevel = Get-WmiObject @parameters 
+
+        if($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing AccessLevelID: $($accessLevel.ID), $($accessLevel.Name)")) {
+           $accessLevel | Remove-WmiObject
+        }
     }
 }
