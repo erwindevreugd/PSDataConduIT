@@ -136,6 +136,6 @@ function New-Visitor
             ZIP=$ZipCode;
         } |
         Select-Object *,@{L='VisitID';E={$_.ID}} | 
-        Get-Visit
+        Get-Visitor
     }
 }
