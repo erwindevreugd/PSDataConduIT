@@ -38,11 +38,13 @@ function Stop-DataConduITService
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
-        [PSCredential]$Credential = $Script:Credential
+        [PSCredential]$Credential = $Script:Credential,
+
+        [switch]$PassThru
     )
 
     process {      
-        if((Get-DataConduITService -Server $Server -Credential $Credential) -eq $null) {
+        if(($service = Get-DataConduITService -Server $Server -Credential $Credential) -eq $null) {
             Write-Error -Message ("DataConduIT service not found on server '$($Server)'")
             return
         }
@@ -51,6 +53,8 @@ function Stop-DataConduITService
 
         Write-Verbose -Message ("DataConduIT Service stopped on '$($Server)'")
         
-        Get-DataConduITService -Server $Server -Credential $Credential
+        if($PassThru) {
+            Get-DataConduITService -Server $Server -Credential $Credential
+        }
     }
 }
