@@ -77,7 +77,7 @@ function Get-TimezoneInterval
                 TimezoneID=$_.TimezoneID;
                 
                 Monday=$_.MONDAY;
-                Thuesday=$_.THUESDAY;
+                Tuesday=$_.TUESDAY;
                 Wednesday=$_.WEDNESDAY;
                 Thursday=$_.THURSDAY;
                 Friday=$_.FRIDAY;
