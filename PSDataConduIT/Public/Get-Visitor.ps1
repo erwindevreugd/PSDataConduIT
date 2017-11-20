@@ -87,7 +87,7 @@ function Get-Visitor
 				Credential=$Credential;
 			
 				PersonID=$_.ID;
-				TitleID=$_.TITLE;
+				Title=$_.TITLE;
 				Firstname=$_.FIRSTNAME;
 				Lastname=$_.LASTNAME;
 				Midname=$_.MIDNAME;	
