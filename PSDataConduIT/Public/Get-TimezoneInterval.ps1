@@ -77,7 +77,7 @@ function Get-TimezoneInterval
                 TimezoneID=$_.TimezoneID;
                 
                 Monday=$_.MONDAY;
-                Thuesday=$_.THUESDAY;
+                Tuesday=$_.TUESDAY;
                 Wednesday=$_.WEDNESDAY;
                 Thursday=$_.THURSDAY;
                 Friday=$_.FRIDAY;
@@ -95,7 +95,24 @@ function Get-TimezoneInterval
 
                 StartTime=ToDateTime $_.STARTTIME;
 				EndTime=ToDateTime $_.ENDTIME;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlTimezoneInterval"
+            } | Add-Member -MemberType AliasProperty -Name Mon -Value Monday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Tue -Value Tuesday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Wed -Value Wednesday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Thu -Value Thursday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Fri -Value Friday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Sat -Value Saturday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Sun -Value Sunday -PassThru | 
+
+            Add-Member -MemberType AliasProperty -Name H1 -Value HolidayType1 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H2 -Value HolidayType2 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H3 -Value HolidayType3 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H4 -Value HolidayType4 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H5 -Value HolidayType5 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H6 -Value HolidayType6 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H7 -Value HolidayType7 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H8 -Value HolidayType8 -PassThru | 
+
+            Add-ObjectType -TypeName "DataConduIT.LnlTimezoneInterval"
 		}
     }
 }
