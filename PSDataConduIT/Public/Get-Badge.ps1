@@ -85,7 +85,14 @@ function Get-Badge
             $parameters.Add("Credential", $Credential)
         }
 
-        Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
+        $badgeTypes = Get-BadgeType -Server $server -Credential $Credential
+        $badgeStates = Get-BadgeStatus -Server $server -Credential $Credential
+
+        Get-WmiObject @parameters | ForEach-Object { 
+            # $item used to keep track of foreach object
+            $item = $_
+
+            New-Object PSObject -Property @{
 				Class=$_.__CLASS;
 				SuperClass=$_.__SUPERCLASS;
 				Server=$_.__SERVER;
@@ -95,9 +102,11 @@ function Get-Badge
 
 				BadgeKey=$_.BADGEKEY;
 				BadgeID=$_.ID;
-				PersonID=$_.PERSONID;
-				BadgeTypeID=$_.TYPE;
-				Status=$_.STATUS;
+                PersonID=$_.PERSONID;
+                BadgeTypeID=$_.TYPE;
+                Type=($badgeTypes | Where-Object {$_.BadgeTypeID -eq $item.TYPE}).Name;
+                BadgeStatusID=$_.STATUS;
+				Status=($badgeStates | Where-Object {$_.BadgeStatusID -eq $item.STATUS}).Name;
                 Activate=ToDateTime($_.ACTIVATE);
 				Deactivate=ToDateTime($_.DEACTIVATE);
 				APBExempt=$_.APBEXEMPT;
