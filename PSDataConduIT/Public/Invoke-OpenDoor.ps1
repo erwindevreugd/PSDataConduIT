@@ -39,7 +39,9 @@ function Invoke-OpenDoor
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id parameter')]
-        [int]$ReaderID     
+        [int]$ReaderID,
+
+        [switch]$PassThru
     )
 
     process {
@@ -59,5 +61,9 @@ function Invoke-OpenDoor
 		$reader.OpenDoor.Invoke()
 
         Write-Verbose -Message ("Door reader '$($reader.Name)' opened")
+
+        if($PassThru) {
+            Write-Output $reader
+        }
     }
 }

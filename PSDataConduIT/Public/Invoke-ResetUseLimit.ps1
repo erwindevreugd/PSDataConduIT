@@ -33,7 +33,9 @@ function Invoke-ResetUseLimit
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID    
+        [int]$PanelID,
+        
+        [switch]$PassThru
     )
 
     process {
@@ -54,5 +56,9 @@ function Invoke-ResetUseLimit
 		$panel.ResetUseLimit.Invoke()
 
         Write-Verbose -Message ("Reset all cardholder use limits for panel '$($panel.Name)'")
+    
+        if($PassThru) {
+            Write-Output $panel
+        }
     }
 }

@@ -83,7 +83,7 @@ function Get-Person
 				Midname=$_.MIDNAME;
 				LastChanged=ToDateTime $_.LASTCHANGED;
 				SSNO=$_.SSNO;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlPerson"
 		}
     }
 }

@@ -33,7 +33,9 @@ function Invoke-SetClock
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID    
+        [int]$PanelID,
+
+        [switch]$PassThru
     )
 
     process {
@@ -54,5 +56,9 @@ function Invoke-SetClock
 		$panel.SetClock.Invoke()
 
         Write-Verbose -Message ("Set clock on panel '$($panel.Name)'")
+
+        if($PassThru) {
+            Write-Output $panel
+        }
     }
 }

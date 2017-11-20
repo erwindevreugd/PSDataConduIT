@@ -80,7 +80,7 @@ function Get-Area
 				Name=$_.NAME;
 
 				MoveBadge=$_.MoveBadge;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlArea"
 		}
     }
 }

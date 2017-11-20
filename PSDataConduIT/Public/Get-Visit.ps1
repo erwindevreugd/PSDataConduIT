@@ -109,7 +109,7 @@ function Get-Visit
 
 				SignInVisit=$_.SignVisitIn;
 				SignOutVisit=$_.SignVisitOut;			
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlVisit"
 		}
     }
 }

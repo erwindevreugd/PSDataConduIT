@@ -51,7 +51,9 @@ function Invoke-SetFirstCardUnlockMode
             Mandatory=$false,
             ParameterSetName='Disable',
             HelpMessage='Disables first card unlock mode')]
-        [switch]$Disable
+        [switch]$Disable,
+
+        [switch]$PassThru
     )
 
     process {
@@ -76,6 +78,10 @@ function Invoke-SetFirstCardUnlockMode
         if($Disable) {
             $reader.SetFirstCardUnlockMode.Invoke($false)
             Write-Verbose -Message ("Set first card unlock mode 'false' on reader '$($reader.Name)'")
+        }
+
+        if($PassThru) {
+            Write-Output $reader
         }
     }
 }

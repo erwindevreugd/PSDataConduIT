@@ -66,7 +66,7 @@ function Get-SegmentUnit
 
 				SegmentUnitID=$_.ID;
 				Name=$_.NAME
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlSegmentUnit"
 		}
     }
 }

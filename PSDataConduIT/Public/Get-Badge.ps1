@@ -110,7 +110,7 @@ function Get-Badge
 				TwoManType=$_.TWO_MAN_TYPE;
 				LastChanged=ToDateTime($_.LASTCHANGED);
                 LastPrint=ToDateTime($_.LASTPRINT);
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlBadge"
 		}
     }
 }

@@ -113,7 +113,7 @@ function Get-AccessLevelReaderAssignment
 				PanelID=$_.PanelID;
 				ReaderID=$_.ReaderID;
 				TimezoneID=$_.TimezoneID;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevelReaderAssignment"
 		}
     }
 }

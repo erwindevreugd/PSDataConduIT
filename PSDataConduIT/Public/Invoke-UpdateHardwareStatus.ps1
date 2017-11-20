@@ -33,7 +33,9 @@ function Invoke-UpdateHardwareStatus
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID    
+        [int]$PanelID,
+
+        [switch]$PassThru
     )
 
     process {
@@ -54,5 +56,9 @@ function Invoke-UpdateHardwareStatus
 		$panel.UpdateHardwareStatus.Invoke()
 
         Write-Verbose -Message ("Updated hardware status for panel '$($panel.Name)'")
+
+        if($PassThru) {
+            Write-Output $panel
+        }
     }
 }

@@ -85,7 +85,7 @@ function Get-ReaderHardwareStatus
             New-Object PSObject -Property @{
                 Name=$reader.Name;
                 Status=$readerStatus;
-            }
+            } | Add-ObjectType -TypeName "DataConduIT.LnlReaderHardwareStatus"
         }
     }
 }

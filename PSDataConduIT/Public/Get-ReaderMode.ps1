@@ -76,6 +76,6 @@ function Get-ReaderMode
             ReaderID=$ReaderID;
             Name=$reader.Name;
             Mode=$mode;
-        }
+        } | Add-ObjectType -TypeName "DataConduIT.LnlReaderMode"
 	}
 }

@@ -101,13 +101,11 @@ function Get-AccessLevelAssignment
 				Path=$_.__PATH;
 				Credential=$Credential;
 
-				SegmentID=$_.SegmentID;
-
 				AccessLevelID=$_.ACCESSLEVELID;
 				BadgeKey=$_.BADGEKEY;
 				Activate=ToDateTime $_.ACTIVATE;
 				Deactivate=ToDateTime $_.DEACTIVATE;
-			}
+			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevelAssignment"
 		}
     }
 }
