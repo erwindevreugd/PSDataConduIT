@@ -34,7 +34,13 @@ function Get-VisitType
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The visit type id parameter')]
-        [int]$VisitTypeID = $null
+        [int]$VisitTypeID = $null,
+
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The segment id parameter')]
+        [int]$SegmentID = -1
     )
 
     process { 
@@ -42,6 +48,10 @@ function Get-VisitType
 
         if($VisitTypeID) {
             $query += " AND ID=$VisitTypeID"
+        }
+
+        if($SegmentID -ne -1) {
+            $query += " AND SEGMENTID=$SegmentID"
         }
 
 		LogQuery $query
@@ -67,6 +77,7 @@ function Get-VisitType
 				VisitTypeID=$_.ID;
                 Name=$_.NAME;
                 
+                SegmentID=$_.SEGMENTID;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlVisitType"
 		}
     }

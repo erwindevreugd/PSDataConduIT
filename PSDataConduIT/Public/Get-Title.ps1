@@ -34,7 +34,13 @@ function Get-Title
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The title id parameter')]
-        [int]$TitleID = $null
+        [int]$TitleID = $null,
+
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The segment id parameter')]
+        [int]$SegmentID = -1
     )
 
     process { 
@@ -42,6 +48,10 @@ function Get-Title
 
         if($TitleID) {
             $query += " AND ID=$TitleID"
+        }
+
+        if($SegmentID -ne -1) {
+            $query += " AND SEGMENTID=$SegmentID"
         }
 
 		LogQuery $query
@@ -67,6 +77,7 @@ function Get-Title
 				TitleID=$_.ID;
                 Name=$_.NAME;
                 
+                SegmentID=$_.SEGMENTID;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlTitle"
 		}
     }

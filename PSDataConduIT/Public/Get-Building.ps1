@@ -34,7 +34,13 @@ function Get-Building
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The building id parameter')]
-        [int]$BuildingID = $null
+        [int]$BuildingID = $null,
+
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The segment id parameter')]
+        [int]$SegmentID = -1
     )
 
     process { 
@@ -42,6 +48,10 @@ function Get-Building
 
         if($BuildingID) {
             $query += " AND ID=$BuildingID"
+        }
+
+        if($SegmentID -ne -1) {
+            $query += " AND SEGMENTID=$SegmentID"
         }
 
 		LogQuery $query
@@ -67,6 +77,7 @@ function Get-Building
 				BuildingID=$_.ID;
                 Name=$_.NAME;
                 
+                SegmentID=$_.SEGMENTID;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlBuilding"
 		}
     }

@@ -34,7 +34,13 @@ function Get-Location
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The location id parameter')]
-        [int]$LocationID = $null
+        [int]$LocationID = $null,
+
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The segment id parameter')]
+        [int]$SegmentID = -1
     )
 
     process { 
@@ -42,6 +48,10 @@ function Get-Location
 
         if($LocationID) {
             $query += " AND ID=$LocationID"
+        }
+
+        if($SegmentID -ne -1) {
+            $query += " AND SEGMENTID=$SegmentID"
         }
 
 		LogQuery $query
@@ -67,6 +77,7 @@ function Get-Location
 				LocationID=$_.ID;
                 Name=$_.NAME;
                 
+                SegmentID=$_.SEGMENTID;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlLocation"
 		}
     }

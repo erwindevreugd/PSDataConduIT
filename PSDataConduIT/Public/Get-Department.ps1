@@ -34,7 +34,13 @@ function Get-Department
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The department id parameter')]
-        [int]$DepartmentID = $null
+        [int]$DepartmentID = $null,
+
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The segment id parameter')]
+        [int]$SegmentID = -1
     )
 
     process { 
@@ -42,6 +48,10 @@ function Get-Department
 
         if($DepartmentID) {
             $query += " AND ID=$DepartmentID"
+        }
+
+        if($SegmentID -ne -1) {
+            $query += " AND SEGMENTID=$SegmentID"
         }
 
 		LogQuery $query
@@ -67,6 +77,7 @@ function Get-Department
 				DepartmentID=$_.ID;
                 Name=$_.NAME;
                 
+                SegmentID=$_.SEGMENTID;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlDepartment"
 		}
     }

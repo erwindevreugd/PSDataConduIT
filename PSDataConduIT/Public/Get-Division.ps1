@@ -34,7 +34,13 @@ function Get-Division
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The category id parameter')]
-        [int]$DivisionID = $null
+        [int]$DivisionID = $null,
+
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The segment id parameter')]
+        [int]$SegmentID = -1
     )
 
     process { 
@@ -42,6 +48,10 @@ function Get-Division
 
         if($DivisionID) {
             $query += " AND ID=$DivisionID"
+        }
+
+        if($SegmentID -ne -1) {
+            $query += " AND SEGMENTID=$SegmentID"
         }
 
 		LogQuery $query
@@ -67,6 +77,7 @@ function Get-Division
 				DivisionID=$_.ID;
                 Name=$_.NAME;
                 
+                SegmentID=$_.SEGMENTID;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlDivision"
 		}
     }
