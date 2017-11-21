@@ -199,6 +199,43 @@
     </View>
 
         <!-- 
+    DataConduIT.LnlAccessLevelReaderAssignment
+    -->
+    <View>
+      <Name>DataConduITLnlAccessLevelReaderAssignmentTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlAccessLevelReaderAssignment</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>40</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>40</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>40</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>Reader</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>AccessLevel</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Timezone</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+        <!-- 
     DataConduIT.LnlAccount
     -->
     <View>
@@ -309,7 +346,7 @@
                 <Width>22</Width>
             </TableColumnHeader>
             <TableColumnHeader>
-                <Width>13</Width>
+                <Width>20</Width>
             </TableColumnHeader>
         </TableHeaders>
         <TableRowEntries>
@@ -334,7 +371,7 @@
                         <PropertyName>Deactivate</PropertyName>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>BadgeTypeID</PropertyName>
+                        <PropertyName>Type</PropertyName>
                     </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>
@@ -929,53 +966,68 @@
       <TableControl>
         <TableHeaders>
             <TableColumnHeader>
-                <Width>18</Width>
+                <Width>40</Width>
             </TableColumnHeader>
             <!-- Days -->
             <TableColumnHeader>
+                <Label>Mon</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>Tue</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>Wed</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>Thu</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>Fri</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>Sat</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>Sun</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <!-- Holidays -->
             <TableColumnHeader>
+                <Label>H1</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>H2</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>H3</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>H4</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>H5</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>H6</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>H7</Label>
                 <Width>5</Width>
             </TableColumnHeader>
             <TableColumnHeader>
+                <Label>H8</Label>
                 <Width>5</Width>
             </TableColumnHeader>
         </TableHeaders>
@@ -983,54 +1035,54 @@
             <TableRowEntry>
                 <TableColumnItems>
                     <TableColumnItem>
-                        <PropertyName>TimezoneIntervalID</PropertyName>
+                        <PropertyName>Timezone</PropertyName>
                     </TableColumnItem>
                     <!-- Days -->
                     <TableColumnItem>
-                        <PropertyName>Mon</PropertyName>
+                        <ScriptBlock>if($_.Mon) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>Tue</PropertyName>
+                        <ScriptBlock>if($_.Tue) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>Wed</PropertyName>
+                        <ScriptBlock>if($_.Wed) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>Thu</PropertyName>
+                        <ScriptBlock>if($_.Thu) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>Fri</PropertyName>
+                        <ScriptBlock>if($_.Fri) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>Sat</PropertyName>
+                        <ScriptBlock>if($_.Sat) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>Sun</PropertyName>
+                        <ScriptBlock>if($_.Sun) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <!-- Holidays -->
                     <TableColumnItem>
-                        <PropertyName>H1</PropertyName>
+                        <ScriptBlock>if($_.H1) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>H2</PropertyName>
+                        <ScriptBlock>if($_.H2) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>H3</PropertyName>
+                        <ScriptBlock>if($_.H3) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>H4</PropertyName>
+                        <ScriptBlock>if($_.H4) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>H5</PropertyName>
+                        <ScriptBlock>if($_.H5) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>H6</PropertyName>
+                        <ScriptBlock>if($_.H6) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>H7</PropertyName>
+                        <ScriptBlock>if($_.H7) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>H8</PropertyName>
+                        <ScriptBlock>if($_.H8) { "[X]" } else { "[ ]" }</ScriptBlock>
                     </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>

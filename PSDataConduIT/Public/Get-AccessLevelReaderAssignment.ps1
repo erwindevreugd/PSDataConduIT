@@ -101,18 +101,29 @@ function Get-AccessLevelReaderAssignment
             $parameters.Add("Credential", $Credential)
         }
 
-        Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
+        $accessLevels = Get-AccessLevel -Server $server -Credential $Credential
+        $readers = Get-Reader -Server $server -Credential $Credential
+        $timezones = Get-Timezone -Server $server -Credential $Credential
+
+        Get-WmiObject @parameters | ForEach-Object { 
+            # $item used to keep track of foreach object
+            $item = $_
+
+            New-Object PSObject -Property @{
+                Class=$_.__CLASS;
 				SuperClass=$_.__SUPERCLASS;
 				Server=$_.__SERVER;
 				ComputerName=$_.__SERVER;
 				Path=$_.__PATH;
 				Credential=$Credential;
 
-				AccessLevelID=$_.ACCESSLEVELID;
+                AccessLevelID=$_.ACCESSLEVELID;
+                AccessLevel=($accessLevels | Where-Object {$_.AccessLevelID -eq $item.ACCESSLEVELID}).Name;
 				PanelID=$_.PanelID;
-				ReaderID=$_.ReaderID;
-				TimezoneID=$_.TimezoneID;
+                ReaderID=$_.ReaderID;
+                Reader=($readers | Where-Object {$_.ReaderID -eq $item.ReaderID -and $_.PanelID -eq $item.PanelID}).Name;
+                TimezoneID=$_.TimezoneID;
+                Timezone=($timezones | Where-Object {$_.TimezoneID -eq $item.TimezoneID}).Name;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevelReaderAssignment"
 		}
     }

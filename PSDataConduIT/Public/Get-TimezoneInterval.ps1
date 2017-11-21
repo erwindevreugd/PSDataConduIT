@@ -65,7 +65,13 @@ function Get-TimezoneInterval
             $parameters.Add("Credential", $Credential)
         }
 
-        Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
+        $timezones = Get-Timezone -Server $server -Credential $Credential
+
+        Get-WmiObject @parameters | ForEach-Object { 
+            # $item used to keep track of foreach object
+            $item = $_
+
+            New-Object PSObject -Property @{
 				Class=$_.__CLASS;
 				SuperClass=$_.__SUPERCLASS;
 				Server=$_.__SERVER;
@@ -75,6 +81,7 @@ function Get-TimezoneInterval
 
 				TimezoneIntervalID=$_.ID;
                 TimezoneID=$_.TimezoneID;
+                Timezone=($timezones | Where-Object {$_.TimezoneID -eq $item.TimezoneID}).Name;
                 
                 Monday=$_.MONDAY;
                 Tuesday=$_.TUESDAY;
