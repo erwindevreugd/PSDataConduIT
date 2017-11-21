@@ -467,6 +467,15 @@ SYNTAX:
     Stop-DataConduITService -PassThru | Start-DataConduITService
 ```
 
+#### Removing WMI Properties from Objects
+
+All cmdlets return objects that contain WMI properties. If you want to export data to a csv file for example you may not want to include these properties. The Remove-WmiProperty cmdlet allows you to easily remove these properties before exporting.
+
+```powershell
+SYNTAX:
+    Get-Cardholder | Remove-WmiProperty | Export-Csv
+```
+
 ## Additional information
 
 * Lenel, <http://www.lenel.com/>
