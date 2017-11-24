@@ -86,7 +86,42 @@ function Register-AccessEvent
         }
 
 		Register-WmiEvent @parameters -Action {
-            Invoke-Command -ScriptBlock $Callback -ArgumentList $Event.SourceArgs.NewEvent
+            $Event.SourceArgs.NewEvent | ForEach-Object {
+                $accessEvent = New-Object -TypeName psobject -Property @{
+                    Class=$_.__CLASS;
+                    SuperClass=$_.__SUPERCLASS;
+                    Server=$_.__SERVER;
+                    ComputerName=$_.__SERVER;
+                    Path=$_.__PATH;
+                    Credential=$Credential;
+
+                    EventID=$_.ID;
+                    Type=$_.TYPE;
+                    SubType=$_.SUBTYPE;
+                    EventTime=$_.TIME;
+                    AccessResult=$_.ACCESSRESULT;
+                    AreaEnteredID=$_.AREAENTEREDID;
+                    AreaExitedID=$_.AREAEXITEDID;
+                    AssetID=$_.ASSETID;
+                    CardholderEntered=$_.CARDHOLDERENTERED;
+                    BadgeID=$_.CARDNUMBER;
+                    FacilityCode=$_.FACILITYCODE;
+                    Description=$_.DESCRIPTION;
+                    EventText=$_.EVENTTEXT;
+                    ExtendedID=$_.EXTENDEDID;
+                    PanelID=$_.PANELID;
+                    DeviceID=$_.DEVICEID;
+                    SecondaryDeviceID=$_.SECONDARYDEVICEID;
+                    Duress=$_.DURESS;
+                    ElevatorFloor=$_.ELEVATORFLOOR;
+
+                    SerialNumber=$_.SERIALNUMBER;
+
+                    SegmentID=$_.SEGMENTID;
+                }
+
+                Invoke-Command -ScriptBlock $Callback -ArgumentList $accessEvent
+            }
         }
 	}
 }
