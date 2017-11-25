@@ -80,4 +80,9 @@ public enum AccessResult : int {
 	Denied = 3,
 	NotApplicable = 4
 }
+
+public enum ControlType : int {
+	InputPanel = 129,
+	OutputPanel = 130
+}
 "@

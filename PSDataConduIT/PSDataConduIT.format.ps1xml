@@ -1253,5 +1253,49 @@
       </TableControl>
     </View>
 
+                    <!-- 
+    DataConduIT.LnlAlarmPanel
+    -->
+    <View>
+      <Name>DataConduITLnlAlarmPanelTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlAlarmPanel</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>15</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>PanelID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>AlarmPanelID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Type</PropertyName>
+                    </TableColumnItem> 
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
   </ViewDefinitions>
 </Configuration>
