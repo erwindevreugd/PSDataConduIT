@@ -72,4 +72,12 @@ public enum DirectoryType : int {
 	MicrosoftLocalAccounts = 3,
 	Domain = 4
 }
+
+public enum AccessResult : int {
+	Other = 0,
+	Unknown = 1,
+	Granted = 2,
+	Denied = 3,
+	NotApplicable = 4
+}
 "@

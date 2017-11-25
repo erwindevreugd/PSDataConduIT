@@ -1188,5 +1188,55 @@
       </TableControl>
     </View>
 
+                    <!-- 
+    DataConduIT.LnlLoggedEvent
+    -->
+    <View>
+      <Name>DataConduITLnlLoggedEventTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlLoggedEvent</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>10</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>21</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>10</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>10</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>SerialNumber</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Time</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Description</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>BadgeID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>AccessResult</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
   </ViewDefinitions>
 </Configuration>
