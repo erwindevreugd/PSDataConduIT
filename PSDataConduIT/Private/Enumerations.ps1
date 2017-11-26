@@ -1,11 +1,11 @@
-Add-Type -TypeDefinition @"
+Add-Type -ErrorAction SilentlyContinue -TypeDefinition @"
 [System.Flags]
 public enum PanelStatus : int {
-    Online = 1,
-    OptionsMismatch = 2,
-    CabinetTamper = 4,
-    PowerFailure = 8,
-    DownloadingFirmware = 10
+    Online = 0x1,
+    OptionsMismatch = 0x2,
+    CabinetTamper = 0x4,
+    PowerFailure = 0x8,
+    DownloadingFirmware = 0x10
 }
 
 [System.Flags]

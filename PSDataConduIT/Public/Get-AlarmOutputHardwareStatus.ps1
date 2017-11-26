@@ -85,7 +85,7 @@ function Get-AlarmOutputHardwareStatus
 
             try {
                 $status = $alarmOutput.GetHardwareStatus.Invoke().Status          
-                $outputStatus = [Enum]::GetValues([OutputStatus]) | Where-Object { $_ -band [int]$status }
+                $outputStatus = MapEnum ([OutputStatus]) [int]$status
 
                 Write-Verbose -Message ("Alarm Panel '$($alarmOutput.Name)' status is '$($outputStatus)'")
             }

@@ -85,7 +85,7 @@ function Get-AlarmInputHardwareStatus
 
             try {
                 $status = $alarmInput.GetHardwareStatus.Invoke().Status          
-                $inputStatus = [Enum]::GetValues([InputStatus]) | Where-Object { $_ -band [int]$status }
+                $inputStatus = MapEnum ([InputStatus]) [int]$status
     
                 Write-Verbose -Message ("Alarm input '$($alarmInput.Name)' status is '$($inputStatus)'")
             }

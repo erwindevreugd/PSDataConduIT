@@ -101,7 +101,7 @@ function Get-Reader
 				PanelID=$_.PanelID;
 				ReaderID=$_.ReaderID;
 				ControlType=$_.ControlType;
-				TimeAttendanceType=MapEnum ([TimeAttandanceType]) $_.TimeAttendanceType
+				TimeAttendanceType=MapEnum ([TimeAttandanceType]) $_.TimeAttendanceType;
 
 				OpenDoor=$_.OpenDoor;
 				SetReaderMode=$_.SetMode;
