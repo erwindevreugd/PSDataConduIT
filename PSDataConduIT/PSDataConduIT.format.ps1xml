@@ -632,6 +632,44 @@
       </TableControl>
     </View>
 
+                        <!-- 
+    DataConduIT.LnlAlarmPanelHardwareStatus
+    -->
+    <View>
+      <Name>DataConduITLnlAlarmPanelHardwareStatusTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlAlarmPanelHardwareStatus</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Status</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Panel</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
                     <!-- 
     DataConduIT.LnlPerson
     -->
@@ -730,6 +768,9 @@
             <TableColumnHeader>
                 <Width>20</Width>
             </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
         </TableHeaders>
         <TableRowEntries>
             <TableRowEntry>
@@ -739,6 +780,9 @@
                     </TableColumnItem>
                     <TableColumnItem>
                         <PropertyName>Status</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Panel</PropertyName>
                     </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>

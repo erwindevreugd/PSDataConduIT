@@ -1,19 +1,19 @@
 <#
     .SYNOPSIS
-    Gets reader hardware status.
+    Gets the alarm panel hardware status.
 
     .DESCRIPTION   
-    Gets reader hardware status for all readers or the reader hardware status for a single reader if a panel id and reader id are specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the alarm panel hardware status for all alarm panels or the hardware status for a single alarm panel if an alarm panel id is specified. If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
-    Get-ReaderHardwareStatus
+    Get-AlarmPanelHardwareStatus
     
     Online
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
-function Get-ReaderHardwareStatus
+function Get-AlarmPanelHardwareStatus
 {
     [CmdletBinding()]
     param
@@ -36,13 +36,13 @@ function Get-ReaderHardwareStatus
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID,
-		
-		[Parameter(
+        [int]$PanelID,  
+
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The reader id parameter')]
-        [int]$ReaderID   
+            HelpMessage='The alarm panel id parameter')]
+        [int]$AlarmPanelID    
     )
 
     process {
@@ -54,12 +54,12 @@ function Get-ReaderHardwareStatus
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($readers = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
+        if(($alarmPanels = Get-AlarmPanel @parameters -PanelID $PanelID -AlarmPanelID $AlarmPanelID) -eq $null) {
             return
         }
 
-        foreach($reader in $readers) {
-            if(($panel = Get-Panel @parameters -PanelID ($reader.PanelID)) -eq $null) {
+        foreach($alarmPanel in $alarmPanels) {
+            if(($panel = Get-Panel @parameters -PanelID ($alarmPanel.PanelID)) -eq $null) {
                 continue
             }
 
@@ -72,20 +72,20 @@ function Get-ReaderHardwareStatus
             }
 
             try {
-                $status = $reader.GetHardwareStatus.Invoke().Status
-                $readerStatus = [Enum]::GetValues([ReaderStatus]) | Where-Object { $_ -band [int]$status } 	
-
-                Write-Verbose -Message ("Reader '$($reader.Name)' status is '$($readerStatus)'")
-            } 
-            catch {
-                Write-Warning -Message ("Failed to get hardware status for reader '$($reader.Name)'")
+                $status = $alarmPanel.GetHardwareStatus.Invoke().Status          
+                $panelStatus = [Enum]::GetValues([PanelStatus]) | Where-Object { $_ -band [int]$status }
+    
+                Write-Verbose -Message ("Alarm Panel '$($alarmPanel.Name)' status is '$($panelStatus)'")
             }
-
+            catch {
+                Write-Warning -Message ("Failed to get hardware status for alarm panel '$($alarmPanel.Name)'")
+            }
+            
             New-Object PSObject -Property @{
-                Name=$reader.Name;
-                Status=$readerStatus;
+                Name=$alarmPanel.Name;
+                Status=$panelStatus;
                 Panel=$panel.Name;
-            } | Add-ObjectType -TypeName "DataConduIT.LnlReaderHardwareStatus"
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAlarmPanelHardwareStatus"
         }
     }
 }

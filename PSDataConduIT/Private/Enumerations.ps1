@@ -50,6 +50,20 @@ public enum ReaderMode : int {
 	Automatic = 7
 }
 
+public enum InputStatus : int {
+	Secure = 0,
+	Active = 1,
+	GroundFault = 2,
+	ShortFault = 3,
+	OpenFault = 4,
+	GenericFault = 5
+}
+
+public enum OutputStatus : int {
+	Secure = 0,
+	Active = 1
+}
+
 public enum TimeAttandanceType : int {
 	None = 0,
 	EntranceReader = 1,
