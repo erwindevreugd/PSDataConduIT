@@ -79,6 +79,7 @@ function Get-AlarmPanel
 				Type=MapEnum ([ControlType].AsType()) $_.CONTROLTYPE;
 				Name=$_.NAME;
 
+                GetHardwareStatus=$_.GetHardwareStatus;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlAlarmPanel"
 		}
     }
