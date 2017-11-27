@@ -76,7 +76,7 @@ function Get-Area
 				Credential=$Credential;
 
 				AreaID=$_.ID;
-				AreaType=MapEnum ([AreaType]) $_.AREATYPE;
+				AreaType=MapEnum ([AreaType].AsType()) $_.AREATYPE;
 				Name=$_.NAME;
 
 				MoveBadge=$_.MoveBadge;

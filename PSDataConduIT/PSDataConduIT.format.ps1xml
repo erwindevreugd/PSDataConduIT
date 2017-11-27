@@ -272,7 +272,7 @@
                         <PropertyName>Name</PropertyName>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>Area Type</PropertyName>
+                        <PropertyName>AreaType</PropertyName>
                     </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>
