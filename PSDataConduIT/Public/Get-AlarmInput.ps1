@@ -101,6 +101,8 @@ function Get-AlarmInput
 				Name=$_.NAME;
 
                 GetHardwareStatus=$_.GetHardwareStatus;
+                Mask=$_.MASK;
+                Unmask=$_.UNMASK;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlAlarmInput"
 		}
     }

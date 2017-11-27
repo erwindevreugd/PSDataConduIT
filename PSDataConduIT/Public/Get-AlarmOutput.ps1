@@ -101,6 +101,9 @@ function Get-AlarmOutput
 				Name=$_.NAME;
 
                 GetHardwareStatus=$_.GetHardwareStatus;
+                Activate=$_.ACTIVATE;
+                Deactivate=$_.DEACTIVATE;
+                Pulse=$_.PULSE;
 			} | Add-ObjectType -TypeName "DataConduIT.LnlAlarmOutput"
 		}
     }

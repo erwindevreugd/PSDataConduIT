@@ -6,12 +6,12 @@
     Gets all reader output or a single reader output if a reader output id is specified. If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
-    Get-ReaderOutput1
+    Get-ReaderOutput
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
-function Get-ReaderOutput1
+function Get-ReaderOutput
 {
     [CmdletBinding()]
     param
@@ -40,11 +40,26 @@ function Get-ReaderOutput1
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id parameter')]
-        [int]$ReaderID = $null
+        [int]$ReaderID = $null,
+
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The reader output id parameter')]
+        [ValidateSet(0,1,2)]
+        [int]$ReaderOutputID
     )
 
     process {
-        $query = "SELECT * FROM Lnl_ReaderOutput1 WHERE __CLASS='Lnl_ReaderOutput1'"
+        $query = "SELECT * FROM Lnl_ReaderOutput WHERE __CLASS='Lnl_ReaderOutput1' OR __CLASS='Lnl_ReaderOutput2'"
+
+        if($ReaderOutputID -eq 1) {
+            $query = "SELECT * FROM Lnl_ReaderOutput1 WHERE __CLASS='Lnl_ReaderOutput1'"
+        }
+
+        if($ReaderOutputID -eq 2) {
+            $query = "SELECT * FROM Lnl_ReaderOutput2 WHERE __CLASS='Lnl_ReaderOutput2'"
+        }
 
         if($PanelID) {
             $query += " AND PANELID=$PanelID"
@@ -76,6 +91,7 @@ function Get-ReaderOutput1
 
 				PanelID=$_.PANELID;
                 ReaderID=$_.READERID;
+                ReaderOutputID=if($_.__CLASS -eq "Lnl_ReaderOutput1") { 1 } else { 2 };
 				Name=$_.NAME;
 
                 GetHardwareStatus=$_.GetHardwareStatus;

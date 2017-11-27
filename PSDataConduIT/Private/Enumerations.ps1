@@ -56,7 +56,13 @@ public enum InputStatus : int {
 	GroundFault = 2,
 	ShortFault = 3,
 	OpenFault = 4,
-	GenericFault = 5
+	GenericFault = 5,
+	MaskedSecure = 256,
+	MaskedActive = 257,
+	MaskedGroundFault = 258,
+	MaskedShortFault = 259,
+	MaskedOpenFault = 260,
+	MaskedGenericFault = 261
 }
 
 public enum OutputStatus : int {

@@ -84,10 +84,10 @@ function Get-AlarmOutputHardwareStatus
             }
 
             try {
-                $status = $alarmOutput.GetHardwareStatus.Invoke().Status          
-                $outputStatus = MapEnum ([OutputStatus]) [int]$status
+                $s = [int]($alarmOutput.GetHardwareStatus.Invoke().Status)
+                $status = MapEnum ([OutputStatus].AsType()) $s
 
-                Write-Verbose -Message ("Alarm Panel '$($alarmOutput.Name)' status is '$($outputStatus)'")
+                Write-Verbose -Message ("Alarm Panel '$($alarmOutput.Name)' status is '$($status)'")
             }
             catch {
                 Write-Warning -Message ("Failed to get hardware status for alarm output '$($alarmOutput.Name)'")
@@ -95,7 +95,7 @@ function Get-AlarmOutputHardwareStatus
             
             New-Object PSObject -Property @{
                 Name=$alarmOutput.Name;
-                Status=$outputStatus;
+                Status=$status;
                 Panel=$panel.Name;
             } | Add-ObjectType -TypeName "DataConduIT.LnlAlarmOutputHardwareStatus"
         }
