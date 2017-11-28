@@ -60,7 +60,7 @@ function Invoke-OpenDoor
             return
         }
 
-		$reader.OpenDoor.Invoke()
+		$reader.OpenDoor.Invoke() | Out-Null
 
         Write-Verbose -Message ("Door reader '$($reader.Name)' opened")
 

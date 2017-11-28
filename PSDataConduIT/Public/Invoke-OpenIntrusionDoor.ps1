@@ -54,7 +54,7 @@ function Invoke-OpenIntrusionDoor
             return
         }
 
-		$intrusionDoor.Open.Invoke()
+		$intrusionDoor.Open.Invoke() | Out-Null
 
         Write-Verbose -Message ("Intrusion door '$($intrusionDoor.Name)' opened")
 

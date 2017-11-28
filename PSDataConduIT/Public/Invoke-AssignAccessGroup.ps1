@@ -64,7 +64,7 @@ function Invoke-AssignAccessGroup
             return
         }
 
-        $accessGroup.AssignGroup.Invoke($BadgeKey);
+        $accessGroup.AssignGroup.Invoke($BadgeKey) | Out-Null
 
         Write-Verbose -Message ("Assigned access group '$($accessGroup.Name)' to badge key '$($badge.BadgeKey)'")
     }

@@ -72,7 +72,7 @@ function Invoke-MaskAlarmInput
             return
         }
 
-		$alarmInput.Mask.Invoke()
+		$alarmInput.Mask.Invoke() | Out-Null
 
         Write-Verbose -Message ("Alarm input '$($alarmInput.Name)' masked")
 

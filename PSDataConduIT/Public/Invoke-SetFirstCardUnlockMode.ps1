@@ -73,12 +73,12 @@ function Invoke-SetFirstCardUnlockMode
         }
 
         if($Enable) {
-            $reader.SetFirstCardUnlockMode.Invoke($true)
+            $reader.SetFirstCardUnlockMode.Invoke($true) | Out-Null
             Write-Verbose -Message ("Set first card unlock mode 'true' on reader '$($reader.Name)'")
         }
 
         if($Disable) {
-            $reader.SetFirstCardUnlockMode.Invoke($false)
+            $reader.SetFirstCardUnlockMode.Invoke($false) | Out-Null
             Write-Verbose -Message ("Set first card unlock mode 'false' on reader '$($reader.Name)'")
         }
 

@@ -72,7 +72,7 @@ function Invoke-DeactivateAlarmOutput
             return
         }
 
-		$alarmOutput.Deactivate.Invoke()
+		$alarmOutput.Deactivate.Invoke() | Out-Null
 
         Write-Verbose -Message ("Alarm output '$($alarmOutput.Name)' deactivated")
 

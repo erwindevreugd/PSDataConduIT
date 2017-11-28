@@ -53,7 +53,7 @@ function Invoke-DownloadDatabase
             return
         }
         
-		$panel.DownloadDatabase.Invoke()
+		$panel.DownloadDatabase.Invoke() | Out-Null
 
         Write-Verbose -Message ("Downloading database to panel '$($panel.Name)'")
     }

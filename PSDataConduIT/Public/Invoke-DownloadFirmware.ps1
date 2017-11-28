@@ -69,7 +69,7 @@ function Invoke-DownloadFirmware
                     return
                 }
                 
-                $panel.DownloadFirmware.Invoke()
+                $panel.DownloadFirmware.Invoke() | Out-Null
         
                 Write-Verbose -Message ("Downloaded firmware to panel '$($panel.Name)'")
             }
@@ -79,7 +79,7 @@ function Invoke-DownloadFirmware
                     return
                 }
                 
-                $reader.DownloadFirmware.Invoke()
+                $reader.DownloadFirmware.Invoke() | Out-Null
         
                 Write-Verbose -Message ("Downloaded firmware to reader '$($reader.Name)'")
             }

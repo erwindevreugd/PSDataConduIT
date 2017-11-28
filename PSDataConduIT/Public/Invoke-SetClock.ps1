@@ -55,7 +55,7 @@ function Invoke-SetClock
             return
         }
         
-		$panel.SetClock.Invoke()
+		$panel.SetClock.Invoke() | Out-Null
 
         Write-Verbose -Message ("Set clock on panel '$($panel.Name)'")
 

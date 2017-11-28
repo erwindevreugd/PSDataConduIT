@@ -53,7 +53,7 @@ function Invoke-UnBypassIntrusionZone
             return
         }
 
-		$intrusionZone.UnBypass.Invoke()
+		$intrusionZone.UnBypass.Invoke() | Out-Null
 
         Write-Verbose -Message ("Intrusion zone '$($intrusionZone.Name)' unbypassed")
 

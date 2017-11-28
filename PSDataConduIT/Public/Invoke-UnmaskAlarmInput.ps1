@@ -72,7 +72,7 @@ function Invoke-UnmaskAlarmInput
             return
         }
 
-		$alarmInput.Unmask.Invoke()
+		$alarmInput.Unmask.Invoke() | Out-Null
 
         Write-Verbose -Message ("Alarm input '$($alarmInput.Name)' unmasked")
 

@@ -44,7 +44,7 @@ function Invoke-RefreshCache
             $parameters.Add("Credential", $Credential)
         }
 
-        Invoke-WmiMethod @parameters
+        Invoke-WmiMethod @parameters | Out-Null
 
         Write-Verbose -Message ("Refreshing DataConduIT Manager cache on '$($Server)'")
     }

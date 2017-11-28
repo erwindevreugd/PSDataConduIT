@@ -67,7 +67,7 @@ function Invoke-ActivateReaderOutput
             return
         }
 
-		$readerOutput.Activate.Invoke()
+		$readerOutput.Activate.Invoke() | Out-Null
 
         Write-Verbose -Message ("Reader output '$($readerOutput.Name)' activated")
 

@@ -55,7 +55,7 @@ function Invoke-ResetUseLimit
             return
         }
         
-		$panel.ResetUseLimit.Invoke()
+		$panel.ResetUseLimit.Invoke() | Out-Null
 
         Write-Verbose -Message ("Reset all cardholder use limits for panel '$($panel.Name)'")
     

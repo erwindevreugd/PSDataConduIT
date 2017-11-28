@@ -72,7 +72,7 @@ function Invoke-PulseAlarmOutput
             return
         }
 
-		$alarmOutput.Pulse.Invoke()
+		$alarmOutput.Pulse.Invoke() | Out-Null
 
         Write-Verbose -Message ("Alarm output '$($alarmOutput.Name)' pulsed")
 

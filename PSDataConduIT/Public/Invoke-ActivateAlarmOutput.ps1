@@ -72,7 +72,7 @@ function Invoke-ActivateAlarmOutput
             return
         }
 
-		$alarmOutput.Activate.Invoke()
+		$alarmOutput.Activate.Invoke() | Out-Null
 
         Write-Verbose -Message ("Alarm output '$($alarmOutput.Name)' activated")
 

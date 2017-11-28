@@ -70,7 +70,7 @@ function Invoke-VisitSignIn
             return
         }
 
-		$visit.SignInVisit.Invoke($BadgeTypeID, $PrinterName, $AssignedBadgeID)
+		$visit.SignInVisit.Invoke($BadgeTypeID, $PrinterName, $AssignedBadgeID) | Out-Null
 
         Write-Verbose -Message ("Visit '$($visit.VisitID)' signed in with badge id '$($AssignedBadgeID)'")
     
