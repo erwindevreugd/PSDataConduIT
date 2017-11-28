@@ -3,7 +3,9 @@
     Masks a reader input.
 
     .DESCRIPTION   
-    Masks a raeder input. If the result return null, try the parameter "-Verbose" to get more details.
+    Masks a raeder input. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

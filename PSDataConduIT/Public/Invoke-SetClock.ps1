@@ -3,7 +3,9 @@
     Sets the panel clock.
 
     .DESCRIPTION   
-    Sets the panel clock .If the result return null, try the parameter "-Verbose" to get more details.
+    Sets the panel clock. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

@@ -3,7 +3,9 @@
     Sends an event to DataConduIT.
 
     .DESCRIPTION   
-    Sends an event to DataConduIT. If the result return null, try the parameter "-Verbose" to get more details.
+    Sends an event to DataConduIT. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Send-Event

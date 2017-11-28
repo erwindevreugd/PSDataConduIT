@@ -3,12 +3,17 @@
     Gets the alarm panel hardware status.
 
     .DESCRIPTION   
-    Gets the alarm panel hardware status for all alarm panels or the hardware status for a single alarm panel if an alarm panel id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the alarm panel hardware status for all alarm panels or the hardware status for a single alarm panel if an alarm panel id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AlarmPanelHardwareStatus
     
-    Online
+    Name                 Status               Panel
+    ----                 ------               -----
+    OutputPanel          {Online, CabinetT... AccessPanel 1
+    InputPanel           {Online, CabinetT... AccessPanel 1
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

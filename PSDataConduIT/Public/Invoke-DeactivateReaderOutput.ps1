@@ -3,7 +3,9 @@
     Deactivates a reader output.
 
     .DESCRIPTION   
-    Deactivates a raeder output. If the result return null, try the parameter "-Verbose" to get more details.
+    Deactivates a raeder output. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

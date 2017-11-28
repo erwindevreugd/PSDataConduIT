@@ -3,11 +3,18 @@
     Gets a reader input.
 
     .DESCRIPTION   
-    Gets all reader inputs or a single reader input if a reader input id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all reader inputs or a single reader input if a reader input id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-ReaderInput
     
+    PanelID       ReaderID      ReaderInputID  Name
+    -------       --------      -------------  ----
+    1             1             1
+    1             2             1
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>

@@ -3,7 +3,9 @@
     Removes a location.
 
     .DESCRIPTION   
-    Removes a location from the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Removes a location from the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

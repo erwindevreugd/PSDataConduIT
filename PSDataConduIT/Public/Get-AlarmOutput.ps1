@@ -3,10 +3,16 @@
     Gets an alarm output.
 
     .DESCRIPTION   
-    Gets all alarm output or a single alarm output if a alarm output id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all alarm output or a single alarm output if a alarm output id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AlarmOutput
+    
+    PanelID       AlarmPanelID  OutputID      AlarmOutputID Name
+    -------       ------------  --------      ------------- ----
+    1             65            17            1             Alarm Output 1
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

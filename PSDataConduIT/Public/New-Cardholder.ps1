@@ -3,7 +3,9 @@
     Adds a new cardholder.
 
     .DESCRIPTION   
-    Adds a new cardholder to the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Adds a new cardholder to the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

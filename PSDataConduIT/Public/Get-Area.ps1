@@ -3,21 +3,17 @@
     Gets an area.
 
     .DESCRIPTION   
-    Gets all areas or a single area if an area id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all areas or a single area if an area id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Area
     
-    ComputerName : SERVER
-    Path         : \\SERVER\root\OnGuard:Lnl_Area.ID=1
-    Server       : SERVER
-    SuperClass   : Lnl_Element
-    AreaType     : GlobalArea
-    AreaID       : 1
-    Name         : Default Area
-    Credential   :
-    Class        : Lnl_Area
-    MoveBadge    :
+    AreaID        Name                                     AreaType
+    ------        ----                                     --------
+    1             Area 1                                   GlobalArea
+    2             Area 2                                   GlobalArea
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

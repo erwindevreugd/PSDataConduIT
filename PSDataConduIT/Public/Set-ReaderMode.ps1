@@ -3,7 +3,9 @@
     Sets a reader to the specified reader mode.
 
     .DESCRIPTION   
-    Sets a reader to the specified reader mode. If the result return null, try the parameter "-Verbose" to get more details.
+    Sets a reader to the specified reader mode. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

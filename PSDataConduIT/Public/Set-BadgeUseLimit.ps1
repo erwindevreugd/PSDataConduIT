@@ -3,7 +3,9 @@
     Sets the use limit for a given badge.
 
     .DESCRIPTION   
-    Sets the use limit for a given badge. If the result return null, try the parameter "-Verbose" to get more details.
+    Sets the use limit for a given badge. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

@@ -3,7 +3,9 @@
     Unmasks an alarm input.
 
     .DESCRIPTION   
-    Unmasks an alarm input. If the result return null, try the parameter "-Verbose" to get more details.
+    Unmasks an alarm input. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

@@ -3,7 +3,9 @@
     Adds a new badge status.
 
     .DESCRIPTION   
-    Adds a new badge status to the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Adds a new badge status to the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

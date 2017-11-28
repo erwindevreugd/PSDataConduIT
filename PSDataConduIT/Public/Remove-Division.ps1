@@ -3,7 +3,9 @@
     Removes a division.
 
     .DESCRIPTION   
-    Removes a division from the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Removes a division from the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

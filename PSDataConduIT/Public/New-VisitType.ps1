@@ -3,7 +3,9 @@
     Adds a new visit type.
 
     .DESCRIPTION   
-    Adds a new visit type to the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Adds a new visit type to the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

@@ -3,7 +3,9 @@
     Opens a door.
 
     .DESCRIPTION   
-    Opens a door .If the result return null, try the parameter "-Verbose" to get more details.
+    Opens a door. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

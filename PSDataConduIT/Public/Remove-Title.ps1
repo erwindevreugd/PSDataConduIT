@@ -3,7 +3,9 @@
     Removes a title.
 
     .DESCRIPTION   
-    Removes a title from the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Removes a title from the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

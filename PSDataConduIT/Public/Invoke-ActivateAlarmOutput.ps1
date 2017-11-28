@@ -3,7 +3,9 @@
     Activates an alarm output.
 
     .DESCRIPTION   
-    Activates an alarm output. If the result return null, try the parameter "-Verbose" to get more details.
+    Activates an alarm output. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

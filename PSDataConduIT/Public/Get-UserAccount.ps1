@@ -3,7 +3,9 @@
     Gets an user account.
 
     .DESCRIPTION   
-    Gets all user accounts or a single user account if an user account id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all user accounts or a single user account if an user account id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-UserAccount

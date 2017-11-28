@@ -3,23 +3,16 @@
     Gets an accesslevel.
 
     .DESCRIPTION   
-    Gets all accesslevels or a single accesslevel if an accesslevel id or name is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all accesslevels or a single accesslevel if an accesslevel id or name is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AccessLevel
     
-    ComputerName                 : SERVER
-    FirstCardUnlock              : False
-    Path                         : \\SERVER\root\OnGuard:Lnl_AccessLevel.ID=1
-    SegmentID                    : 0
-    Server                       : SERVER
-    SuperClass                   : Lnl_Element
-    AccessLevelID                : 1
-    Name                         : AccessLevel
-    Credential                   :
-    HasCommandAuthority          : False
-    Class                        : Lnl_AccessLevel
-    DownloadToIntelligentReaders : False
+    AccessLevelID Name                                     SegmentID
+    ------------- ----                                     ---------
+    1             All Readers                              0
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

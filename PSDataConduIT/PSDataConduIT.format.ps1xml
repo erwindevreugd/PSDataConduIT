@@ -154,7 +154,45 @@
       </TableControl>
     </View>
 
-        <!-- 
+    <!-- 
+    DataConduIT.LnlAccessLevelReaderAssignment
+    -->
+    <View>
+      <Name>DataConduITLnlAccessLevelReaderAssignmentTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlAccessLevelReaderAssignment</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>AccessLevelID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>PanelID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>ReaderID</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!-- 
     DataConduIT.LnlAccessLevelAssignment
     -->
     <View>
@@ -198,7 +236,7 @@
       </TableControl>
     </View>
 
-        <!-- 
+    <!-- 
     DataConduIT.LnlAccount
     -->
     <View>
@@ -242,7 +280,7 @@
       </TableControl>
     </View>
 
-            <!-- 
+    <!-- 
     DataConduIT.LnlArea
     -->
     <View>
@@ -280,7 +318,7 @@
       </TableControl>
     </View>
 
-            <!-- 
+    <!-- 
     DataConduIT.LnlBadge
     -->
     <View>
@@ -342,7 +380,7 @@
       </TableControl>
     </View>
 
-                <!-- 
+    <!-- 
     DataConduIT.LnlBadge
     -->
     <View>
@@ -392,7 +430,7 @@
       </TableControl>
     </View>
 
-                <!-- 
+    <!-- 
     DataConduIT.LnlBadgeType
     -->
     <View>
@@ -424,7 +462,7 @@
       </TableControl>
     </View>
 
-                <!-- 
+    <!-- 
     DataConduIT.LnlCardholder
     -->
     <View>
@@ -468,7 +506,7 @@
       </TableControl>
     </View>
 
-                <!-- 
+    <!-- 
     DataConduIT.LnlDirectory
     -->
     <View>
@@ -518,7 +556,7 @@
       </TableControl>
     </View>
 
-                <!-- 
+    <!-- 
     DataConduIT.LnlMonitoringZone
     -->
     <View>
@@ -550,7 +588,7 @@
       </TableControl>
     </View>
 
-                <!-- 
+    <!-- 
     DataConduIT.LnlPanel
     -->
     <View>
@@ -600,7 +638,7 @@
       </TableControl>
     </View>
 
-                    <!-- 
+    <!-- 
     DataConduIT.LnlPanelHardwareStatus
     -->
     <View>
@@ -632,7 +670,7 @@
       </TableControl>
     </View>
 
-                        <!-- 
+    <!-- 
     DataConduIT.LnlAlarmPanelHardwareStatus
     -->
     <View>
@@ -670,7 +708,7 @@
       </TableControl>
     </View>
 
-                    <!-- 
+    <!-- 
     DataConduIT.LnlPerson
     -->
     <View>
@@ -714,7 +752,7 @@
       </TableControl>
     </View>
 
-                    <!-- 
+    <!-- 
     DataConduIT.LnlReader
     -->
     <View>
@@ -752,7 +790,7 @@
       </TableControl>
     </View>
 
-                        <!-- 
+    <!-- 
     DataConduIT.LnlReaderHardwareStatus
     -->
     <View>
@@ -790,7 +828,7 @@
       </TableControl>
     </View>
 
-                        <!-- 
+    <!-- 
     DataConduIT.LnlReaderMode
     -->
     <View>
@@ -834,7 +872,7 @@
       </TableControl>
     </View>
 
-                        <!-- 
+    <!-- 
     DataConduIT.LnlSegment
     -->
     <View>
@@ -866,7 +904,7 @@
       </TableControl>
     </View>
 
-                            <!-- 
+    <!-- 
     DataConduIT.LnlSegmentGroup
     -->
     <View>
@@ -898,7 +936,7 @@
       </TableControl>
     </View>
 
-                            <!-- 
+    <!-- 
     DataConduIT.LnlSegmentUnit
     -->
     <View>
@@ -930,7 +968,7 @@
       </TableControl>
     </View>
 
-                                <!-- 
+    <!-- 
     DataConduIT.LnlTimezone
     -->
     <View>
@@ -962,7 +1000,7 @@
       </TableControl>
     </View>
 
-                                    <!-- 
+    <!-- 
     DataConduIT.LnlTimezoneInterval
     -->
     <View>
@@ -1097,7 +1135,7 @@
       </TableControl>
     </View>
 
-                        <!-- 
+    <!-- 
     DataConduIT.LnlUser
     -->
     <View>
@@ -1141,7 +1179,7 @@
       </TableControl>
     </View>
 
-            <!-- 
+    <!-- 
     DataConduIT.LnlVisit
     -->
     <View>
@@ -1203,7 +1241,7 @@
       </TableControl>
     </View>
 
-                    <!-- 
+    <!-- 
     DataConduIT.LnlVisitor
     -->
     <View>
@@ -1247,7 +1285,7 @@
       </TableControl>
     </View>
 
-                    <!-- 
+    <!-- 
     DataConduIT.LnlLoggedEvent
     -->
     <View>
@@ -1297,7 +1335,7 @@
       </TableControl>
     </View>
 
-                    <!-- 
+    <!-- 
     DataConduIT.LnlAlarmPanel
     -->
     <View>
@@ -1341,7 +1379,7 @@
       </TableControl>
     </View>
 
-                    <!-- 
+    <!-- 
     DataConduIT.LnlReaderInput
     -->
     <View>
@@ -1385,7 +1423,7 @@
       </TableControl>
     </View>
 
-                    <!-- 
+    <!-- 
     DataConduIT.LnlReaderOutput
     -->
     <View>
@@ -1429,7 +1467,7 @@
       </TableControl>
     </View>
 
-                        <!-- 
+    <!-- 
     DataConduIT.LnlAlarmInput
     -->
     <View>
@@ -1479,7 +1517,7 @@
       </TableControl>
     </View>
 
-                        <!-- 
+    <!-- 
     DataConduIT.LnlAlarmOutput
     -->
     <View>
@@ -1522,6 +1560,158 @@
                     </TableColumnItem>
                     <TableColumnItem>
                         <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!-- 
+    DataConduIT.LnlAlarmInputHardwareStatus
+    -->
+    <View>
+      <Name>DataConduITLnlAlarmInputHardwareStatusTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlAlarmInputHardwareStatus</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Status</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Panel</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!-- 
+    DataConduIT.LnlAlarmOutputHardwareStatus
+    -->
+    <View>
+      <Name>DataConduITLnlAlarmOutputHardwareStatusTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlAlarmOutputHardwareStatus</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Status</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Panel</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!-- 
+    DataConduIT.LnlReaderInputHardwareStatus
+    -->
+    <View>
+      <Name>DataConduITLnlReaderInputHardwareStatusTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlReaderInputHardwareStatus</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Status</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Panel</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!-- 
+    DataConduIT.LnlReaderOutputHardwareStatus
+    -->
+    <View>
+      <Name>DataConduITLnlReaderOutputHardwareStatusTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlReaderOutputHardwareStatus</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Status</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Panel</PropertyName>
                     </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>

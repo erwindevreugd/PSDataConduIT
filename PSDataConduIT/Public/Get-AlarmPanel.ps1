@@ -3,11 +3,18 @@
     Gets an alarm panel.
 
     .DESCRIPTION   
-    Gets all alarm panels or a single alarm panel if a alarm panel id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all alarm panels or a single alarm panel if a alarm panel id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AlarmPanel
     
+    PanelID       AlarmPanelID  Name                           Type
+    -------       ------------  ----                           ----
+    1             65            OutputPanel                    OutputPanel
+    1             66            InputPanel                     InputPanel
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>

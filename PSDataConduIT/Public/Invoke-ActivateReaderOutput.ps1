@@ -3,7 +3,9 @@
     Activates a reader output.
 
     .DESCRIPTION   
-    Activates a raeder output. If the result return null, try the parameter "-Verbose" to get more details.
+    Activates a raeder output. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

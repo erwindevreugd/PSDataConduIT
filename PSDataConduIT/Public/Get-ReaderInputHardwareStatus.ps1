@@ -3,10 +3,19 @@
     Get the hardware status for a reader input.
 
     .DESCRIPTION   
-    Get the hardware status for a reader input. If the result return null, try the parameter "-Verbose" to get more details.
+    Get the hardware status for a reader input. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
+    Get-ReaderInputHardwareStatus
+
+    Name                           Status               Panel
+    ----                           ------               -----
+                                Secure               AccessPanel 1
+                                Secure               AccessPanel 1
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -46,9 +55,7 @@ function Get-ReaderInputHardwareStatus
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader input id parameter')]
         [ValidateSet(0,1,2)]
-        [int]$ReaderInputID,
-
-        [switch]$PassThru
+        [int]$ReaderInputID
     )
 
     process {
@@ -93,10 +100,6 @@ function Get-ReaderInputHardwareStatus
                 Status=$status;
                 Panel=$panel.Name;
             } | Add-ObjectType -TypeName "DataConduIT.LnlReaderInputHardwareStatus"
-        
-            if($PassThru) {
-                Write-Output $readerInput
-            }
         }
     }
 }

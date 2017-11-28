@@ -3,7 +3,9 @@
     Removes a holiday.
 
     .DESCRIPTION   
-    Removes a holiday from the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Removes a holiday from the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

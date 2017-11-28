@@ -3,19 +3,16 @@
     Gets a timezone interval.
 
     .DESCRIPTION   
-    Gets all timezone intervals or a single timezone interval if an timezone interval id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all timezone intervals or a single timezone interval if an timezone interval id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-TimezoneInterval
     
-    Class              : Lnl_TimezoneInterval
-    ComputerName       : SERVER
-    TimezoneIntervalID : 0
-    SuperClass         : Lnl_Element
-    Credential         :
-    TimezoneID         : 2
-    Path               : \\SERVER\root\OnGuard:Lnl_TimezoneInterval.ID=0,TimezoneID=2
-    Server             : SERVER
+    Timezone                                 Mon   Tue   Wed   Thu   Fri   Sat   Sun   H1    H2    H3    H4    H5    H6    H7    H8
+    --------                                 ---   ---   ---   ---   ---   ---   ---   --    --    --    --    --    --    --    --
+    Always                                   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

@@ -3,7 +3,9 @@
     Gets a badge status.
 
     .DESCRIPTION   
-    Gets all badge statuses or a single badge status if a badge status id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all badge statuses or a single badge status if a badge status id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-BadgeStatus

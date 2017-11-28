@@ -3,7 +3,9 @@
     Gets a category.
 
     .DESCRIPTION   
-    Gets all categories or a single category if a category id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all categories or a single category if a category id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Category

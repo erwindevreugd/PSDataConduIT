@@ -3,7 +3,9 @@
     Gets a department.
 
     .DESCRIPTION   
-    Gets all departments or a single department if a department id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all departments or a single department if a department id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Department

@@ -3,7 +3,9 @@
     Assigns an access group to a given badge key.
 
     .DESCRIPTION   
-    Assigns an access group to a given badge key. If the result return null, try the parameter "-Verbose" to get more details.
+    Assigns an access group to a given badge key. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Invoke-AssignAccessGroup -AccessGroupID 1 -BadgeKey 1

@@ -3,12 +3,16 @@
     Gets the panel hardware status.
 
     .DESCRIPTION   
-    Gets the panel hardware status for all panels or the hardware status for a single panel if an panel id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the panel hardware status for all panels or the hardware status for a single panel if an panel id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-PanelHardwareStatus
     
-    Online
+    Name                 Status
+    ----                 ------
+    AccessPanel 1        Online
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

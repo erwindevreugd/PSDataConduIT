@@ -3,7 +3,9 @@
     Unmasks a reader input.
 
     .DESCRIPTION   
-    Unmasks a raeder input. If the result return null, try the parameter "-Verbose" to get more details.
+    Unmasks a raeder input. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

@@ -3,36 +3,19 @@
     Gets an user.
 
     .DESCRIPTION   
-    Gets all users or a single user if an user id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+	Gets all users or a single user if an user id is specified. 
+	
+	If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-User
     
-	LastChanged                 : 20/07/2017 06:32:27
-	FieldPermissionGroupID      :
-	Lastname                    : User
-	Server                      : SERVER
-	CardPermissionGroupID       : 6
-	SegmentID                   : 0
-	MonitoringPermissionGroupID : 9
-	Password                    :
-	AllowUnifiedLogon           :
-	Firstname                   : User
-	Credential                  :
-	Notes                       :
-	SuperClass                  : Lnl_Element
-	SystemPermissionGroupID     : 3
-	Created                     : 20/07/2017 06:32:27
-	UserID                      : 3
-	MonitoringZoneID            : 0
-	LogonID                     : USER
-	DatabaseID                  : 0
-	ComputerName                : SERVER
-	Class                       : Lnl_User
-	Path                        : \\SERVER\root\OnGuard:Lnl_User.ID=3
-	AutomaticallyCreated        : False
-	AllowManualLogon            :
-	Enabled                     : False
+	UserID        Lastname             Firstname            LogonID
+	------        --------             ---------            -------
+	-1            System Account       System Account       SA
+	1             Administrator        Administrator        ADMIN
+	2             Badge Operator       Badge Operator       BADGE
+	3             User                 User                 USER
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

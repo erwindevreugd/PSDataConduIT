@@ -3,7 +3,9 @@
     Signs in a visit.
 
     .DESCRIPTION   
-    Sign in a visit .If the result return null, try the parameter "-Verbose" to get more details.
+    Sign in a visit.
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

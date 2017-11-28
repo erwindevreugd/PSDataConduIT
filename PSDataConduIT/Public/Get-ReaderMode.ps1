@@ -3,12 +3,16 @@
     Gets reader mode.
 
     .DESCRIPTION   
-    Gets the reader mode for all readers or the reader mode for a single reader if a panel id and reader id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the reader mode for all readers or the reader mode for a single reader if a panel id and reader id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-ReaderMode
     
-    CardOnly
+    PanelID       ReaderID      Name                 Mode
+    -------       --------      ----                 ----
+    1             1             Reader 1             CardOnly
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

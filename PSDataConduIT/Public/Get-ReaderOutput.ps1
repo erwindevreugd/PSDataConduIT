@@ -3,10 +3,19 @@
     Gets a reader output.
 
     .DESCRIPTION   
-    Gets all reader output or a single reader output if a reader output id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all reader output or a single reader output if a reader output id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-ReaderOutput
+
+    PanelID       ReaderID      ReaderOutputID Name
+    -------       --------      -------------- ----
+    1             1             1
+    1             2             1
+    1             1             2
+    1             2             2
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

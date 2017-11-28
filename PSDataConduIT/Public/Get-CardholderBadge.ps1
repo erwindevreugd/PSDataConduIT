@@ -3,10 +3,16 @@
     Gets a badge.
 
     .DESCRIPTION   
-    Gets all badges for a given cardholder. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all badges for a given cardholder. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-CardholderBadge
+
+    BadgeID       BadgeKey      PersonID      Status        Activate               Deactivate             BadgeTypeID
+    -------       --------      --------      ------        --------               ----------             -----------
+    123456        6             1             1             19/10/2017 00:00:00    19/10/2022 00:00:00    1
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

@@ -3,7 +3,9 @@
     Removes a building.
 
     .DESCRIPTION   
-    Removes a building from the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Removes a building from the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

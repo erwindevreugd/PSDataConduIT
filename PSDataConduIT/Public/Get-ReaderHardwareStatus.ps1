@@ -3,12 +3,17 @@
     Gets reader hardware status.
 
     .DESCRIPTION   
-    Gets reader hardware status for all readers or the reader hardware status for a single reader if a panel id and reader id are specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets reader hardware status for all readers or the reader hardware status for a single reader if a panel id and reader id are specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-ReaderHardwareStatus
     
-    Online
+    Name                 Status               Panel
+    ----                 ------               -----
+    Reader 1             Online               AccessPanel 1
+    Reader 2             Online               AccessPanel 1
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

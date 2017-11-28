@@ -3,10 +3,16 @@
     Gets a output panel.
 
     .DESCRIPTION   
-    Gets all output panels or a single output panel if a alarm panel id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all output panels or a single output panel if a alarm panel id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-OutputPanel
+
+    PanelID       AlarmPanelID  Name                           Type
+    -------       ------------  ----                           ----
+    1             65            OutputPanel                    OutputPanel
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

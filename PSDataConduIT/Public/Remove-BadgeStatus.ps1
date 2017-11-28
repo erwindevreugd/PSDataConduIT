@@ -3,7 +3,9 @@
     Removes a badge status.
 
     .DESCRIPTION   
-    Removes a badge status from the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Removes a badge status from the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

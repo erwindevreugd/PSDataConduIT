@@ -3,10 +3,16 @@
     Gets an alarm input.
 
     .DESCRIPTION   
-    Gets all alarm input or a single alarm input if a alarm input id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all alarm input or a single alarm input if a alarm input id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AlarmInput
+
+    PanelID       AlarmPanelID  InputID       AlarmInputID  Name
+    -------       ------------  -------       ------------  ----
+    1             66            1             1             Alarm Input 1
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

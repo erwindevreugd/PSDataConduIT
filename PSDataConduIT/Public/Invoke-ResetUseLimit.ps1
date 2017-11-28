@@ -3,7 +3,9 @@
     Reset all cardholder use limits for a given panel.
 
     .DESCRIPTION   
-    Reset all cardholder use limits for a given panel. If the result return null, try the parameter "-Verbose" to get more details.
+    Reset all cardholder use limits for a given panel. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

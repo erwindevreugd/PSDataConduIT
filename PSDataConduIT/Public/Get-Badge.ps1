@@ -3,29 +3,16 @@
     Gets a badge.
 
     .DESCRIPTION   
-    Gets all badges or a single badge if a badge id or badgekey is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all badges or a single badge if a badge id or badgekey is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Badge
     
-    BadgeID      : 123456
-    Path         : \\SERVER\root\OnGuard:Lnl_Badge.BADGEKEY=1
-    Credential   :
-    SuperClass   : Lnl_Element
-    UseLimit     :
-    Class        : Lnl_Badge
-    TwoManType   : 0
-    Server       : SERVER
-    APBExempt    : False
-    ComputerName : SERVER
-    Deactivate   : 19/10/2022 00:00:00
-    BadgeTypeID  : 1
-    LastPrint    :
-    LastChanged  : 19/10/2017 12:44:52
-    Status       : 1
-    Activate     : 19/10/2017 00:00:00
-    BadgeKey     : 1
-    PersonID     : 1
+    BadgeID       BadgeKey      PersonID      Status        Activate               Deactivate             BadgeTypeID
+    -------       --------      --------      ------        --------               ----------             -----------
+    1039236244    2             2             1             01/08/2017 00:00:00    01/08/2022 00:00:00    1
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

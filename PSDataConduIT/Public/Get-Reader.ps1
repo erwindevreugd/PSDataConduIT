@@ -3,30 +3,17 @@
     Gets a reader.
 
     .DESCRIPTION   
-    Gets all reader or a single reader if a panel id and reader id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all reader or a single reader if a panel id and reader id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Reader
     
-    Path                   : \\SERVER\root\OnGuard:Lnl_Reader.PanelID=1,ReaderID=1
-    Credential             :
-    GetReaderMode          : System.Management.ManagementBaseObject GetMode()
-    GetHardwareStatus      : System.Management.ManagementBaseObject GetHardwareStatus()
-    SuperClass             : Lnl_Element
-    DownloadFirmware       : System.Management.ManagementBaseObject DownloadFirmware()
-    PanelID                : 1
-    Class                  : Lnl_Reader
-    Server                 : SERVER
-    ReaderID               : 1
-    ComputerName           : SERVER
-    TimeAttendanceType     :
-    SetReaderMode          : System.Management.ManagementBaseObject SetMode(System.Int32 Mode)
-    HostName               : SERVER
-    SegmentId              :
-    Name                   : Reader Name
-    ControlType            : 36
-    SetFirstCardUnlockMode : System.Management.ManagementBaseObject SetFirstCardUnlockMode(System.Boolean Value)
-    OpenDoor               : System.Management.ManagementBaseObject OpenDoor()
+    PanelID       ReaderID      Name
+    -------       --------      ----
+    1             1             Reader 1
+    1             2             Reader 2
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

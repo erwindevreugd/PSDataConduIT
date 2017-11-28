@@ -3,7 +3,9 @@
     Downloads firmware to the specified panel or reader.
 
     .DESCRIPTION   
-    Downloads firmware to the specified panel or reader. If the result return null, try the parameter "-Verbose" to get more details.
+    Downloads firmware to the specified panel or reader. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

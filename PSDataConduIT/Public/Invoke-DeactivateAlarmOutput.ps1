@@ -3,7 +3,9 @@
     Deactivates an alarm output.
 
     .DESCRIPTION   
-    Deactivates an alarm output. If the result return null, try the parameter "-Verbose" to get more details.
+    Deactivates an alarm output. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

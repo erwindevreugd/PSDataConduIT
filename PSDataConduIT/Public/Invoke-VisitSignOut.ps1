@@ -3,7 +3,9 @@
     Signs out a visit.
 
     .DESCRIPTION   
-    Signs out a visit .If the result return null, try the parameter "-Verbose" to get more details.
+    Signs out a visit.
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

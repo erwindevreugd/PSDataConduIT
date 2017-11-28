@@ -3,21 +3,12 @@
     Stops the DataConduIT service.
 
     .DESCRIPTION   
-    Stops the DataConduIT service. If the result return null, try the parameter "-Verbose" to get more details.
+    Stops the DataConduIT service. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Stop-DataConduITService
-    
-    ComputerName : SERVER
-    Path         : \\SERVER\root\CIMV2:Win32_Service.Name="LS DataConduIT Service"
-    Server       : SERVER
-    SuperClass   : Win32_BaseService
-    StartService : System.Management.ManagementBaseObject StartService()
-    Name         : LS DataConduIT Service
-    StopService  : System.Management.ManagementBaseObject StopService()
-    Credential   :
-    Class        : Win32_Service
-    IsStarted    : False
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

@@ -3,10 +3,16 @@
     Gets a input panel.
 
     .DESCRIPTION   
-    Gets all input panels or a single input panel if a alarm panel id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all input panels or a single input panel if a alarm panel id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-InputPanel
+
+    PanelID       AlarmPanelID  Name                           Type
+    -------       ------------  ----                           ----
+    1             66            InputPanel                     InputPanel
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

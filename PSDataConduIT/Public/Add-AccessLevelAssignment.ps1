@@ -3,7 +3,9 @@
     Adds an accesslevel assignment to a badge.
 
     .DESCRIPTION   
-    Adds an accesslevel assignment to a badge. Optionally you can provide an activation and deactivation date for the accesslevel assignment. If the result return null, try the parameter "-Verbose" to get more details.
+    Adds an accesslevel assignment to a badge. Optionally you can provide an activation and deactivation date for the accesslevel assignment. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Add-AccessLevelAssignment -BadgeKey 1 -AccessLevelID 1

@@ -1,7 +1,6 @@
 function Remove-WmiProperty {
     [CmdletBinding()]
     param (
-        # Parameter help description
         [Parameter(
             Mandatory=$true,
             ValueFromPipeline=$true

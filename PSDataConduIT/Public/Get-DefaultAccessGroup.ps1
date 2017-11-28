@@ -3,20 +3,16 @@
     Gets the default access group for the given badge type.
 
     .DESCRIPTION   
-    Gets the default access group for the given badge type. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the default access group for the given badge type. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-DefaultAccessGroup
     
-    ComputerName  : SERVER
-    Path          : \\SERVER\root\OnGuard:Lnl_AccessGroup.ID=1
-    SegmentID     : 0
-    Server        : SERVER
-    SuperClass    : Lnl_Element
-    Name          : All
-    Credential    :
-    AccessGroupID : 1
-    Class         : Lnl_AccessGroup
+    AccessGroupID Name                                     SegmentID
+    ------------- ----                                     ---------
+    1             All                                      0
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

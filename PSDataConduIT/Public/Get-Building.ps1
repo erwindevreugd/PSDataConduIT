@@ -3,7 +3,9 @@
     Gets a building.
 
     .DESCRIPTION   
-    Gets all buildings or a single building if a building id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all buildings or a single building if a building id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Building

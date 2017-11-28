@@ -3,7 +3,9 @@
     Gets a visit type.
 
     .DESCRIPTION   
-    Gets all visit types or a single visit type if a visit type id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all visit types or a single visit type if a visit type id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-VisitType

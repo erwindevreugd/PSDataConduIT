@@ -3,7 +3,9 @@
     Updates the panel hardware status.
 
     .DESCRIPTION   
-    Updates the panel hardware status .If the result return null, try the parameter "-Verbose" to get more details.
+    Updates the panel hardware status.
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

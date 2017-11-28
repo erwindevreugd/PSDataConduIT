@@ -3,7 +3,9 @@
     Pulses a reader output.
 
     .DESCRIPTION   
-    Pulses a raeder output. If the result return null, try the parameter "-Verbose" to get more details.
+    Pulses a raeder output. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

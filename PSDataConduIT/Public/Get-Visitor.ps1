@@ -3,32 +3,16 @@
     Gets a visitor.
 
     .DESCRIPTION   
-    Gets all visitors or a single visitor if a visitor id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all visitors or a single visitor if a visitor id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Visitor
     
-    LastChanged       : 19/10/2017 11:29:03
-    OfficePhoneNumber :
-    Extension         :
-    Server            : SERVER
-    Lastname          : John
-    PersonID          : 1
-    ZipCode           :
-    TitleID           :
-    Organization      :
-    Class             : Lnl_Visitor
-    Firstname         :
-    State             :
-    Credential        :
-    SSNO              :
-    ComputerName      : SERVER
-    City              :
-    Address           :
-    PhoneNumber       :
-    Path              : \\SERVER\root\OnGuard:Lnl_Visitor.ID=1
-    Midname           :
-    SuperClass        : Lnl_Person
+    PersonID      Lastname             Midname    Firstname
+    --------      --------             -------    ---------
+    3             Lake                            Lisa
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

@@ -3,21 +3,16 @@
     Gets cardholder accounts.
 
     .DESCRIPTION   
-    Gets all cardholder accounts or a single carholder account if an account id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all cardholder accounts or a single carholder account if an account id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Account
     
-    ComputerName      : SERVER
-    Path              : \\SERVER\root\OnGuard:Lnl_Account.ID=1
-    PersonID          : 1
-    Server            : SERVER
-    SuperClass        : Lnl_Element
-    ExternalAccountID : S-1-5-21-0000000000-0000000000-0000000000-0000
-    AccountID         : 1
-    Credential        :
-    Class             : Lnl_Account
-    DirectoryID       : 1
+    AccountID     PersonID      AccountID     DirectoryID
+    ---------     --------      ---------     -----------
+    1             2             1             1
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

@@ -3,7 +3,9 @@
     Gets a division.
 
     .DESCRIPTION   
-    Gets all divisions or a single division if a division id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all divisions or a single division if a division id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Division

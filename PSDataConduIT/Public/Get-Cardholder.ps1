@@ -3,38 +3,16 @@
     Gets a cardholder.
 
     .DESCRIPTION   
-    Gets all cardholders or a single cardholder if a cardholder id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+	Gets all cardholders or a single cardholder if a cardholder id is specified. 
+	
+	If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Cardholder
-    
-	Class             : Lnl_Cardholder
-	BuildingID        : 0
-	Path              : \\WS-084\root\OnGuard:Lnl_Cardholder.ID=1
-	PhoneNumber       :
-	OfficePhoneNumber :
-	Lastname          : Smith
-	Birthday          :
-	SSNO              :
-	PersonID          : 1
-	State             :
-	City              :
-	Floor             : 0
-	Credential        :
-	Address           :
-	LastChanged       : 19/10/2017 12:46:39
-	SuperClass        : Lnl_Person
-	Email             :
-	ZipCode           :
-	ComputerName      : SERVER
-	DivisionID        : 0
-	Extension         :
-	IsGrant           : False
-	Firstname         : John
-	DepartmentID      : 0
-	TitleID           : 0
-	Midname           :
-	Server            : SERVER
+
+	PersonID      Lastname             Midname    Firstname
+	--------      --------             -------    ---------
+	1             Lake                 A          Lisa
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

@@ -3,35 +3,24 @@
     Gets an accesslevel reader assignment.
 
     .DESCRIPTION   
-    Gets all accesslevel reader assignments. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all accesslevel reader assignments. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AccessLevelReaderAssignment
     
-    ComputerName  : SERVER
-    Path          : \\SERVER\root\OnGuard:Lnl_AccessLevelReaderAssignment.AccessLevelID=1,PanelID=1,ReaderID=1
-    Server        : SERVER
-    SuperClass    : Lnl_Element
-    AccessLevelID : 1
-    PanelID       : 1
-    ReaderID      : 1
-    TimezoneID    : 2
-    Credential    :
-    Class         : Lnl_AccessLevelReaderAssignment
+    AccessLevelID PanelID       ReaderID
+    ------------- -------       --------
+    2             1             1
+    2             1             2
     
     .EXAMPLE
     Get-AccessLevelReaderAssignment -AccessLevelID 1
     
-    ComputerName  : SERVER
-    Path          : \\SERVER\root\OnGuard:Lnl_AccessLevelReaderAssignment.AccessLevelID=1,PanelID=1,ReaderID=1
-    Server        : SERVER
-    SuperClass    : Lnl_Element
-    AccessLevelID : 1
-    PanelID       : 1
-    ReaderID      : 1
-    TimezoneID    : 2
-    Credential    :
-    Class         : Lnl_AccessLevelReaderAssignment
+    AccessLevelID PanelID       ReaderID
+    ------------- -------       --------
+    1             1             1
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

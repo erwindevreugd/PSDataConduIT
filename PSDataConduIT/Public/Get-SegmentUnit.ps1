@@ -3,7 +3,9 @@
     Gets a segment unit.
 
     .DESCRIPTION   
-    Gets all segment units or a single segment unit if a segment unit id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all segment units or a single segment unit if a segment unit id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-SegmentUnit

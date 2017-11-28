@@ -3,10 +3,16 @@
     Gets a badge owner.
 
     .DESCRIPTION   
-    Gets the owner of a badge. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the owner of a badge. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-BadgeOwner
+
+    PersonID      Lastname             Midname    Firstname
+    --------      --------             -------    ---------
+    1             Lake                 A          Lisa
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

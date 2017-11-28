@@ -3,34 +3,16 @@
     Gets a panel.
 
     .DESCRIPTION   
-    Gets all panels or a single panel if a panel id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+	Gets all panels or a single panel if a panel id is specified. 
+	
+	If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
-    Get-AccessLevel
+    Get-Panel
     
-	Server                    : SERVER
-	Name                      : Panel
-	PrimaryIPAddress          : 0
-	PanelID                   : 1
-	DownloadDatabase          : System.Management.ManagementBaseObject DownloadDatabase()
-	DownloadFirmware          : System.Management.ManagementBaseObject DownloadFirmware()
-	Online                    : True
-	PrimaryDialupHostNumber   :
-	SetClock                  : System.Management.ManagementBaseObject SetClock()
-	Credential                :
-	GetHardwareStatus         : System.Management.ManagementBaseObject GetHardwareStatus()
-	SuperClass                : Lnl_Element
-	Connect                   : System.Management.ManagementBaseObject Connect()
-	Workstation               : WORKSTATION
-	ResetUseLimit             : System.Management.ManagementBaseObject ResetUseLimit()
-	SecondaryDialupHostNumber :
-	Type                      : Logical Source
-	ComputerName              : SERVER
-	Disconnect                : System.Management.ManagementBaseObject Disconnect()
-	Class                     : Lnl_Panel
-	Path                      : \\SERVER\root\OnGuard:Lnl_Panel.ID=1
-	SegmentID                 : 0
-	UpdateHardwareStatus      : System.Management.ManagementBaseObject UpdateHardwareStatus()
+	PanelID       Name                 Type                 Workstation          Online
+	-------       ----                 ----                 -----------          ------
+	1             AccessPanel 1        LNL-2220             Workstation          True
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

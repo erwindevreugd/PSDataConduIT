@@ -3,12 +3,16 @@
     Gets the current Lenel user.
 
     .DESCRIPTION   
-    Gets the current Lenel user. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the current Lenel user. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-CurrentUser
     
-    User         : System Account, System Account (-1)
+    User
+    ----
+    System Account, System Account (-1)
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

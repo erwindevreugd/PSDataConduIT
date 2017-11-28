@@ -3,7 +3,9 @@
     Refreshes the DataConduIT Manager cache.
 
     .DESCRIPTION   
-    Refreshes the DataConduIT Manager cache .If the result return null, try the parameter "-Verbose" to get more details.
+    Refreshes the DataConduIT Manager cache.
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

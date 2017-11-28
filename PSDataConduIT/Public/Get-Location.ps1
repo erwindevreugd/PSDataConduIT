@@ -3,7 +3,9 @@
     Gets a location.
 
     .DESCRIPTION   
-    Gets all locations or a single location if a location id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all locations or a single location if a location id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Location

@@ -3,7 +3,9 @@
     Gets a logged event.
 
     .DESCRIPTION   
-    Gets logged events or a single logged event if a logged event serial number is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets logged events or a single logged event if a logged event serial number is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-LoggedEvent

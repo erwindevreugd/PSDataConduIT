@@ -3,7 +3,9 @@
     Gets a title.
 
     .DESCRIPTION   
-    Gets all titles or a single title if a title id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all titles or a single title if a title id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Title

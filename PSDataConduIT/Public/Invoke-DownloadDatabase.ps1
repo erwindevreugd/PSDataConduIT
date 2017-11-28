@@ -3,7 +3,9 @@
     Download the database to the specified panel.
 
     .DESCRIPTION   
-    Downloads the database to the specified panel. If the result return null, try the parameter "-Verbose" to get more details.
+    Downloads the database to the specified panel. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

@@ -3,7 +3,9 @@
     Gets a holiday.
 
     .DESCRIPTION   
-    Gets all holidays or a single holiday if a holiday id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all holidays or a single holiday if a holiday id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Holiday

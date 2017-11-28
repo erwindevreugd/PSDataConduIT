@@ -3,12 +3,16 @@
     Gets the alarm output hardware status.
 
     .DESCRIPTION   
-    Gets the alarm output hardware status for all alarm output or the hardware status for a single alarm output if an alarm panel id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the alarm output hardware status for all alarm output or the hardware status for a single alarm output if an alarm panel id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AlarmOutputHardwareStatus
     
-    Online
+    Name                           Status               Panel
+    ----                           ------               -----
+    Alarm Output 1                 Secure               AccessPanel 1
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

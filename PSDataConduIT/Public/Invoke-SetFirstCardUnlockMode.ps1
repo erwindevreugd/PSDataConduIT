@@ -3,7 +3,9 @@
     Enables or disables first card unlock mode for a reader.
 
     .DESCRIPTION   
-    Enables or disables first card unlock mode for a reader. If the result return null, try the parameter "-Verbose" to get more details.
+    Enables or disables first card unlock mode for a reader. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

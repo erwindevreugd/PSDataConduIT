@@ -3,37 +3,23 @@
     Gets an accesslevel assignment.
 
     .DESCRIPTION   
-    Gets all accesslevel assignments. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all accesslevel assignments. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AccessLevelAssignment
     
-    ComputerName  : SERVER
-    Path          : \\SERVER\root\OnGuard:Lnl_AccessLevelAssignment.AccessLevelID=1,BadgeKey=1
-    SegmentID     :
-    Server        : SERVER
-    SuperClass    : Lnl_Element
-    AccessLevelID : 1
-    BadgeKey      : 1
-    Activate      :
-    Credential    :
-    Class         : Lnl_AccessLevelAssignment
-    Deactivate    :
+    AccessLevelID BadgeKey      Activate               Deactivate
+    ------------- --------      --------               ----------
+    1             1 
     
     .EXAMPLE
     Get-AccessLevelAssignment -BadgeKey 1
     
-    ComputerName  : SERVER
-    Path          : \\SERVER\root\OnGuard:Lnl_AccessLevelAssignment.AccessLevelID=1,BadgeKey=1
-    SegmentID     :
-    Server        : SERVER
-    SuperClass    : Lnl_Element
-    AccessLevelID : 1
-    BadgeKey      : 1
-    Activate      :
-    Credential    :
-    Class         : Lnl_AccessLevelAssignment
-    Deactivate    :
+    AccessLevelID BadgeKey      Activate               Deactivate
+    ------------- --------      --------               ----------
+    1             1 
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

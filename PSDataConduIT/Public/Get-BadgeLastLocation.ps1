@@ -3,26 +3,16 @@
     Gets the badge last location.
 
     .DESCRIPTION   
-    Gets all badge last locations or a single badge last location if a badge id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all badge last locations or a single badge last location if a badge id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-BadgeLastLocation
     
-    Class        : Lnl_BadgeLastLocation
-    ComputerName : SERVER
-    EventID      : 4
-    PersonID     : 0
-    EventTime    : 20/10/2017 01:17:40
-    SuperClass   :
-    Credential   :
-    PanelID      : 1
-    ReaderID     : 1
-    AccessFlag   : 1
-    EventType    : 1
-    IsReplicated : 0
-    Path         : \\SERVER\root\OnGuard:Lnl_BadgeLastLocation.AccessFlag=1,BadgeID="123456",DatabaseID=0
-    BadgeID      : 123456
-    Server       : SERVER
+    BadgeID       PersonID      PanelID       ReaderID      EventTime
+    -------       --------      -------       --------      ---------
+    4294967295    0             1             1             27/11/2017 08:56:38
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

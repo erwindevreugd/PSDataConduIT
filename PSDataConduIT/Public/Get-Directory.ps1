@@ -3,24 +3,16 @@
     Gets a directory.
 
     .DESCRIPTION   
-    Gets all directories or a single directory if a directory id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all directories or a single directory if a directory id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Directory
     
-    Class        : Lnl_Directory
-    ComputerName : SERVER
-    StartNode    : dc=DOMAIN, dc=local
-    SuperClass   : Lnl_Element
-    UseSSL       : False
-    Credential   :
-    Name         : DOMAIN.local
-    Type         : MicrosoftActiveDirectory
-    Port         : 389
-    Path         : \\SERVER\root\OnGuard:Lnl_Directory.ID=1
-    Hostname     : DOMAIN.local
-    DirectoryID  : 1
-    Server       : SERVER
+    DirectoryID   Name                 Type                           Hostname             StartNode
+    -----------   ----                 ----                           --------             ---------
+    1             DOMAIN.local         MicrosoftActiveDirectory       DOMAIN.local         dc=DOAMIN, dc=local
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

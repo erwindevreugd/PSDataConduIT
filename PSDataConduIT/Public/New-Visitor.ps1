@@ -3,7 +3,9 @@
     Adds a new visitor.
 
     .DESCRIPTION   
-    Adds a new visitor to the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Adds a new visitor to the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     

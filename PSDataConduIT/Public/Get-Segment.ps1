@@ -3,7 +3,9 @@
     Gets a segment.
 
     .DESCRIPTION   
-    Gets all segments or a single segment if a segment id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all segments or a single segment if a segment id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Segment
