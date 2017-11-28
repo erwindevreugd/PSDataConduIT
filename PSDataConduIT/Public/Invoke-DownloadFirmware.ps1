@@ -15,7 +15,9 @@
 function Invoke-DownloadFirmware
 {
     [CmdletBinding(
-        DefaultParameterSetName='DownloadFirmwareToPanel'
+        DefaultParameterSetName='DownloadFirmwareToPanel',
+        SupportsShouldProcess,
+        ConfirmImpact="High"
     )]
     param
     (
@@ -50,7 +52,9 @@ function Invoke-DownloadFirmware
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id parameter')]
-        [int]$ReaderID   
+        [int]$ReaderID,
+
+        [switch]$Force
     )
 
     process {
@@ -69,9 +73,10 @@ function Invoke-DownloadFirmware
                     return
                 }
                 
-                $panel.DownloadFirmware.Invoke() | Out-Null
-        
-                Write-Verbose -Message ("Downloaded firmware to panel '$($panel.Name)'")
+                if($Force -or $PSCmdlet.ShouldProcess("$Server", "Download firmware to panel '$($panel.Name)'")) {
+                    $panel.DownloadFirmware.Invoke() | Out-Null
+                    Write-Verbose -Message ("Downloaded firmware to panel '$($panel.Name)'")
+                }
             }
             "DownloadFirmwareToReader" {
                 if(($reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
@@ -79,9 +84,10 @@ function Invoke-DownloadFirmware
                     return
                 }
                 
-                $reader.DownloadFirmware.Invoke() | Out-Null
-        
-                Write-Verbose -Message ("Downloaded firmware to reader '$($reader.Name)'")
+                if($Force -or $PSCmdlet.ShouldProcess("$Server", "Download firmware to reader '$($reader.Name)'")) {
+                    $reader.DownloadFirmware.Invoke() | Out-Null
+                    Write-Verbose -Message ("Downloaded firmware to reader '$($reader.Name)'")
+                }
             }
             Default { return }
         }

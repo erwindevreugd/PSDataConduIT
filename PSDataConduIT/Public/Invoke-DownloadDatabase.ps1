@@ -14,7 +14,10 @@
 #>
 function Invoke-DownloadDatabase
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact="High"
+    )]
     param
     (
         [Parameter(
@@ -35,7 +38,9 @@ function Invoke-DownloadDatabase
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID    
+        [int]$PanelID,
+
+        [switch]$Force
     )
 
     process {
@@ -53,8 +58,9 @@ function Invoke-DownloadDatabase
             return
         }
         
-		$panel.DownloadDatabase.Invoke() | Out-Null
-
-        Write-Verbose -Message ("Downloading database to panel '$($panel.Name)'")
+        if($Force -or $PSCmdlet.ShouldProcess("$Server", "Download database to panel '$($panel.Name)'")) {
+            $panel.DownloadDatabase.Invoke() | Out-Null
+            Write-Verbose -Message ("Downloading database to panel '$($panel.Name)'")
+        }
     }
 }
