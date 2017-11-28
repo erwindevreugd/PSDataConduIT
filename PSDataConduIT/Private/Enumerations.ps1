@@ -105,4 +105,29 @@ public enum ControlType : int {
 	InputPanel = 129,
 	OutputPanel = 130
 }
+
+public enum ArmState : int {
+	PerimeterArm = 1,
+	EntirePartitionArm = 2,
+	MasterDelayArm = 3,
+	MasterInstantArm = 4,
+	PerimeterDelayArm = 5,
+	PerimeterInstantArm = 6,
+	ParialArm = 7,
+	AwayArm = 8,
+	AwayForcedArm = 9,
+	StayArm = 10,
+	StayForcedArm = 11
+}
+
+public enum DeviceStatus : int {
+	Offline = 0,
+	Online = 1
+}
+
+public enum DoorMode : int {
+	Lock = 0x0,
+	Unlock = 0x1,
+	Secure = 0x2
+}
 "@
