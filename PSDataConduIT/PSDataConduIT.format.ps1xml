@@ -1885,5 +1885,55 @@
       </TableControl>
     </View>
 
+    <!-- 
+    DataConduIT.LnlCamera
+    -->
+    <View>
+      <Name>DataConduITLnlCameraTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlCamera</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>5</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>CameraID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Type</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>IpAddress</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Port</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
   </ViewDefinitions>
 </Configuration>
