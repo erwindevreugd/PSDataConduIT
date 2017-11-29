@@ -40,7 +40,9 @@ function Invoke-ResetUseLimit
             HelpMessage='The panel id parameter')]
         [int]$PanelID,
         
-        [switch]$PassThru
+        [switch]$PassThru,
+
+        [switch]$Force
     )
 
     process {
