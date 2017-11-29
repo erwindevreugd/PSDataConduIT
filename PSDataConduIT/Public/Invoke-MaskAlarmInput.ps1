@@ -67,17 +67,19 @@ function Invoke-MaskAlarmInput
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($alarmInput = Get-AlarmInput @parameters -PanelID $PanelID -AlarmPanelID $AlarmPanelID -InputID $InputID -AlarmInputID $AlarmInputID) -eq $null) {
-            Write-Error -Message ("Alarm input id '$($AlarmInputID)' on panel id '$($AlarmPanelID)' not found")
+        if(($alarmInputs = Get-AlarmInput @parameters -PanelID $PanelID -AlarmPanelID $AlarmPanelID -InputID $InputID -AlarmInputID $AlarmInputID) -eq $null) {
+            Write-Verbose -Message ("No alarm inputs found")
             return
         }
 
-        $alarmInput.Mask.Invoke() | Out-Null
-
-        Write-Verbose -Message ("Alarm input '$($alarmInput.Name)' masked")
-
-        if($PassThru) {
-            Write-Output $$alarmInput
+        foreach($alarmInput in $alarmInputs) {
+            $alarmInput.Mask.Invoke() | Out-Null
+            
+            Write-Verbose -Message ("Alarm input '$($alarmInput.Name)' masked")
+    
+            if($PassThru) {
+                Write-Output $$alarmInput
+            }
         }
     }
 }

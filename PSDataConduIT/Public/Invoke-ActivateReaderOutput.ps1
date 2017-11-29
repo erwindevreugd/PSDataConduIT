@@ -62,17 +62,19 @@ function Invoke-ActivateReaderOutput
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($readerOutput = Get-ReaderOutput @parameters -PanelID $PanelID -ReaderID $ReaderID -ReaderOutputID $ReaderOutputID) -eq $null) {
-            Write-Error -Message ("Reader output id '$($ReaderOutputID)' on reader id '$($ReaderID)' on panel id '$($PanelID)' not found")
+        if(($readerOutputs = Get-ReaderOutput @parameters -PanelID $PanelID -ReaderID $ReaderID -ReaderOutputID $ReaderOutputID) -eq $null) {
+            Write-Verbose -Message ("No reader outputs found")
             return
         }
 
-        $readerOutput.Activate.Invoke() | Out-Null
-
-        Write-Verbose -Message ("Reader output '$($readerOutput.Name)' activated")
-
-        if($PassThru) {
-            Write-Output $$readerOutput
+        foreach($readerOutput in $readerOutputs) {
+            $readerOutput.Activate.Invoke() | Out-Null
+            
+            Write-Verbose -Message ("Reader output '$($readerOutput.Name)' activated")
+    
+            if($PassThru) {
+                Write-Output $$readerOutput
+            }
         }
     }
 }

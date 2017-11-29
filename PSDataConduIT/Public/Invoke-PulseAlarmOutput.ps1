@@ -67,17 +67,19 @@ function Invoke-PulseAlarmOutput
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($alarmOutput = Get-AlarmOutput @parameters -PanelID $PanelID -AlarmPanelID $AlarmPanelID -OutputID $OutputID -AlarmOutputID $AlarmOutputID) -eq $null) {
-            Write-Error -Message ("Alarm output id '$($AlarmOutputID)' on panel id '$($AlarmPanelID)' not found")
+        if(($alarmOutputs = Get-AlarmOutput @parameters -PanelID $PanelID -AlarmPanelID $AlarmPanelID -OutputID $OutputID -AlarmOutputID $AlarmOutputID) -eq $null) {
+            Write-Verbose -Message ("No alarm outputs found")
             return
         }
 
-        $alarmOutput.Pulse.Invoke() | Out-Null
-
-        Write-Verbose -Message ("Alarm output '$($alarmOutput.Name)' pulsed")
-
-        if($PassThru) {
-            Write-Output $$alarmOutput
+        foreach($alarmOutput in $alarmOutputs) {
+            $alarmOutput.Pulse.Invoke() | Out-Null
+            
+            Write-Verbose -Message ("Alarm output '$($alarmOutput.Name)' pulsed")
+    
+            if($PassThru) {
+                Write-Output $$alarmOutput
+            }
         }
     }
 }

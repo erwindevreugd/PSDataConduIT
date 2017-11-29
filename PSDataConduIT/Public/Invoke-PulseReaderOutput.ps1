@@ -35,13 +35,13 @@ function Invoke-PulseReaderOutput
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID = $null,
+        [int]$PanelID,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id parameter')]
-        [int]$ReaderID = $null,
+        [int]$ReaderID,
 
         [Parameter(
             Mandatory=$false, 
@@ -62,17 +62,19 @@ function Invoke-PulseReaderOutput
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($readerOutput = Get-ReaderOutput @parameters -PanelID $PanelID -ReaderID $ReaderID -ReaderOutputID $ReaderOutputID) -eq $null) {
-            Write-Error -Message ("Reader output id '$($ReaderOutputID)' on reader id '$($ReaderID)' on panel id '$($PanelID)' not found")
+        if(($readerOutputs = Get-ReaderOutput @parameters -PanelID $PanelID -ReaderID $ReaderID -ReaderOutputID $ReaderOutputID) -eq $null) {
+            Write-Verbose -Message ("No reader outputs found")
             return
         }
 
-        $readerOutput.Pulse.Invoke() | Out-Null
-
-        Write-Verbose -Message ("Reader output '$($readerOutput.Name)' pulsed")
-
-        if($PassThru) {
-            Write-Output $$readerOutput
+        foreach($readerOutput in $readerOutputs) {
+            $readerOutput.Pulse.Invoke() | Out-Null
+            
+            Write-Verbose -Message ("Reader output '$($readerOutput.Name)' pulsed")
+    
+            if($PassThru) {
+                Write-Output $$readerOutput
+            }
         }
     }
 }

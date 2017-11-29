@@ -35,7 +35,7 @@ function Invoke-OpenIntrusionDoor
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The intrusion door id parameter')]
-        [int]$IntrusionDoorID = $null,
+        [int]$IntrusionDoorID,
 
         [switch]$PassThru
     )

@@ -36,7 +36,9 @@ function Get-DisarmIntrusionArea
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The intrusion area id parameter')]
-        [int]$IntrusionAreaID = $null
+        [int]$IntrusionAreaID,
+
+        [switch]$PassThru
     )
 
     process {
@@ -49,11 +51,18 @@ function Get-DisarmIntrusionArea
         }
 
         if(($intrusionAreas = Get-IntrusionArea @parameters -IntrusionAreaID $IntrusionAreaID) -eq $null) {
+            Write-Verbose -Message ("No intrusion areas found")
             return
         }
 
         foreach($intrusionArea in $intrusionAreas) {
             $intrusionArea.Disarm.Invoke() | Out-Null
+
+            Write-Verbose -Message ("Intrusion area '$($intrusionArea.Name)' disarmed")
+
+            if($PassThru) {
+                Write-Output $$intrusionArea
+            }
         }
     }
 }

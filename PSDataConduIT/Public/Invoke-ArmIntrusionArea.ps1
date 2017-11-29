@@ -36,13 +36,15 @@ function Get-ArmIntrusionArea
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The intrusion area id parameter')]
-        [int]$IntrusionAreaID = $null,
+        [int]$IntrusionAreaID,
 
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The intrusion arm method parameter')]
-        [ArmState]$Method = $null
+        [ArmState]$Method,
+
+        [switch]$PassThru
     )
 
     process {
@@ -55,11 +57,18 @@ function Get-ArmIntrusionArea
         }
 
         if(($intrusionAreas = Get-IntrusionArea @parameters -IntrusionAreaID $IntrusionAreaID) -eq $null) {
+            Write-Verbose -Message ("No intrusion areas found")
             return
         }
 
         foreach($intrusionArea in $intrusionAreas) {
             $intrusionArea.Arm.Invoke($Method) | Out-Null
+
+            Write-Verbose -Message ("Intrusion area '$($intrusionArea.Name)' '$($Method)'")
+            
+            if($PassThru) {
+                Write-Output $$intrusionArea
+            }
         }
     }
 }

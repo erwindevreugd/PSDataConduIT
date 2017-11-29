@@ -62,17 +62,19 @@ function Invoke-UnmaskReaderInput
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($readerInput = Get-ReaderInput @parameters -PanelID $PanelID -ReaderID $ReaderID -ReaderInputID $ReaderInputID) -eq $null) {
-            Write-Error -Message ("Reader input id '$($ReaderOutputID)' on reader id '$($ReaderID)' on panel id '$($PanelID)' not found")
+        if(($readerInputs = Get-ReaderInput @parameters -PanelID $PanelID -ReaderID $ReaderID -ReaderInputID $ReaderInputID) -eq $null) {
+            Write-Verbose -Message ("No reader inputs found")
             return
         }
 
-        $readerInput.Unmask.Invoke() | Out-Null
-
-        Write-Verbose -Message ("Reader input '$($readerInput.Name)' unmasked")
-
-        if($PassThru) {
-            Write-Output $$readerInput
+        foreach($readerInput in $readerInputs) {
+            $readerInput.Unmask.Invoke() | Out-Null
+            
+            Write-Verbose -Message ("Reader input '$($readerInput.Name)' unmasked")
+    
+            if($PassThru) {
+                Write-Output $$readerInput
+            }
         }
     }
 }

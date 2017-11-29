@@ -33,10 +33,10 @@ function Invoke-BypassIntrusionZone
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The intrusion zone id parameter')]
-        [int]$IntrusionZoneID = $null
+        [int]$IntrusionZoneID
     )
 
     process { 
@@ -48,17 +48,19 @@ function Invoke-BypassIntrusionZone
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($intrusionZone = Get-IntrusionZone @parameters -IntrusionZoneID $IntrusionZoneID) -eq $null) {
-            Write-Error -Message ("Intrusion zone id '$($intrusionZoneID)' not found")
+        if(($intrusionZones = Get-IntrusionZone @parameters -IntrusionZoneID $IntrusionZoneID) -eq $null) {
+            Write-Verbose -Message ("No intrusion zones found")
             return
         }
 
-        $intrusionZone.Bypass.Invoke() | Out-Null
-
-        Write-Verbose -Message ("Intrusion zone '$($intrusionZone.Name)' bypassed")
-
-        if($PassThru) {
-            Write-Output $intrusionZone
+        foreach($intrusionZone in $intrusionZones) {
+            $intrusionZone.Bypass.Invoke() | Out-Null
+    
+            Write-Verbose -Message ("Intrusion zone '$($intrusionZone.Name)' bypassed")
+    
+            if($PassThru) {
+                Write-Output $intrusionZone
+            }
         }
     }
 }

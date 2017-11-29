@@ -33,7 +33,7 @@ function Invoke-ActivateIntrusionOutput
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The intrusion output id parameter')]
         [int]$IntrusionOutputID = $null
@@ -48,17 +48,19 @@ function Invoke-ActivateIntrusionOutput
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($intrusionOutput = Get-IntrusionOutput @parameters -IntrusionOutputID $IntrusionOutputID) -eq $null) {
-            Write-Error -Message ("Intrusion output id '$($IntrusionOutputID)' not found")
+        if(($intrusionOutputs = Get-IntrusionOutput @parameters -IntrusionOutputID $IntrusionOutputID) -eq $null) {
+            Write-Verbose -Message ("No intrusion outputs found")
             return
         }
 
-        $intrusionOutput.Activate.Invoke() | Out-Null
-
-        Write-Verbose -Message ("Intrusion output '$($intrusionOutput.Name)' activated")
-
-        if($PassThru) {
-            Write-Output $intrusionOutput
+        foreach($intrusionOutput in $intrusionOutputs) {
+            $intrusionOutput.Activate.Invoke() | Out-Null
+            
+            Write-Verbose -Message ("Intrusion output '$($intrusionOutput.Name)' activated")
+    
+            if($PassThru) {
+                Write-Output $intrusionOutput
+            }
         }
     }
 }
