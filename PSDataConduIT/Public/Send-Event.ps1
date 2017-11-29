@@ -33,7 +33,7 @@ function Send-Event
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$false, 
+            Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The source parameter')]
         [string]$Source = $Script:EventSource,
