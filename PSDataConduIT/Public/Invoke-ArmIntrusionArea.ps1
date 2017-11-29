@@ -15,7 +15,10 @@
 #>
 function Get-ArmIntrusionArea
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact="High"
+    )]
     param
     (
         [Parameter(
@@ -44,7 +47,9 @@ function Get-ArmIntrusionArea
             HelpMessage='The intrusion arm method parameter')]
         [ArmState]$Method,
 
-        [switch]$PassThru
+        [switch]$PassThru,
+
+        [switch]$Force
     )
 
     process {
@@ -62,10 +67,11 @@ function Get-ArmIntrusionArea
         }
 
         foreach($intrusionArea in $intrusionAreas) {
-            $intrusionArea.Arm.Invoke($Method) | Out-Null
+            if($Force -or $PSCmdlet.ShouldProcess("$Server", "Arm intrusion area '$($intrusionArea.Name)' '$($Method)'")) {
+                $intrusionArea.Arm.Invoke($Method) | Out-Null
+                Write-Verbose -Message ("Intrusion area '$($intrusionArea.Name)' '$($Method)'")
+            }
 
-            Write-Verbose -Message ("Intrusion area '$($intrusionArea.Name)' '$($Method)'")
-            
             if($PassThru) {
                 Write-Output $$intrusionArea
             }

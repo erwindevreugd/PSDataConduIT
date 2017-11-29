@@ -15,7 +15,10 @@
 #>
 function Get-DisarmIntrusionArea
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact="High"
+    )]
     param
     (
         [Parameter(
@@ -38,7 +41,9 @@ function Get-DisarmIntrusionArea
             HelpMessage='The intrusion area id parameter')]
         [int]$IntrusionAreaID,
 
-        [switch]$PassThru
+        [switch]$PassThru,
+
+        [switch]$Force
     )
 
     process {
@@ -56,9 +61,10 @@ function Get-DisarmIntrusionArea
         }
 
         foreach($intrusionArea in $intrusionAreas) {
-            $intrusionArea.Disarm.Invoke() | Out-Null
-
-            Write-Verbose -Message ("Intrusion area '$($intrusionArea.Name)' disarmed")
+            if($Force -or $PSCmdlet.ShouldProcess("$Server", "Disarm intrusion area '$($intrusionArea.Name)'")) {
+                $intrusionArea.Disarm.Invoke() | Out-Null
+                Write-Verbose -Message ("Intrusion area '$($intrusionArea.Name)' disarmed")
+            }
 
             if($PassThru) {
                 Write-Output $$intrusionArea
