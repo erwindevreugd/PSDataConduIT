@@ -56,7 +56,7 @@ function Invoke-VisitSignOut
             return
         }
         
-		$visit.SignOutVisit.Invoke() | Out-Null
+        $visit.SignOutVisit.Invoke() | Out-Null
 
         Write-Verbose -Message ("Visit '$($visit.VisitID)' signed out")
 

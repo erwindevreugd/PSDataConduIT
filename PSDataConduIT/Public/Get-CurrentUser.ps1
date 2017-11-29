@@ -42,8 +42,8 @@ function Get-CurrentUser
         $parameters = @{
             ComputerName=$Server;
             Namespace=$Script:OnGuardNamespace;
-			Class="Lnl_DataConduITManager";
-			Name="GetCurrentUser"
+            Class="Lnl_DataConduITManager";
+            Name="GetCurrentUser"
         }
 
         if($Credential -ne $null) {
@@ -51,8 +51,8 @@ function Get-CurrentUser
         }
 
         Invoke-WmiMethod @parameters | ForEach-Object { New-Object PSObject -Property @{
-				User=$_.ReturnValue;
-			}  | Add-ObjectType -TypeName "DataConduIT.LnlCurrentUser"
-		}
+                User=$_.ReturnValue;
+            }  | Add-ObjectType -TypeName "DataConduIT.LnlCurrentUser"
+        }
     }
 }

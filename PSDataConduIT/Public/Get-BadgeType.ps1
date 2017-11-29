@@ -52,7 +52,7 @@ function Get-BadgeType
             $query += " AND ID=$BadgeTypeID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -65,20 +65,20 @@ function Get-BadgeType
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				BadgeTypeID=$_.ID;
-				Name=$_.NAME;
+                BadgeTypeID=$_.ID;
+                Name=$_.NAME;
                 BadgeClass=$_.BADGECLASS;
                 DefaultAccessGroup=$_.DEFAULTACCESSGROUP;
                 IsDisposable=$_.ISDISPOSABLE;
                 SegmentID=$_.SEGMENTID;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlBadgeType"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlBadgeType"
+        }
     }
 }

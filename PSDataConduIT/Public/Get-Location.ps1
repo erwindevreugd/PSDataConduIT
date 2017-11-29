@@ -56,7 +56,7 @@ function Get-Location
             $query += " AND SEGMENTID=$SegmentID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -69,18 +69,18 @@ function Get-Location
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				LocationID=$_.ID;
+                LocationID=$_.ID;
                 Name=$_.NAME;
                 
                 SegmentID=$_.SEGMENTID;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlLocation"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlLocation"
+        }
     }
 }

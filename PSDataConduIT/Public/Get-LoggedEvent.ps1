@@ -56,7 +56,7 @@ function Get-LoggedEvent
             $query += " AND SEGMENTID=$SegmentID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -69,14 +69,14 @@ function Get-LoggedEvent
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SerialNumber=$_.SERIALNUMBER;
+                SerialNumber=$_.SERIALNUMBER;
                 PanelID=$_.PANELID;
                 DeviceID=$_.DEVICEID;
                 SecondaryDeviceID=$_.SECONDARYDEVICEID;
@@ -95,7 +95,7 @@ function Get-LoggedEvent
                 PersonID=$_.PERSONID;
 
                 SegmentID=$_.SEGMENTID;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlLoggedEvent"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlLoggedEvent"
+        }
     }
 }

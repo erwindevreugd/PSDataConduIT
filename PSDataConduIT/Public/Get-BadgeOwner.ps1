@@ -42,7 +42,7 @@ function Get-BadgeOwner
             HelpMessage='The badge id parameter')]
         [long]$BadgeID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge key parameter')]
@@ -56,7 +56,7 @@ function Get-BadgeOwner
             $query += " AND ID=$BadgeID"
         }
 
-		if($BadgeKey) {
+        if($BadgeKey) {
             $query += " AND BADGEKEY=$BadgeKey"
         }
 
@@ -73,15 +73,15 @@ function Get-BadgeOwner
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				PersonID=$_.PERSONID;
-			} | Get-Person
-		}
+                PersonID=$_.PERSONID;
+            } | Get-Person
+        }
     }
 }

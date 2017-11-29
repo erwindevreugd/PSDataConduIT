@@ -31,14 +31,14 @@ function New-Title
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[ValidateLength(1, 255)]
+        [ValidateLength(1, 255)]
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The name of the title')]
         [string]$Name,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The segment id to which to add the new title')]
@@ -57,10 +57,10 @@ function New-Title
             $parameters.Add("Credential", $Credential)
         }
 
-		Set-WmiInstance @parameters -Arguments @{
-			Name=$Name; 
-			SegmentID=$SegmentID;} |
-			Select-Object *,@{L='TitleID';E={$_.ID}} | 
-			Get-Title
-	}
+        Set-WmiInstance @parameters -Arguments @{
+            Name=$Name; 
+            SegmentID=$SegmentID;} |
+            Select-Object *,@{L='TitleID';E={$_.ID}} | 
+            Get-Title
+    }
 }

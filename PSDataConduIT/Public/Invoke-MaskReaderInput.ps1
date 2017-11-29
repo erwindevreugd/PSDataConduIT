@@ -67,7 +67,7 @@ function Invoke-MaskReaderInput
             return
         }
 
-		$readerInput.Mask.Invoke() | Out-Null
+        $readerInput.Mask.Invoke() | Out-Null
 
         Write-Verbose -Message ("Reader input '$($readerInput.Name)' masked")
 

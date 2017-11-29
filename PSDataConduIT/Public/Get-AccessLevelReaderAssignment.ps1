@@ -50,13 +50,13 @@ function Get-AccessLevelReaderAssignment
             HelpMessage='The accesslevel id')]
         [int]$AccessLevelID = $null,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id')]
         [int]$PanelID = $null,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id')]
@@ -70,15 +70,15 @@ function Get-AccessLevelReaderAssignment
             $query += " AND ACCESSLEVELID=$AccessLevelID"
         }
 
-		if($PanelID) {
+        if($PanelID) {
             $query += " AND PanelID=$PanelID"
         }
 
-		if($ReaderID) {
+        if($ReaderID) {
             $query += " AND ReaderID=$ReaderID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -91,18 +91,18 @@ function Get-AccessLevelReaderAssignment
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				AccessLevelID=$_.ACCESSLEVELID;
-				PanelID=$_.PanelID;
-				ReaderID=$_.ReaderID;
-				TimezoneID=$_.TimezoneID;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevelReaderAssignment"
-		}
+                AccessLevelID=$_.ACCESSLEVELID;
+                PanelID=$_.PanelID;
+                ReaderID=$_.ReaderID;
+                TimezoneID=$_.TimezoneID;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevelReaderAssignment"
+        }
     }
 }

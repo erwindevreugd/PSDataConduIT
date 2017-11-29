@@ -42,13 +42,13 @@ function Get-Account
             HelpMessage='The account id')]
         [int]$AccountID = $null,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The directory id')]
         [int]$DirectoryID = $null,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The person id')]
@@ -62,15 +62,15 @@ function Get-Account
             $query += " AND ID=$AccountID"
         }
 
-		if($DirectoryID) {
+        if($DirectoryID) {
             $query += " AND DIRECTORYID=$DirectoryID"
         }
 
-		if($PersonID) {
+        if($PersonID) {
             $query += " AND PERSONID=$PersonID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -83,18 +83,18 @@ function Get-Account
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				AccountID=$_.ID;
-				ExternalAccountID=$_.ACCOUNTID;
-				DirectoryID=$_.DIRECTORYID;
-				PersonID=$_.PERSONID;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlAccount"
-		}
+                AccountID=$_.ID;
+                ExternalAccountID=$_.ACCOUNTID;
+                DirectoryID=$_.DIRECTORYID;
+                PersonID=$_.PERSONID;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAccount"
+        }
     }
 }

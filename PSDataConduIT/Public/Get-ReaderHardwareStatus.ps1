@@ -42,8 +42,8 @@ function Get-ReaderHardwareStatus
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
         [int]$PanelID,
-		
-		[Parameter(
+        
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id parameter')]

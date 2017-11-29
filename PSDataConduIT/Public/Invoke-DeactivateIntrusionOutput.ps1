@@ -53,7 +53,7 @@ function Invoke-DeactivateIntrusionOutput
             return
         }
 
-		$intrusionOutput.Deactivate.Invoke() | Out-Null
+        $intrusionOutput.Deactivate.Invoke() | Out-Null
 
         Write-Verbose -Message ("Intrusion output '$($intrusionOutput.Name)' deactivated")
 

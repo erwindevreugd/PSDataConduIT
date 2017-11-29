@@ -68,14 +68,14 @@ function Get-TimezoneInterval
             # $item used to keep track of foreach object
             $item = $_
             New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				TimezoneIntervalID=$_.ID;
+                TimezoneIntervalID=$_.ID;
                 TimezoneID=$_.TimezoneID;
                 Timezone=($timezones | Where-Object {$_.TimezoneID -eq $item.TimezoneID}).Name;
                 
@@ -97,7 +97,7 @@ function Get-TimezoneInterval
                 HolidayType8=$_.HOLIDAYTYPE8;
 
                 StartTime=ToDateTime $_.STARTTIME;
-				EndTime=ToDateTime $_.ENDTIME;
+                EndTime=ToDateTime $_.ENDTIME;
             } | Add-Member -MemberType AliasProperty -Name Mon -Value Monday -PassThru | 
             Add-Member -MemberType AliasProperty -Name Tue -Value Tuesday -PassThru | 
             Add-Member -MemberType AliasProperty -Name Wed -Value Wednesday -PassThru | 
@@ -116,6 +116,6 @@ function Get-TimezoneInterval
             Add-Member -MemberType AliasProperty -Name H8 -Value HolidayType8 -PassThru | 
 
             Add-ObjectType -TypeName "DataConduIT.LnlTimezoneInterval"
-		}
+        }
     }
 }

@@ -46,7 +46,7 @@ function Get-IntrusionDoor
             $query += " AND ID=$IntrusionDoorID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -59,14 +59,14 @@ function Get-IntrusionDoor
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				IntrusionDoorID=$_.ID;
+                IntrusionDoorID=$_.ID;
                 Name=$_.NAME;
                 PanelID=$_.PANELID;
                 DeviceID=$_.DEVICEID;
@@ -76,7 +76,7 @@ function Get-IntrusionDoor
                 SetMode=$_.SETMODE;
                 
                 GetHardwareStatus=$_.GETHARDWARESTATUS;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlIntrusionDoor"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlIntrusionDoor"
+        }
     }
 }

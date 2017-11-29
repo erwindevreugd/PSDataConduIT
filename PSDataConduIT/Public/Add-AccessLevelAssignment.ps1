@@ -32,24 +32,24 @@ function Add-AccessLevelAssignment
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badgekey to which the accesslevel will be assigned')]
         [int]$BadgeKey,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The accesslevel id to add to the accesslevel assignment')]
         [int]$AccessLevelID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The activation date of the accesslevel assignment')]
         [datetime]$Activate,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The deactivation date of the accesslevel assignment')]
         [datetime]$Deactivate
@@ -67,28 +67,28 @@ function Add-AccessLevelAssignment
             $parameters.Add("Credential", $Credential)
         }
 
-		if(($accessLevel = Get-AccessLevel -AccessLevelID $AccessLevelID) -eq $null) {
+        if(($accessLevel = Get-AccessLevel -AccessLevelID $AccessLevelID) -eq $null) {
             Write-Error -Message ("Accesslevel with id '$($AccessLevelID)' not found")
             return
-		}
+        }
 
-		if(($badge = Get-Badge -BadgeKey $BadgeKey) -eq $null) {
+        if(($badge = Get-Badge -BadgeKey $BadgeKey) -eq $null) {
             Write-Error -Message ("BadgeKey '$($BadgeKey)' not found")
             return
-		}
+        }
 
-		if((Get-AccessLevelAssignment -BadgeKey $BadgeKey -AccessLevelID $AccessLevelID) -ne $null) {
+        if((Get-AccessLevelAssignment -BadgeKey $BadgeKey -AccessLevelID $AccessLevelID) -ne $null) {
             Write-Error -Message ("Accesslevel '$($accessLevel.Name)' is already assigned to BadgeKey '$($BadgeKey)'")
             return
-		}
+        }
 
-		Set-WmiInstance @parameters -Arguments @{
-			BADGEKEY=$BadgeKey;
-			ACCESSLEVELID=$AccessLevelID; 
-			ACTIVATE=$Activate;
-			DEACTIVATE=$Deactivate} |
+        Set-WmiInstance @parameters -Arguments @{
+            BADGEKEY=$BadgeKey;
+            ACCESSLEVELID=$AccessLevelID; 
+            ACTIVATE=$Activate;
+            DEACTIVATE=$Deactivate} |
             Get-AccessLevelAssignment
             
         Write-Verbose -Message ("Added accesslevel '$($accessLevel.Name)' to badge key '$($badge.BadgeKey)'")
-	}
+    }
 }

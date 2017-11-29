@@ -41,7 +41,7 @@ function Start-DataConduITService
             return
         }
 
-		[void]$service.StartService.Invoke();
+        [void]$service.StartService.Invoke();
         
         Write-Verbose -Message ("DataConduIT Service started on '$($Server)'")
 

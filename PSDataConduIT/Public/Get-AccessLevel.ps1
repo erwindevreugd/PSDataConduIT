@@ -42,7 +42,7 @@ function Get-AccessLevel
             HelpMessage='The id of the accesslevel to get')]
         [int]$AccessLevelID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The name of the accesslevel to get')]
@@ -56,11 +56,11 @@ function Get-AccessLevel
             $query += " AND ID=$AccessLevelID"
         }
 
-		if($Name) {
+        if($Name) {
             $query += " AND Name='$Name'"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -73,21 +73,21 @@ function Get-AccessLevel
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentID=$_.SegmentID;
+                SegmentID=$_.SegmentID;
 
-				AccessLevelID=$_.ID;
-				Name=$_.Name;
-				HasCommandAuthority=$_.HasCommandAuthority;
-				DownloadToIntelligentReaders=$_.DownloadToIntelligentReaders;
-				FirstCardUnlock=$_.FirstCardUnlock;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevel"
-		}
+                AccessLevelID=$_.ID;
+                Name=$_.Name;
+                HasCommandAuthority=$_.HasCommandAuthority;
+                DownloadToIntelligentReaders=$_.DownloadToIntelligentReaders;
+                FirstCardUnlock=$_.FirstCardUnlock;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevel"
+        }
     }
 }

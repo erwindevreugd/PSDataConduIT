@@ -65,17 +65,17 @@ function Get-Timezone
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				TimezoneID=$_.ID;
-				Name=$_.Name;
-				SegmentID=$_.SegmentID;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlTimezone"
-		}
+                TimezoneID=$_.ID;
+                Name=$_.Name;
+                SegmentID=$_.SegmentID;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlTimezone"
+        }
     }
 }

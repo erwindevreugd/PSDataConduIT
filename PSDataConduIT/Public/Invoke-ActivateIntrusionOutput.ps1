@@ -53,7 +53,7 @@ function Invoke-ActivateIntrusionOutput
             return
         }
 
-		$intrusionOutput.Activate.Invoke() | Out-Null
+        $intrusionOutput.Activate.Invoke() | Out-Null
 
         Write-Verbose -Message ("Intrusion output '$($intrusionOutput.Name)' activated")
 

@@ -46,7 +46,7 @@ function Get-BadgeStatus
             $query += " AND ID=$BadgeStatusID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -59,17 +59,17 @@ function Get-BadgeStatus
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				BadgeStatusID=$_.ID;
+                BadgeStatusID=$_.ID;
                 Name=$_.NAME;
                 
-			} | Add-ObjectType -TypeName "DataConduIT.LnlBadgeStatus"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlBadgeStatus"
+        }
     }
 }

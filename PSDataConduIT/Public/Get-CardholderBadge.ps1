@@ -63,7 +63,7 @@ function Get-CardholderBadge
         }
 
         Get-WmiObject @parameters | ForEach-Object {
-		    Get-Badge -Server $Server -Credential $Credential -BadgeKey $_.BADGEKEY
-		}
+            Get-Badge -Server $Server -Credential $Credential -BadgeKey $_.BADGEKEY
+        }
     }
 }

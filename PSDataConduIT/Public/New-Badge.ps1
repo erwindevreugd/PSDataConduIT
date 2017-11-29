@@ -37,7 +37,7 @@ function New-Badge
             HelpMessage='The id of the person/cardholder to which to add the new badge')]
         [int]$PersonID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The id of the new badge')]
@@ -54,7 +54,7 @@ function New-Badge
             HelpMessage='The activation date of the badge')]
         [datetime]$Activate = ([DateTime]::Now),
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The deactivation date of the badge')]
         [datetime]$Deactivate = ([DateTime]::Now).AddYears(5),
@@ -106,13 +106,13 @@ function New-Badge
             $parameters.Add("Credential", $Credential)
         }
 
-		if((Get-Badge -BadgeID $BadgeID) -ne $null) {
+        if((Get-Badge -BadgeID $BadgeID) -ne $null) {
             Write-Error -Message ("A badge with id '$($BadgeID)' already exists")
             return
-		}
+        }
 
-		Set-WmiInstance @parameters -Arguments @{
-			ID=$BadgeID;
+        Set-WmiInstance @parameters -Arguments @{
+            ID=$BadgeID;
             PERSONID=$PersonID;
             TYPE=$BadgeTypeID;
             STATUS=1;
@@ -128,5 +128,5 @@ function New-Badge
         } |
         Select-Object *,@{L='BadgeID';E={$_.ID}} | 
         Get-Badge
-	}
+    }
 }

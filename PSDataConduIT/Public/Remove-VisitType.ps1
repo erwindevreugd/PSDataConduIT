@@ -60,7 +60,7 @@ function Remove-VisitType
             $query += " AND SEGMENTID=$SegmentID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;

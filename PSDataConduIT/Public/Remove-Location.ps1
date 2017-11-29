@@ -60,7 +60,7 @@ function Remove-Location
             $query += " AND SEGMENTID=$SegmentID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;

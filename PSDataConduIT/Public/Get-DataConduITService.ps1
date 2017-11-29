@@ -52,20 +52,20 @@ function Get-DataConduITService
             $parameters.Add("Credential", $Credential)
         }
 
-		Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+        Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				Name=$_.Name;
-				IsStarted=$_.Started;
+                Name=$_.Name;
+                IsStarted=$_.Started;
 
-				StartService=$_.StartService;
-				StopService=$_.StopService;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlDataConduITService"
-		}
+                StartService=$_.StartService;
+                StopService=$_.StopService;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlDataConduITService"
+        }
     }
 }

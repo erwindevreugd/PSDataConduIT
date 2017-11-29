@@ -50,7 +50,7 @@ function Get-AccessGroup
             $query += " AND ID=$AccessGroupID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -63,20 +63,20 @@ function Get-AccessGroup
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentID=$_.SegmentID;
+                SegmentID=$_.SegmentID;
 
-				AccessGroupID=$_.ID;
+                AccessGroupID=$_.ID;
                 Name=$_.NAME;
                 
                 AssignGroup=$_.AssignGroup;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessGroup"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAccessGroup"
+        }
     }
 }

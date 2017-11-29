@@ -42,7 +42,7 @@ function Get-Badge
             HelpMessage='The badge id parameter')]
         [long]$BadgeID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge key parameter')]
@@ -56,7 +56,7 @@ function Get-Badge
             $query += " AND ID=$BadgeID"
         }
 
-		if($BadgeKey) {
+        if($BadgeKey) {
             $query += " AND BADGEKEY=$BadgeKey"
         }
 
@@ -73,31 +73,31 @@ function Get-Badge
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				BadgeKey=$_.BADGEKEY;
-				BadgeID=$_.ID;
-				PersonID=$_.PERSONID;
-				BadgeTypeID=$_.TYPE;
-				Status=$_.STATUS;
+                BadgeKey=$_.BADGEKEY;
+                BadgeID=$_.ID;
+                PersonID=$_.PERSONID;
+                BadgeTypeID=$_.TYPE;
+                Status=$_.STATUS;
                 Activate=ToDateTime($_.ACTIVATE);
-				Deactivate=ToDateTime($_.DEACTIVATE);
-				APBExempt=$_.APBEXEMPT;
+                Deactivate=ToDateTime($_.DEACTIVATE);
+                APBExempt=$_.APBEXEMPT;
                 DestinationExempt=($_.DEST_EXEMPT -eq 1);
                 DeadBoltOverride=$_.DEADBOLT_OVERRIDE;
                 ExtendedStrikeHeld=$_.EXTEND_STRIKE_HELD;
                 PassageMode=$_.PASSAGE_MODE;
-				UseLimit=$_.USELIMIT;
+                UseLimit=$_.USELIMIT;
 
-				TwoManType=$_.TWO_MAN_TYPE;
-				LastChanged=ToDateTime($_.LASTCHANGED);
+                TwoManType=$_.TWO_MAN_TYPE;
+                LastChanged=ToDateTime($_.LASTCHANGED);
                 LastPrint=ToDateTime($_.LASTPRINT);
-			} | Add-ObjectType -TypeName "DataConduIT.LnlBadge"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlBadge"
+        }
     }
 }

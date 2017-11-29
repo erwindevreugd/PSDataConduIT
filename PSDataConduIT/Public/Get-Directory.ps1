@@ -63,25 +63,25 @@ function Get-Directory
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				DirectoryID=$_.ID;
-				#AccountCatagory=$_.ACCOUNTCATEGORY;
-				#AccountClass=$_.ACCOUNTCLASS;
-				#AccountDisplayName=$_.ACCOUNTDISPLAYNAMEATTR;
-				#AccountID=$_.ACCOUNTIDATTR;
-				Hostname=$_.HOSTNAME;
-				Name=$_.NAME;
-				Port=$_.PORT;
-				StartNode=$_.STARTNODE;
-				Type=MapEnum ([DirectoryType].AsType()) $_.TYPE;
-				UseSSL=$_.USESSL;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlDirectory"
-		}
+                DirectoryID=$_.ID;
+                #AccountCatagory=$_.ACCOUNTCATEGORY;
+                #AccountClass=$_.ACCOUNTCLASS;
+                #AccountDisplayName=$_.ACCOUNTDISPLAYNAMEATTR;
+                #AccountID=$_.ACCOUNTIDATTR;
+                Hostname=$_.HOSTNAME;
+                Name=$_.NAME;
+                Port=$_.PORT;
+                StartNode=$_.STARTNODE;
+                Type=MapEnum ([DirectoryType].AsType()) $_.TYPE;
+                UseSSL=$_.USESSL;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlDirectory"
+        }
     }
 }

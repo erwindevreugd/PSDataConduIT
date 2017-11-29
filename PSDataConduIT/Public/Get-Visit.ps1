@@ -42,7 +42,7 @@ function Get-Visit
             HelpMessage='The visit id parameter')]
         [int]$VisitID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The cardholder id parameter')]
@@ -56,7 +56,7 @@ function Get-Visit
             $query += " AND ID=$VisitID"
         }
 
-		if($CardholderID) {
+        if($CardholderID) {
             $query += " AND CARDHOLDERID=$CardholderID"
         }
 
@@ -73,29 +73,29 @@ function Get-Visit
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
-			
-				VisitID=$_.ID;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
+            
+                VisitID=$_.ID;
                 VisitorID=$_.VISITORID;
                 VisitKey=$_.VISIT_KEY;
-				CardholderID=$_.CARDHOLDERID;
-				LastChanged=ToDateTime $_.LASTCHANGED;
-				Purpose=$_.PURPOSE;
-				ScheduledTimeIn=ToDateTime $_.SCHEDULED_TIMEIN;
-				ScheduledTimeOut=ToDateTime $_.SCHEDULED_TIMEOUT;
-				TimeIn=ToDateTime $_.TIMEIN;
-				TimeOut=ToDateTime $_.TIMEOUT;
-				VisitType=$_.TYPE;
-				EmailList=$_.EMAIL_LIST;
+                CardholderID=$_.CARDHOLDERID;
+                LastChanged=ToDateTime $_.LASTCHANGED;
+                Purpose=$_.PURPOSE;
+                ScheduledTimeIn=ToDateTime $_.SCHEDULED_TIMEIN;
+                ScheduledTimeOut=ToDateTime $_.SCHEDULED_TIMEOUT;
+                TimeIn=ToDateTime $_.TIMEIN;
+                TimeOut=ToDateTime $_.TIMEOUT;
+                VisitType=$_.TYPE;
+                EmailList=$_.EMAIL_LIST;
 
-				SignInVisit=$_.SignVisitIn;
-				SignOutVisit=$_.SignVisitOut;			
-			} | Add-ObjectType -TypeName "DataConduIT.LnlVisit"
-		}
+                SignInVisit=$_.SignVisitIn;
+                SignOutVisit=$_.SignVisitOut;            
+            } | Add-ObjectType -TypeName "DataConduIT.LnlVisit"
+        }
     }
 }

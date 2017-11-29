@@ -37,17 +37,17 @@ function Invoke-VisitSignIn
             HelpMessage='The visit id parameter')]
         [int]$VisitID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The badge type id parameter')]
         [int]$BadgeTypeID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The assigned badge id parameter')]
         [long]$AssignedBadgeID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The printer name parameter')]
         [string]$PrinterName,
@@ -70,7 +70,7 @@ function Invoke-VisitSignIn
             return
         }
 
-		$visit.SignInVisit.Invoke($BadgeTypeID, $PrinterName, $AssignedBadgeID) | Out-Null
+        $visit.SignInVisit.Invoke($BadgeTypeID, $PrinterName, $AssignedBadgeID) | Out-Null
 
         Write-Verbose -Message ("Visit '$($visit.VisitID)' signed in with badge id '$($AssignedBadgeID)'")
     

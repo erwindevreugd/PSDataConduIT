@@ -14,10 +14,10 @@
 #>
 function Set-ReaderMode 
 {
-	[CmdletBinding()]
-	param
-	(
-		[Parameter(
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
@@ -43,14 +43,14 @@ function Set-ReaderMode
             HelpMessage='The reader id parameter')]
         [int]$ReaderID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$true,
             HelpMessage='The reader mode parameter')]
-		[ReaderMode]$Mode
-	)
+        [ReaderMode]$Mode
+    )
 
-	process {
-		$parameters = @{
+    process {
+        $parameters = @{
             Server=$Server;
         }
 
@@ -68,8 +68,8 @@ function Set-ReaderMode
             return
         }
         
-		$reader.SetReaderMode.Invoke($Mode)
+        $reader.SetReaderMode.Invoke($Mode)
 
         Write-Verbose -Message ("Reader '$($reader.Name)' on panel '$($panel.Name)' mode set to '$($Mode)'")
-	}
+    }
 }

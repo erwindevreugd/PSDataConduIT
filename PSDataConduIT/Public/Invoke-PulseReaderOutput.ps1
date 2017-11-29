@@ -67,7 +67,7 @@ function Invoke-PulseReaderOutput
             return
         }
 
-		$readerOutput.Pulse.Invoke() | Out-Null
+        $readerOutput.Pulse.Invoke() | Out-Null
 
         Write-Verbose -Message ("Reader output '$($readerOutput.Name)' pulsed")
 

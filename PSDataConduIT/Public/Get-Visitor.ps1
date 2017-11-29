@@ -63,29 +63,29 @@ function Get-Visitor
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
-			
-				PersonID=$_.ID;
-				Title=$_.TITLE;
-				Firstname=$_.FIRSTNAME;
-				Lastname=$_.LASTNAME;
-				Midname=$_.MIDNAME;	
-				LastChanged=ToDateTime $_.LASTCHANGED;
-				Organization=$_.ORGANIZATION;
-				Extension=$_.EXT;
-				OfficePhoneNumber=$_.OPHONE;
-				PhoneNumber=$_.PHONE;
-				SSNO=$_.SSNO;
-				Address=$_.ADDR1;
-				State=$_.STATE;
-				City=$_.CITY;
-				ZipCode=$_.ZIP
-			} | Add-ObjectType -TypeName "DataConduIT.LnlVisitor"
-		}
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
+            
+                PersonID=$_.ID;
+                Title=$_.TITLE;
+                Firstname=$_.FIRSTNAME;
+                Lastname=$_.LASTNAME;
+                Midname=$_.MIDNAME;    
+                LastChanged=ToDateTime $_.LASTCHANGED;
+                Organization=$_.ORGANIZATION;
+                Extension=$_.EXT;
+                OfficePhoneNumber=$_.OPHONE;
+                PhoneNumber=$_.PHONE;
+                SSNO=$_.SSNO;
+                Address=$_.ADDR1;
+                State=$_.STATE;
+                City=$_.CITY;
+                ZipCode=$_.ZIP
+            } | Add-ObjectType -TypeName "DataConduIT.LnlVisitor"
+        }
     }
 }

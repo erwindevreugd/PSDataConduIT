@@ -46,7 +46,7 @@ function Get-IntrusionArea
             $query += " AND ID=$IntrusionAreaID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -59,14 +59,14 @@ function Get-IntrusionArea
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				IntrusionAreaID=$_.ID;
+                IntrusionAreaID=$_.ID;
                 Name=$_.NAME;
                 Type=MapEnum ([AreaType].AsType()) $_.AREATYPE;
                 Number=$_.AREANUMBER;
@@ -81,7 +81,7 @@ function Get-IntrusionArea
                 SilenceAlarms=$_.SILENCEALARMS;
 
                 GetHardwareStatus=$_.GETHARDWARESTATUS;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlIntrusionArea"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlIntrusionArea"
+        }
     }
 }

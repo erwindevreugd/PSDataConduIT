@@ -31,14 +31,14 @@ function New-VisitType
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[ValidateLength(1, 255)]
+        [ValidateLength(1, 255)]
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The name of the visit type')]
         [string]$Name,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The segment id to which to add the new visit type')]
@@ -57,10 +57,10 @@ function New-VisitType
             $parameters.Add("Credential", $Credential)
         }
 
-		Set-WmiInstance @parameters -Arguments @{
-			Name=$Name; 
-			SegmentID=$SegmentID;} |
-			Select-Object *,@{L='VisitTypeID';E={$_.ID}} | 
-			Get-VisitType
-	}
+        Set-WmiInstance @parameters -Arguments @{
+            Name=$Name; 
+            SegmentID=$SegmentID;} |
+            Select-Object *,@{L='VisitTypeID';E={$_.ID}} | 
+            Get-VisitType
+    }
 }

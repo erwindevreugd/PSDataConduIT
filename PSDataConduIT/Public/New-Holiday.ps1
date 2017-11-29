@@ -31,7 +31,7 @@ function New-Holiday
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[ValidateLength(1, 255)]
+        [ValidateLength(1, 255)]
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
@@ -50,7 +50,7 @@ function New-Holiday
             HelpMessage='The extent days of the holiday')]
         [int]$ExtentDays,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The segment id to which to add the new holiday')]
@@ -71,12 +71,12 @@ function New-Holiday
             $parameters.Add("Credential", $Credential)
         }
 
-		Set-WmiInstance @parameters -Arguments @{
+        Set-WmiInstance @parameters -Arguments @{
             Name=$Name;
             StartDate=ToWmiDateTime $StartDate;
             ExtentDays=$ExtentDays;
-			SegmentID=$SegmentID;} |
-			Select-Object *,@{L='HolidayID';E={$_.ID}} | 
-			Get-Holiday
-	}
+            SegmentID=$SegmentID;} |
+            Select-Object *,@{L='HolidayID';E={$_.ID}} | 
+            Get-Holiday
+    }
 }

@@ -56,7 +56,7 @@ function Get-Holiday
             $query += " AND SEGMENTID=$SegmentID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -69,20 +69,20 @@ function Get-Holiday
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				HolidayID=$_.ID;
+                HolidayID=$_.ID;
                 Name=$_.NAME;
                 StartDate=ToDateTime($_.STARTDATE);
                 ExtentDays=$_.EXTENTDAYS;
 
                 SegmentID=$_.SEGMENTID;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlHoliday"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlHoliday"
+        }
     }
 }

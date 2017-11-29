@@ -55,7 +55,7 @@ function Invoke-UpdateHardwareStatus
             return
         }
 
-		$panel.UpdateHardwareStatus.Invoke() | Out-Null
+        $panel.UpdateHardwareStatus.Invoke() | Out-Null
 
         Write-Verbose -Message ("Updated hardware status for panel '$($panel.Name)'")
 

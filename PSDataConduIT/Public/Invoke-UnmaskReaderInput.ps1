@@ -67,7 +67,7 @@ function Invoke-UnmaskReaderInput
             return
         }
 
-		$readerInput.Unmask.Invoke() | Out-Null
+        $readerInput.Unmask.Invoke() | Out-Null
 
         Write-Verbose -Message ("Reader input '$($readerInput.Name)' unmasked")
 

@@ -63,23 +63,23 @@ function Get-BadgeLastLocation
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				AccessFlag=$_.AccessFlag;
-				BadgeID=$_.BadgeID;
-				PersonID=$_.PersonID;
-				EventID=$_.EventID;
-				EventTime=ToDateTime $_.EventTime;
-				EventType=$_.EventType;
-				IsReplicated=$_.IsFromReplication;
-				PanelID=$_.PanelID;
-				ReaderID=$_.ReaderID;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlBadgeLastLocation"
-		}
+                AccessFlag=$_.AccessFlag;
+                BadgeID=$_.BadgeID;
+                PersonID=$_.PersonID;
+                EventID=$_.EventID;
+                EventTime=ToDateTime $_.EventTime;
+                EventType=$_.EventType;
+                IsReplicated=$_.IsFromReplication;
+                PanelID=$_.PanelID;
+                ReaderID=$_.ReaderID;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlBadgeLastLocation"
+        }
     }
 }

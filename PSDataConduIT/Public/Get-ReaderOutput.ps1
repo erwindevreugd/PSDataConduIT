@@ -26,18 +26,18 @@ function Get-ReaderOutput
     param
     (
         [Parameter(
-			Position=0, 
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
-		[string]$Server = $Script:Server,
-		
-		[Parameter(
-			Position=1,
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
-		[PSCredential]$Credential = $Script:Credential,
+            Position=0, 
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+        [string]$Server = $Script:Server,
+        
+        [Parameter(
+            Position=1,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+        [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
             Mandatory=$false, 
@@ -90,24 +90,24 @@ function Get-ReaderOutput
             $parameters.Add("Credential", $Credential)
         }
 
-		Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+        Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				PanelID=$_.PANELID;
+                PanelID=$_.PANELID;
                 ReaderID=$_.READERID;
                 ReaderOutputID=if($_.__CLASS -eq "Lnl_ReaderOutput1") { 1 } else { 2 };
-				Name=$_.NAME;
+                Name=$_.NAME;
 
                 GetHardwareStatus=$_.GetHardwareStatus;
                 Activate=$_.ACTIVATE;
                 Deactivate=$_.DEACTIVATE;
                 Pulse=$_.PULSE;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlReaderOutput"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlReaderOutput"
+        }
     }
 }

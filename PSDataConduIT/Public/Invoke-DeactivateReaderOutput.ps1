@@ -67,7 +67,7 @@ function Invoke-DeactivateReaderOutput
             return
         }
 
-		$readerOutput.Deactivate.Invoke() | Out-Null
+        $readerOutput.Deactivate.Invoke() | Out-Null
 
         Write-Verbose -Message ("Reader output '$($readerOutput.Name)' deactivated")
 

@@ -40,7 +40,7 @@ function Stop-DataConduITService
             return
         }
 
-		[void]$service.StopService.Invoke();
+        [void]$service.StopService.Invoke();
 
         Write-Verbose -Message ("DataConduIT Service stopped on '$($Server)'")
         

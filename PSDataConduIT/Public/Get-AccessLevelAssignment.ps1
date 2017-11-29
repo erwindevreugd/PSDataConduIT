@@ -49,7 +49,7 @@ function Get-AccessLevelAssignment
             HelpMessage='The accesslevel id')]
         [int]$AccessLevelID = $null,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge key')]
@@ -63,11 +63,11 @@ function Get-AccessLevelAssignment
             $query += " AND ACCESSLEVELID=$AccessLevelID"
         }
 
-		if($BadgeKey) {
+        if($BadgeKey) {
             $query += " AND BADGEKEY=$BadgeKey"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -80,18 +80,18 @@ function Get-AccessLevelAssignment
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				AccessLevelID=$_.ACCESSLEVELID;
-				BadgeKey=$_.BADGEKEY;
-				Activate=ToDateTime $_.ACTIVATE;
-				Deactivate=ToDateTime $_.DEACTIVATE;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevelAssignment"
-		}
+                AccessLevelID=$_.ACCESSLEVELID;
+                BadgeKey=$_.BADGEKEY;
+                Activate=ToDateTime $_.ACTIVATE;
+                Deactivate=ToDateTime $_.DEACTIVATE;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevelAssignment"
+        }
     }
 }

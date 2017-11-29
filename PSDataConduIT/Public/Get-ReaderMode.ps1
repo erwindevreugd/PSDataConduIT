@@ -19,10 +19,10 @@
 #>
 function Get-ReaderMode 
 {
-	[CmdletBinding()]
-	param
-	(
-		[Parameter(
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
@@ -47,10 +47,10 @@ function Get-ReaderMode
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id parameter')]
         [int]$ReaderID
-	)
+    )
 
-	process {
-		$parameters = @{
+    process {
+        $parameters = @{
             Server=$Server;
         }
 
@@ -71,7 +71,7 @@ function Get-ReaderMode
             return
         }
 
-		$mode = MapEnum ([ReaderMode].AsType()) $reader.GetReaderMode.Invoke().Mode
+        $mode = MapEnum ([ReaderMode].AsType()) $reader.GetReaderMode.Invoke().Mode
 
         Write-Verbose -Message ("Reader '$($reader.Name)' on Panel '$($panel.Name)' reader mode is '$($mode)'")
 
@@ -81,5 +81,5 @@ function Get-ReaderMode
             Name=$reader.Name;
             Mode=$mode;
         } | Add-ObjectType -TypeName "DataConduIT.LnlReaderMode"
-	}
+    }
 }

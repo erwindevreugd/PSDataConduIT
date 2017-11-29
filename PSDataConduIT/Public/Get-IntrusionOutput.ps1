@@ -46,7 +46,7 @@ function Get-IntrusionOutput
             $query += " AND ID=$IntrusionOutputID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -59,14 +59,14 @@ function Get-IntrusionOutput
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				IntrusionOuputID=$_.ID;
+                IntrusionOuputID=$_.ID;
                 Name=$_.NAME;
                 PanelID=$_.PANELID;
                 DeviceID=$_.DEVICEID;
@@ -76,7 +76,7 @@ function Get-IntrusionOutput
                 Deactivate=$_.DEACTIVATE;
                 
                 GetHardwareStatus=$_.GETHARDWARESTATUS;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlIntrusionOutput"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlIntrusionOutput"
+        }
     }
 }

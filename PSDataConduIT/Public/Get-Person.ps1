@@ -63,20 +63,20 @@ function Get-Person
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				PersonID=$_.ID;
-				Firstname=$_.FIRSTNAME;
-				Lastname=$_.LASTNAME;
-				Midname=$_.MIDNAME;
-				LastChanged=ToDateTime $_.LASTCHANGED;
-				SSNO=$_.SSNO;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlPerson"
-		}
+                PersonID=$_.ID;
+                Firstname=$_.FIRSTNAME;
+                Lastname=$_.LASTNAME;
+                Midname=$_.MIDNAME;
+                LastChanged=ToDateTime $_.LASTCHANGED;
+                SSNO=$_.SSNO;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlPerson"
+        }
     }
 }

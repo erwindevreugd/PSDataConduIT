@@ -23,41 +23,41 @@ function Get-AlarmOutput
     param
     (
         [Parameter(
-			Position=0, 
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
-		[string]$Server = $Script:Server,
-		
-		[Parameter(
-			Position=1,
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
-		[PSCredential]$Credential = $Script:Credential,
+            Position=0, 
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+        [string]$Server = $Script:Server,
+        
+        [Parameter(
+            Position=1,
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+        [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The panel id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The panel id parameter')]
         [int]$PanelID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The alarm panel id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The alarm panel id parameter')]
         [int]$AlarmPanelID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The output id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The output id parameter')]
         [int]$OutputID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The alarm output id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The alarm output id parameter')]
         [int]$AlarmOutputID
     )
 
@@ -92,25 +92,25 @@ function Get-AlarmOutput
             $parameters.Add("Credential", $Credential)
         }
 
-		Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+        Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				PanelID=$_.PANELID;
+                PanelID=$_.PANELID;
                 AlarmPanelID=$_.ALARMPANELID;
                 OutputID=$_.OUTPUTID;
                 AlarmOutputID=$_.ID;
-				Name=$_.NAME;
+                Name=$_.NAME;
 
                 GetHardwareStatus=$_.GetHardwareStatus;
                 Activate=$_.ACTIVATE;
                 Deactivate=$_.DEACTIVATE;
                 Pulse=$_.PULSE;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlAlarmOutput"
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAlarmOutput"
+        }
     }
 }

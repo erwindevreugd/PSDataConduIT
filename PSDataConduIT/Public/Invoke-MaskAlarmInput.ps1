@@ -32,27 +32,27 @@ function Invoke-MaskAlarmInput
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The panel id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The panel id parameter')]
         [int]$PanelID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The alarm panel id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The alarm panel id parameter')]
         [int]$AlarmPanelID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The input id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The input id parameter')]
         [int]$InputID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The alarm input id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The alarm input id parameter')]
         [int]$AlarmInputID,
 
         [switch]$PassThru
@@ -72,7 +72,7 @@ function Invoke-MaskAlarmInput
             return
         }
 
-		$alarmInput.Mask.Invoke() | Out-Null
+        $alarmInput.Mask.Invoke() | Out-Null
 
         Write-Verbose -Message ("Alarm input '$($alarmInput.Name)' masked")
 

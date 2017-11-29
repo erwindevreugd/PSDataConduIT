@@ -31,7 +31,7 @@ function New-BadgeStatus
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[ValidateLength(1, 255)]
+        [ValidateLength(1, 255)]
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
@@ -51,9 +51,9 @@ function New-BadgeStatus
             $parameters.Add("Credential", $Credential)
         }
 
-		Set-WmiInstance @parameters -Arguments @{
-			Name=$Name;} |
-			Select-Object *,@{L='BadgeStatusID';E={$_.ID}} | 
-			Get-BadgeStatus
-	}
+        Set-WmiInstance @parameters -Arguments @{
+            Name=$Name;} |
+            Select-Object *,@{L='BadgeStatusID';E={$_.ID}} | 
+            Get-BadgeStatus
+    }
 }

@@ -32,27 +32,27 @@ function Invoke-UnmaskAlarmInput
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The panel id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The panel id parameter')]
         [int]$PanelID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The alarm panel id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The alarm panel id parameter')]
         [int]$AlarmPanelID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The input id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The input id parameter')]
         [int]$InputID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The alarm input id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The alarm input id parameter')]
         [int]$AlarmInputID,
 
         [switch]$PassThru
@@ -72,7 +72,7 @@ function Invoke-UnmaskAlarmInput
             return
         }
 
-		$alarmInput.Unmask.Invoke() | Out-Null
+        $alarmInput.Unmask.Invoke() | Out-Null
 
         Write-Verbose -Message ("Alarm input '$($alarmInput.Name)' unmasked")
 

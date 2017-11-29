@@ -61,7 +61,7 @@ function Get-Reader
             $query += " AND ReaderID=$ReaderID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -74,29 +74,29 @@ function Get-Reader
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentId=$_.SegmentId;
+                SegmentId=$_.SegmentId;
 
-				Name=$_.Name;
-				HostName=$_.HostName;
-				PanelID=$_.PanelID;
-				ReaderID=$_.ReaderID;
-				ControlType=$_.ControlType;
-				TimeAttendanceType=MapEnum ([TimeAttandanceType]) $_.TimeAttendanceType;
+                Name=$_.Name;
+                HostName=$_.HostName;
+                PanelID=$_.PanelID;
+                ReaderID=$_.ReaderID;
+                ControlType=$_.ControlType;
+                TimeAttendanceType=MapEnum ([TimeAttandanceType]) $_.TimeAttendanceType;
 
-				OpenDoor=$_.OpenDoor;
-				SetReaderMode=$_.SetMode;
-				GetReaderMode=$_.GetMode;
-				SetFirstCardUnlockMode=$_.SetFirstCardUnlockMode;
-				DownloadFirmware=$_.DownloadFirmware;
-				GetHardwareStatus=$_.GetHardwareStatus
-			} | Add-ObjectType -TypeName "DataConduIT.LnlReader"
-		}
+                OpenDoor=$_.OpenDoor;
+                SetReaderMode=$_.SetMode;
+                GetReaderMode=$_.GetMode;
+                SetFirstCardUnlockMode=$_.SetFirstCardUnlockMode;
+                DownloadFirmware=$_.DownloadFirmware;
+                GetHardwareStatus=$_.GetHardwareStatus
+            } | Add-ObjectType -TypeName "DataConduIT.LnlReader"
+        }
     }
 }

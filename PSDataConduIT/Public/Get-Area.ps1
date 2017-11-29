@@ -51,7 +51,7 @@ function Get-Area
             $query += " AND ID=$AreaID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -64,19 +64,19 @@ function Get-Area
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				AreaID=$_.ID;
-				AreaType=MapEnum ([AreaType].AsType()) $_.AREATYPE;
-				Name=$_.NAME;
+                AreaID=$_.ID;
+                AreaType=MapEnum ([AreaType].AsType()) $_.AREATYPE;
+                Name=$_.NAME;
 
-				MoveBadge=$_.MoveBadge;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlArea"
-		}
+                MoveBadge=$_.MoveBadge;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlArea"
+        }
     }
 }

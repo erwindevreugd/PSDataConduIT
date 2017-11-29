@@ -37,33 +37,33 @@ function New-Visit
             HelpMessage='The id of the visitor to assign to the new visit')]
         [int]$VisitorID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The id of the cardholder that will host the new visit')]
         [int]$CardholderID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The duration of the new visit. If the ScheduledTimeout parameter is specified this parameter is ignored')]
         [int]$Hours = 4,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The scheduled starting time of the new visit. The default value is now')]
         [datetime]$ScheduledTimeIn = ([DateTime]::Now),
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The scheduled ending time of the new visit')]
         [datetime]$ScheduledTimeOut = ([DateTime]::Now).AddHours($Hours),
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='The purpose of the visit')]
         [string]$Purpose,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false,
             HelpMessage='List of email addresses to add to the new visit')]
         [string]$EmailList
@@ -82,13 +82,13 @@ function New-Visit
         }
 
         Set-WmiInstance @parameters -Arguments @{
-			CARDHOLDERID=$CardholderID;
-			VISITORID=$VisitorID;
-			SCHEDULED_TIMEIN=ToWmiDateTime $ScheduledTimeIn;
-			SCHEDULED_TIMEOUT=ToWmiDateTime $ScheduledTimeOut;
-			PURPOSE=$Purpose;
-			EMAIL_LIST=$EmailList;} |
-			Select-Object *,@{L='VisitID';E={$_.ID}} | 
-			Get-Visit
+            CARDHOLDERID=$CardholderID;
+            VISITORID=$VisitorID;
+            SCHEDULED_TIMEIN=ToWmiDateTime $ScheduledTimeIn;
+            SCHEDULED_TIMEOUT=ToWmiDateTime $ScheduledTimeOut;
+            PURPOSE=$Purpose;
+            EMAIL_LIST=$EmailList;} |
+            Select-Object *,@{L='VisitID';E={$_.ID}} | 
+            Get-Visit
     }
 }

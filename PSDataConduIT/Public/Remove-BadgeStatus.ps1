@@ -50,7 +50,7 @@ function Remove-BadgeStatus
             $query += " AND ID=$BadgeStatusID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;

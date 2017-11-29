@@ -63,17 +63,17 @@ function Get-MonitoringZone
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				MonitoringZoneID=$_.ID;
-				Name=$_.Name;
-				SegmentID=$_.SegmentID;
-			} | Add-ObjectType -TypeName "DataConduIT.LnlMonitoringZone"
-		}
+                MonitoringZoneID=$_.ID;
+                Name=$_.Name;
+                SegmentID=$_.SegmentID;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlMonitoringZone"
+        }
     }
 }

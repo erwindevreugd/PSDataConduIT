@@ -59,16 +59,16 @@ function Get-SegmentGroup
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentGroupID=$_.ID;
-				Name=$_.NAME
-			} | Add-ObjectType -TypeName "DataConduIT.LnlSegmentGroup"
-		}
+                SegmentGroupID=$_.ID;
+                Name=$_.NAME
+            } | Add-ObjectType -TypeName "DataConduIT.LnlSegmentGroup"
+        }
     }
 }

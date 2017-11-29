@@ -40,7 +40,7 @@ function Remove-AccessLevel
             HelpMessage='The accesslevel id parameter')]
         [int]$AccessLevelID,
 
-		[Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
         [string]$Name,
 
         [switch]$Force
@@ -53,11 +53,11 @@ function Remove-AccessLevel
             $query += " AND ID=$AccessLevelID"
         }
 
-		if($Name) {
+        if($Name) {
             $query += " AND Name='$Name'"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;

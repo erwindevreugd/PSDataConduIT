@@ -36,8 +36,8 @@ function Invoke-RefreshCache
         $parameters = @{
             ComputerName=$Server;
             Namespace=$Script:OnGuardNamespace;
-			Class="Lnl_DataConduITManager";
-			Name="RefreshCache"
+            Class="Lnl_DataConduITManager";
+            Name="RefreshCache"
         }
 
         if($Credential -ne $null) {

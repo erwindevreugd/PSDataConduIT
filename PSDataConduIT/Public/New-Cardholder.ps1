@@ -31,7 +31,7 @@ function New-Cardholder
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The last name of the new cardholder')]
@@ -80,14 +80,14 @@ function New-Cardholder
             $parameters.Add("Credential", $Credential)
         }
 
-		Set-WmiInstance @parameters -Arguments @{
-			LASTNAME=$Lastname;
+        Set-WmiInstance @parameters -Arguments @{
+            LASTNAME=$Lastname;
             FIRSTNAME=$Firstname;
             EMAIL=$Email;
             FLOOR=$Floor;
             SSNO=$SSNO;
             ALLOWEDVISITORS=[bool]$AllowedVisitors} |
-			Select-Object *,@{L='PersonID';E={$_.ID}} | 
-			Get-Cardholder
-	}
+            Select-Object *,@{L='PersonID';E={$_.ID}} | 
+            Get-Cardholder
+    }
 }

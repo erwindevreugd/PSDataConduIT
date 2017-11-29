@@ -37,27 +37,27 @@ function Get-AlarmOutputHardwareStatus
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The panel id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The panel id parameter')]
         [int]$PanelID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The alarm panel id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The alarm panel id parameter')]
         [int]$AlarmPanelID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The output id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The output id parameter')]
         [int]$OutputID,
 
         [Parameter(
-			Mandatory=$false, 
-			ValueFromPipelineByPropertyName=$true,
-			HelpMessage='The alarm output id parameter')]
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The alarm output id parameter')]
         [int]$AlarmOutputID  
     )
 
