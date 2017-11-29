@@ -14,7 +14,10 @@
 #>
 function Invoke-ResetUseLimit
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact="High"
+    )]
     param
     (
         [Parameter(
@@ -55,10 +58,11 @@ function Invoke-ResetUseLimit
             return
         }
         
-        $panel.ResetUseLimit.Invoke() | Out-Null
+        if($Force -or $PSCmdlet.ShouldProcess("$Server", "Reset use limits for all cardholders on panel '$($panel.Name)'")) {
+            $panel.ResetUseLimit.Invoke() | Out-Null
+            Write-Verbose -Message ("Reset all cardholder use limits for panel '$($panel.Name)'")
+        }
 
-        Write-Verbose -Message ("Reset all cardholder use limits for panel '$($panel.Name)'")
-    
         if($PassThru) {
             Write-Output $panel
         }
