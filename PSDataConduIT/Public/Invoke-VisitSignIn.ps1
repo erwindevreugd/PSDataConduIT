@@ -14,7 +14,9 @@
 #>
 function Invoke-VisitSignIn
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        DefaultParameterSetName="SignInByAssignedBadgeID"
+    )]
     param
     (
         [Parameter(
@@ -38,18 +40,21 @@ function Invoke-VisitSignIn
         [int]$VisitID,
 
         [Parameter(
-            Mandatory=$false,
-            HelpMessage='The badge type id parameter')]
+            Mandatory=$true,
+            HelpMessage='The assigned badge id parameter',
+            ParameterSetName="SignInByAssignedBadgeID")]
+        [long]$AssignedBadgeID,
+
+        [Parameter(
+            Mandatory=$true,
+            HelpMessage='The badge type id parameter',
+            ParameterSetName="SignInByBadgeTypeID")]
         [int]$BadgeTypeID,
 
         [Parameter(
             Mandatory=$false,
-            HelpMessage='The assigned badge id parameter')]
-        [long]$AssignedBadgeID,
-
-        [Parameter(
-            Mandatory=$false,
-            HelpMessage='The printer name parameter')]
+            HelpMessage='The printer name parameter',
+            ParameterSetName="SignInByBadgeTypeID")]
         [string]$PrinterName,
 
         [switch]$PassThru
