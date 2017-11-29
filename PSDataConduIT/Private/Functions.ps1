@@ -26,3 +26,7 @@ function MapEnum($enum, $value, $default = $null) {
         return $default
     }
 }
+
+function IntToIPAddress($i) {
+    return [IPAddress][BitConverter]::GetBytes($i)
+}
