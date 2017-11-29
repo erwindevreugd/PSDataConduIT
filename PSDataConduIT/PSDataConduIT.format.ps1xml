@@ -1286,6 +1286,38 @@
     </View>
 
     <!-- 
+    DataConduIT.LnlVisitRecipient
+    -->
+    <View>
+      <Name>DataConduITLnlVisitRecipient</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlVisitRecipient</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>VisitID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>EmailAddress</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!-- 
     DataConduIT.LnlLoggedEvent
     -->
     <View>
