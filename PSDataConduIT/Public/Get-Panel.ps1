@@ -77,7 +77,7 @@ function Get-Panel
                 Workstation=$_.Workstation;
                 PrimaryDialupHostNumber=$_.PrimaryDialupHostNumber;
                 SecondaryDialupHostNumber=$_.PrimaryDialupHostNumber;
-                PrimaryIPAddress=$_.PrimaryIPAddress;
+                PrimaryIPAddress=IntToIPAddress $_.PrimaryIPAddress;
                 SegmentID=$_.SegmentId;
 
                 DownloadDatabase=$_.DownloadDatabase;
