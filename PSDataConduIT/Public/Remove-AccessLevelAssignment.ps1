@@ -72,11 +72,11 @@ function Remove-AccessLevelAssignment
             $parameters.Add("Credential", $Credential)
         }
 
-        $accessLevelAssignments = Get-WmiObject @parameters 
+        $items = Get-WmiObject @parameters 
 
-        foreach($accessLevelAssignment in $accessLevelAssignments) {
-            if($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing accesslevel: $($accessLevelAssignment.ACCESSLEVELID) from $($accessLevelAssignment.BADGEKEY)")) {
-               $accessLevelAssignment | Remove-WmiObject
+        foreach($item in $items) {
+            if($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing accesslevel: $($item.ACCESSLEVELID) from $($item.BADGEKEY)")) {
+               $item | Remove-WmiObject
             }
         }
     }

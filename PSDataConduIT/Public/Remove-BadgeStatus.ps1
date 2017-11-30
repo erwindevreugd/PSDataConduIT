@@ -35,7 +35,7 @@ function Remove-BadgeStatus
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge status id parameter')]
         [int]$BadgeStatusID,

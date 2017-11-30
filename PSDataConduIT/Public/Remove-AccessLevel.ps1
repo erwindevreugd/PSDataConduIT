@@ -69,10 +69,12 @@ function Remove-AccessLevel
             $parameters.Add("Credential", $Credential)
         }
 
-        $accessLevel = Get-WmiObject @parameters 
+        $items = Get-WmiObject @parameters 
 
-        if($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing AccessLevelID: $($accessLevel.ID), $($accessLevel.Name)")) {
-           $accessLevel | Remove-WmiObject
+        foreach($item in $items) {
+            if($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing AccessLevelID: $($item.ID), $($item.Name)")) {
+               $item | Remove-WmiObject
+            }
         }
     }
 }

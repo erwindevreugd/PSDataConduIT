@@ -35,7 +35,7 @@ function Remove-Title
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The title id parameter')]
         [int]$TitleID,

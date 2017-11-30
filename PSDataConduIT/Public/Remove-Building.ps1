@@ -35,7 +35,7 @@ function Remove-Building
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The building id parameter')]
         [int]$BuildingID,

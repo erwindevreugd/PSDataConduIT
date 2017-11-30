@@ -35,7 +35,7 @@ function Remove-Division
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The division id parameter')]
         [int]$DivisionID,

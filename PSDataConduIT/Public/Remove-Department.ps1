@@ -35,7 +35,7 @@ function Remove-Department
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The department id parameter')]
         [int]$DepartmentID,

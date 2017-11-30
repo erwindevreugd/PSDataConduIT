@@ -35,7 +35,7 @@ function Remove-Location
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The location id parameter')]
         [int]$LocationID,
