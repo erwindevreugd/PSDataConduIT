@@ -3,19 +3,16 @@
     Gets a timezone interval.
 
     .DESCRIPTION   
-    Gets all timezone intervals or a single timezone interval if an timezone interval id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all timezone intervals or a single timezone interval if an timezone interval id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-TimezoneInterval
     
-    Class              : Lnl_TimezoneInterval
-    ComputerName       : SERVER
-    TimezoneIntervalID : 0
-    SuperClass         : Lnl_Element
-    Credential         :
-    TimezoneID         : 2
-    Path               : \\SERVER\root\OnGuard:Lnl_TimezoneInterval.ID=0,TimezoneID=2
-    Server             : SERVER
+    Timezone                                 Mon   Tue   Wed   Thu   Fri   Sat   Sun   H1    H2    H3    H4    H5    H6    H7    H8
+    --------                                 ---   ---   ---   ---   ---   ---   ---   --    --    --    --    --    --    --    --
+    Always                                   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -65,19 +62,25 @@ function Get-TimezoneInterval
             $parameters.Add("Credential", $Credential)
         }
 
-        Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+        $timezones = Get-Timezone -Server $server -Credential $Credential
 
-				TimezoneIntervalID=$_.ID;
+        Get-WmiObject @parameters | ForEach-Object { 
+            # $item used to keep track of foreach object
+            $item = $_
+            New-Object PSObject -Property @{
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
+
+                TimezoneIntervalID=$_.ID;
                 TimezoneID=$_.TimezoneID;
+                Timezone=($timezones | Where-Object {$_.TimezoneID -eq $item.TimezoneID}).Name;
                 
                 Monday=$_.MONDAY;
-                Thuesday=$_.THUESDAY;
+                Tuesday=$_.TUESDAY;
                 Wednesday=$_.WEDNESDAY;
                 Thursday=$_.THURSDAY;
                 Friday=$_.FRIDAY;
@@ -94,8 +97,25 @@ function Get-TimezoneInterval
                 HolidayType8=$_.HOLIDAYTYPE8;
 
                 StartTime=ToDateTime $_.STARTTIME;
-				EndTime=ToDateTime $_.ENDTIME;
-			}
-		}
+                EndTime=ToDateTime $_.ENDTIME;
+            } | Add-Member -MemberType AliasProperty -Name Mon -Value Monday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Tue -Value Tuesday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Wed -Value Wednesday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Thu -Value Thursday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Fri -Value Friday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Sat -Value Saturday -PassThru | 
+            Add-Member -MemberType AliasProperty -Name Sun -Value Sunday -PassThru | 
+
+            Add-Member -MemberType AliasProperty -Name H1 -Value HolidayType1 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H2 -Value HolidayType2 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H3 -Value HolidayType3 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H4 -Value HolidayType4 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H5 -Value HolidayType5 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H6 -Value HolidayType6 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H7 -Value HolidayType7 -PassThru | 
+            Add-Member -MemberType AliasProperty -Name H8 -Value HolidayType8 -PassThru | 
+
+            Add-ObjectType -TypeName "DataConduIT.LnlTimezoneInterval"
+        }
     }
 }

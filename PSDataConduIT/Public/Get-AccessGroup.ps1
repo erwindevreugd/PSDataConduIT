@@ -3,20 +3,16 @@
     Gets an access group.
 
     .DESCRIPTION   
-    Gets all access groups or a single access group if an access group id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all access groups or a single access group if an access group id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AccessGroup
     
-    ComputerName  : SERVER
-    Path          : \\SERVER\root\OnGuard:Lnl_AccessGroup.ID=1
-    SegmentID     : 0
-    Server        : SERVER
-    SuperClass    : Lnl_Element
-    Name          : All
-    Credential    :
-    AccessGroupID : 1
-    Class         : Lnl_AccessGroup
+    AccessGroupID Name                                     SegmentID
+    ------------- ----                                     ---------
+    1             All                                      0
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -54,7 +50,7 @@ function Get-AccessGroup
             $query += " AND ID=$AccessGroupID"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -67,20 +63,20 @@ function Get-AccessGroup
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentID=$_.SegmentID;
+                SegmentID=$_.SegmentID;
 
-				AccessGroupID=$_.ID;
+                AccessGroupID=$_.ID;
                 Name=$_.NAME;
                 
                 AssignGroup=$_.AssignGroup;
-			}
-		}
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAccessGroup"
+        }
     }
 }

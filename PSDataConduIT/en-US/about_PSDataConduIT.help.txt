@@ -1,0 +1,17 @@
+TOPIC
+    about_PSDataConduIT
+
+SHORT DESCRIPTION
+    A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
+
+LONG DESCRIPTION
+    A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
+
+EXAMPLES
+    
+
+KEYWORDS
+    Lenel DataConduIT PowerShell
+
+SEE ALSO
+    Get-Command -Module PSDataConduIT

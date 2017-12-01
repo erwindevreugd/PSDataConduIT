@@ -3,7 +3,9 @@
     Gets an user account.
 
     .DESCRIPTION   
-    Gets all user accounts or a single user account if an user account id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all user accounts or a single user account if an user account id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-UserAccount
@@ -68,18 +70,18 @@ function Get-UserAccount
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
-			
-				UserAccountID=$_.ID;
-				AccountID=$_.AccountID;
-				DirectoryID=$_.DirectoryID;
-				UserID=$_.UserID;
-			}
-		}
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
+            
+                UserAccountID=$_.ID;
+                AccountID=$_.AccountID;
+                DirectoryID=$_.DirectoryID;
+                UserID=$_.UserID;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlUserAccount"
+        }
     }
 }

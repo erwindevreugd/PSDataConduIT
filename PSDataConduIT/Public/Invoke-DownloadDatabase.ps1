@@ -3,7 +3,9 @@
     Download the database to the specified panel.
 
     .DESCRIPTION   
-    Downloads the database to the specified panel. If the result return null, try the parameter "-Verbose" to get more details.
+    Downloads the database to the specified panel. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -12,7 +14,10 @@
 #>
 function Invoke-DownloadDatabase
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact="High"
+    )]
     param
     (
         [Parameter(
@@ -33,7 +38,9 @@ function Invoke-DownloadDatabase
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID    
+        [int]$PanelID,
+
+        [switch]$Force
     )
 
     process {
@@ -51,8 +58,9 @@ function Invoke-DownloadDatabase
             return
         }
         
-		$panel.DownloadDatabase.Invoke()
-
-        Write-Verbose -Message ("Downloading database to panel '$($panel.Name)'")
+        if($Force -or $PSCmdlet.ShouldProcess("$Server", "Download database to panel '$($panel.Name)'")) {
+            $panel.DownloadDatabase.Invoke() | Out-Null
+            Write-Verbose -Message ("Downloading database to panel '$($panel.Name)'")
+        }
     }
 }

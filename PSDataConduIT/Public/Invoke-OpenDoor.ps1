@@ -3,7 +3,9 @@
     Opens a door.
 
     .DESCRIPTION   
-    Opens a door .If the result return null, try the parameter "-Verbose" to get more details.
+    Opens a door. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -39,7 +41,9 @@ function Invoke-OpenDoor
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id parameter')]
-        [int]$ReaderID     
+        [int]$ReaderID,
+
+        [switch]$PassThru
     )
 
     process {
@@ -56,8 +60,12 @@ function Invoke-OpenDoor
             return
         }
 
-		$reader.OpenDoor.Invoke()
+        $reader.OpenDoor.Invoke() | Out-Null
 
         Write-Verbose -Message ("Door reader '$($reader.Name)' opened")
+
+        if($PassThru) {
+            Write-Output $reader
+        }
     }
 }

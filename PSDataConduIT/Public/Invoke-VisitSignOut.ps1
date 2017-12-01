@@ -3,7 +3,9 @@
     Signs out a visit.
 
     .DESCRIPTION   
-    Signs out a visit .If the result return null, try the parameter "-Verbose" to get more details.
+    Signs out a visit.
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -34,7 +36,9 @@ function Invoke-VisitSignOut
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The visit id parameter')]
-        [int]$VisitID    
+        [int]$VisitID,
+
+        [switch]$PassThru
     )
 
     process {
@@ -52,8 +56,12 @@ function Invoke-VisitSignOut
             return
         }
         
-		$visit.SignOutVisit.Invoke()
+        $visit.SignOutVisit.Invoke() | Out-Null
 
         Write-Verbose -Message ("Visit '$($visit.VisitID)' signed out")
+
+        if($PassThru) {
+            Get-Visit @parameters
+        }
     }
 }

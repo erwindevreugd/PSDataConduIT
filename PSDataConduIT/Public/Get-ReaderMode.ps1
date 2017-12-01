@@ -3,22 +3,26 @@
     Gets reader mode.
 
     .DESCRIPTION   
-    Gets the reader mode for all readers or the reader mode for a single reader if a panel id and reader id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the reader mode for all readers or the reader mode for a single reader if a panel id and reader id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-ReaderMode
     
-    CardOnly
+    PanelID       ReaderID      Name                 Mode
+    -------       --------      ----                 ----
+    1             1             Reader 1             CardOnly
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Get-ReaderMode 
 {
-	[CmdletBinding()]
-	param
-	(
-		[Parameter(
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
@@ -33,20 +37,20 @@ function Get-ReaderMode
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
         [int]$PanelID,
 
         [Parameter(
-            Mandatory=$true, 
+            Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id parameter')]
         [int]$ReaderID
-	)
+    )
 
-	process {
-		$parameters = @{
+    process {
+        $parameters = @{
             Server=$Server;
         }
 
@@ -54,28 +58,32 @@ function Get-ReaderMode
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($panel = Get-Panel @parameters -PanelID $PanelID) -eq $null) {
-            Write-Error -Message ("Panel id '$($PanelID)' was not found")
+        if(($panels = Get-Panel @parameters -PanelID $PanelID) -eq $null) {
+            Write-Verbose -Message ("No panels found")
             return
         }
 
-        # Update panel hardware status so we can get the current reader mode
-        $panel | Invoke-UpdateHardwareStatus
+        foreach($panel in $panels) {
+            # Update panel hardware status so we can get the current reader mode
+            $panel | Invoke-UpdateHardwareStatus
+        }
 
-        if(($reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
-            Write-Error -Message ("Reader id '$($ReaderID)' on panel id '$($PanelID)' was not found")
+        if(($readers = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
+            Write-Verbose -Message ("No readers found")
             return
         }
 
-		$mode = MapEnum ([ReaderMode].AsType()) $reader.GetReaderMode.Invoke().Mode
-
-        Write-Verbose -Message ("Reader '$($reader.Name)' on Panel '$($panel.Name)' reader mode is '$($mode)'")
-
-        New-Object PSObject -Property @{
-            PanelID=$PanelID;
-            ReaderID=$ReaderID;
-            Name=$reader.Name;
-            Mode=$mode;
+        foreach($reader in $readers) {
+            $mode = MapEnum ([ReaderMode].AsType()) $reader.GetReaderMode.Invoke().Mode
+    
+            Write-Verbose -Message ("Reader '$($reader.Name)' on Panel '$($panel.Name)' reader mode is '$($mode)'")
+    
+            New-Object PSObject -Property @{
+                PanelID=$reader.PanelID;
+                ReaderID=$reader.ReaderID;
+                Name=$reader.Name;
+                Mode=$mode;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlReaderMode"
         }
-	}
+    }
 }

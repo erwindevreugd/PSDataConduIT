@@ -3,7 +3,9 @@
     Signs in a visit.
 
     .DESCRIPTION   
-    Sign in a visit .If the result return null, try the parameter "-Verbose" to get more details.
+    Sign in a visit.
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -12,7 +14,9 @@
 #>
 function Invoke-VisitSignIn
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        DefaultParameterSetName="SignInByAssignedBadgeID"
+    )]
     param
     (
         [Parameter(
@@ -35,20 +39,25 @@ function Invoke-VisitSignIn
             HelpMessage='The visit id parameter')]
         [int]$VisitID,
 
-		[Parameter(
-            Mandatory=$false,
-            HelpMessage='The badge type id parameter')]
-        [int]$BadgeTypeID,
-
-		[Parameter(
-            Mandatory=$false,
-            HelpMessage='The assigned badge id parameter')]
+        [Parameter(
+            Mandatory=$true,
+            HelpMessage='The assigned badge id parameter',
+            ParameterSetName="SignInByAssignedBadgeID")]
         [long]$AssignedBadgeID,
 
-		[Parameter(
+        [Parameter(
+            Mandatory=$true,
+            HelpMessage='The badge type id parameter',
+            ParameterSetName="SignInByBadgeTypeID")]
+        [int]$BadgeTypeID,
+
+        [Parameter(
             Mandatory=$false,
-            HelpMessage='The printer name parameter')]
-        [string]$PrinterName
+            HelpMessage='The printer name parameter',
+            ParameterSetName="SignInByBadgeTypeID")]
+        [string]$PrinterName,
+
+        [switch]$PassThru
     )
 
     process {
@@ -66,8 +75,12 @@ function Invoke-VisitSignIn
             return
         }
 
-		$visit.SignInVisit.Invoke($BadgeTypeID, $PrinterName, $AssignedBadgeID)
+        $visit.SignInVisit.Invoke($BadgeTypeID, $PrinterName, $AssignedBadgeID) | Out-Null
 
         Write-Verbose -Message ("Visit '$($visit.VisitID)' signed in with badge id '$($AssignedBadgeID)'")
+    
+        if($PassThru) {
+            Get-Visit @parameters
+        }
     }
 }

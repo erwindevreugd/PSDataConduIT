@@ -3,7 +3,9 @@
     Sets the context server and credentials used to connect to DataConduIT.
 
     .DESCRIPTION   
-    Sets the context server and credentials used to connect to DataConduIT. If the result return null, try the parameter "-Verbose" to get more details.
+    Sets the context server and credentials used to connect to DataConduIT. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Set-Context -Server localhost

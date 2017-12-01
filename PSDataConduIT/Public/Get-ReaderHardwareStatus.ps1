@@ -3,12 +3,17 @@
     Gets reader hardware status.
 
     .DESCRIPTION   
-    Gets reader hardware status for all readers or the reader hardware status for a single reader if a panel id and reader id are specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets reader hardware status for all readers or the reader hardware status for a single reader if a panel id and reader id are specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-ReaderHardwareStatus
     
-    Online
+    Name                 Status               Panel
+    ----                 ------               -----
+    Reader 1             Online               AccessPanel 1
+    Reader 2             Online               AccessPanel 1
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -37,8 +42,8 @@ function Get-ReaderHardwareStatus
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
         [int]$PanelID,
-		
-		[Parameter(
+        
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The reader id parameter')]
@@ -54,15 +59,15 @@ function Get-ReaderHardwareStatus
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($panels = Get-Panel @parameters -PanelID $PanelID) -eq $null) {
-            return
-        }
-
         if(($readers = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
             return
         }
 
-        foreach($panel in $panels) {
+        foreach($reader in $readers) {
+            if(($panel = Get-Panel @parameters -PanelID ($reader.PanelID)) -eq $null) {
+                continue
+            }
+
             try {
                 Write-Verbose -Message "Updating hardware status for panel '$($panel.Name)'"
                 $panel.UpdateHardwareStatus.Invoke() | Out-Null
@@ -70,9 +75,7 @@ function Get-ReaderHardwareStatus
             catch {
                 Write-Warning -Message ("Failed to update hardware status for panel '$($panel.Name)'")
             }
-        }	
 
-        foreach($reader in $readers) {
             try {
                 $status = $reader.GetHardwareStatus.Invoke().Status
                 $readerStatus = [Enum]::GetValues([ReaderStatus]) | Where-Object { $_ -band [int]$status } 	
@@ -80,12 +83,14 @@ function Get-ReaderHardwareStatus
                 Write-Verbose -Message ("Reader '$($reader.Name)' status is '$($readerStatus)'")
             } 
             catch {
+                Write-Warning -Message ("Failed to get hardware status for reader '$($reader.Name)'")
             }
 
             New-Object PSObject -Property @{
                 Name=$reader.Name;
                 Status=$readerStatus;
-            }
+                Panel=$panel.Name;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlReaderHardwareStatus"
         }
     }
 }

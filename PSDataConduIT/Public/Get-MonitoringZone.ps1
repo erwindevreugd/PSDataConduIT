@@ -3,20 +3,16 @@
     Gets a monitoring zone.
 
     .DESCRIPTION   
-    Gets all monitoring zones or a single monitoring zone if a monitoring zone id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all monitoring zones or a single monitoring zone if a monitoring zone id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-MonitoringZone
     
-    ComputerName     : SERVER
-    Path             : \\SERVER\root\OnGuard:Lnl_MonitoringZone.ID=1,SegmentID=0
-    SegmentID        : 0
-    Server           : SERVER
-    SuperClass       : Lnl_Element
-    Name             : Default Zone
-    Credential       :
-    MonitoringZoneID : 1
-    Class            : Lnl_MonitoringZone
+    MonitoringZoneID Name
+    ---------------- ----
+    1                Default Zone
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -67,17 +63,17 @@ function Get-MonitoringZone
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				MonitoringZoneID=$_.ID;
-				Name=$_.Name;
-				SegmentID=$_.SegmentID;
-			}
-		}
+                MonitoringZoneID=$_.ID;
+                Name=$_.Name;
+                SegmentID=$_.SegmentID;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlMonitoringZone"
+        }
     }
 }

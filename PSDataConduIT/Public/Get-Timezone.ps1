@@ -3,20 +3,18 @@
     Gets a timezone.
 
     .DESCRIPTION   
-    Gets all timezones or a single timezone if a timezone id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all timezones or a single timezone if a timezone id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Timezone
     
-    ComputerName : SERVER
-    Path         : \\SERVER\root\OnGuard:Lnl_Timezone.ID=1
-    SegmentID    :
-    Server       : SERVER
-    SuperClass   : Lnl_Element
-    Name         : Never
-    TimezoneID   : 1
-    Credential   :
-    Class        : Lnl_Timezone
+    TimezoneID    Name
+    ----------    ----
+    1             Never
+    2             Always
+    0             Not Used
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -67,17 +65,17 @@ function Get-Timezone
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				TimezoneID=$_.ID;
-				Name=$_.Name;
-				SegmentID=$_.SegmentID;
-			}
-		}
+                TimezoneID=$_.ID;
+                Name=$_.Name;
+                SegmentID=$_.SegmentID;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlTimezone"
+        }
     }
 }

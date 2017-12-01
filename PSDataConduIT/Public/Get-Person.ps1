@@ -3,24 +3,17 @@
     Gets a person.
 
     .DESCRIPTION   
-    Gets all persons or a single person if a person id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all persons or a single person if a person id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
-    Get-AccessLevel
+    Get-Person
     
-    ComputerName : SERVER
-    LastChanged  : 19/10/2017 12:46:39
-    Path         : \\SERVER\root\OnGuard:Lnl_Cardholder.ID=1
-    PersonID     : 1
-    Server       : SERVER
-    SuperClass   : Lnl_Person
-    Lastname     : Smith
-    SSNO         :
-    Firstname    : John
-    Credential   :
-    Class        : Lnl_Cardholder
-    Midname      :
-    
+    PersonID      Lastname             Midname    Firstname
+    --------      --------             -------    ---------
+    1             Lake                 A          Lisa
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -70,20 +63,20 @@ function Get-Person
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				PersonID=$_.ID;
-				Firstname=$_.FIRSTNAME;
-				Lastname=$_.LASTNAME;
-				Midname=$_.MIDNAME;
-				LastChanged=ToDateTime $_.LASTCHANGED;
-				SSNO=$_.SSNO;
-			}
-		}
+                PersonID=$_.ID;
+                Firstname=$_.FIRSTNAME;
+                Lastname=$_.LASTNAME;
+                Midname=$_.MIDNAME;
+                LastChanged=ToDateTime $_.LASTCHANGED;
+                SSNO=$_.SSNO;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlPerson"
+        }
     }
 }

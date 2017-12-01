@@ -4,7 +4,7 @@
     RootModule = 'PSDataConduIT.psm1'
     
     # Version number of this module.
-    ModuleVersion = '1.0.0'
+    ModuleVersion = '2.0.0'
     
     # ID used to uniquely identify this module
     GUID = '36365fb1-4651-4e83-a9a6-c4415abe8405'
@@ -52,7 +52,7 @@
     # TypesToProcess = @()
     
     # Format files (.ps1xml) to be loaded when importing this module
-    #FormatsToProcess = ''
+    FormatsToProcess = 'PSDataConduIT.format.ps1xml'
     
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
     # NestedModules = @()

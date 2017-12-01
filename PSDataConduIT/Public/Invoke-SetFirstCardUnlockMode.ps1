@@ -3,7 +3,9 @@
     Enables or disables first card unlock mode for a reader.
 
     .DESCRIPTION   
-    Enables or disables first card unlock mode for a reader. If the result return null, try the parameter "-Verbose" to get more details.
+    Enables or disables first card unlock mode for a reader. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -51,7 +53,9 @@ function Invoke-SetFirstCardUnlockMode
             Mandatory=$false,
             ParameterSetName='Disable',
             HelpMessage='Disables first card unlock mode')]
-        [switch]$Disable
+        [switch]$Disable,
+
+        [switch]$PassThru
     )
 
     process {
@@ -69,13 +73,17 @@ function Invoke-SetFirstCardUnlockMode
         }
 
         if($Enable) {
-            $reader.SetFirstCardUnlockMode.Invoke($true)
+            $reader.SetFirstCardUnlockMode.Invoke($true) | Out-Null
             Write-Verbose -Message ("Set first card unlock mode 'true' on reader '$($reader.Name)'")
         }
 
         if($Disable) {
-            $reader.SetFirstCardUnlockMode.Invoke($false)
+            $reader.SetFirstCardUnlockMode.Invoke($false) | Out-Null
             Write-Verbose -Message ("Set first card unlock mode 'false' on reader '$($reader.Name)'")
+        }
+
+        if($PassThru) {
+            Write-Output $reader
         }
     }
 }

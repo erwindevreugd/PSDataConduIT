@@ -3,7 +3,9 @@
     Gets a segment group.
 
     .DESCRIPTION   
-    Gets all segment groups or a single segment group if a segment group id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all segment groups or a single segment group if a segment group id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-SegmentGroup
@@ -57,16 +59,16 @@ function Get-SegmentGroup
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentGroupID=$_.ID;
-				Name=$_.NAME
-			}
-		}
+                SegmentGroupID=$_.ID;
+                Name=$_.NAME
+            } | Add-ObjectType -TypeName "DataConduIT.LnlSegmentGroup"
+        }
     }
 }

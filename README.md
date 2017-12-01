@@ -4,10 +4,23 @@
 
 A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
 
-### Requirements:
+![PSDataConduIT in Action](media/DataConduIT.gif)
+
+## Requirements
 
 * Windows PowerShell version 3.0 (at least)
 * A Lenel license for DataConduIT
+
+## Cmdlet Name Collision
+
+To avoid name collision between the cmdlet in this module and other cmdlets you can import this module with a prefix.
+
+```powershell
+Import-Module -Name PSDataConduIT -Prefix Lnl
+```
+
+This will add a prefix (Lnl) to the noun part of the cmdlet names.
+For example: Get-Panel will become Get-LnlPanel.
 
 ## Concepts
 
@@ -29,7 +42,7 @@ Most cmdlets allow you to override the context server and credentials settings b
 
 ## Getting Help
 
-To view the available command simply use the following command:
+To view all the available commands simply use the following command:
 
 ```powershell
 Get-Command -Module PSDataConduIT
@@ -62,7 +75,8 @@ SYNTAX:
     Set-Context [-Server] <string> [[-Credential] <pscredential>]
 ```
 
-##### Connection to a remote server using credentials:
+To connection to a remote server using credentials.
+
 ```powershell
 SYNTAX:
     Set-Context -Server remoteservername -Credential (Get-Credential)
@@ -74,6 +88,9 @@ To remove a credential execute the `Set-Context` cmdlet without the `-Credential
 SYNTAX:
     Set-Context -Server localhost
 ```
+
+NOTE:
+> Credentials are not supported for local connections.
 
 ### Get-DataConduITService
 
@@ -440,17 +457,35 @@ To open a specific door you can use the `Get-Reader` and `Invoke-OpenDoor` cmdle
 
 #### Restarting the DataConduIT Service
 
-The `Stop-DataConduITService` and `Start-DataConduITService` cmdlets can be used together to restart the DataConduIT service.
+```powershell
+SYNTAX:
+    Restart-DataConduITService
+```
+
+Alternatively the `Stop-DataConduITService` and `Start-DataConduITService` cmdlets can be used together using the PassThru parameter to restart the DataConduIT service.
 
 ```powershell
 SYNTAX:
-    Stop-DataConduITService | Start-DataConduITService
+    Stop-DataConduITService -PassThru | Start-DataConduITService
 ```
 
-## Additional information:
+#### Removing WMI Properties from Objects
 
-* Lenel, http://www.lenel.com/
-* DataConduIT Manual, http://www.lenel.com/assets/images/solutions/open-integration/DataConduIT.pdf
+All cmdlets return objects that contain WMI properties. If you want to export data to a csv file for example you may not want to include these properties. The Remove-WmiProperty cmdlet allows you to easily remove these properties before exporting.
+
+```powershell
+SYNTAX:
+    Get-Cardholder | Remove-WmiProperty | Export-Csv
+```
+
+## Additional information
+
+* Lenel, <http://www.lenel.com/>
+* DataConduIT Manual, <http://www.lenel.com/assets/images/solutions/open-integration/DataConduIT.pdf>
+
+## Trademark Acknowledgements
+
+* Lenel and OnGuard are registered trademarks of Lenel Systems.
 
 ## Donation
 

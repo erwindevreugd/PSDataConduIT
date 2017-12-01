@@ -3,32 +3,16 @@
     Gets a visitor.
 
     .DESCRIPTION   
-    Gets all visitors or a single visitor if a visitor id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all visitors or a single visitor if a visitor id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Visitor
     
-    LastChanged       : 19/10/2017 11:29:03
-    OfficePhoneNumber :
-    Extension         :
-    Server            : SERVER
-    Lastname          : John
-    PersonID          : 1
-    ZipCode           :
-    TitleID           :
-    Organization      :
-    Class             : Lnl_Visitor
-    Firstname         :
-    State             :
-    Credential        :
-    SSNO              :
-    ComputerName      : SERVER
-    City              :
-    Address           :
-    PhoneNumber       :
-    Path              : \\SERVER\root\OnGuard:Lnl_Visitor.ID=1
-    Midname           :
-    SuperClass        : Lnl_Person
+    PersonID      Lastname             Midname    Firstname
+    --------      --------             -------    ---------
+    3             Lake                            Lisa
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -79,29 +63,29 @@ function Get-Visitor
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
-			
-				PersonID=$_.ID;
-				TitleID=$_.TITLE;
-				Firstname=$_.FIRSTNAME;
-				Lastname=$_.LASTNAME;
-				Midname=$_.MIDNAME;	
-				LastChanged=ToDateTime $_.LASTCHANGED;
-				Organization=$_.ORGANIZATION;
-				Extension=$_.EXT;
-				OfficePhoneNumber=$_.OPHONE;
-				PhoneNumber=$_.PHONE;
-				SSNO=$_.SSNO;
-				Address=$_.ADDR1;
-				State=$_.STATE;
-				City=$_.CITY;
-				ZipCode=$_.ZIP
-			}
-		}
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
+            
+                PersonID=$_.ID;
+                Title=$_.TITLE;
+                Firstname=$_.FIRSTNAME;
+                Lastname=$_.LASTNAME;
+                Midname=$_.MIDNAME;    
+                LastChanged=ToDateTime $_.LASTCHANGED;
+                Organization=$_.ORGANIZATION;
+                Extension=$_.EXT;
+                OfficePhoneNumber=$_.OPHONE;
+                PhoneNumber=$_.PHONE;
+                SSNO=$_.SSNO;
+                Address=$_.ADDR1;
+                State=$_.STATE;
+                City=$_.CITY;
+                ZipCode=$_.ZIP
+            } | Add-ObjectType -TypeName "DataConduIT.LnlVisitor"
+        }
     }
 }

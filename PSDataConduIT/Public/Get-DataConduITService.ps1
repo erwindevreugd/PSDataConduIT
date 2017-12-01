@@ -3,21 +3,16 @@
     Gets the DataConduIT service.
 
     .DESCRIPTION   
-    Get the DataConduIT service. If the result return null, try the parameter "-Verbose" to get more details.
+    Get the DataConduIT service. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-DataConduITService
     
-    ComputerName : SERVER
-    Path         : \\SERVER\root\CIMV2:Win32_Service.Name="LS DataConduIT Service"
-    Server       : SERVER
-    SuperClass   : Win32_BaseService
-    StartService : System.Management.ManagementBaseObject StartService()
-    Name         : LS DataConduIT Service
-    StopService  : System.Management.ManagementBaseObject StopService()
-    Credential   :
-    Class        : Win32_Service
-    IsStarted    : True
+    Name                                     Server                       IsStarted
+    ----                                     ------                       ---------
+    LS DataConduIT Service                   WS-084                       True
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -57,20 +52,20 @@ function Get-DataConduITService
             $parameters.Add("Credential", $Credential)
         }
 
-		Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+        Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				Name=$_.Name;
-				IsStarted=$_.Started;
+                Name=$_.Name;
+                IsStarted=$_.Started;
 
-				StartService=$_.StartService;
-				StopService=$_.StopService;
-			}
-		}
+                StartService=$_.StartService;
+                StopService=$_.StopService;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlDataConduITService"
+        }
     }
 }

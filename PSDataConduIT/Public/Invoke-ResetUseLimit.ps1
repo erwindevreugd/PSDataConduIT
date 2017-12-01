@@ -3,7 +3,9 @@
     Reset all cardholder use limits for a given panel.
 
     .DESCRIPTION   
-    Reset all cardholder use limits for a given panel. If the result return null, try the parameter "-Verbose" to get more details.
+    Reset all cardholder use limits for a given panel. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -12,7 +14,10 @@
 #>
 function Invoke-ResetUseLimit
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact="High"
+    )]
     param
     (
         [Parameter(
@@ -33,7 +38,11 @@ function Invoke-ResetUseLimit
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID    
+        [int]$PanelID,
+        
+        [switch]$PassThru,
+
+        [switch]$Force
     )
 
     process {
@@ -51,8 +60,13 @@ function Invoke-ResetUseLimit
             return
         }
         
-		$panel.ResetUseLimit.Invoke()
+        if($Force -or $PSCmdlet.ShouldProcess("$Server", "Reset use limits for all cardholders on panel '$($panel.Name)'")) {
+            $panel.ResetUseLimit.Invoke() | Out-Null
+            Write-Verbose -Message ("Reset all cardholder use limits for panel '$($panel.Name)'")
+        }
 
-        Write-Verbose -Message ("Reset all cardholder use limits for panel '$($panel.Name)'")
+        if($PassThru) {
+            Write-Output $panel
+        }
     }
 }

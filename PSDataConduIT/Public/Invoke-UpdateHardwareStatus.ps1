@@ -3,7 +3,9 @@
     Updates the panel hardware status.
 
     .DESCRIPTION   
-    Updates the panel hardware status .If the result return null, try the parameter "-Verbose" to get more details.
+    Updates the panel hardware status.
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -33,7 +35,9 @@ function Invoke-UpdateHardwareStatus
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID    
+        [int]$PanelID,
+
+        [switch]$PassThru
     )
 
     process {
@@ -51,8 +55,12 @@ function Invoke-UpdateHardwareStatus
             return
         }
 
-		$panel.UpdateHardwareStatus.Invoke()
+        $panel.UpdateHardwareStatus.Invoke() | Out-Null
 
         Write-Verbose -Message ("Updated hardware status for panel '$($panel.Name)'")
+
+        if($PassThru) {
+            Write-Output $panel
+        }
     }
 }

@@ -3,7 +3,9 @@
     Refreshes the DataConduIT Manager cache.
 
     .DESCRIPTION   
-    Refreshes the DataConduIT Manager cache .If the result return null, try the parameter "-Verbose" to get more details.
+    Refreshes the DataConduIT Manager cache.
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -34,15 +36,15 @@ function Invoke-RefreshCache
         $parameters = @{
             ComputerName=$Server;
             Namespace=$Script:OnGuardNamespace;
-			Class="Lnl_DataConduITManager";
-			Name="RefreshCache"
+            Class="Lnl_DataConduITManager";
+            Name="RefreshCache"
         }
 
         if($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 
-        Invoke-WmiMethod @parameters
+        Invoke-WmiMethod @parameters | Out-Null
 
         Write-Verbose -Message ("Refreshing DataConduIT Manager cache on '$($Server)'")
     }

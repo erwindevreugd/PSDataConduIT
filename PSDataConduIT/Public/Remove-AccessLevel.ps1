@@ -3,7 +3,9 @@
     Removes an accesslevel.
 
     .DESCRIPTION   
-    Removes an accesslevel from the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Removes an accesslevel from the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -12,7 +14,10 @@
 #>
 function Remove-AccessLevel
 {
-    [CmdletBinding()]
+    [CmdletBinding(
+        SupportsShouldProcess,
+        ConfirmImpact="High"
+    )]
     param
     (
         [Parameter(
@@ -35,8 +40,10 @@ function Remove-AccessLevel
             HelpMessage='The accesslevel id parameter')]
         [int]$AccessLevelID,
 
-		[Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
-        [string]$Name
+        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
+        [string]$Name,
+
+        [switch]$Force
     )
 
     process { 
@@ -46,11 +53,11 @@ function Remove-AccessLevel
             $query += " AND ID=$AccessLevelID"
         }
 
-		if($Name) {
+        if($Name) {
             $query += " AND Name='$Name'"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -62,6 +69,12 @@ function Remove-AccessLevel
             $parameters.Add("Credential", $Credential)
         }
 
-        Get-WmiObject @parameters | Remove-WmiObject
+        $items = Get-WmiObject @parameters 
+
+        foreach($item in $items) {
+            if($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing AccessLevelID: $($item.ID), $($item.Name)")) {
+               $item | Remove-WmiObject
+            }
+        }
     }
 }

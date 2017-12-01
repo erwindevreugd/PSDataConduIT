@@ -3,7 +3,9 @@
     Adds a new accesslevel.
 
     .DESCRIPTION   
-    Adds a new accesslevel to the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Adds a new accesslevel to the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -29,14 +31,14 @@ function New-AccessLevel
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[ValidateLength(1, 255)]
+        [ValidateLength(1, 255)]
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The name of the accesslevel')]
         [string]$Name,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The segment id to which to add the new accesslevel')]
@@ -55,15 +57,15 @@ function New-AccessLevel
             $parameters.Add("Credential", $Credential)
         }
 
-		if((Get-AccessLevel -Name $Name) -ne $null) {
+        if((Get-AccessLevel -Name $Name) -ne $null) {
             Write-Error -Message ("An accesslevel with name '$($name)' already exists")
             return
-		}
+        }
 
-		Set-WmiInstance @parameters -Arguments @{
-			Name=$Name; 
-			SegmentID=$SegmentID;} |
-			Select-Object *,@{L='AccessLevelID';E={$_.ID}} | 
-			Get-AccessLevel
-	}
+        Set-WmiInstance @parameters -Arguments @{
+            Name=$Name; 
+            SegmentID=$SegmentID;} |
+            Select-Object *,@{L='AccessLevelID';E={$_.ID}} | 
+            Get-AccessLevel
+    }
 }

@@ -3,7 +3,9 @@
     Sets the panel clock.
 
     .DESCRIPTION   
-    Sets the panel clock .If the result return null, try the parameter "-Verbose" to get more details.
+    Sets the panel clock. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -33,7 +35,9 @@ function Invoke-SetClock
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The panel id parameter')]
-        [int]$PanelID    
+        [int]$PanelID,
+
+        [switch]$PassThru
     )
 
     process {
@@ -51,8 +55,12 @@ function Invoke-SetClock
             return
         }
         
-		$panel.SetClock.Invoke()
+        $panel.SetClock.Invoke() | Out-Null
 
         Write-Verbose -Message ("Set clock on panel '$($panel.Name)'")
+
+        if($PassThru) {
+            Write-Output $panel
+        }
     }
 }

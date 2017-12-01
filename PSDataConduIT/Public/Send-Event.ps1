@@ -3,7 +3,9 @@
     Sends an event to DataConduIT.
 
     .DESCRIPTION   
-    Sends an event to DataConduIT. If the result return null, try the parameter "-Verbose" to get more details.
+    Sends an event to DataConduIT. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Send-Event
@@ -30,8 +32,8 @@ function Send-Event
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[Parameter(
-            Mandatory=$false, 
+        [Parameter(
+            Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The source parameter')]
         [string]$Source = $Script:EventSource,

@@ -3,7 +3,9 @@
     Sets the use limit for a given badge.
 
     .DESCRIPTION   
-    Sets the use limit for a given badge. If the result return null, try the parameter "-Verbose" to get more details.
+    Sets the use limit for a given badge. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -12,10 +14,10 @@
 #>
 function Set-BadgeUseLimit 
 {
-	[CmdletBinding()]
-	param
-	(
-		[Parameter(
+    [CmdletBinding()]
+    param
+    (
+        [Parameter(
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
@@ -29,20 +31,20 @@ function Set-BadgeUseLimit
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
         [PSCredential]$Credential = $Script:Credential,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge key parameter')]
         [int]$BadgeKey,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$true,
             HelpMessage='The use limit for the badge')]
-		[int]$UseLimit
-	)
+        [int]$UseLimit
+    )
 
-	process {
-		$query = "SELECT * FROM Lnl_Badge WHERE __CLASS='Lnl_Badge'"
+    process {
+        $query = "SELECT * FROM Lnl_Badge WHERE __CLASS='Lnl_Badge'"
 
         if($BadgeKey) {
             $query += " AND BADGEKEY=$BadgeKey"

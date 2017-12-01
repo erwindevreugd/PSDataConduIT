@@ -3,7 +3,9 @@
     Adds a new visitor.
 
     .DESCRIPTION   
-    Adds a new visitor to the database. If the result return null, try the parameter "-Verbose" to get more details.
+    Adds a new visitor to the database. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     
@@ -136,6 +138,6 @@ function New-Visitor
             ZIP=$ZipCode;
         } |
         Select-Object *,@{L='VisitID';E={$_.ID}} | 
-        Get-Visit
+        Get-Visitor
     }
 }

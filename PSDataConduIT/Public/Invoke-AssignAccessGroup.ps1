@@ -3,7 +3,9 @@
     Assigns an access group to a given badge key.
 
     .DESCRIPTION   
-    Assigns an access group to a given badge key. If the result return null, try the parameter "-Verbose" to get more details.
+    Assigns an access group to a given badge key. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Invoke-AssignAccessGroup -AccessGroupID 1 -BadgeKey 1
@@ -62,7 +64,7 @@ function Invoke-AssignAccessGroup
             return
         }
 
-        $accessGroup.AssignGroup.Invoke($BadgeKey);
+        $accessGroup.AssignGroup.Invoke($BadgeKey) | Out-Null
 
         Write-Verbose -Message ("Assigned access group '$($accessGroup.Name)' to badge key '$($badge.BadgeKey)'")
     }

@@ -3,23 +3,16 @@
     Gets an accesslevel.
 
     .DESCRIPTION   
-    Gets all accesslevels or a single accesslevel if an accesslevel id or name is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all accesslevels or a single accesslevel if an accesslevel id or name is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AccessLevel
     
-    ComputerName                 : SERVER
-    FirstCardUnlock              : False
-    Path                         : \\SERVER\root\OnGuard:Lnl_AccessLevel.ID=1
-    SegmentID                    : 0
-    Server                       : SERVER
-    SuperClass                   : Lnl_Element
-    AccessLevelID                : 1
-    Name                         : AccessLevel
-    Credential                   :
-    HasCommandAuthority          : False
-    Class                        : Lnl_AccessLevel
-    DownloadToIntelligentReaders : False
+    AccessLevelID Name                                     SegmentID
+    ------------- ----                                     ---------
+    1             All Readers                              0
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -49,7 +42,7 @@ function Get-AccessLevel
             HelpMessage='The id of the accesslevel to get')]
         [int]$AccessLevelID,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The name of the accesslevel to get')]
@@ -63,11 +56,11 @@ function Get-AccessLevel
             $query += " AND ID=$AccessLevelID"
         }
 
-		if($Name) {
+        if($Name) {
             $query += " AND Name='$Name'"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -80,21 +73,21 @@ function Get-AccessLevel
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentID=$_.SegmentID;
+                SegmentID=$_.SegmentID;
 
-				AccessLevelID=$_.ID;
-				Name=$_.Name;
-				HasCommandAuthority=$_.HasCommandAuthority;
-				DownloadToIntelligentReaders=$_.DownloadToIntelligentReaders;
-				FirstCardUnlock=$_.FirstCardUnlock;
-			}
-		}
+                AccessLevelID=$_.ID;
+                Name=$_.Name;
+                HasCommandAuthority=$_.HasCommandAuthority;
+                DownloadToIntelligentReaders=$_.DownloadToIntelligentReaders;
+                FirstCardUnlock=$_.FirstCardUnlock;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevel"
+        }
     }
 }

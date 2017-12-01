@@ -3,7 +3,9 @@
     Gets a segment.
 
     .DESCRIPTION   
-    Gets all segments or a single segment if a segment id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all segments or a single segment if a segment id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Segment
@@ -57,16 +59,16 @@ function Get-Segment
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentID=$_.ID;
-				Name=$_.NAME
-			}
-		}
+                SegmentID=$_.ID;
+                Name=$_.NAME
+            }
+        } | Add-ObjectType -TypeName "DataConduIT.LnlSegment"
     }
 }

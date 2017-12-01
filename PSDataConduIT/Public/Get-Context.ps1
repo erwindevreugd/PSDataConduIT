@@ -3,16 +3,16 @@
     Gets the context server and credentials used to connect to DataConduIT.
 
     .DESCRIPTION   
-    Gets the context server and credentials used to connect to DataConduIT. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets the context server and credentials used to connect to DataConduIT. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-Context
 
-    Name                           Value
-    ----                           -----
-    Credential                     None
-    Server                         localhost
-    EventSource                    Not Set
+    Credential                               Server                       EventSource
+    ----------                               ------                       -----------
+    None                                     localhost                    Not Set
     
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -35,6 +35,6 @@ function Get-Context
             EventSource=$eventSource;
         }
 
-        New-Object PSObject $hash
+        New-Object PSObject -Property $hash | Add-ObjectType -TypeName "DataConduIT.LnlContext"
     }
 }

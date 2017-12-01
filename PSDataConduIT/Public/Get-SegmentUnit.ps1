@@ -3,7 +3,9 @@
     Gets a segment unit.
 
     .DESCRIPTION   
-    Gets all segment units or a single segment unit if a segment unit id is specified. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all segment units or a single segment unit if a segment unit id is specified. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-SegmentUnit
@@ -57,16 +59,16 @@ function Get-SegmentUnit
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentUnitID=$_.ID;
-				Name=$_.NAME
-			}
-		}
+                SegmentUnitID=$_.ID;
+                Name=$_.NAME
+            } | Add-ObjectType -TypeName "DataConduIT.LnlSegmentUnit"
+        }
     }
 }

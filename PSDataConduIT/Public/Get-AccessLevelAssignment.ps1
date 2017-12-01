@@ -3,37 +3,23 @@
     Gets an accesslevel assignment.
 
     .DESCRIPTION   
-    Gets all accesslevel assignments. If the result return null, try the parameter "-Verbose" to get more details.
+    Gets all accesslevel assignments. 
+    
+    If the result return null, try the parameter "-Verbose" to get more details.
     
     .EXAMPLE
     Get-AccessLevelAssignment
     
-    ComputerName  : SERVER
-    Path          : \\SERVER\root\OnGuard:Lnl_AccessLevelAssignment.AccessLevelID=1,BadgeKey=1
-    SegmentID     :
-    Server        : SERVER
-    SuperClass    : Lnl_Element
-    AccessLevelID : 1
-    BadgeKey      : 1
-    Activate      :
-    Credential    :
-    Class         : Lnl_AccessLevelAssignment
-    Deactivate    :
+    AccessLevelID BadgeKey      Activate               Deactivate
+    ------------- --------      --------               ----------
+    1             1 
     
     .EXAMPLE
     Get-AccessLevelAssignment -BadgeKey 1
     
-    ComputerName  : SERVER
-    Path          : \\SERVER\root\OnGuard:Lnl_AccessLevelAssignment.AccessLevelID=1,BadgeKey=1
-    SegmentID     :
-    Server        : SERVER
-    SuperClass    : Lnl_Element
-    AccessLevelID : 1
-    BadgeKey      : 1
-    Activate      :
-    Credential    :
-    Class         : Lnl_AccessLevelAssignment
-    Deactivate    :
+    AccessLevelID BadgeKey      Activate               Deactivate
+    ------------- --------      --------               ----------
+    1             1 
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -63,7 +49,7 @@ function Get-AccessLevelAssignment
             HelpMessage='The accesslevel id')]
         [int]$AccessLevelID = $null,
 
-		[Parameter(
+        [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge key')]
@@ -77,11 +63,11 @@ function Get-AccessLevelAssignment
             $query += " AND ACCESSLEVELID=$AccessLevelID"
         }
 
-		if($BadgeKey) {
+        if($BadgeKey) {
             $query += " AND BADGEKEY=$BadgeKey"
         }
 
-		LogQuery $query
+        LogQuery $query
 
         $parameters = @{
             ComputerName=$Server;
@@ -94,20 +80,18 @@ function Get-AccessLevelAssignment
         }
 
         Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-				Class=$_.__CLASS;
-				SuperClass=$_.__SUPERCLASS;
-				Server=$_.__SERVER;
-				ComputerName=$_.__SERVER;
-				Path=$_.__PATH;
-				Credential=$Credential;
+                Class=$_.__CLASS;
+                SuperClass=$_.__SUPERCLASS;
+                Server=$_.__SERVER;
+                ComputerName=$_.__SERVER;
+                Path=$_.__PATH;
+                Credential=$Credential;
 
-				SegmentID=$_.SegmentID;
-
-				AccessLevelID=$_.ACCESSLEVELID;
-				BadgeKey=$_.BADGEKEY;
-				Activate=ToDateTime $_.ACTIVATE;
-				Deactivate=ToDateTime $_.DEACTIVATE;
-			}
-		}
+                AccessLevelID=$_.ACCESSLEVELID;
+                BadgeKey=$_.BADGEKEY;
+                Activate=ToDateTime $_.ACTIVATE;
+                Deactivate=ToDateTime $_.DEACTIVATE;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlAccessLevelAssignment"
+        }
     }
 }
