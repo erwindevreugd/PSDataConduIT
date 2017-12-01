@@ -58,28 +58,32 @@ function Get-ReaderMode
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($panel = Get-Panel @parameters -PanelID $PanelID) -eq $null) {
-            Write-Error -Message ("Panel id '$($PanelID)' was not found")
+        if(($panels = Get-Panel @parameters -PanelID $PanelID) -eq $null) {
+            Write-Verbose -Message ("No panels found")
             return
         }
 
-        # Update panel hardware status so we can get the current reader mode
-        $panel | Invoke-UpdateHardwareStatus
+        foreach($panel in $panels) {
+            # Update panel hardware status so we can get the current reader mode
+            $panel | Invoke-UpdateHardwareStatus
+        }
 
-        if(($reader = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
-            Write-Error -Message ("Reader id '$($ReaderID)' on panel id '$($PanelID)' was not found")
+        if(($readers = Get-Reader @parameters -PanelID $PanelID -ReaderID $ReaderID) -eq $null) {
+            Write-Verbose -Message ("No readers found")
             return
         }
 
-        $mode = MapEnum ([ReaderMode].AsType()) $reader.GetReaderMode.Invoke().Mode
-
-        Write-Verbose -Message ("Reader '$($reader.Name)' on Panel '$($panel.Name)' reader mode is '$($mode)'")
-
-        New-Object PSObject -Property @{
-            PanelID=$PanelID;
-            ReaderID=$ReaderID;
-            Name=$reader.Name;
-            Mode=$mode;
-        } | Add-ObjectType -TypeName "DataConduIT.LnlReaderMode"
+        foreach($reader in $readers) {
+            $mode = MapEnum ([ReaderMode].AsType()) $reader.GetReaderMode.Invoke().Mode
+    
+            Write-Verbose -Message ("Reader '$($reader.Name)' on Panel '$($panel.Name)' reader mode is '$($mode)'")
+    
+            New-Object PSObject -Property @{
+                PanelID=$reader.PanelID;
+                ReaderID=$reader.ReaderID;
+                Name=$reader.Name;
+                Mode=$mode;
+            } | Add-ObjectType -TypeName "DataConduIT.LnlReaderMode"
+        }
     }
 }
