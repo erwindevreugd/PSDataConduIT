@@ -60,22 +60,17 @@ function Get-PanelHardwareStatus
             try {
                 Write-Verbose -Message "Updating hardware status for panel '$($panel.Name)'"
                 $panel.UpdateHardwareStatus.Invoke() | Out-Null
-            }
-            catch {
-                Write-Warning -Message ("Failed to update hardware status for panel '$($panel.Name)'")
-            }
-        }
 
-        foreach($panel in $panels) {
-            try {
                 $status = $panel.GetHardwareStatus.Invoke().Status          
                 $panelStatus = [Enum]::GetValues([PanelStatus]) | Where-Object { $_ -band [int]$status }
     
                 Write-Verbose -Message ("Panel '$($panel.Name)' status is '$($panelStatus)'")
             }
             catch {
+                Write-Warning -Message ("Failed to retrieve hardware status for panel '$($panel.Name)'")
+                $panelStatus = "Failed"
             }
-            
+
             New-Object PSObject -Property @{
                 Name=$panel.Name;
                 Status=$panelStatus;
