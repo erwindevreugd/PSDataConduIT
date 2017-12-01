@@ -4,7 +4,7 @@
 
 A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
 
-![PSDataConduIT in Action](media/DataConduIT.gif)
+![PSDataConduIT in Action](Media/DataConduIT.gif)
 
 ## Requirements
 
