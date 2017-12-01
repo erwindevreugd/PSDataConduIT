@@ -4,6 +4,8 @@
 
 A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
 
+![PSDataConduIT in Action](media/DataConduIT.gif)
+
 ## Requirements
 
 * Windows PowerShell version 3.0 (at least)
