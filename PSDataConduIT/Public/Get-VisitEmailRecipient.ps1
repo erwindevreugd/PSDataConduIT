@@ -40,7 +40,7 @@ function Get-VisitEmailRecipient
     )
 
     process { 
-        $query = "SELECT * FROM Lnl_VisitRecipient WHERE __CLASS='Lnl_VisitRecipient'"
+        $query = "SELECT * FROM Lnl_VisitEmailRecipient WHERE __CLASS='Lnl_VisitEmailRecipient'"
 
         if($VisitID) {
             $query += " AND VISITID=$VisitID"
