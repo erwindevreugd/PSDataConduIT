@@ -24,25 +24,29 @@ function Remove-AccessLevel
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
         [string]$Server = $Script:Server,
         
         [Parameter(
             Position=1,
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The accesslevel id parameter')]
+            HelpMessage='The accesslevel id parameter.')]
         [int]$AccessLevelID,
 
         [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
         [string]$Name,
 
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$false,
+            HelpMessage='Forces the removal of the access level with out displaying a should process.')]
         [switch]$Force
     )
 

@@ -26,20 +26,20 @@ function Get-DefaultAccessGroup
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
         [string]$Server = $Script:Server,
         
         [Parameter(
             Position=1,
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The badge type id parameter')]
+            HelpMessage='The badge type id parameter.')]
         [int]$BadgeTypeID = $null
     )
 

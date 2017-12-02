@@ -21,27 +21,27 @@ function New-VisitType
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
         [string]$Server = $Script:Server,
         
         [Parameter(
             Position=1,
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]$Credential = $Script:Credential,
 
         [ValidateLength(1, 255)]
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the visit type')]
+            HelpMessage='The name of the visit type.')]
         [string]$Name,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The segment id to which to add the new visit type')]
+            HelpMessage='The segment id to which to add the new visit type.')]
         [int]$SegmentID
     )
 
