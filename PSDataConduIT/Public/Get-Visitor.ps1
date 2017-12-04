@@ -70,7 +70,7 @@ function Get-Visitor
                 Path=$_.__PATH;
                 Credential=$Credential;
             
-                PersonID=$_.ID;
+                VisitorID=$_.ID;
                 Title=$_.TITLE;
                 Firstname=$_.FIRSTNAME;
                 Lastname=$_.LASTNAME;

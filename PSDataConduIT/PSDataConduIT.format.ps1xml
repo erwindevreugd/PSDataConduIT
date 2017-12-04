@@ -1268,7 +1268,7 @@
             <TableRowEntry>
                 <TableColumnItems>
                     <TableColumnItem>
-                        <PropertyName>PersonID</PropertyName>
+                        <PropertyName>VisitorID</PropertyName>
                     </TableColumnItem>
                     <TableColumnItem>
                         <PropertyName>Lastname</PropertyName>
