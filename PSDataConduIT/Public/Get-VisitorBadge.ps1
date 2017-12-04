@@ -46,7 +46,7 @@ function Get-VisitorBadge
     process {
         $query = "SELECT * FROM Lnl_Badge WHERE __CLASS='Lnl_Badge'"
 
-        if($PersonID) {
+        if($VisitorID) {
             $query += " AND PERSONID=$VisitorID"
         }
 
