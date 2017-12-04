@@ -39,15 +39,15 @@ function Get-VisitorBadge
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The person id parameter.')]
-        [int]$PersonID
+            HelpMessage='The visitor id parameter.')]
+        [int]$VisitorID
     )
 
     process {
         $query = "SELECT * FROM Lnl_Badge WHERE __CLASS='Lnl_Badge'"
 
         if($PersonID) {
-            $query += " AND PERSONID=$PersonID"
+            $query += " AND PERSONID=$VisitorID"
         }
 
         LogQuery $query
