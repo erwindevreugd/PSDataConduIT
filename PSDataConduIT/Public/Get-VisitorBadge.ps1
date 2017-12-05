@@ -44,10 +44,22 @@ function Get-VisitorBadge
     )
 
     process {
-        $query = "SELECT * FROM Lnl_Badge WHERE __CLASS='Lnl_Badge'"
-
+        $query = "SELECT * FROM Lnl_Badge WHERE __CLASS='Lnl_Badge' AND ID<>0"
+        
         if($VisitorID) {
             $query += " AND PERSONID=$VisitorID"
+        }
+        
+        if(($visitorBadgeTypes = @(Get-BadgeType | Where-Object { $_.TypeClass -eq [BadgeTypeClass]::Visitor})) -eq $null) {
+            Write-Verbose -Message "No visitor badge types are defined."
+            return
+        }
+        for($i = 0; $i -lt $visitorBadgeTypes.Count; $i++) {
+            if($i -eq 0) {
+                $query += " AND (Type=$($visitorBadgeTypes[$i].BadgeTypeID))"
+            } else {
+                $query += " OR (Type=$($visitorBadgeTypes[$i].BadgeTypeID))"
+            }
         }
 
         LogQuery $query

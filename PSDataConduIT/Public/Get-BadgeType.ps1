@@ -74,7 +74,7 @@ function Get-BadgeType
 
                 BadgeTypeID=$_.ID;
                 Name=$_.NAME;
-                BadgeClass=$_.BADGECLASS;
+                TypeClass=MapEnum ([BadgeTypeClass].AsType()) $_.BADGETYPECLASS;
                 DefaultAccessGroup=$_.DEFAULTACCESSGROUP;
                 IsDisposable=$_.ISDISPOSABLE;
                 SegmentID=$_.SEGMENTID;
