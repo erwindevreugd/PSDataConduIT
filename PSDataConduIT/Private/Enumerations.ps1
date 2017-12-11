@@ -130,4 +130,11 @@ public enum DoorMode : int {
     Unlock = 0x1,
     Secure = 0x2
 }
+
+public enum BadgeTypeClass : int {
+    Standard = 1,
+    Temporary = 2,
+    Visitor = 3,
+    Guest = 4
+}
 "@

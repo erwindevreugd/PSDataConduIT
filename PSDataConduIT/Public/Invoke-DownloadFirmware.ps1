@@ -25,35 +25,39 @@ function Invoke-DownloadFirmware
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
         [string]$Server = $Script:Server,
         
         [Parameter(
             Position=1,
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
             ParameterSetName='DownloadFirmwareToPanel',
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The panel id parameter')]
+            HelpMessage='The panel id parameter.')]
         [Parameter(
             ParameterSetName='DownloadFirmwareToReader',
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The panel id parameter')]
+            HelpMessage='The panel id parameter.')]
         [int]$PanelID,
 
         [Parameter(
             ParameterSetName='DownloadFirmwareToReader',
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The reader id parameter')]
+            HelpMessage='The reader id parameter.')]
         [int]$ReaderID,
 
+        [Parameter(
+            Mandatory=$false, 
+            ValueFromPipelineByPropertyName=$false,
+            HelpMessage='Forces the download firmware with out displaying a should process.')]
         [switch]$Force
     )
 

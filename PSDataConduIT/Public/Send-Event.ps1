@@ -22,62 +22,62 @@ function Send-Event
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
         [string]$Server = $Script:Server,
         
         [Parameter(
             Position=1,
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The source parameter')]
+            HelpMessage='The source parameter.')]
         [string]$Source = $Script:EventSource,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The device parameter')]
+            HelpMessage='The device parameter.')]
         [string]$Device = [String]::Empty,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The sub device parameter')]
+            HelpMessage='The sub device parameter.')]
         [string]$SubDevice = [String]::Empty,
 
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The message parameter')]
+            HelpMessage='The message parameter.')]
         [string]$Message = [String]::Empty,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The badge id parameter')]
+            HelpMessage='The badge id parameter.')]
         [long]$BadgeID = $null,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='Indicates if this is an access granted event')]
+            HelpMessage='Indicates if this is an access granted event.')]
         [bool]$IsAccessGrant = $false,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='Indicates if this is an access denied event')]
+            HelpMessage='Indicates if this is an access denied event.')]
         [bool]$IsAccessDeny = $false,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The time parameter')]
+            HelpMessage='The time parameter.')]
         [DateTime]$Time = [DateTime]::UtcNow
     )
 

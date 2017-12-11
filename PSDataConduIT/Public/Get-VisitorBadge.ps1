@@ -26,28 +26,40 @@ function Get-VisitorBadge
             Position=0, 
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost')]
+            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
         [string]$Server = $Script:Server,
         
         [Parameter(
             Position=1,
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service')]
+            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]$Credential = $Script:Credential,
 
         [Parameter(
             Mandatory=$true, 
             ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The person id parameter')]
-        [int]$PersonID
+            HelpMessage='The visitor id parameter.')]
+        [int]$VisitorID
     )
 
     process {
-        $query = "SELECT * FROM Lnl_Badge WHERE __CLASS='Lnl_Badge'"
-
-        if($PersonID) {
-            $query += " AND PERSONID=$PersonID"
+        $query = "SELECT * FROM Lnl_Badge WHERE __CLASS='Lnl_Badge' AND ID<>0"
+        
+        if($VisitorID) {
+            $query += " AND PERSONID=$VisitorID"
+        }
+        
+        if(($visitorBadgeTypes = @(Get-BadgeType | Where-Object { $_.TypeClass -eq [BadgeTypeClass]::Visitor})) -eq $null) {
+            Write-Verbose -Message "No visitor badge types are defined."
+            return
+        }
+        for($i = 0; $i -lt $visitorBadgeTypes.Count; $i++) {
+            if($i -eq 0) {
+                $query += " AND (Type=$($visitorBadgeTypes[$i].BadgeTypeID))"
+            } else {
+                $query += " OR (Type=$($visitorBadgeTypes[$i].BadgeTypeID))"
+            }
         }
 
         LogQuery $query
