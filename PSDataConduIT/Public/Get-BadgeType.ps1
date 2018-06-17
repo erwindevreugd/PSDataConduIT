@@ -46,7 +46,7 @@ function Get-BadgeType
     )
 
     process { 
-        $query = "SELECT * FROM Lnl_BadgeType WHERE __CLASS='Lnl_BadgeType'"
+        $query = "SELECT * FROM Lnl_BadgeType WHERE __CLASS='Lnl_BadgeType' AND ID!=0"
 
         if($BadgeTypeID) {
             $query += " AND ID=$BadgeTypeID"
