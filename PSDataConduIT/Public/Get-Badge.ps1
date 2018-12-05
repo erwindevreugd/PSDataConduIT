@@ -46,7 +46,13 @@ function Get-Badge
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge key parameter.')]
-        [int]$BadgeKey
+        [int]$BadgeKey,
+
+        [Parameter(
+            Mandatory=$false,
+            ValueFromPipelineByPropertyName=$true,
+            HelpMessage='The person id parameter.')]
+        [int]$PersonID
     )
 
     process {
@@ -58,6 +64,10 @@ function Get-Badge
 
         if($BadgeKey) {
             $query += " AND BADGEKEY=$BadgeKey"
+        }
+
+        if($PersonID) {
+            $query += " AND PersonID=$PersonID"
         }
 
         LogQuery $query
