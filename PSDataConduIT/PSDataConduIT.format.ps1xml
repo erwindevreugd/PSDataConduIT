@@ -1157,6 +1157,9 @@
             <TableColumnHeader>
                 <Width>20</Width>
             </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
         </TableHeaders>
         <TableRowEntries>
             <TableRowEntry>
@@ -1172,6 +1175,9 @@
                     </TableColumnItem>
                     <TableColumnItem>
                         <PropertyName>LogonID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Enabled</PropertyName>
                     </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>
