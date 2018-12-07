@@ -70,6 +70,8 @@ function Get-GuardTour
                 Name=$_.NAME;
 
                 SegmentID=$_.SEGMENTID;
+
+                LaunchTour=$_.LaunchTour;
             } | Add-ObjectType -TypeName "DataConduIT.LnlGuardTour"
         }
     }
