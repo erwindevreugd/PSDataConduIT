@@ -13,7 +13,7 @@
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
-function Get-DisarmIntrusionArea
+function Invoke-DisarmIntrusionArea
 {
     [CmdletBinding(
         SupportsShouldProcess,
