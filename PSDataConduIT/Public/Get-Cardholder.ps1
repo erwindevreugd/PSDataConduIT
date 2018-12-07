@@ -80,6 +80,7 @@ function Get-Cardholder
                 Lastname=$_.LASTNAME;
                 Midname=$_.MIDNAME;	
                 PersonID=$_.ID;
+                CardholderID=$_.ID;
                 IsGrant=$_.IsGrant;
                 LastChanged=ToDateTime $_.LASTCHANGED;
                 Email=$_.EMAIL;
