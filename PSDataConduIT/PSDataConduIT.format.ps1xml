@@ -2038,38 +2038,6 @@
     </View>
 
     <!-- 
-    DataConduIT.LnlBadgeStatus
-    -->
-    <View>
-      <Name>DataConduITLnlCategoryTable</Name>
-      <ViewSelectedBy>
-        <TypeName>DataConduIT.LnlCategory</TypeName>
-      </ViewSelectedBy>
-      <TableControl>
-        <TableHeaders>
-            <TableColumnHeader>
-                <Width>13</Width>
-            </TableColumnHeader>
-            <TableColumnHeader>
-                <Width>30</Width>
-            </TableColumnHeader>
-        </TableHeaders>
-        <TableRowEntries>
-            <TableRowEntry>
-                <TableColumnItems>
-                    <TableColumnItem>
-                        <PropertyName>CategoryID</PropertyName>
-                    </TableColumnItem>
-                    <TableColumnItem>
-                        <PropertyName>Name</PropertyName>
-                    </TableColumnItem>
-                </TableColumnItems>
-            </TableRowEntry>
-        </TableRowEntries>
-      </TableControl>
-    </View>
-
-    <!-- 
     DataConduIT.LnlVisitType
     -->
     <View>
