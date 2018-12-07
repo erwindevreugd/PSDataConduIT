@@ -91,9 +91,9 @@ function Get-Account
                 Credential=$Credential;
 
                 AccountID=$_.ID;
-                ExternalAccountID=$_.ACCOUNTID;
-                DirectoryID=$_.DIRECTORYID;
-                PersonID=$_.PERSONID;
+                ExternalAccountID=$_.AccountID;
+                DirectoryID=$_.DirectoryID;
+                PersonID=$_.PersonID;
             } | Add-ObjectType -TypeName "DataConduIT.LnlAccount"
         }
     }

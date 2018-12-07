@@ -253,7 +253,7 @@
                 <Width>13</Width>
             </TableColumnHeader>
             <TableColumnHeader>
-                <Width>13</Width>
+                <Width>50</Width>
             </TableColumnHeader>
             <TableColumnHeader>
                 <Width>13</Width>
@@ -269,7 +269,7 @@
                         <PropertyName>PersonID</PropertyName>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>AccountID</PropertyName>
+                        <PropertyName>ExternalAccountID</PropertyName>
                     </TableColumnItem>
                     <TableColumnItem>
                         <PropertyName>DirectoryID</PropertyName>
