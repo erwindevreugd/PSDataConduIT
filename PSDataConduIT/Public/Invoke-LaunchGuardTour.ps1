@@ -58,7 +58,7 @@ function Invoke-LaunchGuardTour
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$false,
-            HelpMessage='Forces the intrusion area to disarm with out displaying a should process.')]
+            HelpMessage='Forces the guard tour to launch with out displaying a should process.')]
         [switch]$Force
     )
 
