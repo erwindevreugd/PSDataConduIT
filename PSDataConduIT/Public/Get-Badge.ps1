@@ -27,32 +27,37 @@ function Get-Badge
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server = $Script:Server,
+        [string]
+        $Server = $Script:Server,
         
         [Parameter(
             Position=1,
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential = $Script:Credential,
+        [PSCredential]
+        $Credential = $Script:Credential,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge id parameter.')]
-        [long]$BadgeID,
+        [long]
+        $BadgeID,
 
         [Parameter(
             Mandatory=$false, 
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge key parameter.')]
-        [int]$BadgeKey,
+        [int]
+        $BadgeKey,
 
         [Parameter(
             Mandatory=$false,
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The person id parameter.')]
-        [int]$PersonID
+        [int]
+        $PersonID
     )
 
     process {
@@ -89,7 +94,6 @@ function Get-Badge
                 ComputerName=$_.__SERVER;
                 Path=$_.__PATH;
                 Credential=$Credential;
-
                 BadgeKey=$_.BADGEKEY;
                 BadgeID=$_.ID;
                 PersonID=$_.PERSONID;
@@ -103,7 +107,6 @@ function Get-Badge
                 ExtendedStrikeHeld=$_.EXTEND_STRIKE_HELD;
                 PassageMode=$_.PASSAGE_MODE;
                 UseLimit=$_.USELIMIT;
-
                 TwoManType=$_.TWO_MAN_TYPE;
                 LastChanged=ToDateTime($_.LASTCHANGED);
                 LastPrint=ToDateTime($_.LASTPRINT);

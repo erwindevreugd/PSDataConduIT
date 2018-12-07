@@ -3,7 +3,7 @@ function LogQuery($query) {
 }
 
 function ToDateTime($wmiDateTime) {
-    if($wmiDateTime -eq $null) {
+    if ($wmiDateTime -eq $null) {
         return $null
     }
 
@@ -11,7 +11,7 @@ function ToDateTime($wmiDateTime) {
 }
 
 function ToWmiDateTime($dateTime) {
-    if($dateTime -eq $null) {
+    if ($dateTime -eq $null) {
         return $null
     }
 
@@ -21,7 +21,8 @@ function ToWmiDateTime($dateTime) {
 function MapEnum($enum, $value, $default = $null) {
     try {
         [Enum]::GetValues($enum) | Where-Object { $_ -eq $value }     
-    } catch {
+    }
+    catch {
         Write-Error $_
         return $default
     }

@@ -12,72 +12,78 @@
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
-function Remove-AccessLevel
-{
+function Remove-AccessLevel {
     [CmdletBinding(
         SupportsShouldProcess,
-        ConfirmImpact="High"
+        ConfirmImpact = "High"
     )]
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server = $Script:Server,
+            Position = 0, 
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
+        [string]
+        $Server = $Script:Server,
         
         [Parameter(
-            Position=1,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential = $Script:Credential,
+            Position = 1,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
+        [PSCredential]
+        $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The accesslevel id parameter.')]
-        [int]$AccessLevelID,
-
-        [Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
-        [string]$Name,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The accesslevel id parameter.')]
+        [int]
+        $AccessLevelID,
 
         [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$false,
-            HelpMessage='Forces the removal of the access level with out displaying a should process.')]
-        [switch]$Force
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true)]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $false,
+            HelpMessage = 'Forces the removal of the access level with out displaying a should process.')]
+        [switch]
+        $Force
     )
 
     process { 
         $query = "SELECT * FROM Lnl_AccessLevel WHERE __CLASS='Lnl_AccessLevel'"
 
-        if($AccessLevelID) {
+        if ($AccessLevelID) {
             $query += " AND ID=$AccessLevelID"
         }
 
-        if($Name) {
+        if ($Name) {
             $query += " AND Name='$Name'"
         }
 
         LogQuery $query
 
         $parameters = @{
-            ComputerName=$Server;
-            Namespace=$Script:OnGuardNamespace;
-            Query=$query
+            ComputerName = $Server;
+            Namespace    = $Script:OnGuardNamespace;
+            Query        = $query
         }
 
-        if($Credential -ne $null) {
+        if ($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 
         $items = Get-WmiObject @parameters 
 
-        foreach($item in $items) {
-            if($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing AccessLevelID: $($item.ID), $($item.Name)")) {
-               $item | Remove-WmiObject
+        foreach ($item in $items) {
+            if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing AccessLevelID: $($item.ID), $($item.Name)")) {
+                $item | Remove-WmiObject
             }
         }
     }

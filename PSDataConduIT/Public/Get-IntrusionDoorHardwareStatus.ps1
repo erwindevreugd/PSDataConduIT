@@ -13,47 +13,49 @@
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
-function Get-IntrusionDoorHardwareStatus
-{
+function Get-IntrusionDoorHardwareStatus {
     [CmdletBinding()]
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server = $Script:Server,
+            Position = 0, 
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
+        [string]
+        $Server = $Script:Server,
         
         [Parameter(
-            Position=1,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential = $Script:Credential,
+            Position = 1,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
+        [PSCredential]
+        $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The intrusion door id parameter.')]
-        [int]$IntrusionDoorID = $null
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The intrusion door id parameter.')]
+        [int]
+        $IntrusionDoorID = $null
     )
 
     process {
         $parameters = @{
-            Server=$Server;
+            Server = $Server;
         }
 
-        if($Credential -ne $null) {
+        if ($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($intrusionDoors = Get-IntrusionDoor @parameters -IntrusionDoorID $IntrusionDoorID) -eq $null) {
+        if (($intrusionDoors = Get-IntrusionDoor @parameters -IntrusionDoorID $IntrusionDoorID) -eq $null) {
             return
         }
 
-        foreach($intrusionDoor in $intrusionDoors) {
-            if(($panel = Get-Panel @parameters -PanelID ($intrusionDoor.PanelID)) -eq $null) {
+        foreach ($intrusionDoor in $intrusionDoors) {
+            if (($panel = Get-Panel @parameters -PanelID ($intrusionDoor.PanelID)) -eq $null) {
                 continue
             }
 
@@ -76,9 +78,9 @@ function Get-IntrusionDoorHardwareStatus
             }
             
             New-Object PSObject -Property @{
-                Name=$intrusionDoor.Name;
-                Status=$status;
-                Panel=$panel.Name;
+                Name   = $intrusionDoor.Name;
+                Status = $status;
+                Panel  = $panel.Name;
             } | Add-ObjectType -TypeName "DataConduIT.LnlIntrusionDoorHardwareStatus"
         }
     }

@@ -12,39 +12,41 @@
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
-function Get-CardholderAccount
-{
+function Get-CardholderAccount {
     [CmdletBinding()]
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server = $Script:Server,
+            Position = 0, 
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
+        [string]
+        $Server = $Script:Server,
         
         [Parameter(
-            Position=1,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential = $Script:Credential,
+            Position = 1,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
+        [PSCredential]
+        $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The cardholder id parameter.')]
-        [int]$CardholderID
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The cardholder id parameter.')]
+        [int]
+        $CardholderID
     )
 
     process {
         $parameters = @{
-            Server=$Server;
-            PersonID=$CardholderID
+            Server   = $Server;
+            PersonID = $CardholderID
         }
 
-        if($Credential -ne $null) {
+        if ($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 

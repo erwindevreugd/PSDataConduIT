@@ -17,15 +17,16 @@ function Remove-WmiProperty {
     [CmdletBinding()]
     param (
         [Parameter(
-            Mandatory=$true,
-            ValueFromPipeline=$true,
-            HelpMessage="The psobject parameter from which to remove the wmi properties."
+            Mandatory = $true,
+            ValueFromPipeline = $true,
+            HelpMessage = "The psobject parameter from which to remove the wmi properties."
         )]
-        [psobject]$InputObject
+        [psobject]
+        $InputObject
     )
     
     process {
-        $wmiProperties = "ComputerName","Path","Server","SuperClass","Class","Credential"
+        $wmiProperties = "ComputerName", "Path", "Server", "SuperClass", "Class", "Credential"
         Select-Object -InputObject $InputObject -Property * -ExcludeProperty $wmiProperties
     }
 }

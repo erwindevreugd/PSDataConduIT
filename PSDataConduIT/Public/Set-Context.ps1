@@ -16,35 +16,37 @@
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
-function Set-Context
-{
+function Set-Context {
     [CmdletBinding()]
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$true, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server,
+            Position = 0, 
+            Mandatory = $true, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
+        [string]
+        $Server,
 
         [Parameter(
-            Position=1,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential,
+            Position = 1,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
+        [PSCredential]
+        $Credential,
 
         [Parameter(
-            Position=2,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The default event source used to send events to DataConduIT.')]
-        [string]$EventSource = [String]::Empty
+            Position = 2,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The default event source used to send events to DataConduIT.')]
+        [string]
+        $EventSource = [String]::Empty
     )
 
     process {
-        if($Server.ToLowerInvariant() -eq 'localhost') {
+        if ($Server.ToLowerInvariant() -eq 'localhost') {
             $Server = '.'
         }
 

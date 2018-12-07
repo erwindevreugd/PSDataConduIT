@@ -19,61 +19,65 @@
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
-function Get-ReaderInputHardwareStatus
-{
+function Get-ReaderInputHardwareStatus {
     [CmdletBinding()]
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server = $Script:Server,
+            Position = 0, 
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
+        [string]
+        $Server = $Script:Server,
         
         [Parameter(
-            Position=1,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential = $Script:Credential,
+            Position = 1,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
+        [PSCredential]
+        $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The panel id parameter.')]
-        [int]$PanelID = $null,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The panel id parameter.')]
+        [int]
+        $PanelID = $null,
 
         [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The reader id parameter.')]
-        [int]$ReaderID = $null,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The reader id parameter.')]
+        [int]
+        $ReaderID = $null,
 
         [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The reader input id parameter.')]
-        [ValidateSet(0,1,2)]
-        [int]$ReaderInputID
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The reader input id parameter.')]
+        [ValidateSet(0, 1, 2)]
+        [int]
+        $ReaderInputID
     )
 
     process {
         $parameters = @{
-            Server=$Server;
+            Server = $Server;
         }
 
-        if($Credential -ne $null) {
+        if ($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($readerInputs = Get-ReaderInput @parameters -PanelID $PanelID -ReaderID $ReaderID -ReaderInputID $ReaderInputID) -eq $null) {
+        if (($readerInputs = Get-ReaderInput @parameters -PanelID $PanelID -ReaderID $ReaderID -ReaderInputID $ReaderInputID) -eq $null) {
             Write-Error -Message ("Reader input id '$($ReaderInputID)' on reader id '$($ReaderID)' on panel id '$($PanelID)' not found")
             return
         }
 
-        foreach($readerInput in $readerInputs) {
-            if(($panel = Get-Panel @parameters -PanelID ($readerInput.PanelID)) -eq $null) {
+        foreach ($readerInput in $readerInputs) {
+            if (($panel = Get-Panel @parameters -PanelID ($readerInput.PanelID)) -eq $null) {
                 continue
             }
 
@@ -96,9 +100,9 @@ function Get-ReaderInputHardwareStatus
             }
 
             New-Object PSObject -Property @{
-                Name=$readerInput.Name;
-                Status=$status;
-                Panel=$panel.Name;
+                Name   = $readerInput.Name;
+                Status = $status;
+                Panel  = $panel.Name;
             } | Add-ObjectType -TypeName "DataConduIT.LnlReaderInputHardwareStatus"
         }
     }

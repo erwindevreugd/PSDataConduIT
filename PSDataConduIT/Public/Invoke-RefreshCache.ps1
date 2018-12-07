@@ -12,35 +12,36 @@
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
-function Invoke-RefreshCache
-{
+function Invoke-RefreshCache {
     [CmdletBinding()]
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server = $Script:Server,
+            Position = 0, 
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
+        [string]
+        $Server = $Script:Server,
         
         [Parameter(
-            Position=1,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential = $Script:Credential
+            Position = 1,
+            Mandatory = $false, 
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
+        [PSCredential]
+        $Credential = $Script:Credential
     )
 
     process { 
         $parameters = @{
-            ComputerName=$Server;
-            Namespace=$Script:OnGuardNamespace;
-            Class="Lnl_DataConduITManager";
-            Name="RefreshCache"
+            ComputerName = $Server;
+            Namespace    = $Script:OnGuardNamespace;
+            Class        = "Lnl_DataConduITManager";
+            Name         = "RefreshCache"
         }
 
-        if($Credential -ne $null) {
+        if ($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 
