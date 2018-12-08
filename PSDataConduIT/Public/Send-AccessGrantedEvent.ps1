@@ -81,6 +81,6 @@ function Send-AccessGrantedEvent {
             $parameters.Add("Credential", $Credential)
         }
 
-        Invoke-WmiMethod @parameters -ArgumentList $BadgeID, $null, $Device, $null, $true, $false, $Source, $SubDevice, (ToWmiDateTime $Time)
+        Invoke-WmiMethod @parameters -ArgumentList $BadgeID, $null, $Device, $null, $false, $true, $Source, $SubDevice, (ToWmiDateTime $Time)
     }
 }
