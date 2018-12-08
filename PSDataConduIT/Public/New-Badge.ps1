@@ -55,54 +55,63 @@ function New-Badge {
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The activation date of the badge.')]
         [datetime]
         $Activate = ([DateTime]::Now),
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The deactivation date of the badge.')]
         [datetime]
         $Deactivate = ([DateTime]::Now).AddYears(5),
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Indicates whether the badge is exempted from anti-passback.')]
         [switch]
         $APBExempt,
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Indicates whether the badge is exempted from destination assurance.')]
         [switch]
         $DestinationExempt,
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Indicates whether the badge is allowed to override deadbolt.')]
         [switch]
         $DeadboltOverride,
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Indicates whether the badge is using extended strike held time.')]
         [switch]
         $ExtendedStrikeHeldTime,
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Indicates whether the badge is allowed to use passage mode.')]
         [switch]
         $PassageMode,
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The pin code for the new badge.')]
         [string]
         $Pin,
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The use limit for the new badge.')]
         [int]
         $UseLimit
