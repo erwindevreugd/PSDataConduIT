@@ -19,7 +19,7 @@ Get-VisitEmailRecipient [[-Server] <String>] [[-Credential] <PSCredential>] -Vis
 ## DESCRIPTION
 Gets a visit email recipient. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

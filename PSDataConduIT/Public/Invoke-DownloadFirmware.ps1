@@ -2,13 +2,13 @@
     .SYNOPSIS
     Downloads firmware to the specified panel or reader.
 
-    .DESCRIPTION   
-    Downloads firmware to the specified panel or reader. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Downloads firmware to the specified panel or reader.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -21,16 +21,16 @@ function Invoke-DownloadFirmware {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
@@ -38,12 +38,12 @@ function Invoke-DownloadFirmware {
 
         [Parameter(
             ParameterSetName = 'DownloadFirmwareToPanel',
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The panel id parameter.')]
         [Parameter(
             ParameterSetName = 'DownloadFirmwareToReader',
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The panel id parameter.')]
         [int]
@@ -51,14 +51,14 @@ function Invoke-DownloadFirmware {
 
         [Parameter(
             ParameterSetName = 'DownloadFirmwareToReader',
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The reader id parameter.')]
         [int]
         $ReaderID,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Forces the download firmware with out displaying a should process.')]
         [switch]
@@ -80,7 +80,7 @@ function Invoke-DownloadFirmware {
                     Write-Error -Message ("Panel id '$($PanelID)' not found")
                     return
                 }
-                
+
                 if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Download firmware to panel '$($panel.Name)'")) {
                     $panel.DownloadFirmware.Invoke() | Out-Null
                     Write-Verbose -Message ("Downloaded firmware to panel '$($panel.Name)'")
@@ -91,7 +91,7 @@ function Invoke-DownloadFirmware {
                     Write-Error -Message ("Reader id '$($ReaderID)' on panel id '$($PanelID)' not found")
                     return
                 }
-                
+
                 if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Download firmware to reader '$($reader.Name)'")) {
                     $reader.DownloadFirmware.Invoke() | Out-Null
                     Write-Verbose -Message ("Downloaded firmware to reader '$($reader.Name)'")

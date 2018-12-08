@@ -2,14 +2,14 @@
     .SYNOPSIS
     Gets a department.
 
-    .DESCRIPTION   
-    Gets all departments or a single department if a department id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all departments or a single department if a department id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-Department
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -18,37 +18,37 @@ function Get-Department {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The department id parameter.')]
         [int]
         $DepartmentID = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id parameter.')]
         [int]
         $SegmentID = -1
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_Department WHERE __CLASS='Lnl_Department' AND NAME!=''"
 
         if ($DepartmentID) {

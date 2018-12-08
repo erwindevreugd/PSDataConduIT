@@ -19,7 +19,7 @@ Get-AlarmPanel [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <In
 ## DESCRIPTION
 Gets all alarm panels or a single alarm panel if a alarm panel id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

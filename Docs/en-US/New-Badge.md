@@ -21,7 +21,7 @@ New-Badge [[-Server] <String>] [[-Credential] <PSCredential>] -PersonID <Int32> 
 ## DESCRIPTION
 Adds a new badge to the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

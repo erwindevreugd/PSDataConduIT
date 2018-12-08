@@ -2,13 +2,13 @@
     .SYNOPSIS
     Removes a division.
 
-    .DESCRIPTION   
-    Removes a division from the database. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Removes a division from the database.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -20,44 +20,44 @@ function Remove-Division {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The division id parameter.')]
         [int]
         $DivisionID,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id parameter.')]
         [int]
         $SegmentID = -1,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Forces the removal of the division with out displaying a should process.')]
         [switch]
         $Force
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_Division WHERE __CLASS='Lnl_Division' AND ID!=0"
 
         if ($DivisionID) {
@@ -80,7 +80,7 @@ function Remove-Division {
             $parameters.Add("Credential", $Credential)
         }
 
-        $items = Get-WmiObject @parameters 
+        $items = Get-WmiObject @parameters
 
         foreach ($item in $items) {
             if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing DivisionID: $($item.ID), $($item.Name)")) {

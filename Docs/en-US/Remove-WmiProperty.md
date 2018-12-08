@@ -19,7 +19,7 @@ Remove-WmiProperty [-InputObject] <PSObject>
 ## DESCRIPTION
 Removes common wmi properties from the input object.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

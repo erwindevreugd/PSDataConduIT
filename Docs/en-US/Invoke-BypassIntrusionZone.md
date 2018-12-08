@@ -20,7 +20,7 @@ Invoke-BypassIntrusionZone [[-Server] <String>] [[-Credential] <PSCredential>] [
 ## DESCRIPTION
 Bypasses an intrusion zone.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

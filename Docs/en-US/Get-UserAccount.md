@@ -19,7 +19,7 @@ Get-UserAccount [[-Server] <String>] [[-Credential] <PSCredential>] [-UserAccoun
 ## DESCRIPTION
 Gets all user accounts or a single user account if an user account id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -2,13 +2,13 @@
     .SYNOPSIS
     Refreshes the DataConduIT Manager cache.
 
-    .DESCRIPTION   
+    .DESCRIPTION
     Refreshes the DataConduIT Manager cache.
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -17,23 +17,23 @@ function Invoke-RefreshCache {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential
     )
 
-    process { 
+    process {
         $parameters = @{
             ComputerName = $Server;
             Namespace    = $Script:OnGuardNamespace;

@@ -20,7 +20,7 @@ Invoke-MaskAlarmInput [[-Server] <String>] [[-Credential] <PSCredential>] [-Pane
 ## DESCRIPTION
 Masks an alarm input. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -20,7 +20,7 @@ Remove-Building [[-Server] <String>] [[-Credential] <PSCredential>] [-BuildingID
 ## DESCRIPTION
 Removes a building from the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

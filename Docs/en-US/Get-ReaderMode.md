@@ -19,7 +19,7 @@ Get-ReaderMode [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <In
 ## DESCRIPTION
 Gets the reader mode for all readers or the reader mode for a single reader if a panel id and reader id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

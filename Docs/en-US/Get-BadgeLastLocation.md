@@ -19,7 +19,7 @@ Get-BadgeLastLocation [[-Server] <String>] [[-Credential] <PSCredential>] [-Badg
 ## DESCRIPTION
 Gets all badge last locations or a single badge last location if a badge id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -19,7 +19,7 @@ Get-AccessGroup [[-Server] <String>] [[-Credential] <PSCredential>] [-AccessGrou
 ## DESCRIPTION
 Gets all access groups or a single access group if an access group id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

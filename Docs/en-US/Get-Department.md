@@ -19,7 +19,7 @@ Get-Department [[-Server] <String>] [[-Credential] <PSCredential>] [-DepartmentI
 ## DESCRIPTION
 Gets all departments or a single department if a department id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

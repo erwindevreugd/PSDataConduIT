@@ -20,7 +20,7 @@ Invoke-ResetUseLimit [[-Server] <String>] [[-Credential] <PSCredential>] -PanelI
 ## DESCRIPTION
 Reset all cardholder use limits for a given panel. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

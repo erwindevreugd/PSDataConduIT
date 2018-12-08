@@ -2,14 +2,14 @@
     .SYNOPSIS
     Gets a building.
 
-    .DESCRIPTION   
-    Gets all buildings or a single building if a building id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all buildings or a single building if a building id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-Building
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -18,37 +18,37 @@ function Get-Building {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The building id parameter.')]
         [int]
         $BuildingID = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id parameter.')]
         [int]
         $SegmentID = -1
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_Building WHERE __CLASS='Lnl_Building' AND NAME!=''"
 
         if ($BuildingID) {

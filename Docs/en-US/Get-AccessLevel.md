@@ -19,7 +19,7 @@ Get-AccessLevel [[-Server] <String>] [[-Credential] <PSCredential>] [-AccessLeve
 ## DESCRIPTION
 Gets all accesslevels or a single accesslevel if an accesslevel id or name is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

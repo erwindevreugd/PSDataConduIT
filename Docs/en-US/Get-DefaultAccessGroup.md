@@ -19,7 +19,7 @@ Get-DefaultAccessGroup [[-Server] <String>] [[-Credential] <PSCredential>] -Badg
 ## DESCRIPTION
 Gets the default access group for the given badge type. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

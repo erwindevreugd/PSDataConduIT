@@ -19,7 +19,7 @@ Get-PanelHardwareStatus [[-Server] <String>] [[-Credential] <PSCredential>] [-Pa
 ## DESCRIPTION
 Gets the panel hardware status for all panels or the hardware status for a single panel if an panel id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

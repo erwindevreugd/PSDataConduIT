@@ -19,7 +19,7 @@ Get-Camera [[-Server] <String>] [[-Credential] <PSCredential>] [-CameraID <Int32
 ## DESCRIPTION
 Gets all cameras or a single camera if a camera id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

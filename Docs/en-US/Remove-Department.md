@@ -20,7 +20,7 @@ Remove-Department [[-Server] <String>] [[-Credential] <PSCredential>] [-Departme
 ## DESCRIPTION
 Removes a department from the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -21,7 +21,7 @@ Send-Event [[-Server] <String>] [[-Credential] <PSCredential>] -Source <String> 
 ## DESCRIPTION
 Sends an event to DataConduIT. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

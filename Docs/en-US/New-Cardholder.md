@@ -20,7 +20,7 @@ New-Cardholder [[-Server] <String>] [[-Credential] <PSCredential>] -Lastname <St
 ## DESCRIPTION
 Adds a new cardholder to the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

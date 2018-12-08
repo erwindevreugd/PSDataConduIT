@@ -19,7 +19,7 @@ Get-DataConduITService [[-Server] <String>] [[-Credential] <PSCredential>]
 ## DESCRIPTION
 Get the DataConduIT service. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

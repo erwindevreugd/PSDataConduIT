@@ -2,18 +2,18 @@
     .SYNOPSIS
     Gets the DataConduIT service.
 
-    .DESCRIPTION   
-    Get the DataConduIT service. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Get the DataConduIT service.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-DataConduITService
-    
+
     Name                                     Server                       IsStarted
     ----                                     ------                       ---------
     LS DataConduIT Service                   WS-084                       True
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -22,8 +22,8 @@ function Get-DataConduITService {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
@@ -31,7 +31,7 @@ function Get-DataConduITService {
 
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]

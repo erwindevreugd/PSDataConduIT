@@ -21,7 +21,7 @@ Add-AccessLevelAssignment [[-Server] <String>] [[-Credential] <PSCredential>] -B
 Adds an accesslevel assignment to a badge.
 Optionally you can provide an activation and deactivation date for the accesslevel assignment. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -19,7 +19,7 @@ Get-BadgeType [[-Server] <String>] [[-Credential] <PSCredential>] [-BadgeTypeID 
 ## DESCRIPTION
 Gets all badge types or a single badge type if a badge type id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

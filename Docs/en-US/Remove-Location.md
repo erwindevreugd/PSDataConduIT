@@ -20,7 +20,7 @@ Remove-Location [[-Server] <String>] [[-Credential] <PSCredential>] [-LocationID
 ## DESCRIPTION
 Removes a location from the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

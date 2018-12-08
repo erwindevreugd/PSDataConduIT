@@ -27,7 +27,7 @@ Invoke-VisitSignIn [[-Server] <String>] [[-Credential] <PSCredential>] -VisitID 
 ## DESCRIPTION
 Sign in a visit.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -20,7 +20,7 @@ Invoke-UnmaskReaderInput [[-Server] <String>] [[-Credential] <PSCredential>] [-P
 ## DESCRIPTION
 Unmasks a raeder input. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

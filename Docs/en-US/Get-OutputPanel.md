@@ -19,7 +19,7 @@ Get-OutputPanel [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <I
 ## DESCRIPTION
 Gets all output panels or a single output panel if a alarm panel id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

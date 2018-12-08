@@ -2,21 +2,21 @@
     .SYNOPSIS
     Gets an user.
 
-    .DESCRIPTION   
-    Gets all users or a single user if an user id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all users or a single user if an user id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-User
-    
+
     UserID        Lastname             Firstname            LogonID
     ------        --------             ---------            -------
     -1            System Account       System Account       SA
     1             Administrator        Administrator        ADMIN
     2             Badge Operator       Badge Operator       BADGE
     3             User                 User                 USER
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -25,23 +25,23 @@ function Get-User {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The user id parameter.')]
         [int]

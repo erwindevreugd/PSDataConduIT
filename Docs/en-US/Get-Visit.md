@@ -19,7 +19,7 @@ Get-Visit [[-Server] <String>] [[-Credential] <PSCredential>] [-VisitID <Int32>]
 ## DESCRIPTION
 Gets all visits or a single visit if a visit id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

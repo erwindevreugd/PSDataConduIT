@@ -2,20 +2,20 @@
     .SYNOPSIS
     Gets a badge type.
 
-    .DESCRIPTION   
-    Gets all badge types or a single badge type if a badge type id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all badge types or a single badge type if a badge type id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-BadgeType
-    
+
     BadgeTypeID   Name
     -----------   ----
     1             Employee
     2             Visitor
     3             Temporary
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -24,30 +24,30 @@ function Get-BadgeType {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge type id parameter.')]
         [int]
         $BadgeTypeID = $null
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_BadgeType WHERE __CLASS='Lnl_BadgeType' AND ID!=0"
 
         if ($BadgeTypeID) {

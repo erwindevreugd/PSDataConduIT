@@ -20,7 +20,7 @@ Remove-BadgeStatus [[-Server] <String>] [[-Credential] <PSCredential>] [-BadgeSt
 ## DESCRIPTION
 Removes a badge status from the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

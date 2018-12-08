@@ -20,7 +20,7 @@ Set-ReaderMode [[-Server] <String>] [[-Credential] <PSCredential>] -PanelID <Int
 ## DESCRIPTION
 Sets a reader to the specified reader mode. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

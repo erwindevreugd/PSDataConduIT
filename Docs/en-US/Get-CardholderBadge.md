@@ -19,7 +19,7 @@ Get-CardholderBadge [[-Server] <String>] [[-Credential] <PSCredential>] -PersonI
 ## DESCRIPTION
 Gets all badges for a given cardholder. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

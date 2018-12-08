@@ -19,7 +19,7 @@ Get-Building [[-Server] <String>] [[-Credential] <PSCredential>] [-BuildingID <I
 ## DESCRIPTION
 Gets all buildings or a single building if a building id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

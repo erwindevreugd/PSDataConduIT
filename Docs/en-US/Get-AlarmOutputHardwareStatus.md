@@ -20,7 +20,7 @@ Get-AlarmOutputHardwareStatus [[-Server] <String>] [[-Credential] <PSCredential>
 ## DESCRIPTION
 Gets the alarm output hardware status for all alarm output or the hardware status for a single alarm output if an alarm panel id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

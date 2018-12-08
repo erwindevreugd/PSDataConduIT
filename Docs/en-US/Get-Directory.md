@@ -19,7 +19,7 @@ Get-Directory [[-Server] <String>] [[-Credential] <PSCredential>] [-DirectoryID 
 ## DESCRIPTION
 Gets all directories or a single directory if a directory id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

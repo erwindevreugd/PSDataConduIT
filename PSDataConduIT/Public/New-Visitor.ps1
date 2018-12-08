@@ -2,13 +2,13 @@
     .SYNOPSIS
     Adds a new visitor.
 
-    .DESCRIPTION   
-    Adds a new visitor to the database. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Adds a new visitor to the database.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -17,97 +17,97 @@ function New-Visitor {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The first name of the new visitor.')]
         [string]
         $Firstname = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The mid name of the new visitor.')]
         [string]
         $Midname = $null,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The last name of the new visitor.')]
         [string]$Lastname,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The social security number (SSNO) of the new visitor.')]
         [string]$SSNO = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The address of the new visitor.')]
         [string]$Address = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The city of the new visitor.')]
         [string]$City = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The email of the new visitor.')]
         [string]$Email = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The extension of the new visitor.')]
         [string]$Extension = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The office phone number of the new visitor.')]
         [string]$OfficePhone = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The organization of the new visitor.')]
         [string]$Organization = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The state of the new visitor.')]
         [string]$State = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The title of the new visitor.')]
         [string]$Title = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The zip code of the new visitor.')]
         [string]$ZipCode = $null
@@ -140,7 +140,7 @@ function New-Visitor {
             TITLE        = $Title;
             ZIP          = $ZipCode;
         } |
-            Select-Object *, @{L = 'VisitorID'; E = {$_.ID}} | 
+            Select-Object *, @{L = 'VisitorID'; E = {$_.ID}} |
             Get-Visitor
     }
 }

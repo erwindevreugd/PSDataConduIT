@@ -19,7 +19,7 @@ Get-CurrentUser [[-Server] <String>] [[-Credential] <PSCredential>]
 ## DESCRIPTION
 Gets the current Lenel user. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

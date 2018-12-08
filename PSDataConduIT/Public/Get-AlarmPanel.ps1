@@ -2,14 +2,14 @@
     .SYNOPSIS
     Gets an alarm panel.
 
-    .DESCRIPTION   
-    Gets all alarm panels or a single alarm panel if a alarm panel id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all alarm panels or a single alarm panel if a alarm panel id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-AlarmPanel
-    
+
     PanelID       AlarmPanelID  Name                           Type
     -------       ------------  ----                           ----
     1             65            OutputPanel                    OutputPanel
@@ -23,30 +23,30 @@ function Get-AlarmPanel {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The panel id parameter.')]
         [int]
         $PanelID,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The alarm panel id parameter.')]
         [int]

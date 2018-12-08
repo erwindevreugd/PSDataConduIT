@@ -20,7 +20,7 @@ Invoke-DeactivateReaderOutput [[-Server] <String>] [[-Credential] <PSCredential>
 ## DESCRIPTION
 Deactivates a raeder output. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -19,7 +19,7 @@ Get-Reader [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <Int32>
 ## DESCRIPTION
 Gets all reader or a single reader if a panel id and reader id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

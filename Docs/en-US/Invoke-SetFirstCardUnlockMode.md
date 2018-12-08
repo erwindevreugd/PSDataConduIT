@@ -27,7 +27,7 @@ Invoke-SetFirstCardUnlockMode [[-Server] <String>] [[-Credential] <PSCredential>
 ## DESCRIPTION
 Enables or disables first card unlock mode for a reader. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -2,14 +2,14 @@
     .SYNOPSIS
     Adds an accesslevel assignment to a badge.
 
-    .DESCRIPTION   
-    Adds an accesslevel assignment to a badge. Optionally you can provide an activation and deactivation date for the accesslevel assignment. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Adds an accesslevel assignment to a badge. Optionally you can provide an activation and deactivation date for the accesslevel assignment.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Add-AccessLevelAssignment -BadgeKey 1 -AccessLevelID 1
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -18,8 +18,8 @@ function Add-AccessLevelAssignment {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
@@ -27,21 +27,21 @@ function Add-AccessLevelAssignment {
 
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badgekey to which the accesslevel will be assigned.')]
         [int]
         $BadgeKey,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The accesslevel id to add to the accesslevel assignment.')]
         [int]
@@ -61,7 +61,6 @@ function Add-AccessLevelAssignment {
     )
 
     process {
-
         $parameters = @{
             ComputerName = $Server;
             Namespace    = $Script:OnGuardNamespace;
@@ -89,12 +88,12 @@ function Add-AccessLevelAssignment {
 
         Set-WmiInstance @parameters -Arguments @{
             BADGEKEY      = $BadgeKey;
-            ACCESSLEVELID = $AccessLevelID; 
+            ACCESSLEVELID = $AccessLevelID;
             ACTIVATE      = $Activate;
             DEACTIVATE    = $Deactivate
         } |
             Get-AccessLevelAssignment
-            
+
         Write-Verbose -Message ("Added accesslevel '$($accessLevel.Name)' to badge key '$($badge.BadgeKey)'")
     }
 }

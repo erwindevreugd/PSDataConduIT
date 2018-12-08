@@ -2,13 +2,13 @@
     .SYNOPSIS
     Adds a new accesslevel.
 
-    .DESCRIPTION   
-    Adds a new accesslevel to the database. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Adds a new accesslevel to the database.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -17,16 +17,16 @@ function New-AccessLevel {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
@@ -34,14 +34,14 @@ function New-AccessLevel {
 
         [ValidateLength(1, 255)]
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the accesslevel.')]
         [string]
         $Name,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id to which to add the new accesslevel.')]
         [int]
@@ -66,10 +66,10 @@ function New-AccessLevel {
         }
 
         Set-WmiInstance @parameters -Arguments @{
-            Name      = $Name; 
+            Name      = $Name;
             SegmentID = $SegmentID;
         } |
-            Select-Object *, @{L = 'AccessLevelID'; E = {$_.ID}} | 
+            Select-Object *, @{L = 'AccessLevelID'; E = {$_.ID}} |
             Get-AccessLevel
     }
 }

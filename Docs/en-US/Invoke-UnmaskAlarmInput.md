@@ -20,7 +20,7 @@ Invoke-UnmaskAlarmInput [[-Server] <String>] [[-Credential] <PSCredential>] [-Pa
 ## DESCRIPTION
 Unmasks an alarm input. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -20,7 +20,7 @@ Invoke-PulseAlarmOutput [[-Server] <String>] [[-Credential] <PSCredential>] [-Pa
 ## DESCRIPTION
 Pulses an alarm output. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

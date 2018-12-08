@@ -2,18 +2,18 @@
     .SYNOPSIS
     Gets a badge owner.
 
-    .DESCRIPTION   
-    Gets the owner of a badge. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets the owner of a badge.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-BadgeOwner
 
     PersonID      Lastname             Midname    Firstname
     --------      --------             -------    ---------
     1             Lake                 A          Lisa
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -22,30 +22,30 @@ function Get-BadgeOwner {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge id parameter.')]
         [long]
         $BadgeID,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge key parameter.')]
         [int]

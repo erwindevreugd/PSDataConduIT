@@ -19,7 +19,7 @@ Get-TimezoneInterval [[-Server] <String>] [[-Credential] <PSCredential>] [-Timez
 ## DESCRIPTION
 Gets all timezone intervals or a single timezone interval if an timezone interval id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

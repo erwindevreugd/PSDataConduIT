@@ -20,7 +20,7 @@ Get-ReaderOutputHardwareStatus [[-Server] <String>] [[-Credential] <PSCredential
 ## DESCRIPTION
 Get the hardware status for a reader output. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

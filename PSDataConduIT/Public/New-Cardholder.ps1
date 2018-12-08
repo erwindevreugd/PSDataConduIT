@@ -2,13 +2,13 @@
     .SYNOPSIS
     Adds a new cardholder.
 
-    .DESCRIPTION   
-    Adds a new cardholder to the database. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Adds a new cardholder to the database.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -17,58 +17,58 @@ function New-Cardholder {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The last name of the new cardholder.')]
         [string]
         $Lastname,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The first name of the new cardholder.')]
         [string]
         $Firstname = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The social security number (SSNO) of the new cardholder.')]
         [string]
         $SSNO = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The email of the new cardholder.')]
         [string]
         $Email = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The floor of the new cardholder.')]
         [int]
         $Floor = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Allow the new cardholder to receive visitors.')]
         [switch]
@@ -95,7 +95,7 @@ function New-Cardholder {
             SSNO            = $SSNO;
             ALLOWEDVISITORS = [bool]$AllowedVisitors
         } |
-            Select-Object *, @{L = 'PersonID'; E = {$_.ID}} | 
+            Select-Object *, @{L = 'PersonID'; E = {$_.ID}} |
             Get-Cardholder
     }
 }

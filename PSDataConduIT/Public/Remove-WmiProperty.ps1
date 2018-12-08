@@ -2,11 +2,11 @@
     .SYNOPSIS
     Removes common wmi properties from the input object.
 
-    .DESCRIPTION   
+    .DESCRIPTION
     Removes common wmi properties from the input object.
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-Cardholder | Remove-WmiProperty | Export-CSV
 
@@ -24,7 +24,7 @@ function Remove-WmiProperty {
         [psobject]
         $InputObject
     )
-    
+
     process {
         $wmiProperties = "ComputerName", "Path", "Server", "SuperClass", "Class", "Credential"
         Select-Object -InputObject $InputObject -Property * -ExcludeProperty $wmiProperties

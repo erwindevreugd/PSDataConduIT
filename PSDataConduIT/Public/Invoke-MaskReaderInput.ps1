@@ -2,13 +2,13 @@
     .SYNOPSIS
     Masks a reader input.
 
-    .DESCRIPTION   
-    Masks a raeder input. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Masks a raeder input.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -17,37 +17,37 @@ function Invoke-MaskReaderInput {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The panel id parameter.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The reader id parameter.')]
         [int]
         $ReaderID = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The reader input id parameter.')]
         [ValidateSet(0, 1, 2)]
@@ -55,7 +55,7 @@ function Invoke-MaskReaderInput {
         $ReaderInputID,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Returns an object that represents the reader input. By default, this cmdlet does not generate any output.')]
         [switch]
@@ -78,9 +78,9 @@ function Invoke-MaskReaderInput {
 
         foreach ($readerInput in $readerInputs) {
             $readerInput.Mask.Invoke() | Out-Null
-            
+
             Write-Verbose -Message ("Reader input '$($readerInput.Name)' masked")
-    
+
             if ($PassThru) {
                 Write-Output $$readerInput
             }

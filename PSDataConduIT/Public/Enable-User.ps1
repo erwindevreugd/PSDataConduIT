@@ -2,14 +2,14 @@
     .SYNOPSIS
     Enables an user.
 
-    .DESCRIPTION   
-    Enables an user. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Enables an user.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Enable-User
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -21,25 +21,25 @@ function Enable-User {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user id parameter.')]
+            HelpMessage = 'The id of the user to enable.')]
         [int]
         $UserID,
 
@@ -47,7 +47,7 @@ function Enable-User {
         $PassThru,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Forces the user to be enabled with out displaying a should process.')]
         [switch]

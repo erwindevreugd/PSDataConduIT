@@ -27,7 +27,7 @@ Invoke-DownloadFirmware [[-Server] <String>] [[-Credential] <PSCredential>] -Pan
 ## DESCRIPTION
 Downloads firmware to the specified panel or reader. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

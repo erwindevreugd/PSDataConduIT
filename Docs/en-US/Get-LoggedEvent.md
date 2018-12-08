@@ -20,7 +20,7 @@ Get-LoggedEvent [[-Server] <String>] [[-Credential] <PSCredential>] [-SerialNumb
 ## DESCRIPTION
 Gets logged events or a single logged event if a logged event serial number is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

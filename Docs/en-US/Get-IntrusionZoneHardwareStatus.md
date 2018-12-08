@@ -19,7 +19,7 @@ Get-IntrusionZoneHardwareStatus [[-Server] <String>] [[-Credential] <PSCredentia
 ## DESCRIPTION
 Gets the intrusion zone hardware status for all intrusion zone or the hardware status for a single intrusion zone if an intrusion zone id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

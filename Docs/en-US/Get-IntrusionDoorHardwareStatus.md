@@ -19,7 +19,7 @@ Get-IntrusionDoorHardwareStatus [[-Server] <String>] [[-Credential] <PSCredentia
 ## DESCRIPTION
 Gets the intrusion door hardware status for all intrusion doors or the hardware status for a single intrusion door if an intrusion door id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

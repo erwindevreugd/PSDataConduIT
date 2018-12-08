@@ -19,7 +19,7 @@ Get-Visitor [[-Server] <String>] [[-Credential] <PSCredential>] [-VisitorID <Int
 ## DESCRIPTION
 Gets all visitors or a single visitor if a visitor id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

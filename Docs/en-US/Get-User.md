@@ -19,7 +19,7 @@ Get-User [[-Server] <String>] [[-Credential] <PSCredential>] [-UserID <Int32>]
 ## DESCRIPTION
 Gets all users or a single user if an user id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

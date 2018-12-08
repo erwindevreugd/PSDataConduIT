@@ -20,7 +20,7 @@ Get-AlarmOutput [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <I
 ## DESCRIPTION
 Gets all alarm output or a single alarm output if a alarm output id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

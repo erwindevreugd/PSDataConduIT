@@ -20,7 +20,7 @@ Invoke-OpenIntrusionDoor [[-Server] <String>] [[-Credential] <PSCredential>] -In
 ## DESCRIPTION
 Opens an intrusion door. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

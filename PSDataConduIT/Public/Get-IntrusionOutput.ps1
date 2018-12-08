@@ -2,14 +2,14 @@
     .SYNOPSIS
     Gets an intrusion output.
 
-    .DESCRIPTION   
-    Gets all intrusion ouputs or a single intrusion output if an intrusion output id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all intrusion ouputs or a single intrusion output if an intrusion output id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-IntrusionOutput
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -18,30 +18,30 @@ function Get-IntrusionOutput {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The intrusion output id parameter.')]
         [int]
         $IntrusionOutputID = $null
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_IntrusionOutput WHERE __CLASS='Lnl_IntrusionOutput'"
 
         if ($IntrusionOutputID) {

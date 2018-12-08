@@ -19,7 +19,7 @@ Get-Person [[-Server] <String>] [[-Credential] <PSCredential>] [-PersonID <Int32
 ## DESCRIPTION
 Gets all persons or a single person if a person id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

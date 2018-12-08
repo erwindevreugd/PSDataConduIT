@@ -20,7 +20,7 @@ Remove-VisitType [[-Server] <String>] [[-Credential] <PSCredential>] [-VisitType
 ## DESCRIPTION
 Removes a visit type from the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -19,7 +19,7 @@ Get-Area [[-Server] <String>] [[-Credential] <PSCredential>] [-AreaID <Int32>]
 ## DESCRIPTION
 Gets all areas or a single area if an area id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

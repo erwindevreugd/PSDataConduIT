@@ -19,7 +19,7 @@ Get-BadgeOwner [[-Server] <String>] [[-Credential] <PSCredential>] [-BadgeID <In
 ## DESCRIPTION
 Gets the owner of a badge. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

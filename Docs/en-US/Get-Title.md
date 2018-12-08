@@ -19,7 +19,7 @@ Get-Title [[-Server] <String>] [[-Credential] <PSCredential>] [-TitleID <Int32>]
 ## DESCRIPTION
 Gets all titles or a single title if a title id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

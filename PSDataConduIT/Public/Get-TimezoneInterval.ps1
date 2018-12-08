@@ -2,18 +2,18 @@
     .SYNOPSIS
     Gets a timezone interval.
 
-    .DESCRIPTION   
-    Gets all timezone intervals or a single timezone interval if an timezone interval id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all timezone intervals or a single timezone interval if an timezone interval id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-TimezoneInterval
-    
+
     Timezone                                 Mon   Tue   Wed   Thu   Fri   Sat   Sun   H1    H2    H3    H4    H5    H6    H7    H8
     --------                                 ---   ---   ---   ---   ---   ---   ---   --    --    --    --    --    --    --    --
     Always                                   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -22,23 +22,23 @@ function Get-TimezoneInterval {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The timezone interval id parameter.')]
         [int]
@@ -66,7 +66,7 @@ function Get-TimezoneInterval {
 
         $timezones = Get-Timezone -Server $server -Credential $Credential
 
-        Get-WmiObject @parameters | ForEach-Object { 
+        Get-WmiObject @parameters | ForEach-Object {
             # $item used to keep track of foreach object
             $item = $_
             New-Object PSObject -Property @{

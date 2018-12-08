@@ -19,7 +19,7 @@ Get-Holiday [[-Server] <String>] [[-Credential] <PSCredential>] [-HolidayID <Int
 ## DESCRIPTION
 Gets all holidays or a single holiday if a holiday id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

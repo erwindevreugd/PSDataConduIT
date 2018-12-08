@@ -2,13 +2,13 @@
     .SYNOPSIS
     Signs in a visit.
 
-    .DESCRIPTION   
+    .DESCRIPTION
     Sign in a visit.
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -19,23 +19,23 @@ function Invoke-VisitSignIn {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The visit id parameter.')]
         [int]
@@ -63,7 +63,7 @@ function Invoke-VisitSignIn {
         $PrinterName,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Returns an object that represents the visit. By default, this cmdlet does not generate any output.')]
         [switch]
@@ -88,7 +88,7 @@ function Invoke-VisitSignIn {
         $visit.SignInVisit.Invoke($BadgeTypeID, $PrinterName, $AssignedBadgeID) | Out-Null
 
         Write-Verbose -Message ("Visit '$($visit.VisitID)' signed in with badge id '$($AssignedBadgeID)'")
-    
+
         if ($PassThru) {
             Get-Visit @parameters
         }

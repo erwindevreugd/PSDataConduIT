@@ -6,7 +6,7 @@ function Add-ObjectType {
         )]
         [psobject]
         $Object,
-        
+
         [string]
         $TypeName = ""
     )

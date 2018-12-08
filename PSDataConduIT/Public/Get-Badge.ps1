@@ -2,18 +2,18 @@
     .SYNOPSIS
     Gets a badge.
 
-    .DESCRIPTION   
-    Gets all badges or a single badge if a badge id or badgekey is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all badges or a single badge if a badge id or badgekey is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-Badge
-    
+
     BadgeID       BadgeKey      PersonID      Status        Activate               Deactivate             BadgeTypeID
     -------       --------      --------      ------        --------               ----------             -----------
     1039236244    2             2             1             01/08/2017 00:00:00    01/08/2022 00:00:00    1
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -23,30 +23,30 @@ function Get-Badge
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$false, 
+            Position=0,
+            Mandatory=$false,
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position=1,
-            Mandatory=$false, 
+            Mandatory=$false,
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$false, 
+            Mandatory=$false,
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge id parameter.')]
         [long]
         $BadgeID,
 
         [Parameter(
-            Mandatory=$false, 
+            Mandatory=$false,
             ValueFromPipelineByPropertyName=$true,
             HelpMessage='The badge key parameter.')]
         [int]

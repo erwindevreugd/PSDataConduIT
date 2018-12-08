@@ -20,7 +20,7 @@ Get-ReaderInput [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <I
 ## DESCRIPTION
 Gets all reader inputs or a single reader input if a reader input id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

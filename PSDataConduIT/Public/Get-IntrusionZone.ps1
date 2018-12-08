@@ -2,14 +2,14 @@
     .SYNOPSIS
     Gets an intrusion zone.
 
-    .DESCRIPTION   
-    Gets all intrusion zones or a single intrusion zones if an intrusion zone id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all intrusion zones or a single intrusion zones if an intrusion zone id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-IntrusionZone
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -18,30 +18,30 @@ function Get-IntrusionZone {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The intrusion zone id parameter.')]
         [int]
         $IntrusionZoneID = $null
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_IntrusionZone WHERE __CLASS='Lnl_IntrusionZone'"
 
         if ($IntrusionZoneID) {

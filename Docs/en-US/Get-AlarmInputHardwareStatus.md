@@ -20,7 +20,7 @@ Get-AlarmInputHardwareStatus [[-Server] <String>] [[-Credential] <PSCredential>]
 ## DESCRIPTION
 Gets the alarm input hardware status for all alarm input or the hardware status for a single alarm input if an alarm panel id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

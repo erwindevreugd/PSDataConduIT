@@ -2,13 +2,13 @@
     .SYNOPSIS
     Adds a new badge status.
 
-    .DESCRIPTION   
-    Adds a new badge status to the database. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Adds a new badge status to the database.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -17,16 +17,16 @@ function New-BadgeStatus {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
@@ -34,7 +34,7 @@ function New-BadgeStatus {
 
         [ValidateLength(1, 255)]
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the badge status.')]
         [string]
@@ -56,7 +56,7 @@ function New-BadgeStatus {
         Set-WmiInstance @parameters -Arguments @{
             Name = $Name;
         } |
-            Select-Object *, @{L = 'BadgeStatusID'; E = {$_.ID}} | 
+            Select-Object *, @{L = 'BadgeStatusID'; E = {$_.ID}} |
             Get-BadgeStatus
     }
 }

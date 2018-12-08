@@ -2,18 +2,18 @@
     .SYNOPSIS
     Gets a cardholder.
 
-    .DESCRIPTION   
-    Gets all cardholders or a single cardholder if a cardholder id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all cardholders or a single cardholder if a cardholder id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-Cardholder
 
     PersonID      Lastname             Midname    Firstname
     --------      --------             -------    ---------
     1             Lake                 A          Lisa
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -22,23 +22,23 @@ function Get-Cardholder {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The person id parameter.')]
         [int]
@@ -75,11 +75,11 @@ function Get-Cardholder {
                 BuildingID        = $_.BUILDING;
                 Floor             = $_.FLOOR;
                 DepartmentID      = $_.DEPT;
-                DivisionID        = $_.DIVISION;				
+                DivisionID        = $_.DIVISION;
                 TitleID           = $_.TITLE;
                 Firstname         = $_.FIRSTNAME;
                 Lastname          = $_.LASTNAME;
-                Midname           = $_.MIDNAME;	
+                Midname           = $_.MIDNAME;
                 PersonID          = $_.ID;
                 CardholderID      = $_.ID;
                 IsGrant           = $_.IsGrant;

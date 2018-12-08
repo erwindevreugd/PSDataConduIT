@@ -19,7 +19,7 @@ Get-Location [[-Server] <String>] [[-Credential] <PSCredential>] [-LocationID <I
 ## DESCRIPTION
 Gets all locations or a single location if a location id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

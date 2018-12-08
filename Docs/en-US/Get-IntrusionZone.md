@@ -19,7 +19,7 @@ Get-IntrusionZone [[-Server] <String>] [[-Credential] <PSCredential>] [-Intrusio
 ## DESCRIPTION
 Gets all intrusion zones or a single intrusion zones if an intrusion zone id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

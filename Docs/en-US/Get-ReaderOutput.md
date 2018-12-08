@@ -20,7 +20,7 @@ Get-ReaderOutput [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <
 ## DESCRIPTION
 Gets all reader output or a single reader output if a reader output id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

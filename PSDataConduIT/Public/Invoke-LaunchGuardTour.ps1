@@ -2,14 +2,14 @@
     .SYNOPSIS
     Start the guard tour.
 
-    .DESCRIPTION   
+    .DESCRIPTION
     Starts the guard tour.
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Invoke-LaunchGuardTour
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -21,37 +21,37 @@ function Invoke-LaunchGuardTour {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The guard tour id parameter.')]
         [int]
         $GuardTourID,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge id parameter.')]
         [long]
         $BadgeID,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The monitoring zone parameter.')]
         [int]
@@ -61,7 +61,7 @@ function Invoke-LaunchGuardTour {
         $PassThru,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Forces the guard tour to launch with out displaying a should process.')]
         [switch]
@@ -94,12 +94,12 @@ function Invoke-LaunchGuardTour {
 
         if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Launching guard tour '$($guardTour.Name) for badge id '$($badge.BageID)' on monitoring zone '$($monitoringZone.Name)'")) {
             $result = $guardTour.LaunchTour.Invoke($BadgeID, $MonitoringZoneID).ReturnValue
-            
+
             switch ($result) {
                 0 {
                     Write-Verbose -Message ("Guard tour '$($guardTour.Name)' started")
                 }
-                1 { 
+                1 {
                     Write-Verbose -Message ("Guard tour '$($guardTour.Name)' already in progress")
                 }
                 Default {

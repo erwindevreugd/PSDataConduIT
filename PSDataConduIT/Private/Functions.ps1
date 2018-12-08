@@ -20,7 +20,7 @@ function ToWmiDateTime($dateTime) {
 
 function MapEnum($enum, $value, $default = $null) {
     try {
-        [Enum]::GetValues($enum) | Where-Object { $_ -eq $value }     
+        [Enum]::GetValues($enum) | Where-Object { $_ -eq $value }
     }
     catch {
         Write-Error $_

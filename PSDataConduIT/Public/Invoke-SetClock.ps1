@@ -2,13 +2,13 @@
     .SYNOPSIS
     Sets the panel clock.
 
-    .DESCRIPTION   
-    Sets the panel clock. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Sets the panel clock.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -17,30 +17,30 @@ function Invoke-SetClock {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The panel id parameter.')]
         [int]
         $PanelID,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Returns an object that represents the panel. By default, this cmdlet does not generate any output.')]
         [switch]
@@ -61,7 +61,7 @@ function Invoke-SetClock {
             Write-Error -Message ("Panel id '$($PanelID)' not found")
             return
         }
-        
+
         $panel.SetClock.Invoke() | Out-Null
 
         Write-Verbose -Message ("Set clock on panel '$($panel.Name)'")

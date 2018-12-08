@@ -2,13 +2,13 @@
     .SYNOPSIS
     Sets the use limit for a given badge.
 
-    .DESCRIPTION   
-    Sets the use limit for a given badge. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Sets the use limit for a given badge.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -17,23 +17,23 @@ function Set-BadgeUseLimit {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge key parameter.')]
         [int]
@@ -71,7 +71,7 @@ function Set-BadgeUseLimit {
         }
 
         $badge.USELIMIT = $UseLimit
-        
+
         Set-WmiInstance -InputObject $badge |
             Get-Badge
 

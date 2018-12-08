@@ -20,7 +20,7 @@ Get-Account [[-Server] <String>] [[-Credential] <PSCredential>] [-AccountID <Int
 ## DESCRIPTION
 Gets all cardholder accounts or a single carholder account if an account id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

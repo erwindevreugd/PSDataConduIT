@@ -22,7 +22,7 @@ New-Visitor [[-Server] <String>] [[-Credential] <PSCredential>] [-Firstname <Str
 ## DESCRIPTION
 Adds a new visitor to the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

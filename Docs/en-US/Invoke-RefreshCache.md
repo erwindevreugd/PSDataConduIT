@@ -19,7 +19,7 @@ Invoke-RefreshCache [[-Server] <String>] [[-Credential] <PSCredential>]
 ## DESCRIPTION
 Refreshes the DataConduIT Manager cache.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

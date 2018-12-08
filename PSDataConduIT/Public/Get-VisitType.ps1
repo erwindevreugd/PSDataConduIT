@@ -2,14 +2,14 @@
     .SYNOPSIS
     Gets a visit type.
 
-    .DESCRIPTION   
-    Gets all visit types or a single visit type if a visit type id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all visit types or a single visit type if a visit type id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-VisitType
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -18,37 +18,37 @@ function Get-VisitType {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The visit type id parameter.')]
         [int]
         $VisitTypeID = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id parameter.')]
         [int]
         $SegmentID = -1
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_VisitType WHERE __CLASS='Lnl_VisitType' AND NAME!=''"
 
         if ($VisitTypeID) {

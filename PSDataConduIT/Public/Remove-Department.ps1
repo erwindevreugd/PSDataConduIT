@@ -2,13 +2,13 @@
     .SYNOPSIS
     Removes a department.
 
-    .DESCRIPTION   
-    Removes a department from the database. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Removes a department from the database.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -20,44 +20,44 @@ function Remove-Department {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The department id parameter.')]
         [int]
         $DepartmentID,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id parameter.')]
         [int]
         $SegmentID = -1,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Forces the removal of the department with out displaying a should process.')]
         [switch]
         $Force
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_Department WHERE __CLASS='Lnl_Department' AND ID!=0"
 
         if ($DepartmentID) {
@@ -80,7 +80,7 @@ function Remove-Department {
             $parameters.Add("Credential", $Credential)
         }
 
-        $items = Get-WmiObject @parameters 
+        $items = Get-WmiObject @parameters
 
         foreach ($item in $items) {
             if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing DepartmentID: $($item.ID), $($item.Name)")) {

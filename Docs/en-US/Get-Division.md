@@ -19,7 +19,7 @@ Get-Division [[-Server] <String>] [[-Credential] <PSCredential>] [-DivisionID <I
 ## DESCRIPTION
 Gets all divisions or a single division if a division id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

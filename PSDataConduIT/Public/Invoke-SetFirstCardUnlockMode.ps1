@@ -2,13 +2,13 @@
     .SYNOPSIS
     Enables or disables first card unlock mode for a reader.
 
-    .DESCRIPTION   
-    Enables or disables first card unlock mode for a reader. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Enables or disables first card unlock mode for a reader.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -17,35 +17,35 @@ function Invoke-SetFirstCardUnlockMode {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The panel id parameter.')]
         [int]
         $PanelID,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The reader id parameter.')]
         [int]
         $ReaderID,
-        
+
         [Parameter(
             Mandatory = $false,
             ParameterSetName = 'Enable',
@@ -61,7 +61,7 @@ function Invoke-SetFirstCardUnlockMode {
         $Disable,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Returns an object that represents the reader. By default, this cmdlet does not generate any output.')]
         [switch]

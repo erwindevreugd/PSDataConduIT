@@ -20,7 +20,7 @@ Get-ReaderHardwareStatus [[-Server] <String>] [[-Credential] <PSCredential>] [-P
 ## DESCRIPTION
 Gets reader hardware status for all readers or the reader hardware status for a single reader if a panel id and reader id are specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

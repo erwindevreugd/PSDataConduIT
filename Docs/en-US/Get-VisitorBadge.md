@@ -19,7 +19,7 @@ Get-VisitorBadge [[-Server] <String>] [[-Credential] <PSCredential>] -PersonID <
 ## DESCRIPTION
 Gets all badges for a given visitor. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

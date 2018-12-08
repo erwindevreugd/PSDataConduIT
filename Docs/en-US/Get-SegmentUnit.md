@@ -19,7 +19,7 @@ Get-SegmentUnit [[-Server] <String>] [[-Credential] <PSCredential>] [-SegmentUni
 ## DESCRIPTION
 Gets all segment units or a single segment unit if a segment unit id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

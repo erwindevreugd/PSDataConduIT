@@ -19,7 +19,7 @@ New-Title [[-Server] <String>] [[-Credential] <PSCredential>] -Name <String> [-S
 ## DESCRIPTION
 Adds a new title to the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

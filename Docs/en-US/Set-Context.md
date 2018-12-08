@@ -19,7 +19,7 @@ Set-Context [-Server] <String> [[-Credential] <PSCredential>] [[-EventSource] <S
 ## DESCRIPTION
 Sets the context server and credentials used to connect to DataConduIT. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -20,7 +20,7 @@ Invoke-AssignAccessGroup [[-Server] <String>] [[-Credential] <PSCredential>] -Ac
 ## DESCRIPTION
 Assigns an access group to a given badge key. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

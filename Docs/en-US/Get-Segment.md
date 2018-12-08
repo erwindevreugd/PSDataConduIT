@@ -19,7 +19,7 @@ Get-Segment [[-Server] <String>] [[-Credential] <PSCredential>] [-SegmentID <Int
 ## DESCRIPTION
 Gets all segments or a single segment if a segment id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

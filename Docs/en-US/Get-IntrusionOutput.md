@@ -19,7 +19,7 @@ Get-IntrusionOutput [[-Server] <String>] [[-Credential] <PSCredential>] [-Intrus
 ## DESCRIPTION
 Gets all intrusion ouputs or a single intrusion output if an intrusion output id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

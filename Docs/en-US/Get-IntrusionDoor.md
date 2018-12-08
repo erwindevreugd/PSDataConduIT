@@ -19,7 +19,7 @@ Get-IntrusionDoor [[-Server] <String>] [[-Credential] <PSCredential>] [-Intrusio
 ## DESCRIPTION
 Gets all intrusion door or a single intrusion door if an intrusion door id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

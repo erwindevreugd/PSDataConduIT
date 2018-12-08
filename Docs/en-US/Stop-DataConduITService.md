@@ -19,7 +19,7 @@ Stop-DataConduITService [[-Server] <String>] [-Credential <PSCredential>] [-Pass
 ## DESCRIPTION
 Stops the DataConduIT service. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

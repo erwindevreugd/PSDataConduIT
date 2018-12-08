@@ -2,13 +2,13 @@
     .SYNOPSIS
     Removes a visitor.
 
-    .DESCRIPTION   
-    Removes a visitor from the database. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Removes a visitor from the database.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -20,37 +20,37 @@ function Remove-Visitor {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The visitor id parameter.')]
         [int]
         $VisitorID,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Forces the removal of the visitor with out displaying a should process.')]
         [switch]
         $Force
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_Visitor WHERE __CLASS='Lnl_Visitor'"
 
         if ($VisitorID) {
@@ -69,7 +69,7 @@ function Remove-Visitor {
             $parameters.Add("Credential", $Credential)
         }
 
-        $items = Get-WmiObject @parameters 
+        $items = Get-WmiObject @parameters
 
         foreach ($item in $items) {
             if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing VisitorID: $($item.ID), $($item.Name)")) {

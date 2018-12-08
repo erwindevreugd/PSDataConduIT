@@ -19,7 +19,7 @@ New-Department [[-Server] <String>] [[-Credential] <PSCredential>] -Name <String
 ## DESCRIPTION
 Adds a new department to the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

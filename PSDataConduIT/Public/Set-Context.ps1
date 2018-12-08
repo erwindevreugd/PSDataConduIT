@@ -2,14 +2,14 @@
     .SYNOPSIS
     Sets the context server and credentials used to connect to DataConduIT.
 
-    .DESCRIPTION   
-    Sets the context server and credentials used to connect to DataConduIT. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Sets the context server and credentials used to connect to DataConduIT.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Set-Context -Server localhost
-    
+
     .EXAMPLE
     Set-Context -Server SERVER -Credentials (Get-Credential)
 
@@ -21,8 +21,8 @@ function Set-Context {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $true, 
+            Position = 0,
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
@@ -30,7 +30,7 @@ function Set-Context {
 
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
@@ -38,7 +38,7 @@ function Set-Context {
 
         [Parameter(
             Position = 2,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The default event source used to send events to DataConduIT.')]
         [string]

@@ -2,13 +2,13 @@
     .SYNOPSIS
     Removes a badge status.
 
-    .DESCRIPTION   
-    Removes a badge status from the database. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Removes a badge status from the database.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -20,37 +20,37 @@ function Remove-BadgeStatus {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge status id parameter.')]
         [int]
         $BadgeStatusID,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
             HelpMessage = 'Forces the removal of the badge status with out displaying a should process.')]
         [switch]
         $Force
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_BadgeStatus WHERE __CLASS='Lnl_BadgeStatus' AND ID!=0"
 
         if ($BadgeStatusID) {
@@ -69,7 +69,7 @@ function Remove-BadgeStatus {
             $parameters.Add("Credential", $Credential)
         }
 
-        $items = Get-WmiObject @parameters 
+        $items = Get-WmiObject @parameters
 
         foreach ($item in $items) {
             if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Removing BadgeStatusID: $($item.ID), $($item.Name)")) {

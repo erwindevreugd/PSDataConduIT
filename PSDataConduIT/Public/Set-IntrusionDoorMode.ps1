@@ -2,14 +2,14 @@
     .SYNOPSIS
     Sets an intrusion door mode.
 
-    .DESCRIPTION   
+    .DESCRIPTION
     Sets an intrusion door mode.
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Set-IntrusionDoorMode
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -18,37 +18,37 @@ function Get-IntrusionDoorMode {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The intrusion door id parameter.')]
         [int]
         $IntrusionDoorID = $null,
 
         [Parameter(
-            Mandatory = $true, 
+            Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The intrusion door mode parameter.')]
         [DoorMode]
         $Mode
     )
 
-    process { 
+    process {
         $parameters = @{
             ComputerName = $Server;
             Namespace    = $Script:OnGuardNamespace;
@@ -64,7 +64,7 @@ function Get-IntrusionDoorMode {
         }
 
         $intrusionDoor.SetMode.Invoke($Mode)
-        
+
         Write-Verbose -Message ("Intrusion door '$($intrusionDoor.Name)' mode set to '$($Mode)'")
     }
 }

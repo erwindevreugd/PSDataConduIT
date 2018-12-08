@@ -19,7 +19,7 @@ Invoke-SetClock [[-Server] <String>] [[-Credential] <PSCredential>] -PanelID <In
 ## DESCRIPTION
 Sets the panel clock. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

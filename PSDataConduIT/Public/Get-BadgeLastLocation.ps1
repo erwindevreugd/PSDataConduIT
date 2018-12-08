@@ -2,18 +2,18 @@
     .SYNOPSIS
     Gets the badge last location.
 
-    .DESCRIPTION   
-    Gets all badge last locations or a single badge last location if a badge id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all badge last locations or a single badge last location if a badge id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-BadgeLastLocation
-    
+
     BadgeID       PersonID      PanelID       ReaderID      EventTime
     -------       --------      -------       --------      ---------
     4294967295    0             1             1             27/11/2017 08:56:38
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -22,27 +22,27 @@ function Get-BadgeLastLocation {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge id parameter.')]
         [int]
-        $BadgeID    
+        $BadgeID
     )
 
     process {

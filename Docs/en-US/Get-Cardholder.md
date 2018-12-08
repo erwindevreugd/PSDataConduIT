@@ -19,7 +19,7 @@ Get-Cardholder [[-Server] <String>] [[-Credential] <PSCredential>] [-PersonID <I
 ## DESCRIPTION
 Gets all cardholders or a single cardholder if a cardholder id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

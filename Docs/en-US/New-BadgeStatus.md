@@ -19,7 +19,7 @@ New-BadgeStatus [[-Server] <String>] [[-Credential] <PSCredential>] -Name <Strin
 ## DESCRIPTION
 Adds a new badge status to the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

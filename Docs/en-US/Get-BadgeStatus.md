@@ -19,7 +19,7 @@ Get-BadgeStatus [[-Server] <String>] [[-Credential] <PSCredential>] [-BadgeStatu
 ## DESCRIPTION
 Gets all badge statuses or a single badge status if a badge status id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

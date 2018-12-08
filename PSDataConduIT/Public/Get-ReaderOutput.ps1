@@ -2,11 +2,11 @@
     .SYNOPSIS
     Gets a reader output.
 
-    .DESCRIPTION   
-    Gets all reader output or a single reader output if a reader output id is specified. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all reader output or a single reader output if a reader output id is specified.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-ReaderOutput
 
@@ -16,7 +16,7 @@
     1             2             1
     1             1             2
     1             2             2
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -25,37 +25,37 @@ function Get-ReaderOutput {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The panel id parameter.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The reader id parameter.')]
         [int]
         $ReaderID = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The reader output id parameter.')]
         [ValidateSet(0, 1, 2)]

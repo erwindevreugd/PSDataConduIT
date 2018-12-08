@@ -19,7 +19,7 @@ Invoke-VisitSignOut [[-Server] <String>] [[-Credential] <PSCredential>] -VisitID
 ## DESCRIPTION
 Signs out a visit.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

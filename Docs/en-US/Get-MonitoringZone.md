@@ -19,7 +19,7 @@ Get-MonitoringZone [[-Server] <String>] [[-Credential] <PSCredential>] [-Monitor
 ## DESCRIPTION
 Gets all monitoring zones or a single monitoring zone if a monitoring zone id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

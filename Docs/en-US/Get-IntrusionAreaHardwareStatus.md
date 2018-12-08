@@ -19,7 +19,7 @@ Get-IntrusionAreaHardwareStatus [[-Server] <String>] [[-Credential] <PSCredentia
 ## DESCRIPTION
 Gets the intrusion area hardware status for all intrusion areas or the hardware status for a single intrusion area if an intrusion area id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

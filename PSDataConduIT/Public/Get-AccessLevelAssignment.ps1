@@ -2,24 +2,24 @@
     .SYNOPSIS
     Gets an accesslevel assignment.
 
-    .DESCRIPTION   
-    Gets all accesslevel assignments. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Gets all accesslevel assignments.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Get-AccessLevelAssignment
-    
+
     AccessLevelID BadgeKey      Activate               Deactivate
     ------------- --------      --------               ----------
-    1             1 
-    
+    1             1
+
     .EXAMPLE
     Get-AccessLevelAssignment -BadgeKey 1
-    
+
     AccessLevelID BadgeKey      Activate               Deactivate
     ------------- --------      --------               ----------
-    1             1 
+    1             1
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -29,37 +29,37 @@ function Get-AccessLevelAssignment {
     param
     (
         [Parameter(
-            Position = 0, 
-            Mandatory = $false, 
+            Position = 0,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
         [string]
         $Server = $Script:Server,
-        
+
         [Parameter(
             Position = 1,
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
         [PSCredential]
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The accesslevel id.')]
         [int]
         $AccessLevelID = $null,
 
         [Parameter(
-            Mandatory = $false, 
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge key.')]
         [int]
         $BadgeKey = $null
     )
 
-    process { 
+    process {
         $query = "SELECT * FROM Lnl_AccessLevelAssignment WHERE __CLASS='Lnl_AccessLevelAssignment'"
 
         if ($AccessLevelID) {

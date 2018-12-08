@@ -19,7 +19,7 @@ New-Division [[-Server] <String>] [[-Credential] <PSCredential>] -Name <String> 
 ## DESCRIPTION
 Adds a new division to the database. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

@@ -19,7 +19,7 @@ Get-SegmentGroup [[-Server] <String>] [[-Credential] <PSCredential>] [-SegmentGr
 ## DESCRIPTION
 Gets all segment groups or a single segment group if a segment group id is specified. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 

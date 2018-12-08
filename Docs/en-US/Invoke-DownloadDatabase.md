@@ -20,7 +20,7 @@ Invoke-DownloadDatabase [[-Server] <String>] [[-Credential] <PSCredential>] -Pan
 ## DESCRIPTION
 Downloads the database to the specified panel. 
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
