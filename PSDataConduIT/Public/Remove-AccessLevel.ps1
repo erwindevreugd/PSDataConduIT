@@ -44,7 +44,8 @@ function Remove-AccessLevel {
 
         [Parameter(
             Mandatory = $false, 
-            ValueFromPipelineByPropertyName = $true)]
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The accesslevel name parameter.')]
         [string]
         $Name,
 
