@@ -48,29 +48,34 @@ function New-Visit {
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The duration of the new visit. If the ScheduledTimeout parameter is specified this parameter is ignored.')]
         [int]
         $Hours = 4,
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The scheduled starting time of the new visit. The default value is now.')]
         [datetime]
         $ScheduledTimeIn = ([DateTime]::Now),
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The scheduled ending time of the new visit.')]
         [datetime]
         $ScheduledTimeOut = ([DateTime]::Now).AddHours($Hours),
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The purpose of the visit.')]
         [string]$Purpose,
 
         [Parameter(
             Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'List of email addresses to add to the new visit.')]
         [string]
         $EmailList
