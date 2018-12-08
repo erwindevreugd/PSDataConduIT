@@ -1292,12 +1292,12 @@
     </View>
 
     <!-- 
-    DataConduIT.LnlVisitRecipient
+    DataConduIT.LnlVisitEmailRecipient
     -->
     <View>
-      <Name>DataConduITLnlVisitRecipient</Name>
+      <Name>DataConduITLnlVisitEmailRecipient</Name>
       <ViewSelectedBy>
-        <TypeName>DataConduIT.LnlVisitRecipient</TypeName>
+        <TypeName>DataConduIT.LnlVisitEmailRecipient</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>

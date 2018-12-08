@@ -75,7 +75,7 @@ function Get-VisitEmailRecipient {
                 IncludeVisitor           = $_.INCLUDEVISITOR;
                 RecipientNumber          = $_.RECIPIENTNUMBER;
                 SegmentID                = $_.SEGMENTID;
-            } | Add-ObjectType -TypeName "DataConduIT.LnlVisitRecipient"
+            } | Add-ObjectType -TypeName "DataConduIT.LnlVisitEmailRecipient"
         }
     }
 }
