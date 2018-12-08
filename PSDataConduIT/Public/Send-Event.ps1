@@ -102,6 +102,6 @@ function Send-Event {
             $parameters.Add("Credential", $Credential)
         }
 
-        Invoke-WmiMethod @parameters -ArgumentList $BadgeID, $Message, $Device, $null, $IsAccessGrant, $IsAccessDeny, $Source, $SubDevice, (ToWmiDateTime $Time)
+        Invoke-WmiMethod @parameters -ArgumentList $BadgeID, $Message, $Device, $null, $IsAccessDeny, $IsAccessGrant, $Source, $SubDevice, (ToWmiDateTime $Time)
     }
 }
