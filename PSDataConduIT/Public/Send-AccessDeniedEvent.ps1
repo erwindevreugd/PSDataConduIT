@@ -81,6 +81,7 @@ function Send-AccessDeniedEvent {
             $parameters.Add("Credential", $Credential)
         }
 
+        # long BadgeID, string Description, string Device, string ExtendedID, bool IsAccessDeny, bool IsAccessGrant, string Source, string SubDevice, datetime Time
         Invoke-WmiMethod @parameters -ArgumentList $BadgeID, $null, $Device, $null, $true, $false, $Source, $SubDevice, (ToWmiDateTime $Time)
     }
 }
