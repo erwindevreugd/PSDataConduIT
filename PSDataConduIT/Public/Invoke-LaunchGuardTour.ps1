@@ -14,6 +14,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-LaunchGuardTour {
+    [Alias("Start-GuardTour")]
     [CmdletBinding(
         SupportsShouldProcess,
         ConfirmImpact = "High"

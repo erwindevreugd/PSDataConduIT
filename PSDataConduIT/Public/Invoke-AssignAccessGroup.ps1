@@ -14,6 +14,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-AssignAccessGroup {
+    [Alias("Set-AccessGroup")]
     [CmdletBinding()]
     param
     (

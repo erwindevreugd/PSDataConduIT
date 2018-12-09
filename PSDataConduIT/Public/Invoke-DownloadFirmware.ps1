@@ -13,6 +13,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-DownloadFirmware {
+    [Alias("Download-Firmware")]
     [CmdletBinding(
         DefaultParameterSetName = 'DownloadFirmwareToPanel',
         SupportsShouldProcess,

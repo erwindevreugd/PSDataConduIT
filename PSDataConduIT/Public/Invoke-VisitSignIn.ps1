@@ -13,6 +13,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-VisitSignIn {
+    [Alias("Set-VisitSignedIn")]
     [CmdletBinding(
         DefaultParameterSetName = "SignInByAssignedBadgeID"
     )]

@@ -13,6 +13,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-DownloadDatabase {
+    [Alias("Download-Database")]
     [CmdletBinding(
         SupportsShouldProcess,
         ConfirmImpact = "High"

@@ -32,7 +32,7 @@ Foreach($import in @(Get-ChildItem -Path $PSScriptRoot\Public\*.ps1))
     }
 }
 
-Export-ModuleMember -Function $functions
+Export-ModuleMember -Function $functions -Alias *
 
 # Set default context to localhost with no credentials
 Set-Context -Server 'localhost'

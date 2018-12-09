@@ -13,6 +13,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-VisitSignOut {
+    [Alias("Set-VisitSignedOut")]
     [CmdletBinding()]
     [OutputType([int])]
     param

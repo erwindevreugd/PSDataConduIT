@@ -13,6 +13,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-RefreshCache {
+    [Alias("Update-Cache")]
     [CmdletBinding()]
     param
     (

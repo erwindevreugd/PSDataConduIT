@@ -13,6 +13,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-SetClock {
+    [Alias("Set-Clock")]
     [CmdletBinding()]
     param
     (

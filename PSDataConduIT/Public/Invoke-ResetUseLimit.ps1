@@ -13,6 +13,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-ResetUseLimit {
+    [Alias("Reset-UseLimit")]
     [CmdletBinding(
         SupportsShouldProcess,
         ConfirmImpact = "High"

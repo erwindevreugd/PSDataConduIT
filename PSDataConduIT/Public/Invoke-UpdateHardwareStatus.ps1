@@ -13,6 +13,7 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function Invoke-UpdateHardwareStatus {
+    [Alias("Update-HardwareStatus")]
     [CmdletBinding()]
     param
     (
