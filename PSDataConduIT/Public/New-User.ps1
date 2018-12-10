@@ -13,11 +13,11 @@
     https://github.com/erwindevreugd/PSDataConduIT
 #>
 function New-User {
+    [CmdletBinding()]
     [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
         "PSAvoidUsingPlainTextForPassword",
-        Scope = "Function",
+        "",
         Justification="OnGuard requires this to be plain text")]
-    [CmdletBinding()]
     param
     (
         [Parameter(
@@ -157,7 +157,7 @@ function New-User {
             PrimarySegmentID            = $SegmentID;
             Enabled                     = $Enabled;
             Notes                       = $Notes;
-        } |
+        } -PutType CreateOnly |
             Select-Object *, @{L = 'UserID'; E = {$_.ID}} |
             Get-User
     }
