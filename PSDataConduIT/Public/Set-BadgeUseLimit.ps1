@@ -70,11 +70,14 @@ function Set-BadgeUseLimit {
             return
         }
 
-        $badge.USELIMIT = $UseLimit
+        $updateSet = @{}
 
-        Set-WmiInstance -InputObject $badge |
+        if ($UseLimit -and $UseLimit -ne $badge.USELIMIT) {
+            Write-Verbose -Message ("Updating use limit '$($badge.USELIMIT)' to '$($UseLimit)' on badge key '$($badge.BADGEKEY)'")
+            $updateSet.Add("USELIMIT", $UseLimit)
+        }
+
+        $badge | Set-WmiInstance -Arguments $updateSet |
             Get-Badge
-
-        Write-Verbose -Message ("Set use limit to '$($UseLimit)' for badge key '$($BadgeKey)'")
     }
 }

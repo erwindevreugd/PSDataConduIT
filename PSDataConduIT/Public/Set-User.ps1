@@ -14,10 +14,6 @@
 #>
 function Set-User {
     [CmdletBinding()]
-    [Diagnostics.CodeAnalysis.SuppressMessageAttribute(
-        "PSAvoidUsingPlainTextForPassword",
-        "",
-        Justification="OnGuard requires this to be plain text")]
     param
     (
         [Parameter(
@@ -43,19 +39,19 @@ function Set-User {
         [int]
         $UserID,
 
-        [ValidateLength(1, 255)]
+        [ValidateLength(0, 255)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The firsname name of the user.')]
+            HelpMessage = 'The firstname of the user.')]
         [string]
         $Firstname,
 
-        [ValidateLength(1, 255)]
+        [ValidateLength(0, 255)]
         [Parameter(
-            Mandatory = $true,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The firsname name of the user.')]
+            HelpMessage = 'The last name of the user.')]
         [string]
         $Lastname,
 
@@ -70,64 +66,57 @@ function Set-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The password for the user.')]
-        [string]
-        $Password,
-
-        [Parameter(
-            Mandatory = $false,
-            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The system permission group id of the user.')]
-        [int]
-        $SystemPermissionGroupID = -1,
+        [nullable[int]]
+        $SystemPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The monitoring permission group id of the user.')]
-        [int]
-        $MonitoringPermissionGroupID = -1,
+            [nullable[int]]
+        $MonitoringPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The card permission group id of the user.')]
-        [int]
-        $CardPermissionGroupID = -1,
+        [nullable[int]]
+        $CardPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The field permission id of the user.')]
-        [int]
-        $FieldPermissionID = -1,
+        [nullable[int]]
+        $FieldPermissionID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The report permission group id of the user.')]
-        [int]
-        $ReportPermissionGroupID = -1,
+        [nullable[int]]
+        $ReportPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The monitoring zone id of the user.')]
-        [int]
+        [nullable[int]]
         $MonitoringZoneID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The primary segment id of the user.')]
-        [int]
+        [nullable[int]]
         $SegmentID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Determines wheter the new user is enabled or disabled.')]
-        [bool]
+        [nullable[bool]]
         $Enabled = $true,
 
         [Parameter(
@@ -162,22 +151,70 @@ function Set-User {
             return
         }
 
-        Set-WmiInstance -InputObject $user -Arguments @{
-            FirstName                   = $Firstname;
-            LastName                    = $Lastname;
-            LogonID                     = $LogonID;
-            Password                    = $Password;
-            SystemPermissionGroupID     = $SystemPermissionGroupID;
-            MonitoringPermissionGroupID = $MonitoringPermissionGroupID;
-            CardPermissionGroupID       = $CardPermissionGroupID;
-            FieldPermissionID           = $FieldPermissionID;
-            ReportPermissionGroupID     = $ReportPermissionGroupID;
-            MonitoringZoneID            = $MonitoringZoneID;
-            PrimarySegmentID            = $SegmentID;
-            Enabled                     = $Enabled;
-            Notes                       = $Notes;
-        } -PutType UpdateOnly |
-            Select-Object *, @{L = 'UserID'; E = {$_.ID}} |
+        $updateSet = @{}
+
+        if ($Firstname -and $Firstname -ne $user.FirstName) {
+            Write-Verbose -Message ("Updating firstname '$($user.FirstName)' to '$($Firstname)' on user '$($user.ID)'")
+            $updateSet.Add("FirstName", $Firstname)
+        }
+
+        if ($Lastname -and $Lastname -ne $user.LastName) {
+            Write-Verbose -Message ("Updating lastname '$($user.LastName)' to '$($Lastname)' on user '$($user.ID)'")
+            $updateSet.Add("LastName", $Lastname)
+        }
+
+        if ($LogonID -and $LogonID -ne $user.LogonID) {
+            Write-Verbose -Message ("Updating internal user name '$($user.LogonID)' to '$($LogonID)' on user '$($user.ID)'")
+            $updateSet.Add("LogonID", $LogonID)
+        }
+
+        if ($SystemPermissionGroupID -and $SystemPermissionGroupID -ne $user.SystemPermissionGroupID) {
+            Write-Verbose -Message ("Updating system permission group '$($user.SystemPermissionGroupID)' to '$($SystemPermissionGroupID)' on user '$($user.ID)'")
+            $updateSet.Add("SystemPermissionGroupID", $SystemPermissionGroupID)
+        }
+
+        if ($MonitoringPermissionGroupID -and $MonitoringPermissionGroupID -ne $user.MonitoringPermissionGroupID) {
+            Write-Verbose -Message ("Updating monitor permission group '$($user.MonitoringPermissionGroupID)' to '$($MonitoringPermissionGroupID)' on user '$($user.ID)'")
+            $updateSet.Add("MonitoringPermissionGroupID", $MonitoringPermissionGroupID)
+        }
+
+        if ($CardPermissionGroupID -and $CardPermissionGroupID -ne $user.CardPermissionGroupID) {
+            Write-Verbose -Message ("Updating card permission group '$($user.CardPermissionGroupID)' to '$($CardPermissionGroupID)' on user '$($user.ID)'")
+            $updateSet.Add("CardPermissionGroupID", $CardPermissionGroupID)
+        }
+
+        if ($FieldPermissionID -and $FieldPermissionID -ne $user.FieldPermissionID) {
+            Write-Verbose -Message ("Updating field permission '$($user.FieldPermissionID)' to '$($FieldPermissionID)' on user '$($user.ID)'")
+            $updateSet.Add("FieldPermissionID", $FieldPermissionID)
+        }
+
+        if ($ReportPermissionGroupID -and $ReportPermissionGroupID -ne $user.ReportPermissionGroupID) {
+            Write-Verbose -Message ("Updating report permission group '$($user.ReportPermissionGroupID)' to '$($ReportPermissionGroupID)' on user '$($user.ID)'")
+            $updateSet.Add("ReportPermissionGroupID", $ReportPermissionGroupID)
+        }
+
+        if ($MonitoringZoneID -and $MonitoringZoneID -ne $user.MonitoringZoneID) {
+            Write-Verbose -Message ("Updating monitoring zone '$($user.MonitoringZoneID)' to '$($MonitoringZoneID)' on user '$($user.ID)'")
+            $updateSet.Add("MonitoringZoneID", $MonitoringZoneID)
+        }
+
+        if ($SegmentID -and $SegmentID -ne $user.PrimarySegmentID) {
+            Write-Verbose -Message ("Updating primary segment '$($user.PrimarySegmentID)' to '$($SegmentID)' on user '$($user.ID)'")
+            $updateSet.Add("PrimarySegmentID", $SegmentID)
+        }
+
+        if ($Enabled -and $Enabled -ne $user.Enabled) {
+            Write-Verbose -Message ("Updating enabled state '$($user.Enabled)' to '$($Enabled)' on user '$($user.ID)'")
+            $updateSet.Add("Enabled", $Enabled)
+        }
+
+        if ($Notes -and $Notes -ne $user.Notes) {
+            Write-Verbose -Message ("Updating notes '$($user.Notes)' to '$($Notes)' on user '$($user.ID)'")
+            $updateSet.Add("Notes", $Notes)
+        }
+
+        $user | Set-WmiInstance -Arguments $updateSet -PutType UpdateOnly |
+            Select-Object -Property ID, @{L = 'UserID'; E = {$_.ID}} |
             Get-User
     }
 }

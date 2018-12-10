@@ -113,6 +113,40 @@ function Set-Visit {
             return
         }
 
+        $updateSet = @{}
+
+        if ($VisitorID -and $VisitorID -ne $visit.VISITORID) {
+            Write-Verbose -Message ("Updating visitor id '$($visit.VISITORID)' to '$($VisitorID)' on visit id '$($visit.ID)'")
+            $updateSet.Add("VISITORID", $VisitorID)
+        }
+
+        if ($CardholderID -and $CardholderID -ne $visit.CARDHOLDERID) {
+            Write-Verbose -Message ("Updating cardholder id '$($visit.CARDHOLDERID)' to '$($CardholderID)' on visit id '$($visit.ID)'")
+            $updateSet.Add("CARDHOLDERID", $CardholderID)
+        }
+
+        if ($ScheduledTimeIn -and $ScheduledTimeIn -ne (ToDateTime $visit.SCHEDULED_TIMEIN)) {
+            $currentScheduledTimeIn = ToDateTime $visit.SCHEDULED_TIMEIN;
+            Write-Verbose -Message ("Updating scheduled time in '$($currentScheduledTimeIn)' to '$($ScheduledTimeIn)' on visit id '$($visit.ID)'")
+            $updateSet.Add("SCHEDULED_TIMEIN", (ToWmiDateTime $ScheduledTimeIn))
+        }
+
+        if ($ScheduledTimeOut -and $ScheduledTimeOut -ne (ToDateTime $visit.SCHEDULED_TIMEOUT)) {
+            $currentScheduledTimeOut = ToDateTime $visit.SCHEDULED_TIMEOUT;
+            Write-Verbose -Message ("Updating scheduled time out '$($currentScheduledTimeOut)' to '$($ScheduledTimeOut)' on visit id '$($visit.ID)'")
+            $updateSet.Add("SCHEDULED_TIMEOUT", (ToWmiDateTime $ScheduledTimeOut))
+        }
+
+        if ($Purpose -and $Purpose -ne $visit.PURPOSE) {
+            Write-Verbose -Message ("Updating purpose '$($visit.PURPOSE)' to '$($Purpose)' on visit id '$($visit.ID)'")
+            $updateSet.Add("PURPOSE", $Purpose)
+        }
+
+        if ($EmailList -and $EmailList -ne $visit.EMAIL_LIST) {
+            Write-Verbose -Message ("Updating email list '$($visit.EMAIL_LIST)' to '$($EmailList)' on visit id '$($visit.ID)'")
+            $updateSet.Add("EMAIL_LIST", $EmailList)
+        }
+
         $visit.VISITORID = $VisitorID
         $visit.CARDHOLDERID = $CardholderID
         $visit.SCHEDULED_TIMEIN = ToWmiDateTime $ScheduledTimeIn
@@ -120,7 +154,7 @@ function Set-Visit {
         $visit.PURPOSE = $Purpose
         $visit.EMAIL_LIST = $EmailList
 
-        Set-WmiInstance -InputObject $visit |
+        $visit | Set-WmiInstance -Arguments $updateSet |
             Select-Object *, @{L = 'VisitID'; E = {$_.ID}} |
             Get-Visit
     }
