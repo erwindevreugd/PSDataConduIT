@@ -45,7 +45,91 @@ function Get-User {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The user id parameter.')]
         [int]
-        $UserID
+        $UserID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The user firstname parameter.')]
+        [string]
+        $Firstname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The user lastname parameter.')]
+        [string]
+        $Lastname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The user internal user name parameter.')]
+        [string]
+        $LogonID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Returns only enabled users.')]
+        [switch]
+        $Enabled,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Returns only disabled users.')]
+        [switch]
+        $Disabled,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The segment id parameter.')]
+        [int]
+        $SegmentID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The system permission group id parameter.')]
+        [int]
+        $SystemPermissionGroupID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The monitoring permission group id parameter.')]
+        [int]
+        $MonitoringPermissionGroupID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The card permission group id parameter.')]
+        [int]
+        $CardPermissionGroupID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The field permission id parameter.')]
+        [int]
+        $FieldPermissionID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The report permission group id parameter.')]
+        [int]
+        $ReportPermissionGroupID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The monitoring zone id parameter.')]
+        [int]
+        $MonitoringZoneID
     )
 
     process {
@@ -53,6 +137,54 @@ function Get-User {
 
         if ($UserID) {
             $query += " AND ID=$UserID"
+        }
+
+        if ($Firstname) {
+            $query += " AND FirstName='$Firstname'"
+        }
+
+        if ($Lastname) {
+            $query += " AND LastName='$Lastname'"
+        }
+
+        if ($LogonID) {
+            $query += " AND LogonID='$LogonID'"
+        }
+
+        if ($Enabled) {
+            $query += " AND Enabled=1"
+        }
+
+        if ($Disabled) {
+            $query += " AND Enabled=0"
+        }
+
+        if ($SegmentID) {
+            $query += " AND PrimarySegmentID=$SegmentID"
+        }
+
+        if ($SystemPermissionGroupID) {
+            $query += " AND SystemPermissionGroupID=$SystemPermissionGroupID"
+        }
+
+        if ($MonitorPermissionGroupID) {
+            $query += " AND MonitorPermissionGroupID=$MonitorPermissionGroupID"
+        }
+
+        if ($CardPermissionGroupID) {
+            $query += " AND CardPermissionGroupID=$CardPermissionGroupID"
+        }
+
+        if ($FieldPermissionID) {
+            $query += " AND FieldPermissionID=$FieldPermissionID"
+        }
+
+        if ($ReportPermissionGroupID) {
+            $query += " AND ReportPermissionGroupID=$ReportPermissionGroupID"
+        }
+
+        if ($MonitoringZoneID) {
+            $query += " AND MonitoringZoneID=$MonitoringZoneID"
         }
 
         LogQuery $query
