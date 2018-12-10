@@ -93,42 +93,42 @@ function Get-User {
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The system permission group id parameter.')]
-        [int]
+        [Nullable[int]]
         $SystemPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The monitoring permission group id parameter.')]
-        [int]
+        [Nullable[int]]
         $MonitoringPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The card permission group id parameter.')]
-        [int]
+        [Nullable[int]]
         $CardPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The field permission id parameter.')]
-        [int]
+        [Nullable[int]]
         $FieldPermissionID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The report permission group id parameter.')]
-        [int]
+        [Nullable[int]]
         $ReportPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The monitoring zone id parameter.')]
-        [int]
+        [Nullable[int]]
         $MonitoringZoneID
     )
 
