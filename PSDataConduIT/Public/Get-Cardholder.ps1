@@ -42,7 +42,35 @@ function Get-Cardholder {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The person id parameter.')]
         [int]
-        $PersonID
+        $PersonID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The cardholder firstname parameter.')]
+        [string]
+        $Firstname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The cardholder lastname parameter.')]
+        [string]
+        $Lastname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The cardholder email parameter.')]
+        [string]
+        $Email,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The cardholder ssno parameter.')]
+        [string]
+        $SSNO
     )
 
     process {
@@ -50,6 +78,22 @@ function Get-Cardholder {
 
         if ($PersonID) {
             $query += " AND ID=$PersonID"
+        }
+
+        if ($Firstname) {
+            $query += " AND FIRSTNAME='$Firstname'"
+        }
+
+        if ($Lastname) {
+            $query += " AND LASTNAME='$Lastname'"
+        }
+
+        if ($Email) {
+            $query += " AND EMAIL='$Email'"
+        }
+
+        if ($SSNO) {
+            $query += " AND SSNO='$SSNO'"
         }
 
         LogQuery $query
