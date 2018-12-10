@@ -137,4 +137,10 @@ public enum BadgeTypeClass : int {
     Visitor = 3,
     Guest = 4
 }
+
+public enum PermissionGroupType : int {
+    System = 1,
+    Cardholder = 2,
+    Monitor = 3
+}
 "@

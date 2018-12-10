@@ -85,7 +85,8 @@ function Get-User {
                 SystemPermissionGroupID     = $_.SystemPermissionGroupID;
                 MonitoringPermissionGroupID = $_.MonitoringPermissionGroupID;
                 CardPermissionGroupID       = $_.CardPermissionGroupID;
-                FieldPermissionGroupID      = $_.FieldPermissionGroupID;
+                FieldPermissionID           = $_.FieldPermissionID;
+                ReportPermissionGroupID     = $_.ReportPermissionGroupID;
                 SegmentID                   = $_.PrimarySegmentID;
                 MonitoringZoneID            = $_.MonitoringZoneID;
                 Created                     = ToDateTime $_.Created;

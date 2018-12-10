@@ -1188,6 +1188,86 @@
     </View>
 
     <!--
+    DataConduIT.LnlUserPermissionGroup
+    -->
+    <View>
+      <Name>DataConduITLnlUserPermissionGroupTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlUserPermissionGroup</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Can Login To DataConduIT</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Can Search Video</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Can View Live Video</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Can View Recorded Video</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Devices Excluded</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>PTZ Priority</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>UserPermissionGroupID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Type</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.CanLoginToDataConduIT) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.CanSearchVideo) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.CanViewLiveVideo) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.CanViewRecordedVideo) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.DevicesExcluded) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>PTZPriority</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!--
     DataConduIT.LnlVisit
     -->
     <View>
