@@ -37,7 +37,7 @@ function Invoke-DownloadDatabase {
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true,
+            Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The panel id parameter.')]
         [int]
@@ -61,14 +61,21 @@ function Invoke-DownloadDatabase {
             $parameters.Add("Credential", $Credential)
         }
 
-        if (($panel = Get-Panel @parameters) -eq $null) {
+        if (($panels = Get-Panel @parameters) -eq $null) {
             Write-Error -Message ("Panel id '$($PanelID)' not found")
             return
         }
 
-        if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Download database to panel '$($panel.Name)'")) {
-            $panel.DownloadDatabase.Invoke() | Out-Null
-            Write-Verbose -Message ("Downloading database to panel '$($panel.Name)'")
+        foreach ($panel in $panels) {
+            if ($panel.Type -eq "Logical Source") {
+                Write-Verbose -Message ("Download database is not possible on panel '$($panel.Name)' of type '$($panel.Type)', skipping.")
+                continue
+            }
+
+            if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Download database to panel '$($panel.Name)'")) {
+                $panel.DownloadDatabase.Invoke() | Out-Null
+                Write-Verbose -Message ("Downloading database to panel '$($panel.Name)'")
+            }
         }
     }
 }
