@@ -104,7 +104,7 @@ function Get-Badge
                 APBExempt=$_.APBEXEMPT;
                 DestinationExempt=($_.DEST_EXEMPT -eq 1);
                 DeadBoltOverride=$_.DEADBOLT_OVERRIDE;
-                ExtendedStrikeHeld=$_.EXTEND_STRIKE_HELD;
+                UseExtendedStrike=$_.EXTEND_STRIKE_HELD;
                 PassageMode=$_.PASSAGE_MODE;
                 UseLimit=$_.USELIMIT;
                 TwoManType=$_.TWO_MAN_TYPE;
