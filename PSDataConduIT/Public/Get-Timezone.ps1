@@ -44,7 +44,14 @@ function Get-Timezone {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The timezone id parameter.')]
         [int]
-        $TimezoneID
+        $TimezoneID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The timezone name parameter.')]
+        [string]
+        $Name
     )
 
     process {
@@ -52,6 +59,10 @@ function Get-Timezone {
 
         if ($TimezoneID) {
             $query += " AND ID=$TimezoneID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME='$Name'"
         }
 
         LogQuery $query
