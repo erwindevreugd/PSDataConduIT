@@ -147,13 +147,6 @@ function Set-Visit {
             $updateSet.Add("EMAIL_LIST", $EmailList)
         }
 
-        $visit.VISITORID = $VisitorID
-        $visit.CARDHOLDERID = $CardholderID
-        $visit.SCHEDULED_TIMEIN = ToWmiDateTime $ScheduledTimeIn
-        $visit.SCHEDULED_TIMEOUT = ToWmiDateTime $ScheduledTimeOut
-        $visit.PURPOSE = $Purpose
-        $visit.EMAIL_LIST = $EmailList
-
         $visit | Set-WmiInstance -Arguments $updateSet |
             Select-Object *, @{L = 'VisitID'; E = {$_.ID}} |
             Get-Visit
