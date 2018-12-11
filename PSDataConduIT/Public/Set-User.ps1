@@ -74,7 +74,7 @@ function Set-User {
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The monitoring permission group id of the user.')]
-            [nullable[int]]
+        [nullable[int]]
         $MonitoringPermissionGroupID,
 
         [Parameter(
@@ -127,6 +127,10 @@ function Set-User {
         $Notes
     )
 
+    begin {
+        $currentUser = Get-CurrentUser -Server $Server -Credential $Credential
+    }
+
     process {
         $query = "SELECT * FROM Lnl_User WHERE __CLASS='Lnl_User'"
 
@@ -148,6 +152,11 @@ function Set-User {
 
         if (($user = Get-WmiObject @parameters) -eq $null) {
             Write-Error -Message ("User id '$($UserID)' not found")
+            return
+        }
+
+        if ($currentUser.UserID -eq $user.ID) {
+            Write-Error -Message ("Cannot change the user account of the current user account '$($CurrentUser)'")
             return
         }
 
