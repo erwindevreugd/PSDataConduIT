@@ -51,8 +51,13 @@ function Get-CurrentUser {
             $parameters.Add("Credential", $Credential)
         }
 
-        Invoke-WmiMethod @parameters | ForEach-Object { New-Object PSObject -Property @{
+        $userIdPattern = [regex]::new("([0-9])\w+")
+
+        Invoke-WmiMethod @parameters | ForEach-Object {
+
+            New-Object PSObject -Property @{
                 User = $_.ReturnValue;
+                UserID = $userIdPattern.Match($_.ReturnValue).Value
             }  | Add-ObjectType -TypeName "DataConduIT.LnlCurrentUser"
         }
     }
