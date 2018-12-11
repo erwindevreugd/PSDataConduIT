@@ -81,19 +81,19 @@ function Get-Cardholder {
         }
 
         if ($Firstname) {
-            $query += " AND FIRSTNAME='$Firstname'"
+            $query += " AND FIRSTNAME like '$(ToWmiWildcard $Firstname)'"
         }
 
         if ($Lastname) {
-            $query += " AND LASTNAME='$Lastname'"
+            $query += " AND LASTNAME like '$(ToWmiWildcard $Lastname)'"
         }
 
         if ($Email) {
-            $query += " AND EMAIL='$Email'"
+            $query += " AND EMAIL like '$(ToWmiWildcard $Email)'"
         }
 
         if ($SSNO) {
-            $query += " AND SSNO='$SSNO'"
+            $query += " AND SSNO like '$(ToWmiWildcard $SSNO)'"
         }
 
         LogQuery $query

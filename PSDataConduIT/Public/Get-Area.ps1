@@ -61,7 +61,7 @@ function Get-Area {
         }
 
         if ($Name) {
-            $query += " AND Name=$Name"
+            $query += " AND Name like '$(ToWmiWildcard $Name)'"
         }
 
         LogQuery $query

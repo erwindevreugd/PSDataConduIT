@@ -43,6 +43,13 @@ function Get-VisitType {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The visit type name parameter.')]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id parameter.')]
         [int]
         $SegmentID = -1
@@ -53,6 +60,10 @@ function Get-VisitType {
 
         if ($VisitTypeID) {
             $query += " AND ID=$VisitTypeID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
 
         if ($SegmentID -ne -1) {

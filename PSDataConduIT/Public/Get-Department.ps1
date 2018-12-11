@@ -63,9 +63,9 @@ function Get-Department {
         }
 
         if ($Name) {
-            $query += " AND NAME='$Name'"
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
-        
+
         if ($SegmentID -ne -1) {
             $query += " AND SEGMENTID=$SegmentID"
         }

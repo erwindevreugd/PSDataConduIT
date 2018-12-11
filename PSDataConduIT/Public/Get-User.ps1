@@ -140,15 +140,15 @@ function Get-User {
         }
 
         if ($Firstname) {
-            $query += " AND FirstName='$Firstname'"
+            $query += " AND FirstName like '$(ToWmiWildcard $Firstname)'"
         }
 
         if ($Lastname) {
-            $query += " AND LastName='$Lastname'"
+            $query += " AND LastName like '$(ToWmiWildcard $Lastname)'"
         }
 
         if ($LogonID) {
-            $query += " AND LogonID='$LogonID'"
+            $query += " AND LogonID like '$(ToWmiWildcard $LogonID)'"
         }
 
         if ($Enabled) {

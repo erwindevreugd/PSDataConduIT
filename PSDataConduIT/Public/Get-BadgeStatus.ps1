@@ -56,7 +56,7 @@ function Get-BadgeStatus {
         }
 
         if ($Name) {
-            $query += " AND NAME='$Name'"
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
 
         LogQuery $query

@@ -31,3 +31,7 @@ function MapEnum($enum, $value, $default = $null) {
 function IntToIPAddress($i) {
     return [IPAddress][BitConverter]::GetBytes($i)
 }
+
+function ToWmiWildcard([string]$query) {
+    return $query.Replace("*", "%").Replace("?", "_")
+}
