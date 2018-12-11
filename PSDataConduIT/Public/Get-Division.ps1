@@ -36,9 +36,16 @@ function Get-Division {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The category id parameter.')]
+            HelpMessage = 'The division id parameter.')]
         [int]
         $DivisionID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The division name parameter.')]
+        [string]
+        $Name,
 
         [Parameter(
             Mandatory = $false,
@@ -53,6 +60,10 @@ function Get-Division {
 
         if ($DivisionID) {
             $query += " AND ID=$DivisionID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME='$Name'"
         }
 
         if ($SegmentID -ne -1) {
