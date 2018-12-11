@@ -47,6 +47,14 @@ function Get-Account {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The external SID'
+        )]
+        [string]
+        $ExternalAccountID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The directory id.')]
         [int]
         $DirectoryID = $null,
@@ -66,12 +74,16 @@ function Get-Account {
             $query += " AND ID=$AccountID"
         }
 
+        if ($ExternalAccountID) {
+            $query += " AND AccountID='$ExternalAccountID'"
+        }
+
         if ($DirectoryID) {
-            $query += " AND DIRECTORYID=$DirectoryID"
+            $query += " AND DirectoryID=$DirectoryID"
         }
 
         if ($PersonID) {
-            $query += " AND PERSONID=$PersonID"
+            $query += " AND PersonID=$PersonID"
         }
 
         LogQuery $query
