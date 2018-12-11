@@ -43,6 +43,13 @@ function Get-Location {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The location name parameter.')]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id parameter.')]
         [int]
         $SegmentID = -1
@@ -53,6 +60,10 @@ function Get-Location {
 
         if ($LocationID) {
             $query += " AND ID=$LocationID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME='$Name'"
         }
 
         if ($SegmentID -ne -1) {
