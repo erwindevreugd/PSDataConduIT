@@ -2280,6 +2280,38 @@
     </View>
 
     <!--
+    DataConduIT.LnlTwoManType
+    -->
+    <View>
+      <Name>DataConduITLnlTwoManTypeTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlTwoManType</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>TwoManTypeID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!--
     DataConduIT.LnlLocation
     -->
     <View>
