@@ -44,7 +44,14 @@ function Get-BadgeType {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge type id parameter.')]
         [int]
-        $BadgeTypeID = $null
+        $BadgeTypeID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The badge type name parameter.')]
+        [string]
+        $Name
     )
 
     process {
@@ -54,6 +61,10 @@ function Get-BadgeType {
             $query += " AND ID=$BadgeTypeID"
         }
 
+        if ($Name) {
+            $query += " AND NAME='$Name'"
+        }
+        
         LogQuery $query
 
         $parameters = @{
