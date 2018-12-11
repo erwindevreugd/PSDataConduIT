@@ -38,7 +38,14 @@ function Get-BadgeStatus {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The badge status id parameter.')]
         [int]
-        $BadgeStatusID = $null
+        $BadgeStatusID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The badge status name parameter.')]
+        [string]
+        $Name
     )
 
     process {
@@ -46,6 +53,10 @@ function Get-BadgeStatus {
 
         if ($BadgeStatusID) {
             $query += " AND ID=$BadgeStatusID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME='$Name'"
         }
 
         LogQuery $query
