@@ -43,6 +43,13 @@ function Get-Department {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The department name parameter.')]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id parameter.')]
         [int]
         $SegmentID = -1
@@ -55,6 +62,10 @@ function Get-Department {
             $query += " AND ID=$DepartmentID"
         }
 
+        if ($Name) {
+            $query += " AND NAME='$Name'"
+        }
+        
         if ($SegmentID -ne -1) {
             $query += " AND SEGMENTID=$SegmentID"
         }
