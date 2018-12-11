@@ -43,7 +43,14 @@ function Get-Area {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The area id parameter.')]
         [int]
-        $AreaID = $null
+        $AreaID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The area name parameter.')]
+        [string]
+        $Name
     )
 
     process {
@@ -51,6 +58,10 @@ function Get-Area {
 
         if ($AreaID) {
             $query += " AND ID=$AreaID"
+        }
+
+        if ($Name) {
+            $query += " AND Name=$Name"
         }
 
         LogQuery $query
