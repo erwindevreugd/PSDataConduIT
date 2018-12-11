@@ -38,7 +38,14 @@ function Get-Segment {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The segment id parameter.')]
         [int]
-        $SegmentID
+        $SegmentID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The segment name parameter.')]
+        [string]
+        $Name
     )
 
     process {
@@ -46,6 +53,10 @@ function Get-Segment {
 
         if ($SegmentID) {
             $query += " WHERE ID=$SegmentID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME='$Name'"
         }
 
         LogQuery $query
