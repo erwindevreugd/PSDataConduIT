@@ -137,7 +137,7 @@ function Get-Cardholder {
                 Midname           = $_.MIDNAME;
                 PersonID          = $_.ID;
                 CardholderID      = $_.ID;
-                IsGrant           = $_.IsGrant;
+                AllowedVisitors   = $_.ALLOWEDVISITORS;
                 LastChanged       = ToDateTime $_.LASTCHANGED;
                 Email             = $_.EMAIL;
                 Extension         = $_.EXT;
