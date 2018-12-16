@@ -42,7 +42,21 @@ function Get-Panel {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The panel id parameter.')]
         [int]
-        $PanelID
+        $PanelID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The panel name parameter.')]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The panel type parameter.')]
+        [string]
+        $Type
     )
 
     process {
@@ -50,6 +64,14 @@ function Get-Panel {
 
         if ($PanelID) {
             $query += " AND ID=$PanelID"
+        }
+
+        if ($Name) {
+            $query += " AND Name like '$(ToWmiWildcard $Name)'"
+        }
+
+        if ($Type) {
+            $query += " AND PanelType like '$(ToWmiWildcard $Type)'"
         }
 
         LogQuery $query
