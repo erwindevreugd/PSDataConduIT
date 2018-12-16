@@ -42,7 +42,35 @@ function Get-Person {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The person id parameter.')]
         [int]
-        $PersonID
+        $PersonID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The person firstname parameter.')]
+        [string]
+        $Firstname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The person midname parameter.')]
+        [string]
+        $Midname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The person lastname parameter.')]
+        [string]
+        $Lastname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The person ssno parameter.')]
+        [string]
+        $SSNO
     )
 
     process {
@@ -50,6 +78,22 @@ function Get-Person {
 
         if ($PersonID) {
             $query += " AND ID=$PersonID"
+        }
+
+        if ($Firstname) {
+            $query += " AND MIDNAME like '$(ToWmiWildcard $Midname)'"
+        }
+
+        if ($Midname) {
+            $query += " AND FIRSTNAME like '$(ToWmiWildcard $Firstname)'"
+        }
+
+        if ($Lastname) {
+            $query += " AND LASTNAME like '$(ToWmiWildcard $Lastname)'"
+        }
+
+        if ($SSNO) {
+            $query += " AND SSNO like '$(ToWmiWildcard $SSNO)'"
         }
 
         LogQuery $query
