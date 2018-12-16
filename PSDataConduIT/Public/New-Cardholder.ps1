@@ -33,18 +33,25 @@ function New-Cardholder {
         $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory = $true,
-            ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The last name of the new cardholder.')]
-        [string]
-        $Lastname,
-
-        [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The first name of the new cardholder.')]
         [string]
         $Firstname = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The mid name of the new cardholder.')]
+        [string]
+        $Midname = $null,
+
+        [Parameter(
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The last name of the new cardholder.')]
+        [string]
+        $Lastname,
 
         [Parameter(
             Mandatory = $false,
@@ -70,6 +77,62 @@ function New-Cardholder {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The address of the new cardholder.')]
+        [string]
+        $Address = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The zip code of the new cardholder.')]
+        [string]
+        $ZipCode = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The city of the new cardholder.')]
+        [string]
+        $City = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The state of the new cardholder.')]
+        [string]
+        $State = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The phone number of the new cardholder.')]
+        [string]
+        $Phone = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The office phone number of the new cardholder.')]
+        [string]
+        $OfficePhone = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The office phone number extension of the new cardholder.')]
+        [string]
+        $Extension = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The birthday of the new cardholder.')]
+        [Nullable[datetime]]
+        $Birthday = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Allow the new cardholder to receive visitors.')]
         [switch]
         $AllowedVisitors
@@ -88,11 +151,20 @@ function New-Cardholder {
         }
 
         Set-WmiInstance @parameters -Arguments @{
-            LASTNAME        = $Lastname;
             FIRSTNAME       = $Firstname;
+            MIDNAME         = $Midname;
+            LASTNAME        = $Lastname;
+            SSNO            = $SSNO;
             EMAIL           = $Email;
             FLOOR           = $Floor;
-            SSNO            = $SSNO;
+            ADDR1           = $Address;
+            ZIP             = $ZipCode;
+            CITY            = $City;
+            STATE           = $State;
+            PHONE           = $Phone;
+            OPHONE          = $OfficePhone;
+            EXT             = $Extension;
+            BDATE           = if($Birthday) { ToWmiDateTime $Birthday } else { $null };
             ALLOWEDVISITORS = [bool]$AllowedVisitors
         } |
             Select-Object *, @{L = 'PersonID'; E = {$_.ID}} |
