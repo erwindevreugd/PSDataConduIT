@@ -54,6 +54,13 @@ function Get-Cardholder {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The cardholder midname parameter.')]
+        [string]
+        $Midname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The cardholder lastname parameter.')]
         [string]
         $Lastname,
@@ -81,6 +88,10 @@ function Get-Cardholder {
         }
 
         if ($Firstname) {
+            $query += " AND MIDNAME like '$(ToWmiWildcard $Midname)'"
+        }
+
+        if ($Midname) {
             $query += " AND FIRSTNAME like '$(ToWmiWildcard $Firstname)'"
         }
 
