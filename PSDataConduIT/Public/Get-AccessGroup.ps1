@@ -42,7 +42,21 @@ function Get-AccessGroup {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The id of the accessgroup to get.')]
         [Nullable[int]]
-        $AccessGroupID = $null
+        $AccessGroupID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the access group to get.')]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The segment id parameter.')]
+        [nullable[int]]
+        $SegmentID = $null
     )
 
     process {
@@ -50,6 +64,14 @@ function Get-AccessGroup {
 
         if ($AccessGroupID -ne $null) {
             $query += " AND ID=$AccessGroupID"
+        }
+
+        if ($Name) {
+            $query += " AND Name like '$(ToWmiWildcard $Name)'"
+        }
+
+        if ($SegmentID) {
+            $query += " AND SegmentID=$SegmentID"
         }
 
         LogQuery $query
