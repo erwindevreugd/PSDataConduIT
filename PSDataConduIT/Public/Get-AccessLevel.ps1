@@ -49,7 +49,14 @@ function Get-AccessLevel {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The name of the accesslevel to get.')]
         [string]
-        $Name
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The segment id parameter.')]
+        [nullable[int]]
+        $SegmentID = $null
     )
 
     process {
@@ -61,6 +68,10 @@ function Get-AccessLevel {
 
         if ($Name) {
             $query += " AND Name like '$(ToWmiWildcard $Name)'"
+        }
+
+        if ($SegmentID) {
+            $query += " AND SegmentID=$SegmentID"
         }
 
         LogQuery $query
