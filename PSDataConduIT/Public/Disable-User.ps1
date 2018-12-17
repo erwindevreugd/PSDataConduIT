@@ -77,7 +77,7 @@ function Disable-User {
 
         foreach ($user in $users) {
             if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Disable user '$($user.LastName)'")) {
-                $user | Set-WmiInstance -Arguments @{ Enabled = $false }
+                $user | Set-WmiInstance -Arguments @{ Enabled = $false } | Out-Null
             }
 
             if ($PassThru) {

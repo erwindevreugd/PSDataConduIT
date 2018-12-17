@@ -77,7 +77,7 @@ function Enable-User {
 
         foreach ($user in $users) {
             if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Enable user '$($user.LastName)'")) {
-                $user | Set-WmiInstance -Arguments @{ Enabled = $true }
+                $user | Set-WmiInstance -Arguments @{ Enabled = $true } | Out-Null
             }
 
             if ($PassThru) {
