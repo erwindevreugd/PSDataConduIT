@@ -79,36 +79,11 @@ function Disable-User {
             if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Disable user '$($user.LastName)'")) {
                 $user | Set-WmiInstance -Arguments @{ Enabled = $false }
             }
-        }
 
-        if ($PassThru) {
-            Get-WmiObject @parameters | ForEach-Object { New-Object PSObject -Property @{
-                    Class                       = $_.__CLASS;
-                    SuperClass                  = $_.__SUPERCLASS;
-                    Server                      = $_.__SERVER;
-                    ComputerName                = $_.__SERVER;
-                    Path                        = $_.__PATH;
-                    Credential                  = $Credential;
-                    UserID                      = $_.ID;
-                    LogonID                     = $_.LogonID;
-                    Password                    = $_.Password;
-                    Firstname                   = $_.FirstName;
-                    Lastname                    = $_.LastName;
-                    AllowManualLogon            = $_.AllowManualLogon;
-                    AllowUnifiedLogon           = $_.AllowUnifiedLogon;
-                    Enabled                     = $_.Enabled;
-                    SystemPermissionGroupID     = $_.SystemPermissionGroupID;
-                    MonitoringPermissionGroupID = $_.MonitoringPermissionGroupID;
-                    CardPermissionGroupID       = $_.CardPermissionGroupID;
-                    FieldPermissionGroupID      = $_.FieldPermissionGroupID;
-                    SegmentID                   = $_.PrimarySegmentID;
-                    MonitoringZoneID            = $_.MonitoringZoneID;
-                    Created                     = ToDateTime $_.Created;
-                    LastChanged                 = ToDateTime $_.LastChanged;
-                    Notes                       = $_.Notes;
-                    AutomaticallyCreated        = $_.AutomaticallyCreated;
-                    DatabaseID                  = $_.DatabaseID;
-                } | Add-ObjectType -TypeName "DataConduIT.LnlUser"
+            if ($PassThru) {
+                $user |
+                    Select-Object *, @{L = 'UserID'; E = {$_.ID}} |
+                    Get-User
             }
         }
     }
