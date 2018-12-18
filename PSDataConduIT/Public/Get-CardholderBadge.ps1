@@ -33,6 +33,7 @@ function Get-CardholderBadge {
         [PSCredential]
         $Credential = $Script:Credential,
 
+        [Alias("CardholderID")]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
