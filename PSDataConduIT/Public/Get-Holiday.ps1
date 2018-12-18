@@ -45,7 +45,14 @@ function Get-Holiday {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the segment id of the holiday(s) to get.')]
         [int]
-        $SegmentID = -1
+        $SegmentID = -1,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the holiday to get. Wildcards are permitted.')]
+        [string]
+        $Name
     )
 
     process {
@@ -57,6 +64,10 @@ function Get-Holiday {
 
         if ($SegmentID -ne -1) {
             $query += " AND SEGMENTID=$SegmentID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
 
         LogQuery $query
