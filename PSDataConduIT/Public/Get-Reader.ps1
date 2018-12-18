@@ -45,7 +45,21 @@ function Get-Reader {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the reader id of the reader(s) to get. To get a specific reader specify both PanelID and ReaderID parameters.')]
         [int]
-        $ReaderID = $null
+        $ReaderID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the reader(s) to get. Wildcards are permitted.')]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the host name of the reader(s) to get. Wildcards are permitted.')]
+        [string]
+        $HostName
     )
 
     process {
@@ -57,6 +71,14 @@ function Get-Reader {
 
         if ($ReaderID) {
             $query += " AND ReaderID=$ReaderID"
+        }
+
+        if ($Name) {
+            $query += " AND Name like '$(ToWmiWildcard $Name)'"
+        }
+
+        if ($HostName) {
+            $query += " AND HostName like '$(ToWmiWildcard $HostName)'"
         }
 
         LogQuery $query
