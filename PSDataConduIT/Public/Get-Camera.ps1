@@ -38,7 +38,35 @@ function Get-Camera {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the id of the camera to get.')]
         [int]
-        $CameraID = $null
+        $CameraID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the panel id of the camera to get.')]
+        [int]
+        $PanelID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the camera to get. Wildcards are permitted.')]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the type of the camera to get. Wildcards are permitted.')]
+        [string]
+        $Type,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the workstation of the camera to get. Wildcards are permitted.')]
+        [string]
+        $Workstation
     )
 
     process {
@@ -46,6 +74,22 @@ function Get-Camera {
 
         if ($CameraID) {
             $query += " AND ID=$CameraID"
+        }
+
+        if ($PanelID) {
+            $query += " AND PANELID=$PanelID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
+        }
+
+        if ($Type) {
+            $query += " AND CAMERATYPENAME like '$(ToWmiWildcard $Type)'"
+        }
+
+        if ($Workstation) {
+            $query += " AND WORKSTATION like '$(ToWmiWildcard $Workstation)'"
         }
 
         LogQuery $query
