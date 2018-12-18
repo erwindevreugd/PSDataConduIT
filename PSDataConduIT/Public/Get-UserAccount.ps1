@@ -36,9 +36,23 @@ function Get-UserAccount {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Specifies the if of the user account to get.')]
+            HelpMessage = 'Specifies the id of the user account to get.')]
         [int]
-        $UserAccountID
+        $UserAccountID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the directory id of the user account(s) to get.')]
+        [int]
+        $DirectoryID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the account id of the user account(s) to get. Wildcards are permitted.')]
+        [string]
+        $AccountID
     )
 
     process {
@@ -46,6 +60,14 @@ function Get-UserAccount {
 
         if ($UserAccountID) {
             $query += " AND ID=$UserAccountID"
+        }
+
+        if ($DirectoryID) {
+            $query += " AND DirectoryID=$DirectoryID"
+        }
+
+        if ($AccountID) {
+            $query += " AND AccountID like '$(ToWmiWildcard $AccountID)'"
         }
 
         LogQuery $query
