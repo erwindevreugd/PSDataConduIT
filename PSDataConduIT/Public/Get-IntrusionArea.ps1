@@ -38,7 +38,14 @@ function Get-IntrusionArea {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the id of the intrusion area to get.')]
         [int]
-        $IntrusionAreaID = $null
+        $IntrusionAreaID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the intrusion area to get. Wildcards are permitted.')]
+        [string]
+        $Name
     )
 
     process {
@@ -46,6 +53,10 @@ function Get-IntrusionArea {
 
         if ($IntrusionAreaID) {
             $query += " AND ID=$IntrusionAreaID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
 
         LogQuery $query
