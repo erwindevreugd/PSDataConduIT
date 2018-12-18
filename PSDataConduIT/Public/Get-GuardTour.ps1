@@ -39,6 +39,13 @@ function Get-GuardTour {
             HelpMessage = 'Specifies the id of the guard tour to get.')]
         [int]
         $GuardTourID = $null
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the guard tour to get. Wildcards are permitted.')]
+        [string]
+        $Name,
     )
 
     process {
@@ -46,6 +53,10 @@ function Get-GuardTour {
 
         if ($GuardTourID) {
             $query += " AND ID=$GuardTourID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
 
         LogQuery $query
