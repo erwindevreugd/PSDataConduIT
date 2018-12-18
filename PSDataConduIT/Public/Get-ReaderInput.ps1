@@ -53,7 +53,14 @@ function Get-ReaderInput {
             HelpMessage = 'Specifies the reader input id of the reader input(s) to get.')]
         [ValidateSet(0, 1, 2)]
         [int]
-        $ReaderInputID
+        $ReaderInputID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the reader input to get. Wildcards are permitted.')]
+        [string]
+        $Name
     )
 
     process {
@@ -73,6 +80,10 @@ function Get-ReaderInput {
 
         if ($ReaderID) {
             $query += " AND READERID=$ReaderID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
 
         LogQuery $query
