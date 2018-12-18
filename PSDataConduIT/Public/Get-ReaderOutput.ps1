@@ -53,7 +53,14 @@ function Get-ReaderOutput {
             HelpMessage = 'Specifies the reader output id of the reader output(s) to get.')]
         [ValidateSet(0, 1, 2)]
         [int]
-        $ReaderOutputID
+        $ReaderOutputID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the reader output to get. Wildcards are permitted.')]
+        [string]
+        $Name,
     )
 
     process {
@@ -73,6 +80,10 @@ function Get-ReaderOutput {
 
         if ($ReaderID) {
             $query += " AND READERID=$ReaderID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
 
         LogQuery $query
