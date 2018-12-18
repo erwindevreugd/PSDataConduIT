@@ -38,7 +38,14 @@ function Get-MonitoringZone {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'The id of the monitoring zone to get.')]
         [int]
-        $MonitoringZoneID
+        $MonitoringZoneID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the monitoring zone to get. Wildcards are permitted.')]
+        [string]
+        $Name
     )
 
     process {
@@ -46,6 +53,10 @@ function Get-MonitoringZone {
 
         if ($MonitoringZoneID) {
             $query += " AND ID=$MonitoringZoneID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
 
         LogQuery $query
