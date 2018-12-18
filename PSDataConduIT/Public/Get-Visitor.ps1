@@ -38,7 +38,42 @@ function Get-Visitor {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the id of the visitor to get.')]
         [int]
-        $VisitorID
+        $VisitorID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the first name of the visitor to get. Wildcard are permitted.')]
+        [string]
+        $Firstname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the mid name of the visitor(s) to get. Wildcard are permitted.')]
+        [string]
+        $Midname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the last name of the visitor(s) to get. Wildcard are permitted.')]
+        [string]
+        $Lastname,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the ssno of the visitor(s) to get. Wildcard are permitted.')]
+        [string]
+        $SSNO,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the organization of the visitor(s) to get. Wildcard are permitted.')]
+        [string]
+        $Organization
     )
 
     process {
@@ -46,6 +81,26 @@ function Get-Visitor {
 
         if ($VisitorID) {
             $query += " AND ID=$VisitorID"
+        }
+
+        if ($Firstname) {
+            $query += " AND MIDNAME like '$(ToWmiWildcard $Midname)'"
+        }
+
+        if ($Midname) {
+            $query += " AND FIRSTNAME like '$(ToWmiWildcard $Firstname)'"
+        }
+
+        if ($Lastname) {
+            $query += " AND LASTNAME like '$(ToWmiWildcard $Lastname)'"
+        }
+
+        if ($SSNO) {
+            $query += " AND SSNO like '$(ToWmiWildcard $SSNO)'"
+        }
+
+        if ($Organization) {
+            $query += " AND ORGANIZATION like '$(ToWmiWildcard $Organization)'"
         }
 
         LogQuery $query
