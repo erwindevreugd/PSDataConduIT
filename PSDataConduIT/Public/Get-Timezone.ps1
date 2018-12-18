@@ -45,7 +45,14 @@ function Get-Timezone {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the name of the timezone to get. Wildcards are permitted.')]
         [string]
-        $Name
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the segment id of the timezone(s) to get.')]
+        [int]
+        $SegmentID = 0
     )
 
     process {
@@ -57,6 +64,10 @@ function Get-Timezone {
 
         if ($Name) {
             $query += " AND NAME like '$(ToWmiWildcard $Name)'"
+        }
+
+        if ($SegmentID -ne 0) {
+            $query += " AND SEGMENTID=$SegmentID"
         }
 
         LogQuery $query
