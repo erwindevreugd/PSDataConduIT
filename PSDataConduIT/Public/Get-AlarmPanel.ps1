@@ -45,7 +45,14 @@ function Get-AlarmPanel {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the alarm panel id of the alarm panel(s) to get.')]
         [int]
-        $AlarmPanelID
+        $AlarmPanelID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the alarm panel to get. Wildcards are permitted.')]
+        [string]
+        $Name
     )
 
     process {
@@ -57,6 +64,10 @@ function Get-AlarmPanel {
 
         if ($PanelID) {
             $query += " AND PANELID=$PanelID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
         }
 
         LogQuery $query
