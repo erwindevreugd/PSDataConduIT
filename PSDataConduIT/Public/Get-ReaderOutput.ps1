@@ -60,7 +60,7 @@ function Get-ReaderOutput {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the name of the reader output to get. Wildcards are permitted.')]
         [string]
-        $Name,
+        $Name
     )
 
     process {
