@@ -100,7 +100,6 @@ function Get-Reader {
                 ComputerName           = $_.__SERVER;
                 Path                   = $_.__PATH;
                 Credential             = $Credential;
-                SegmentId              = $_.SegmentId;
                 Name                   = $_.Name;
                 HostName               = $_.HostName;
                 PanelID                = $_.PanelID;
