@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-Cardholder
 
-    PersonID      Lastname             Midname    Firstname
-    --------      --------             -------    ---------
-    1             Lake                 A          Lisa
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,42 +36,42 @@ function Get-Cardholder {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The person id parameter.')]
+            HelpMessage = 'Specifies the id of the person to get.')]
         [int]
         $PersonID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The cardholder firstname parameter.')]
+            HelpMessage = 'Specifies the first name of the cardholder to get. Wildcard are permitted.')]
         [string]
         $Firstname,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The cardholder midname parameter.')]
+            HelpMessage = 'Specifies the mid name of the cardholder(s) to get. Wildcard are permitted.')]
         [string]
         $Midname,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The cardholder lastname parameter.')]
+            HelpMessage = 'Specifies the last name of the cardholder(s) to get. Wildcard are permitted.')]
         [string]
         $Lastname,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The cardholder email parameter.')]
+            HelpMessage = 'Specifies the email address of the cardholder(s) to get. Wildcard are permitted.')]
         [string]
         $Email,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The cardholder ssno parameter.')]
+            HelpMessage = 'Specifies the ssno of the cardholder(s) to get. Wildcard are permitted.')]
         [string]
         $SSNO
     )

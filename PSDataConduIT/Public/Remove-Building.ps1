@@ -3,7 +3,7 @@
     Removes a building.
 
     .DESCRIPTION
-    Removes a building from the database.
+    Removes a building.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,14 +38,14 @@ function Remove-Building {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The building id parameter.')]
+            HelpMessage = 'Specifies the id of the building to remove.')]
         [int]
         $BuildingID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id parameter.')]
         [int]
         $SegmentID = -1,
 

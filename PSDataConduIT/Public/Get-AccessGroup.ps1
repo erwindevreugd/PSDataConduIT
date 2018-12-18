@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-AccessGroup
 
-    AccessGroupID Name                                     SegmentID
-    ------------- ----                                     ---------
-    1             All                                      0
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,21 +36,21 @@ function Get-AccessGroup {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The id of the accessgroup to get.')]
+            HelpMessage = 'Specifies the id of the access group to get.')]
         [Nullable[int]]
         $AccessGroupID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the access group to get.')]
+            HelpMessage = 'The name of the access group to get. Wildcards are permitted.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the access group(s) to get.')]
         [nullable[int]]
         $SegmentID = $null
     )

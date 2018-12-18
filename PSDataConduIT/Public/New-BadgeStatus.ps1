@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new badge status.
+    Creates a new badge status.
 
     .DESCRIPTION
-    Adds a new badge status to the database.
+    Creates a new badge status.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,7 +36,7 @@ function New-BadgeStatus {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the badge status.')]
+            HelpMessage = 'Specifies the name of the new badge status.')]
         [string]
         $Name
     )

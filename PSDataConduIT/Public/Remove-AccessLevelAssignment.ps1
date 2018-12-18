@@ -3,7 +3,7 @@
     Removes an accesslevel assignment.
 
     .DESCRIPTION
-    Removes an accesslevel assignment from the database.
+    Removes an accesslevel assignment.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,14 +38,14 @@ function Remove-AccessLevelAssignment {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badgekey from which the accesslevel will be removed.')]
+            HelpMessage = 'Specifies the badgekey from which the accesslevel assignment will be removed.')]
         [int]
         $BadgeKey,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The accesslevel to remove from the badge.')]
+            HelpMessage = 'Specifies the accesslevel to remove from the badge.')]
         [int]
         $AccessLevelID,
 

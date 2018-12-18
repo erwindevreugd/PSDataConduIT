@@ -1,25 +1,17 @@
 <#
     .SYNOPSIS
-    Gets an accesslevel assignment.
+    Gets an access level assignment.
 
     .DESCRIPTION
-    Gets all accesslevel assignments.
+    Gets all access level assignments.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-AccessLevelAssignment
 
-    AccessLevelID BadgeKey      Activate               Deactivate
-    ------------- --------      --------               ----------
-    1             1
-
     .EXAMPLE
     Get-AccessLevelAssignment -BadgeKey 1
-
-    AccessLevelID BadgeKey      Activate               Deactivate
-    ------------- --------      --------               ----------
-    1             1
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -47,14 +39,14 @@ function Get-AccessLevelAssignment {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The accesslevel id.')]
+            HelpMessage = 'Specifies the access level id of the access level assignment(s) to get.')]
         [int]
         $AccessLevelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge key.')]
+            HelpMessage = 'Specifies the badge key of the access level assignment(s) to get.')]
         [int]
         $BadgeKey = $null
     )

@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-Account
 
-    AccountID     PersonID      AccountID     DirectoryID
-    ---------     --------      ---------     -----------
-    1             2             1             1
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,14 +36,14 @@ function Get-Account {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The account id.')]
+            HelpMessage = 'Specifies the account id of the account to get.')]
         [int]
         $AccountID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The external SID'
+            HelpMessage = 'Specifies the Active Directory Security Identifier of the account to get.'
         )]
         [string]
         $ExternalAccountID,
@@ -55,14 +51,14 @@ function Get-Account {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The directory id.')]
+            HelpMessage = 'Specifies the directory id of the account(s) to get.')]
         [int]
         $DirectoryID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The person id.')]
+            HelpMessage = 'Specifies the person id of the account to get.')]
         [int]
         $PersonID = $null
     )

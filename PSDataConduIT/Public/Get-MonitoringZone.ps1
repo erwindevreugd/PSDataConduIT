@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-MonitoringZone
 
-    MonitoringZoneID Name
-    ---------------- ----
-    1                Default Zone
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,7 +36,7 @@ function Get-MonitoringZone {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The monitoring zone id parameter.')]
+            HelpMessage = 'The id of the monitoring zone to get.')]
         [int]
         $MonitoringZoneID
     )

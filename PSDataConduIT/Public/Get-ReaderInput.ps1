@@ -3,17 +3,12 @@
     Gets a reader input.
 
     .DESCRIPTION
-    Gets all reader inputs or a single reader input if a reader input id is specified.
+    Gets all reader inputs or a single reader input if a panel id, reader id and reader input id are specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-ReaderInput
-
-    PanelID       ReaderID      ReaderInputID  Name
-    -------       --------      -------------  ----
-    1             1             1
-    1             2             1
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -41,21 +36,21 @@ function Get-ReaderInput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader input(s) to get.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader input(s) to get.')]
         [int]
         $ReaderID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader input id parameter.')]
+            HelpMessage = 'Specifies the reader input id of the reader input(s) to get.')]
         [ValidateSet(0, 1, 2)]
         [int]
         $ReaderInputID

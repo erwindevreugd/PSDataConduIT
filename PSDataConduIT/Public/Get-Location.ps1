@@ -36,21 +36,21 @@ function Get-Location {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The location id parameter.')]
+            HelpMessage = 'Specifies the id of the location to get.')]
         [int]
         $LocationID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The location name parameter.')]
+            HelpMessage = 'Specifies the name of the location to get. Wildcards are permitted.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the location(s) to get.')]
         [int]
         $SegmentID = -1
     )

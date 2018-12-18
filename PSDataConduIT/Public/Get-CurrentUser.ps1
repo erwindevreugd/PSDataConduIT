@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-CurrentUser
 
-    User
-    ----
-    System Account, System Account (-1)
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>

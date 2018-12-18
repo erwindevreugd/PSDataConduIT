@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new building.
+    Creates a new building.
 
     .DESCRIPTION
-    Adds a new building to the database.
+    Creates a new building.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,14 +36,14 @@ function New-Building {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the building.')]
+            HelpMessage = 'Specifies the name of the new building.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id to which to add the new building.')]
+            HelpMessage = 'Specifies the segment id to which to add the new building.')]
         [int]
         $SegmentID
     )

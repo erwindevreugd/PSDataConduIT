@@ -36,7 +36,7 @@ function Get-GuardTour {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The guard tour id parameter.')]
+            HelpMessage = 'Specifies the id of the guard tour to get.')]
         [int]
         $GuardTourID = $null
     )

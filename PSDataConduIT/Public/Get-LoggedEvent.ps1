@@ -36,14 +36,14 @@ function Get-LoggedEvent {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The serial number parameter.')]
+            HelpMessage = 'Specifies the serial number of the logged event to get.')]
         [int]
         $SerialNumber = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the logged event(s) to get.')]
         [int]
         $SegmentID = 0
     )

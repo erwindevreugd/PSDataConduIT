@@ -3,17 +3,12 @@
     Gets the alarm panel hardware status.
 
     .DESCRIPTION
-    Gets the alarm panel hardware status for all alarm panels or the hardware status for a single alarm panel if an alarm panel id is specified.
+    Gets the alarm panel hardware status for all alarm panels or the hardware status for a single alarm panel if a panel id and an alarm panel id is specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-AlarmPanelHardwareStatus
-
-    Name                 Status               Panel
-    ----                 ------               -----
-    OutputPanel          {Online, CabinetT... AccessPanel 1
-    InputPanel           {Online, CabinetT... AccessPanel 1
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -41,14 +36,14 @@ function Get-AlarmPanelHardwareStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the alarm panel(s) for which to get the hardware status.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm panel id parameter.')]
+            HelpMessage = 'Specifies the alarm panel id of the alarm panel(s) for which to get the hardware status.')]
         [int]
         $AlarmPanelID
     )

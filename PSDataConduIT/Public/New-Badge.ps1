@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new badge.
+    Creates a new badge.
 
     .DESCRIPTION
-    Adds a new badge to the database.
+    Creates a new badge.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,84 +35,84 @@ function New-Badge {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The id of the person/cardholder to which to add the new badge.')]
+            HelpMessage = 'Specifies the id of the person/cardholder to which to add the new badge.')]
         [int]
         $PersonID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The id of the new badge.')]
+            HelpMessage = 'Specifies the id of the new badge.')]
         [long]
         $BadgeID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge type id of the new badge.')]
+            HelpMessage = 'Specifies the badge type id of the new badge.')]
         [long]
         $BadgeTypeID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The activation date of the badge.')]
+            HelpMessage = 'Specifies activation date of the badge. The default value is the current date time.')]
         [datetime]
         $Activate = ([DateTime]::Now),
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The deactivation date of the badge.')]
+            HelpMessage = 'Specifies deactivation date of the badge. The default value is the current date time + 5 years.')]
         [datetime]
         $Deactivate = ([DateTime]::Now).AddYears(5),
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Indicates whether the badge is exempted from anti-passback.')]
+            HelpMessage = 'Specifies whether the badge is exempted from anti-passback. When omitted the new badge will not be exempted from anti-passback.')]
         [switch]
         $APBExempt,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Indicates whether the badge is exempted from destination assurance.')]
+            HelpMessage = 'Specifies whether the badge is exempted from destination assurance. When omitted the new badge will not be exempted.')]
         [switch]
         $DestinationExempt,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Indicates whether the badge is allowed to override deadbolt.')]
+            HelpMessage = 'Specifies whether the badge is allowed to override deadbolt. When omitted the new badge will not be allowed to override deadbolt.')]
         [switch]
         $DeadboltOverride,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Indicates whether the badge is using extended strike held time.')]
+            HelpMessage = 'Specifies whether the badge is using extended strike and held times. When omitted the new badge will not use extened strik and held times.')]
         [switch]
         $ExtendedStrikeHeldTime,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Indicates whether the badge is allowed to use passage mode.')]
+            HelpMessage = 'Specifies whether the badge is allowed to use passage mode. When omitted the new badge will not be allowed to use passage mode.')]
         [switch]
         $PassageMode,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The pin code for the new badge.')]
+            HelpMessage = 'Specifies pin code for the new badge.')]
         [string]
         $Pin,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The use limit for the new badge.')]
+            HelpMessage = 'Specifies use limit for the new badge.')]
         [int]
         $UseLimit
     )

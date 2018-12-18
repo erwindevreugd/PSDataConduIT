@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-TimezoneInterval
 
-    Timezone                                 Mon   Tue   Wed   Thu   Fri   Sat   Sun   H1    H2    H3    H4    H5    H6    H7    H8
-    --------                                 ---   ---   ---   ---   ---   ---   ---   --    --    --    --    --    --    --    --
-    Always                                   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]   [X]
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,7 +36,7 @@ function Get-TimezoneInterval {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The timezone interval id parameter.')]
+            HelpMessage = 'Specifies the id of the timezone interval to get.')]
         [int]
         $TimezoneIntervalID
     )

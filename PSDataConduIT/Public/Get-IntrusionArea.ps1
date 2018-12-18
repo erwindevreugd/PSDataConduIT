@@ -36,7 +36,7 @@ function Get-IntrusionArea {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion area id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion area to get.')]
         [int]
         $IntrusionAreaID = $null
     )

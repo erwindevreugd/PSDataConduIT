@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new department.
+    Creates a new department.
 
     .DESCRIPTION
-    Adds a new department to the database.
+    Creates a new department.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,14 +36,14 @@ function New-Department {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the department.')]
+            HelpMessage = 'Specifies the name of the new department.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id to which to add the new department.')]
+            HelpMessage = 'Specifies the segment id to which to add the new department.')]
         [int]
         $SegmentID
     )

@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new accesslevel.
+    Creates a new access level.
 
     .DESCRIPTION
-    Adds a new accesslevel to the database.
+    Creates a new access level.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,14 +36,14 @@ function New-AccessLevel {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the accesslevel.')]
+            HelpMessage = 'Specifies the name of the access level.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id to which to add the new accesslevel.')]
+            HelpMessage = 'Specifies the segment id to which to add the new access level.')]
         [int]
         $SegmentID
     )

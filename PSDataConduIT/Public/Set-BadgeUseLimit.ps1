@@ -1,6 +1,6 @@
 <#
     .SYNOPSIS
-    Sets the use limit for a given badge.
+    Set the use limit for a given badge.
 
     .DESCRIPTION
     Sets the use limit for a given badge.
@@ -35,13 +35,13 @@ function Set-BadgeUseLimit {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge key parameter.')]
+            HelpMessage = 'Specifies the badge key of the badge for which to set the use-limit.')]
         [int]
         $BadgeKey,
 
         [Parameter(
             Mandatory = $true,
-            HelpMessage = 'The use limit for the badge.')]
+            HelpMessage = 'Specifies the new use limit for the badge.')]
         [int]
         $UseLimit
     )

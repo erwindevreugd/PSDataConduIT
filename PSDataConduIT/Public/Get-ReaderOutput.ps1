@@ -3,19 +3,12 @@
     Gets a reader output.
 
     .DESCRIPTION
-    Gets all reader output or a single reader output if a reader output id is specified.
+    Gets all reader output or a single reader output if a panel id, reader id and reader output id are specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-ReaderOutput
-
-    PanelID       ReaderID      ReaderOutputID Name
-    -------       --------      -------------- ----
-    1             1             1
-    1             2             1
-    1             1             2
-    1             2             2
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -43,21 +36,21 @@ function Get-ReaderOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader output(s) to get.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader output(s) to get.')]
         [int]
         $ReaderID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader output id parameter.')]
+            HelpMessage = 'Specifies the reader output id of the reader output(s) to get.')]
         [ValidateSet(0, 1, 2)]
         [int]
         $ReaderOutputID

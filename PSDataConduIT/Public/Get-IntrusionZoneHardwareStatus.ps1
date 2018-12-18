@@ -36,7 +36,7 @@ function Get-IntrusionZoneHardwareStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion zone id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion zone for which to get the hardware status.')]
         [int]
         $IntrusionZoneID = $null
     )

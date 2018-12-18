@@ -9,6 +9,10 @@
 
     .EXAMPLE
 
+    Invoke-DownloadDatabase
+
+    This command downloads the database to all panels.
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -39,7 +43,7 @@ function Invoke-DownloadDatabase {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the id of the panel to which to download the database.')]
         [int]
         $PanelID,
 

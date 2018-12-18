@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Sets title.
+    Updates a title.
 
     .DESCRIPTION
-    Sets title.
+    Updates a title.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,14 +35,14 @@ function Set-Title {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The title id parameter')]
+            HelpMessage = 'Specifies the id of the title to update.')]
         [int]
         $TitleID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the title.')]
+            HelpMessage = 'Specifies the new name of the title.')]
         [string]
         $Name
     )

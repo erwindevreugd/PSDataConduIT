@@ -36,14 +36,14 @@ function Get-Segment {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the id of the segment to get.')]
         [int]
         $SegmentID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment name parameter.')]
+            HelpMessage = 'Specifies the name of the segement to get. Wildcards are permitted.')]
         [string]
         $Name
     )

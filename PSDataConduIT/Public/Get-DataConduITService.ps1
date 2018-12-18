@@ -3,7 +3,7 @@
     Gets the DataConduIT service.
 
     .DESCRIPTION
-    Get the DataConduIT service.
+    Gets the DataConduIT service.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 

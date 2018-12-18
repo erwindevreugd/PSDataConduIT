@@ -3,7 +3,8 @@
     Sets the context server and credentials used to connect to DataConduIT.
 
     .DESCRIPTION
-    Sets the context server and credentials used to connect to DataConduIT.
+    Sets the context server and credentials used to connect to DataConduIT. When you use this command to set the Server and Credential values these will be stored within the Script scope.
+    All cmdlets that are run within the same script will use these stored values as their Server and Credential parameters.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -40,7 +41,7 @@ function Set-Context {
             Position = 2,
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The default event source used to send events to DataConduIT.')]
+            HelpMessage = 'The default event source used to send events to DataConduIT. When specified this value must match a configured "Logical Source" exactly.')]
         [string]
         $EventSource = [String]::Empty
     )

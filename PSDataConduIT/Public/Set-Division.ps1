@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Sets division.
+    Updates a division.
 
     .DESCRIPTION
-    Sets division.
+    Updates a division.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,14 +35,14 @@ function Set-Division {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The division id parameter')]
+            HelpMessage = 'Specifies the id of the division to update.')]
         [int]
         $DivisionID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the division.')]
+            HelpMessage = 'Specifies the new name of the division.')]
         [string]
         $Name
     )

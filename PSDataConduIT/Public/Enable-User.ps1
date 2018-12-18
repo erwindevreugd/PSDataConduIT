@@ -43,6 +43,9 @@ function Enable-User {
         [int]
         $UserID,
 
+        [Parameter(
+            HelpMessage = 'Returns an object representing the user. By default, this cmdlet does not generate any output.'
+        )]
         [switch]
         $PassThru,
 

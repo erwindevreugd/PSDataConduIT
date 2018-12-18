@@ -3,17 +3,12 @@
     Gets an alarm panel.
 
     .DESCRIPTION
-    Gets all alarm panels or a single alarm panel if a alarm panel id is specified.
+    Gets all alarm panels or a single alarm panel if a panel id and an alarm panel id are specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-AlarmPanel
-
-    PanelID       AlarmPanelID  Name                           Type
-    -------       ------------  ----                           ----
-    1             65            OutputPanel                    OutputPanel
-    1             66            InputPanel                     InputPanel
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -41,14 +36,14 @@ function Get-AlarmPanel {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the alarm panel(s) to get.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm panel id parameter.')]
+            HelpMessage = 'Specifies the alarm panel id of the alarm panel(s) to get.')]
         [int]
         $AlarmPanelID
     )

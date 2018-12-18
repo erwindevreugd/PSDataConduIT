@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-DefaultAccessGroup
 
-    AccessGroupID Name                                     SegmentID
-    ------------- ----                                     ---------
-    1             All                                      0
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,7 +36,7 @@ function Get-DefaultAccessGroup {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge type id parameter.')]
+            HelpMessage = 'Specifies the badge type id for which to get the default access group(s).')]
         [int]
         $BadgeTypeID = $null
     )

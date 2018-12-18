@@ -36,7 +36,7 @@ function Get-VisitEmailRecipient {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visit id parameter.')]
+            HelpMessage = 'Specifies the visit id for which to get the visit email recipient(s).')]
         [int]
         $VisitID
     )

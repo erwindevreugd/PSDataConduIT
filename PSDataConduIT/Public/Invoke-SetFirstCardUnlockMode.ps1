@@ -35,14 +35,14 @@ function Invoke-SetFirstCardUnlockMode {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id for which to set the first card unlock mode.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id for which to set the first card unlock mode.')]
         [int]
         $ReaderID,
 

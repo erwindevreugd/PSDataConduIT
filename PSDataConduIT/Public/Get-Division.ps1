@@ -36,21 +36,21 @@ function Get-Division {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The division id parameter.')]
+            HelpMessage = 'Specifies the id of the division to get.')]
         [int]
         $DivisionID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The division name parameter.')]
+            HelpMessage = 'Specifies the name of the division to get. Wildcards are permitted.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the division(s) to get.')]
         [int]
         $SegmentID = -1
     )

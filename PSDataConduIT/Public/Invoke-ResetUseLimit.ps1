@@ -39,7 +39,7 @@ function Invoke-ResetUseLimit {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the if of the panel for which to reset all badge use limits.')]
         [int]
         $PanelID,
 

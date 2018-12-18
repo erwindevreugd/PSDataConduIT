@@ -3,7 +3,7 @@
     Removes a badge status.
 
     .DESCRIPTION
-    Removes a badge status from the database.
+    Removes a badge status.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,7 +38,7 @@ function Remove-BadgeStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge status id parameter.')]
+            HelpMessage = 'Specifies the id of the badge status id to remove.')]
         [int]
         $BadgeStatusID,
 

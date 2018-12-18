@@ -3,7 +3,7 @@
     Gets an user permission groups.
 
     .DESCRIPTION
-    Gets all user permission groups or a single user permission group if an user id is specified.
+    Gets all user permission groups or a single user permission group if an user permission group id is specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -39,7 +39,7 @@ function Get-UserPermissionGroup {
             ParameterSetName = 'UserPermissionGroupsByUserPermissionGroupID',
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user permission group id parameter.')]
+            HelpMessage = 'Specifies the id of the user permission group to get.')]
         [int]
         $UserPermissionGroupID,
 
@@ -47,7 +47,7 @@ function Get-UserPermissionGroup {
             ParameterSetName = 'UserPermissionGroupsByUserID',
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user id parameter.')]
+            HelpMessage = 'Specifies the user id for which to get the assigned permission groups.')]
         [int]
         $UserID
     )

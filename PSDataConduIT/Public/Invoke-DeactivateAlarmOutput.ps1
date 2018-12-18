@@ -35,28 +35,28 @@ function Invoke-DeactivateAlarmOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the alarm output(s) to deactivate.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm panel id parameter.')]
+            HelpMessage = 'Specifies the alarm panel id of the alarm output(s) to deactivate.')]
         [int]
         $AlarmPanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The output id parameter.')]
+            HelpMessage = 'Specifies the output id of the alarm output(s) to deactivate.')]
         [int]
         $OutputID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm output id parameter.')]
+            HelpMessage = 'TSpecifies the alarm output id of the alarm output(s) to deactivate.')]
         [int]
         $AlarmOutputID,
 

@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Sets visit type.
+    Updates a visit type.
 
     .DESCRIPTION
-    Sets visit type.
+    Updates a visit type.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,14 +35,14 @@ function Set-VisitType {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visit type id parameter')]
+            HelpMessage = 'Specifies the id of the visit type to update.')]
         [int]
         $VisitTypeID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the visit type.')]
+            HelpMessage = 'Specifies the new name of the visit type.')]
         [string]
         $Name
     )

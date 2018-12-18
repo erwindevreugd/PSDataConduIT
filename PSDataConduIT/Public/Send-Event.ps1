@@ -36,35 +36,35 @@ function Send-Event {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The source parameter.')]
+            HelpMessage = 'Specifies the source used to send the event. This must match a configured "Logical Source" exactly.')]
         [string]
         $Source = $Script:EventSource,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The device parameter.')]
+            HelpMessage = 'Specifies the device used to send the event. When specified this must match a configured "Logical Device" exactly.')]
         [string]
         $Device = [String]::Empty,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The sub device parameter.')]
+            HelpMessage = 'Specifies the sub device used to send the event. When specified this must match a configured "Logical Sub-Device" exactly.')]
         [string]
         $SubDevice = [String]::Empty,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The message parameter.')]
+            HelpMessage = 'Specifies the message parameter of the event.')]
         [string]
         $Message = [String]::Empty,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge id parameter.')]
+            HelpMessage = 'Specifies the badge id parameter of the event.')]
         [long]
         $BadgeID = $null,
 
@@ -85,7 +85,7 @@ function Send-Event {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The time parameter.')]
+            HelpMessage = 'Specifies the time parameter of the event. The default value is the current date time.')]
         [DateTime]
         $Time = [DateTime]::UtcNow
     )

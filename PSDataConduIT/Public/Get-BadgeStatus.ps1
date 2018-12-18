@@ -36,14 +36,14 @@ function Get-BadgeStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge status id parameter.')]
+            HelpMessage = 'Specifies the id of the badge status to get.')]
         [int]
         $BadgeStatusID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge status name parameter.')]
+            HelpMessage = 'Specifies the name of the badge status to get. Wildcards are permitted.')]
         [string]
         $Name
     )

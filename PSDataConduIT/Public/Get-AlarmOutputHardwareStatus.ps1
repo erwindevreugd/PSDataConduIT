@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-AlarmOutputHardwareStatus
 
-    Name                           Status               Panel
-    ----                           ------               -----
-    Alarm Output 1                 Secure               AccessPanel 1
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,28 +36,28 @@ function Get-AlarmOutputHardwareStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the alarm output(s) for which to get the hardware status.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm panel id parameter.')]
+            HelpMessage = 'Specifies the alarm panel id of the alarm output(s) for which to get the hardware status.')]
         [int]
         $AlarmPanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The output id parameter.')]
+            HelpMessage = 'Specifies the output id of the alarm output(s) for which to get the hardware status.')]
         [int]
         $OutputID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm output id parameter.')]
+            HelpMessage = 'Specifies the alarm output id of the alarm output for which to get the hardware status.')]
         [int]
         $AlarmOutputID
     )

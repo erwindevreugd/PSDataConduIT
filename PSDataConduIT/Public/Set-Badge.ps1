@@ -3,7 +3,7 @@
     Updates a badge.
 
     .DESCRIPTION
-    Updates a badge in the database.
+    Updates a badge.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,70 +35,70 @@ function Set-Badge {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge key parameter.')]
+            HelpMessage = 'Specifies the badge key of the badge to update.')]
         [int]
         $BadgeKey,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge id parameter.')]
+            HelpMessage = 'Specifies the new badge id to set for the badge.')]
         [long]
         $BadgeID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The activation date of the badge.')]
+            HelpMessage = 'Specifies the new activation date of the badge.')]
         [nullable[datetime]]
         $Activate,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The deactivation date of the badge.')]
+            HelpMessage = 'Specifies the new deactivation date of the badge.')]
         [nullable[datetime]]
         $Deactivate,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Whether the badge is exempted from anti-passback.')]
+            HelpMessage = 'Specifies whether the badge is exempted from anti-passback.')]
         [bool]
         $APBExempt,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Whether the badge is allowed to override deadbolt.')]
+            HelpMessage = 'Specifies whether the badge is allowed to override deadbolt.')]
         [bool]
         $DeadBoltOverride,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Whether the badge is exempted from destination.')]
+            HelpMessage = 'Specifies whether the badge is exempted from destination.')]
         [bool]
         $DestinationExempt,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The embossed value of the badge.')]
+            HelpMessage = 'Specifies the new embossed value of the badge.')]
         [int]
         $Embossed,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Whether the badge uses extended strike times.')]
+            HelpMessage = 'Specifies whether the badge uses extended strike times.')]
         [bool]
         $UseExtendedStrike,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The issue code of the badge.')]
+            HelpMessage = 'Specifies the new issue code of the badge.')]
         [int]
         $IssueCode
     )

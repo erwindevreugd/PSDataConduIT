@@ -37,14 +37,14 @@ function Invoke-AssignAccessGroup {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The id of the accessgroup to assign.')]
+            HelpMessage = 'Specifies the id of the accessgroup to assign to the badge.')]
         [int]
         $AccessGroupID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge key parameter.')]
+            HelpMessage = 'Specifies the badge key of the badge to which to assign the access group.')]
         [int]
         $BadgeKey
     )

@@ -36,7 +36,7 @@ function Invoke-DeactivateIntrusionOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion output id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion output to deactivate.')]
         [int]
         $IntrusionOutputID,
 

@@ -39,14 +39,14 @@ function Invoke-ArmIntrusionArea {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion area id parameter.')]
+            HelpMessage = 'Specifies the intrusion area id of the intrusion area to arm.')]
         [int]
         $IntrusionAreaID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion arm method parameter.')]
+            HelpMessage = 'Specifies the arm method used to are the intrusion area.')]
         [ArmState]
         $Method,
 

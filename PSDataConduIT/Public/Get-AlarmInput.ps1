@@ -3,16 +3,12 @@
     Gets an alarm input.
 
     .DESCRIPTION
-    Gets all alarm input or a single alarm input if a alarm input id is specified.
+    Gets all alarm input or a single alarm input if an alarm input id is specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-AlarmInput
-
-    PanelID       AlarmPanelID  InputID       AlarmInputID  Name
-    -------       ------------  -------       ------------  ----
-    1             66            1             1             Alarm Input 1
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -40,28 +36,28 @@ function Get-AlarmInput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the alarm input(s) to get.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm panel id parameter.')]
+            HelpMessage = 'Specifies the alarm panel id of the alarm input(s) to get.')]
         [int]
         $AlarmPanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The input id parameter.')]
+            HelpMessage = 'Specifies the input id of the alarm input(s) to get.')]
         [int]
         $InputID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm input id parameter.')]
+            HelpMessage = 'Specifies the alarm input id of the alarm input to get.')]
         [int]
         $AlarmInputID
     )

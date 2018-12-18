@@ -3,7 +3,7 @@
     Updates a user.
 
     .DESCRIPTION
-    Updates a user in the database.
+    Updates a user.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,7 +35,7 @@ function Set-User {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user id parameter.')]
+            HelpMessage = 'Specifies the id of the user to update.')]
         [int]
         $UserID,
 
@@ -43,7 +43,7 @@ function Set-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The firstname of the user.')]
+            HelpMessage = 'Specifies the new first name of the user.')]
         [string]
         $Firstname,
 
@@ -51,7 +51,7 @@ function Set-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The last name of the user.')]
+            HelpMessage = 'Specifies the new last name of the user.')]
         [string]
         $Lastname,
 
@@ -59,56 +59,56 @@ function Set-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The internal username of the user.')]
+            HelpMessage = 'Specifies the new internal username of the user.')]
         [string]
         $LogonID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The system permission group id of the user.')]
+            HelpMessage = 'Specifies the new system permission group id of the user.')]
         [nullable[int]]
         $SystemPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The monitoring permission group id of the user.')]
+            HelpMessage = 'Specifies the new monitoring permission group id of the user.')]
         [nullable[int]]
         $MonitoringPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The card permission group id of the user.')]
+            HelpMessage = 'Specifies the new card permission group id of the user.')]
         [nullable[int]]
         $CardPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The field permission id of the user.')]
+            HelpMessage = 'Specifies the new field permission id of the user.')]
         [nullable[int]]
         $FieldPermissionID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The report permission group id of the user.')]
+            HelpMessage = 'Specifies the new report permission group id of the user.')]
         [nullable[int]]
         $ReportPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The monitoring zone id of the user.')]
+            HelpMessage = 'Specifies the new monitoring zone id of the user.')]
         [nullable[int]]
         $MonitoringZoneID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The primary segment id of the user.')]
+            HelpMessage = 'Specifies the new primary segment id of the user.')]
         [nullable[int]]
         $SegmentID,
 
@@ -122,7 +122,7 @@ function Set-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The note field for the user.')]
+            HelpMessage = 'Specifies the new note field for the user.')]
         [string]
         $Notes
     )

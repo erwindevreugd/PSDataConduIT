@@ -36,7 +36,7 @@ function Invoke-ActivateIntrusionOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion output id parameter.')]
+            HelpMessage = 'Specifies the intrusion output id of the intusion output to activate.')]
         [int]
         $IntrusionOutputID = $null,
 

@@ -10,12 +10,6 @@
     .EXAMPLE
     Get-Timezone
 
-    TimezoneID    Name
-    ----------    ----
-    1             Never
-    2             Always
-    0             Not Used
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -42,14 +36,14 @@ function Get-Timezone {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The timezone id parameter.')]
+            HelpMessage = 'Specifies the id of the timezone to get.')]
         [int]
         $TimezoneID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The timezone name parameter.')]
+            HelpMessage = 'Specifies the name of the timezone to get. Wildcards are permitted.')]
         [string]
         $Name
     )

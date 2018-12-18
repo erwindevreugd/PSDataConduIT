@@ -35,7 +35,7 @@ function Get-CardholderAccount {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The cardholder id parameter.')]
+            HelpMessage = 'The id of the cardholder for which to get the account.')]
         [int]
         $CardholderID
     )

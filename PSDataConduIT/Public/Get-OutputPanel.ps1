@@ -3,17 +3,13 @@
     Gets a output panel.
 
     .DESCRIPTION
-    Gets all output panels or a single output panel if a alarm panel id is specified.
+    Gets all output panels or a single output panel if a panel id and an alarm panel id are specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-OutputPanel
-
-    PanelID       AlarmPanelID  Name                           Type
-    -------       ------------  ----                           ----
-    1             65            OutputPanel                    OutputPanel
-
+    
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,14 +36,14 @@ function Get-OutputPanel {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the output panel(s) to get.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm panel id parameter.')]
+            HelpMessage = 'Specifies the alarm panel id of the output panel(s) to get.')]
         [int]
         $AlarmPanelID
     )

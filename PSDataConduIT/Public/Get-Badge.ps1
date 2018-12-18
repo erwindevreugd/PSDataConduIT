@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-Badge
 
-    BadgeID       BadgeKey      PersonID      Status        Activate               Deactivate             BadgeTypeID
-    -------       --------      --------      ------        --------               ----------             -----------
-    1039236244    2             2             1             01/08/2017 00:00:00    01/08/2022 00:00:00    1
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,21 +36,21 @@ function Get-Badge {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge id parameter.')]
+            HelpMessage = 'Specifies the badge id of the badge to get.')]
         [long]
         $BadgeID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge key parameter.')]
+            HelpMessage = 'Specifies the badge key of the badge to get.')]
         [int]
         $BadgeKey,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The person id parameter.')]
+            HelpMessage = 'Specifies the person id for which to get the badge(s).')]
         [int]
         $PersonID
     )

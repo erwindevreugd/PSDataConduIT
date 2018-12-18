@@ -3,7 +3,7 @@
     Removes an accesslevel.
 
     .DESCRIPTION
-    Removes an accesslevel from the database.
+    Removes an accesslevel.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,14 +38,14 @@ function Remove-AccessLevel {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The accesslevel id parameter.')]
+            HelpMessage = 'Specifies the id of the accesslevel to remove.')]
         [int]
         $AccessLevelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The accesslevel name parameter.')]
+            HelpMessage = 'Specifies the name of the accesslevel to remove. Wildcards are permitted.')]
         [string]
         $Name,
 

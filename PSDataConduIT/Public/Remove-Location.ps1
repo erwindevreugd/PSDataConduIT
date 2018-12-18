@@ -3,7 +3,7 @@
     Removes a location.
 
     .DESCRIPTION
-    Removes a location from the database.
+    Removes a location.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,14 +38,14 @@ function Remove-Location {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The location id parameter.')]
+            HelpMessage = 'Specifies the id of the location to remove.')]
         [int]
         $LocationID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id parameter.')]
         [int]
         $SegmentID = -1,
 

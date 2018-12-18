@@ -35,21 +35,21 @@ function Invoke-OpenDoor {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader for which to open the door.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader for which to open the door.')]
         [int]
         $ReaderID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
-            HelpMessage = 'Returns an object that represents the reader. By default, this cmdlet does not generate any output.')]
+            HelpMessage = 'Returns an object that represents the reader for which the door was opened. By default, this cmdlet does not generate any output.')]
         [switch]
         $PassThru
     )

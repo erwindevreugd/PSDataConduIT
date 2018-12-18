@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Sets building.
+    Updates a building.
 
     .DESCRIPTION
-    Sets building.
+    Updates a building.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,14 +35,14 @@ function Set-Building {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The building id parameter')]
+            HelpMessage = 'Specifies the id of the building to update.')]
         [int]
         $BuildingID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the building.')]
+            HelpMessage = 'Specifies the new name of the building.')]
         [string]
         $Name
     )

@@ -3,7 +3,7 @@
     Deactivates a reader output.
 
     .DESCRIPTION
-    Deactivates a raeder output.
+    Deactivates a reader output.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,21 +35,21 @@ function Invoke-DeactivateReaderOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader output(s) to deactivate.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader output(s) to deactivate.')]
         [int]
         $ReaderID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader output id parameter.')]
+            HelpMessage = 'Specifies the reader output id of the reader output(s) to deactivate.')]
         [ValidateSet(0, 1, 2)]
         [int]
         $ReaderOutputID,

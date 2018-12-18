@@ -36,7 +36,7 @@ function Get-IntrusionOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion output id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion output to get.')]
         [int]
         $IntrusionOutputID = $null
     )

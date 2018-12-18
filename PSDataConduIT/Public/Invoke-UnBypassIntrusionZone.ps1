@@ -36,7 +36,7 @@ function Invoke-UnBypassIntrusionZone {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion zone id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion zone to un-bypass.')]
         [int]
         $IntrusionZoneID,
 

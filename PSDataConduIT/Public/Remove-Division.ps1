@@ -3,7 +3,7 @@
     Removes a division.
 
     .DESCRIPTION
-    Removes a division from the database.
+    Removes a division.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,14 +38,14 @@ function Remove-Division {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The division id parameter.')]
+            HelpMessage = 'Specifies the id of the division to remove.')]
         [int]
         $DivisionID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id parameter.')]
         [int]
         $SegmentID = -1,
 

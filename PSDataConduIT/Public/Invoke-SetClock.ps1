@@ -36,7 +36,7 @@ function Invoke-SetClock {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the id of the panel for which to set the clock.')]
         [int]
         $PanelID,
 

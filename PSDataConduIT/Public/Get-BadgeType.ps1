@@ -42,14 +42,14 @@ function Get-BadgeType {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge type id parameter.')]
+            HelpMessage = 'Specifies the id of the badge type to get.')]
         [int]
         $BadgeTypeID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge type name parameter.')]
+            HelpMessage = 'Specifies the name of the badge type to get. Wildcards are permitted.')]
         [string]
         $Name
     )

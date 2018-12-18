@@ -37,7 +37,7 @@ function Invoke-VisitSignOut {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visit id parameter.')]
+            HelpMessage = 'Specifies the visit id to sign out.')]
         [int]
         $VisitID,
 

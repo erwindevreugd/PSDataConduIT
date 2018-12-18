@@ -36,14 +36,14 @@ function Get-IntrusionDoorMode {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion door id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion door for which to set the intrusion door mode.')]
         [int]
         $IntrusionDoorID = $null,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion door mode parameter.')]
+            HelpMessage = 'Specifies the new intrusion door mode for the intrusion door.')]
         [DoorMode]
         $Mode
     )

@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new user.
+    Creates a new user.
 
     .DESCRIPTION
-    Adds a new user to the database.
+    Creates a new user.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -40,7 +40,7 @@ function New-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The firsname name of the user.')]
+            HelpMessage = 'Specifies the first name of the new user.')]
         [string]
         $Firstname,
 
@@ -48,7 +48,7 @@ function New-User {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The firsname name of the user.')]
+            HelpMessage = 'Specifies the lastn name of the new user.')]
         [string]
         $Lastname,
 
@@ -56,63 +56,63 @@ function New-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The internal username of the user.')]
+            HelpMessage = 'Specifies the internal username of the new user.')]
         [string]
         $LogonID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The password for the user.')]
+            HelpMessage = 'Specifies the password for the new user.')]
         [string]
         $Password,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The system permission group id of the user.')]
+            HelpMessage = 'Specifies the system permission group id to assign to the new user.')]
         [int]
         $SystemPermissionGroupID = -1,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The monitoring permission group id of the user.')]
+            HelpMessage = 'Specifies the monitoring permission group id to assign to the new user.')]
         [int]
         $MonitoringPermissionGroupID = -1,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The card permission group id of the user.')]
+            HelpMessage = 'Specifies the card permission group id to assign to the new user.')]
         [int]
         $CardPermissionGroupID = -1,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The field permission id of the user.')]
+            HelpMessage = 'Specifies the field permission id to assign to the user.')]
         [int]
         $FieldPermissionID = -1,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The report permission group id of the user.')]
+            HelpMessage = 'Specifies the report permission group id to assign to the new user.')]
         [int]
         $ReportPermissionGroupID = -1,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The monitoring zone id of the user.')]
+            HelpMessage = 'Specifies the monitoring zone id to assign to the new user.')]
         [int]
         $MonitoringZoneID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The primary segment id of the user.')]
+            HelpMessage = 'Specifies the primary segment id of the new user.')]
         [int]
         $SegmentID,
 
@@ -126,7 +126,7 @@ function New-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The note field for the user.')]
+            HelpMessage = 'Specifies the note field for the new user.')]
         [string]
         $Notes
     )

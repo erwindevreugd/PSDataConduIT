@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new category.
+    Creates a new category.
 
     .DESCRIPTION
-    Adds a new category to the database.
+    Creates a new category.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,14 +36,14 @@ function New-Category {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the category.')]
+            HelpMessage = 'Specifies the name of the new category.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id to which to add the new category.')]
+            HelpMessage = 'Specifies the segment id to which to add the new category.')]
         [int]
         $SegmentID
     )

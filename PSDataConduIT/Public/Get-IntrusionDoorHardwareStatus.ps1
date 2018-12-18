@@ -36,7 +36,7 @@ function Get-IntrusionDoorHardwareStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion door id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion door for which to get the hardware status.')]
         [int]
         $IntrusionDoorID = $null
     )

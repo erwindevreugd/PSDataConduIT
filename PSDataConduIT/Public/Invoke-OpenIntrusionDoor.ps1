@@ -35,14 +35,14 @@ function Invoke-OpenIntrusionDoor {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion door id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion door to open.')]
         [int]
         $IntrusionDoorID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $false,
-            HelpMessage = 'Returns an object that represents the intrusion door. By default, this cmdlet does not generate any output.')]
+            HelpMessage = 'Returns an object that represents the intrusion door which was opened. By default, this cmdlet does not generate any output.')]
         [switch]
         $PassThru
     )

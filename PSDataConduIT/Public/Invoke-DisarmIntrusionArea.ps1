@@ -39,10 +39,14 @@ function Invoke-DisarmIntrusionArea {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion area id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion area to disarm.')]
         [int]
         $IntrusionAreaID,
 
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $false,
+            HelpMessage = 'Returns an object that represents the intrusion area. By default, this cmdlet does not generate any output.')]
         [switch]
         $PassThru,
 

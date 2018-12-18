@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-Person
 
-    PersonID      Lastname             Midname    Firstname
-    --------      --------             -------    ---------
-    1             Lake                 A          Lisa
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,35 +36,35 @@ function Get-Person {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The person id parameter.')]
+            HelpMessage = 'Specifies the id of the person to get.')]
         [int]
         $PersonID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The person firstname parameter.')]
+            HelpMessage = 'Specifies the first name of the person to get. Wildcards are permitted.')]
         [string]
         $Firstname,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The person midname parameter.')]
+            HelpMessage = 'Specifies the mid name of the person to get. Wildcards are permitted.')]
         [string]
         $Midname,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The person lastname parameter.')]
+            HelpMessage = 'Specifies the last name of the person to get. Wildcards are permitted.')]
         [string]
         $Lastname,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The person ssno parameter.')]
+            HelpMessage = 'Specifies the ssno of the person to get. Wildcards are permitted.')]
         [string]
         $SSNO
     )

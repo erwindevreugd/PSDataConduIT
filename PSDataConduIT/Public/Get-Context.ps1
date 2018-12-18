@@ -3,16 +3,12 @@
     Gets the context server and credentials used to connect to DataConduIT.
 
     .DESCRIPTION
-    Gets the context server and credentials used to connect to DataConduIT.
+    Gets the context server and credentials used to connect to DataConduIT. Use the Set-Context cmdlet to set these values.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-Context
-
-    Credential                               Server                       EventSource
-    ----------                               ------                       -----------
-    None                                     localhost                    Not Set
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT

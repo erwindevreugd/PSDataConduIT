@@ -1,26 +1,17 @@
 <#
     .SYNOPSIS
-    Gets an accesslevel reader assignment.
+    Gets an access level reader assignment.
 
     .DESCRIPTION
-    Gets all accesslevel reader assignments.
+    Gets all access level reader assignments.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-AccessLevelReaderAssignment
 
-    AccessLevelID PanelID       ReaderID
-    ------------- -------       --------
-    2             1             1
-    2             1             2
-
     .EXAMPLE
     Get-AccessLevelReaderAssignment -AccessLevelID 1
-
-    AccessLevelID PanelID       ReaderID
-    ------------- -------       --------
-    1             1             1
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -48,21 +39,21 @@ function Get-AccessLevelReaderAssignment {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The accesslevel id.')]
+            HelpMessage = 'Specifies the access level id of the access level reader assignment(s) to get.')]
         [int]
         $AccessLevelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id.')]
+            HelpMessage = 'Specifies the panel id of the access level reader assignment(s) to get.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id.')]
+            HelpMessage = 'Specifies the reader id of the access level reader assignment(s) to get.')]
         [int]
         $ReaderID = $null
     )

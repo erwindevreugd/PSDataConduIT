@@ -35,28 +35,28 @@ function Invoke-MaskAlarmInput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the alarm input(s) to mask.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm panel id parameter.')]
+            HelpMessage = 'Specifies the alarm panel id of the alarm input(s) to mask.')]
         [int]
         $AlarmPanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The input id parameter.')]
+            HelpMessage = 'Specifies the input id of the alarm input(s) to mask.')]
         [int]
         $InputID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm input id parameter.')]
+            HelpMessage = 'Specifies the alarm input id of the alarm input to mask.')]
         [int]
         $AlarmInputID,
 

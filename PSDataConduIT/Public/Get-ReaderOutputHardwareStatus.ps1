@@ -44,21 +44,21 @@ function Get-ReaderOutputHardwareStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader output(s) for which to get the hardware status.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader output(s) for which to get the hardware status.')]
         [int]
         $ReaderID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader output id parameter.')]
+            HelpMessage = 'Specifies the reader output id of the reader output(s) for which to get the hardware status.')]
         [ValidateSet(0, 1, 2)]
         [int]
         $ReaderOutputID

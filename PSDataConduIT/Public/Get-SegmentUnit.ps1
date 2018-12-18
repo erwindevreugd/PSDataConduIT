@@ -36,14 +36,14 @@ function Get-SegmentUnit {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment unit id parameter.')]
+            HelpMessage = 'Specifies the id of the segment unit to get.')]
         [int]
         $SegmentUnitID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment unit name parameter.')]
+            HelpMessage = 'Specifies the name of the segment unit to get. Wildcards are permitted.')]
         [string]
         $Name
     )

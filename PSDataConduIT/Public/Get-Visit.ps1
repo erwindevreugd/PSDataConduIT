@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-Visit
 
-    VisitID       VisitorID     ScheduledTimeIn        TimeIn                 ScheduledTimeOut       TimeOut                Purpose
-    -------       ---------     ---------------        ------                 ----------------       -------                -------
-    1             3             19/10/2017 11:28:28    19/10/2017 11:30:25    19/10/2017 17:00:00    19/10/2017 11:35:24
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,14 +36,14 @@ function Get-Visit {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visit id parameter.')]
+            HelpMessage = 'Specifies the id of the visit to get.')]
         [int]
         $VisitID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The cardholder id parameter.')]
+            HelpMessage = 'Specifies the id of the cardholder who owns the visit.')]
         [int]
         $CardholderID
     )

@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Sets badge status.
+    Updates a badge status.
 
     .DESCRIPTION
-    Sets badge status.
+    Updates a badge status.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,14 +35,14 @@ function Set-BadgeStatus {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge status id parameter')]
+            HelpMessage = 'Specifies the id of the badge status to update.')]
         [int]
         $BadgeStatusID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the badge status.')]
+            HelpMessage = 'Specifies the new name of the badge status.')]
         [string]
         $Name
     )

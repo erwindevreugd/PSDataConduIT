@@ -3,7 +3,7 @@
     Removes a title.
 
     .DESCRIPTION
-    Removes a title from the database.
+    Removes a title.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,14 +38,14 @@ function Remove-Title {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The title id parameter.')]
+            HelpMessage = 'Specifies the id of the title to remove.')]
         [int]
         $TitleID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id parameter.')]
         [int]
         $SegmentID = -1,
 

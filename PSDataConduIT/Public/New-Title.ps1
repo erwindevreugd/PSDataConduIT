@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new title.
+    Creates a new title.
 
     .DESCRIPTION
-    Adds a new title to the database.
+    Creates a new title.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,14 +36,14 @@ function New-Title {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the title.')]
+            HelpMessage = 'Specifies the name of the new title.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id to which to add the new title.')]
+            HelpMessage = 'Specifies the segment id to which to add the new title.')]
         [int]
         $SegmentID
     )

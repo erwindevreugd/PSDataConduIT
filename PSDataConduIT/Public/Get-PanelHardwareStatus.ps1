@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-PanelHardwareStatus
 
-    Name                 Status
-    ----                 ------
-    AccessPanel 1        Online
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,7 +36,7 @@ function Get-PanelHardwareStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the id of the panel for which to get the hardware status.')]
         [int]
         $PanelID
     )

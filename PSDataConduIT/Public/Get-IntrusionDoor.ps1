@@ -36,7 +36,7 @@ function Get-IntrusionDoor {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion door id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion door to get.')]
         [int]
         $IntrusionDoorID = $null
     )

@@ -36,14 +36,14 @@ function Get-SegmentGroup {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment group id parameter.')]
+            HelpMessage = 'Specifies the id of the segment group to get.')]
         [int]
         $SegmentGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment group name parameter.')]
+            HelpMessage = 'Specifies the name of the segment group to get. Wildcards are permitted.')]
         [string]
         $Name
     )

@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-CardholderBadge
 
-    BadgeID       BadgeKey      PersonID      Status        Activate               Deactivate             BadgeTypeID
-    -------       --------      --------      ------        --------               ----------             -----------
-    123456        6             1             1             19/10/2017 00:00:00    19/10/2022 00:00:00    1
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,7 +36,7 @@ function Get-CardholderBadge {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The person id parameter.')]
+            HelpMessage = 'Specifies the id of the person for which to get their badges.')]
         [int]
         $PersonID
     )

@@ -38,27 +38,27 @@ function Invoke-VisitSignIn {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visit id parameter.')]
+            HelpMessage = 'Specifies the id of the visit to sign in.')]
         [int]
         $VisitID,
 
         [Parameter(
             Mandatory = $true,
-            HelpMessage = 'The assigned badge id parameter.',
+            HelpMessage = 'Specifies the badge id of the badge that is used to sign in.',
             ParameterSetName = "SignInByAssignedBadgeID")]
         [long]
         $AssignedBadgeID,
 
         [Parameter(
             Mandatory = $true,
-            HelpMessage = 'The badge type id parameter.',
+            HelpMessage = 'Specifies the id of the badge type that is used to sign in.',
             ParameterSetName = "SignInByBadgeTypeID")]
         [int]
         $BadgeTypeID,
 
         [Parameter(
             Mandatory = $false,
-            HelpMessage = 'The printer name parameter.',
+            HelpMessage = 'Specifies the name of the printer that is used to sign in.',
             ParameterSetName = "SignInByBadgeTypeID")]
         [string]
         $PrinterName,

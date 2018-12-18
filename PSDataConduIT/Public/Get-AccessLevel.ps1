@@ -1,18 +1,14 @@
 <#
     .SYNOPSIS
-    Gets an accesslevel.
+    Gets an access level.
 
     .DESCRIPTION
-    Gets all accesslevels or a single accesslevel if an accesslevel id or name is specified.
+    Gets all access levels or a single access level if an access level id or name is specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-AccessLevel
-
-    AccessLevelID Name                                     SegmentID
-    ------------- ----                                     ---------
-    1             All Readers                              0
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -47,14 +43,14 @@ function Get-AccessLevel {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the accesslevel to get.')]
+            HelpMessage = 'The name of the accesslevel to get. Wildcards are permitted.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the access level(s) to get.')]
         [nullable[int]]
         $SegmentID = $null
     )

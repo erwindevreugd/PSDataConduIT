@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Sets location.
+    Updates a location.
 
     .DESCRIPTION
-    Sets location.
+    Updates a location.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,14 +35,14 @@ function Set-Location {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The location id parameter')]
+            HelpMessage = 'Specifies the id of the location to update.')]
         [int]
         $LocationID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the location.')]
+            HelpMessage = 'Specifies the new name of the location.')]
         [string]
         $Name
     )

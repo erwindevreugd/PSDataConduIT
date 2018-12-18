@@ -36,21 +36,21 @@ function Get-Department {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The department id parameter.')]
+            HelpMessage = 'Specifies the id of the department to get.')]
         [int]
         $DepartmentID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The department name parameter.')]
+            HelpMessage = 'Specifies the name of the department to get. Wildcards are permitted.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the department(s) to get.')]
         [int]
         $SegmentID = -1
     )

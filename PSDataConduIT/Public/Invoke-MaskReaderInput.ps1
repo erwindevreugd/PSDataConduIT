@@ -35,21 +35,21 @@ function Invoke-MaskReaderInput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader input(s) to mask.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader input(s) to mask.')]
         [int]
         $ReaderID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader input id parameter.')]
+            HelpMessage = 'Specifies the reader input id of the reader input(s) to mask.')]
         [ValidateSet(0, 1, 2)]
         [int]
         $ReaderInputID,

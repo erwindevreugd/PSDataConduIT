@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Sets visit.
+    Updates a visit.
 
     .DESCRIPTION
-    Sets visit.
+    Updates a visit.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,56 +35,56 @@ function Set-Visit {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visit id parameter')]
+            HelpMessage = 'Specifies the id of the visit to update.')]
         [int]
         $VisitID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The id of the visitor to assign to the new visit.')]
+            HelpMessage = 'Specifies the new id of the visitor to assign to the visit.')]
         [int]
         $VisitorID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The id of the cardholder that will host the new visit.')]
+            HelpMessage = 'Specifies the new id of the cardholder that will host the visit.')]
         [int]
         $CardholderID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The duration of the new visit. If the ScheduledTimeout parameter is specified this parameter is ignored.')]
+            HelpMessage = 'Specifies the new duration of the visit. If the ScheduledTimeout parameter is specified this parameter is ignored.')]
         [int]
         $Hours = 4,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The scheduled starting time of the new visit. The default value is now.')]
+            HelpMessage = 'Specifies the new scheduled starting time of the visit. The default value is now.')]
         [datetime]
         $ScheduledTimeIn = ([DateTime]::Now),
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The scheduled ending time of the new visit.')]
+            HelpMessage = 'Specifies the new scheduled ending time of the visit.')]
         [datetime]
         $ScheduledTimeOut = ([DateTime]::Now).AddHours($Hours),
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The purpose of the visit.')]
+            HelpMessage = 'Specifies the new purpose of the visit.')]
         [string]
         $Purpose,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'List of email addresses to add to the new visit.')]
+            HelpMessage = 'Specifies the new list of email addresses for the visit.')]
         [string]
         $EmailList
     )

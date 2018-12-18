@@ -35,28 +35,28 @@ function Invoke-PulseAlarmOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the alarm output(s) to pulse.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm panel id parameter.')]
+            HelpMessage = 'Specifies the alarm panel id of the alarm output(s) to pulse.')]
         [int]
         $AlarmPanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The output id parameter.')]
+            HelpMessage = 'Specifies the output id of the alarm output(s) to pulse.')]
         [int]
         $OutputID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm output id parameter.')]
+            HelpMessage = 'Specifies the alarm output id of the alarm output to pulse.')]
         [int]
         $AlarmOutputID,
 

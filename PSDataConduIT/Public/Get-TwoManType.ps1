@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Gets a two man type.
+    Gets a two-man type.
 
     .DESCRIPTION
-    Gets all two man types or a single two man type if a two man type id is specified.
+    Gets all two-man types or a single two-man type if a two man type id is specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,21 +36,21 @@ function Get-TwoManType {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The two man type id parameter.')]
+            HelpMessage = 'Specifies the id of the two-man type to get.')]
         [int]
         $TwoManTypeID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The two man type name parameter.')]
+            HelpMessage = 'Specifies the name of the two-man type(s) to get. Wildcards are permitted.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the two-man type(s) to get.')]
         [int]
         $SegmentID = -1
     )

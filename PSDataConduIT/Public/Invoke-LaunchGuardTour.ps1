@@ -40,24 +40,28 @@ function Invoke-LaunchGuardTour {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The guard tour id parameter.')]
+            HelpMessage = 'Specifies the id of the guard tour to start.')]
         [int]
         $GuardTourID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge id parameter.')]
+            HelpMessage = 'Specifiest the badge id of the guard that wil be doing the guard tour.')]
         [long]
         $BadgeID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The monitoring zone parameter.')]
+            HelpMessage = 'Specifies the id of the monitoring zone that will be used to monitor the guard tour.')]
         [int]
         $MonitoringZoneID,
 
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $false,
+            HelpMessage = 'Returns an object that represents the guard tour. By default, this cmdlet does not generate any output.')]
         [switch]
         $PassThru,
 

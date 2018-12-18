@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-Visitor
 
-    PersonID      Lastname             Midname    Firstname
-    --------      --------             -------    ---------
-    3             Lake                            Lisa
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,7 +36,7 @@ function Get-Visitor {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visitor id paramter.')]
+            HelpMessage = 'Specifies the id of the visitor to get.')]
         [int]
         $VisitorID
     )

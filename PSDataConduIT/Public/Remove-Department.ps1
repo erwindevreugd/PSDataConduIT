@@ -38,14 +38,14 @@ function Remove-Department {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The department id parameter.')]
+            HelpMessage = 'Specifies the id of the department to remove.')]
         [int]
         $DepartmentID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id parameter.')]
         [int]
         $SegmentID = -1,
 

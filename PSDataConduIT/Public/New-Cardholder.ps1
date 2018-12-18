@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new cardholder.
+    Creates a new cardholder.
 
     .DESCRIPTION
-    Adds a new cardholder to the database.
+    Creates a new cardholder.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,105 +35,105 @@ function New-Cardholder {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The first name of the new cardholder.')]
+            HelpMessage = 'Specifies the first name of the new cardholder.')]
         [string]
         $Firstname = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The mid name of the new cardholder.')]
+            HelpMessage = 'Specifies the mid name of the new cardholder.')]
         [string]
         $Midname = $null,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The last name of the new cardholder.')]
+            HelpMessage = 'Specifies the last name of the new cardholder.')]
         [string]
         $Lastname,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The social security number (SSNO) of the new cardholder.')]
+            HelpMessage = 'Specifies the social security number (SSNO) of the new cardholder.')]
         [string]
         $SSNO = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The email of the new cardholder.')]
+            HelpMessage = 'Specifies the email of the new cardholder.')]
         [string]
         $Email = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The floor of the new cardholder.')]
+            HelpMessage = 'Specifies the floor of the new cardholder.')]
         [int]
         $Floor = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The address of the new cardholder.')]
+            HelpMessage = 'Specifies the address of the new cardholder.')]
         [string]
         $Address = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The zip code of the new cardholder.')]
+            HelpMessage = 'Specifies the zip code of the new cardholder.')]
         [string]
         $ZipCode = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The city of the new cardholder.')]
+            HelpMessage = 'Specifies the city of the new cardholder.')]
         [string]
         $City = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The state of the new cardholder.')]
+            HelpMessage = 'Specifies the state of the new cardholder.')]
         [string]
         $State = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The phone number of the new cardholder.')]
+            HelpMessage = 'Specifies the phone number of the new cardholder.')]
         [string]
         $Phone = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The office phone number of the new cardholder.')]
+            HelpMessage = 'Specifies the office phone number of the new cardholder.')]
         [string]
         $OfficePhone = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The office phone number extension of the new cardholder.')]
+            HelpMessage = 'Specifies the office phone number extension of the new cardholder.')]
         [string]
         $Extension = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The birthday of the new cardholder.')]
+            HelpMessage = 'Specifies the birthday of the new cardholder.')]
         [Nullable[datetime]]
         $Birthday = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Allow the new cardholder to receive visitors.')]
+            HelpMessage = 'Specifies the the new cardholder to receive visitors.')]
         [switch]
         $AllowedVisitors
     )

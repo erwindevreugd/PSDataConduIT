@@ -10,17 +10,6 @@
     .EXAMPLE
     Get-UserAccount
 
-    ComputerName  : SERVER
-    Path          : \\SERVER\root\OnGuard:Lnl_UserAccount.ID=1,UserID=-1
-    Server        : SERVER
-    SuperClass    : Lnl_Element
-    DirectoryID   : 1
-    UserAccountID : 1
-    UserID        : -1
-    Credential    :
-    Class         : Lnl_UserAccount
-    AccountID     : S-1-5-21-0000000000-0000000000-000000000-0000
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -47,7 +36,7 @@ function Get-UserAccount {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user account id parameter.')]
+            HelpMessage = 'Specifies the if of the user account to get.')]
         [int]
         $UserAccountID
     )

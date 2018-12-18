@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-Panel
 
-    PanelID       Name                 Type                 Workstation          Online
-    -------       ----                 ----                 -----------          ------
-    1             AccessPanel 1        LNL-2220             Workstation          True
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,21 +36,21 @@ function Get-Panel {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the id of the panel to get.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel name parameter.')]
+            HelpMessage = 'Specifies the name of the panel to get. Wildcards are permitted.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel type parameter.')]
+            HelpMessage = 'Specifies the type of the panel to get. Wildcards are permitted.')]
         [string]
         $Type
     )

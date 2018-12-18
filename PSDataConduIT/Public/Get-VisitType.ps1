@@ -36,21 +36,21 @@ function Get-VisitType {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visit type id parameter.')]
+            HelpMessage = 'Specifies the id of the visit type to get.')]
         [int]
         $VisitTypeID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visit type name parameter.')]
+            HelpMessage = 'Specifies the name of the visit type to get. Wildcards are permitted.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the visit type(s) to get.')]
         [int]
         $SegmentID = -1
     )

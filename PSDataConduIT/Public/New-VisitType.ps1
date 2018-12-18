@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new visit type.
+    Creates a new visit type.
 
     .DESCRIPTION
-    Adds a new visit type to the database.
+    Creates a new visit type.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,14 +36,14 @@ function New-VisitType {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the visit type.')]
+            HelpMessage = 'Specifies the name of the new visit type.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id to which to add the new visit type.')]
+            HelpMessage = 'Specifies the segment id to which to add the new visit type.')]
         [int]
         $SegmentID
     )

@@ -10,13 +10,6 @@
     .EXAMPLE
     Get-User
 
-    UserID        Lastname             Firstname            LogonID
-    ------        --------             ---------            -------
-    -1            System Account       System Account       SA
-    1             Administrator        Administrator        ADMIN
-    2             Badge Operator       Badge Operator       BADGE
-    3             User                 User                 USER
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -43,91 +36,91 @@ function Get-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user id parameter.')]
+            HelpMessage = 'Specifies the id of the user to get.')]
         [int]
         $UserID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user firstname parameter.')]
+            HelpMessage = 'Specifies the first name of the user(s) to get. Wildcards are permitted.')]
         [string]
         $Firstname,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user lastname parameter.')]
+            HelpMessage = 'Specifies the last name of the user(s) to get. Wildcards are permitted.')]
         [string]
         $Lastname,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user internal user name parameter.')]
+            HelpMessage = 'Specifies the internal user account of the user(s) to get. Wildcards are permitted.')]
         [string]
         $LogonID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Returns only enabled users.')]
+            HelpMessage = 'When set only enabled users are returned.')]
         [switch]
         $Enabled,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'Returns only disabled users.')]
+            HelpMessage = 'When set only disabled users are returned.')]
         [switch]
         $Disabled,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the user(s) to get.')]
         [int]
         $SegmentID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The system permission group id parameter.')]
+            HelpMessage = 'Specifies the system permission group id of the user(s) to get. When given all users that have that system permission group assigned are returned.')]
         [Nullable[int]]
         $SystemPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The monitoring permission group id parameter.')]
+            HelpMessage = 'Specifies the monitoring permission group id of the user(s) to get. When given all users that have that monitoring permission group assigned are returned.')]
         [Nullable[int]]
         $MonitoringPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The card permission group id parameter.')]
+            HelpMessage = 'Specifies the card permission group id of the user(s) to get. When given all users that have that card permission group assigned are returned.')]
         [Nullable[int]]
         $CardPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The field permission id parameter.')]
+            HelpMessage = 'Specifies the field permission id of the user(s) to get. When given all users that have that field permission assigned are returned.')]
         [Nullable[int]]
         $FieldPermissionID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The report permission group id parameter.')]
+            HelpMessage = 'Specifies the report permission group id of the user(s) to get. When given all users that have that report permission group assigned are returned.')]
         [Nullable[int]]
         $ReportPermissionGroupID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The monitoring zone id parameter.')]
+            HelpMessage = 'Specifies the monitoring zone id of the user(s) to get. When given all users that have that monitoring zone assigned are returned.')]
         [Nullable[int]]
         $MonitoringZoneID
     )

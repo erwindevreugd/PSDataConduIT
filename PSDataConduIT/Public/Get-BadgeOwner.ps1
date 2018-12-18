@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-BadgeOwner
 
-    PersonID      Lastname             Midname    Firstname
-    --------      --------             -------    ---------
-    1             Lake                 A          Lisa
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,14 +36,14 @@ function Get-BadgeOwner {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge id parameter.')]
+            HelpMessage = 'Specifies the badge id for which to get the badge owner.')]
         [long]
         $BadgeID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge key parameter.')]
+            HelpMessage = 'Specifies the badge key for which to get the badge owner.')]
         [int]
         $BadgeKey
     )

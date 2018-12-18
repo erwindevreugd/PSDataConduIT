@@ -3,7 +3,7 @@
     Removes a visitor.
 
     .DESCRIPTION
-    Removes a visitor from the database.
+    Removes a visitor.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,7 +38,7 @@ function Remove-Visitor {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visitor id parameter.')]
+            HelpMessage = 'Specifies the id of the visitor to remove.')]
         [int]
         $VisitorID,
 

@@ -3,7 +3,7 @@
     Removes an user.
 
     .DESCRIPTION
-    Removes an user from the database.
+    Removes an user.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,7 +38,7 @@ function Remove-User {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The user id parameter.')]
+            HelpMessage = 'Specifies the id of the user to remove.')]
         [int]
         $UserID,
 

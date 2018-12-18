@@ -36,7 +36,7 @@ function Invoke-UpdateHardwareStatus {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the id of the panel for which to update the hardware status.')]
         [int]
         $PanelID,
 

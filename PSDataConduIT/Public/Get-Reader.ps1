@@ -3,17 +3,12 @@
     Gets a reader.
 
     .DESCRIPTION
-    Gets all reader or a single reader if a panel id and reader id is specified.
+    Gets all reader or a single reader if a panel id and a reader id are specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-Reader
-
-    PanelID       ReaderID      Name
-    -------       --------      ----
-    1             1             Reader 1
-    1             2             Reader 2
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -41,14 +36,14 @@ function Get-Reader {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader(s) to get. To get a specific reader specify both PanelID and ReaderID parameters.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader(s) to get. To get a specific reader specify both PanelID and ReaderID parameters.')]
         [int]
         $ReaderID = $null
     )

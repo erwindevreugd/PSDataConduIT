@@ -35,21 +35,21 @@ function Invoke-UnmaskReaderInput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader input(s) to unmask.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader input(s) to unmask.')]
         [int]
         $ReaderID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader input id parameter.')]
+            HelpMessage = 'Specifies the reader input id of the reader input(s) to unmask.')]
         [ValidateSet(0, 1, 2)]
         [int]
         $ReaderInputID,

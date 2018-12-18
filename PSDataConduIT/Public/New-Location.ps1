@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new location.
+    Creates a new location.
 
     .DESCRIPTION
-    Adds a new location to the database.
+    Creates a new location.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,14 +36,14 @@ function New-Location {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the location.')]
+            HelpMessage = 'Specifies the name of the new location.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id to which to add the new location.')]
+            HelpMessage = 'Specifies the segment id to which to add the new location.')]
         [int]
         $SegmentID
     )

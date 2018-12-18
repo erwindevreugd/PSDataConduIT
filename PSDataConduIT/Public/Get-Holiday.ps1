@@ -36,14 +36,14 @@ function Get-Holiday {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The holiday id parameter.')]
+            HelpMessage = 'Specifies the id of the holiday to get.')]
         [int]
         $HolidayID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the holiday(s) to get.')]
         [int]
         $SegmentID = -1
     )

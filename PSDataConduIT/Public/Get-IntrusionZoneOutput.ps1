@@ -36,7 +36,7 @@ function Get-IntrusionZontOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The intrusion zone output id parameter.')]
+            HelpMessage = 'Specifies the id of the intrusion zone output to get.')]
         [int]
         $IntrusionZoneOutputID = $null
     )

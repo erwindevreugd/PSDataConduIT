@@ -36,7 +36,7 @@ function Add-AccessLevelAssignment {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badgekey to which the accesslevel will be assigned.')]
+            HelpMessage = 'The badge key to which the accesslevel will be assigned.')]
         [int]
         $BadgeKey,
 

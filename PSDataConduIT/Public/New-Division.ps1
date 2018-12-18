@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Adds a new division.
+    Creates a new division.
 
     .DESCRIPTION
-    Adds a new division to the database.
+    Creates a new division.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -36,14 +36,14 @@ function New-Division {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the division.')]
+            HelpMessage = 'Specifies the name of the new division.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id to which to add the new division.')]
+            HelpMessage = 'Specifies the segment id to which to add the new division.')]
         [int]
         $SegmentID
     )

@@ -10,10 +10,6 @@
     .EXAMPLE
     Get-VisitorBadge
 
-    BadgeID       BadgeKey      PersonID      Status        Activate               Deactivate             BadgeTypeID
-    -------       --------      --------      ------        --------               ----------             -----------
-    123456        6             1             1             19/10/2017 00:00:00    19/10/2022 00:00:00    1
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -40,7 +36,7 @@ function Get-VisitorBadge {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visitor id parameter.')]
+            HelpMessage = 'Specifies the visitor id for which to get the assigned badge(s).')]
         [int]
         $VisitorID
     )

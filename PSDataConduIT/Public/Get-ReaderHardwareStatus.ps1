@@ -10,11 +10,6 @@
     .EXAMPLE
     Get-ReaderHardwareStatus
 
-    Name                 Status               Panel
-    ----                 ------               -----
-    Reader 1             Online               AccessPanel 1
-    Reader 2             Online               AccessPanel 1
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -41,14 +36,14 @@ function Get-ReaderHardwareStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader for which to get the hardware status.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader for which to get the hardware status.')]
         [int]
         $ReaderID
     )

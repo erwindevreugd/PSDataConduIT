@@ -1,9 +1,9 @@
 <#
     .SYNOPSIS
-    Sets department.
+    Updates a department.
 
     .DESCRIPTION
-    Sets department.
+    Updates a department.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -35,14 +35,14 @@ function Set-Department {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The department id parameter')]
+            HelpMessage = 'Specifies id of the department to update.')]
         [int]
         $DepartmentID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The name of the department.')]
+            HelpMessage = 'Specifies the new name of the department.')]
         [string]
         $Name
     )

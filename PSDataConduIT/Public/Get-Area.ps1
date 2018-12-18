@@ -10,11 +10,6 @@
     .EXAMPLE
     Get-Area
 
-    AreaID        Name                                     AreaType
-    ------        ----                                     --------
-    1             Area 1                                   GlobalArea
-    2             Area 2                                   GlobalArea
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -41,14 +36,14 @@ function Get-Area {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The area id parameter.')]
+            HelpMessage = 'Specifies the id of the area to get.')]
         [int]
         $AreaID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The area name parameter.')]
+            HelpMessage = 'Specifies the name of the area to get. Wildcards are permitted.')]
         [string]
         $Name
     )

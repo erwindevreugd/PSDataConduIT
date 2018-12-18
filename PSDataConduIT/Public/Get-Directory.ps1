@@ -40,7 +40,7 @@ function Get-Directory {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The directory id parameter.')]
+            HelpMessage = 'Specifies the id of the directory to get.')]
         [int]
         $DirectoryID
     )

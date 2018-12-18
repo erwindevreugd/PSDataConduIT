@@ -11,11 +11,6 @@
 
     Get-ReaderInputHardwareStatus
 
-    Name                           Status               Panel
-    ----                           ------               -----
-                                Secure               AccessPanel 1
-                                Secure               AccessPanel 1
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
 #>
@@ -42,21 +37,21 @@ function Get-ReaderInputHardwareStatus {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader input(s) for which to get the hardware status.')]
         [int]
         $PanelID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader input(s) for which to get the hardware status.')]
         [int]
         $ReaderID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader input id parameter.')]
+            HelpMessage = 'Specifies the reader input id of the reader input(s) for which to get the hardware status.')]
         [ValidateSet(0, 1, 2)]
         [int]
         $ReaderInputID

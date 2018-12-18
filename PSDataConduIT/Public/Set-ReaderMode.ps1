@@ -35,20 +35,20 @@ function Set-ReaderMode {
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader for which to set the reader mode.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader for which to set the reader mode.')]
         [int]
         $ReaderID,
 
         [Parameter(
             Mandatory = $true,
-            HelpMessage = 'The reader mode parameter.')]
+            HelpMessage = 'Specifies the new reader mode for the reader.')]
         [ReaderMode]
         $Mode
     )

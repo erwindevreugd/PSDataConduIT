@@ -3,16 +3,12 @@
     Gets an alarm output.
 
     .DESCRIPTION
-    Gets all alarm output or a single alarm output if a alarm output id is specified.
+    Gets all alarm output or a single alarm output if an alarm output id is specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-AlarmOutput
-
-    PanelID       AlarmPanelID  OutputID      AlarmOutputID Name
-    -------       ------------  --------      ------------- ----
-    1             65            17            1             Alarm Output 1
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -40,28 +36,28 @@ function Get-AlarmOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the alarm output(s) to get.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm panel id parameter.')]
+            HelpMessage = 'Specifies the alarm panel id of the alarm output(s) to get.')]
         [int]
         $AlarmPanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The output id parameter.')]
+            HelpMessage = 'Specifies the output id of the alarm output(s) to get.')]
         [int]
         $OutputID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The alarm output id parameter.')]
+            HelpMessage = 'Specifies the alarm output id of the alarm output to get.')]
         [int]
         $AlarmOutputID
     )

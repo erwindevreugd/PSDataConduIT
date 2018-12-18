@@ -35,21 +35,21 @@ function Invoke-PulseReaderOutput {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the panel id of the reader output(s) to pulse.')]
         [int]
         $PanelID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the reader id of the reader output(s) to pulse.')]
         [int]
         $ReaderID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader output id parameter.')]
+            HelpMessage = 'Specifies the reader output id of the reader output(s) to pulse.')]
         [ValidateSet(0, 1, 2)]
         [int]
         $ReaderOutputID,

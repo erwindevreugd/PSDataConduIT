@@ -1,13 +1,23 @@
 <#
     .SYNOPSIS
-    Downloads firmware to the specified panel or reader.
+    Downloads firmware to the specified panel(s) or reader(s).
 
     .DESCRIPTION
-    Downloads firmware to the specified panel or reader.
+    Downloads firmware to the specified panel(s) or reader(s).
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
+
+    Get-Panel | Invoke-DownloadFirmware
+
+    This command downloads the firmware to all panels.
+
+    .EXAMPLE
+
+    Get-Reader | Invoke-DownloadFirmware
+
+    This command downloads the firmware to all reader.
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -41,12 +51,12 @@ function Invoke-DownloadFirmware {
             ParameterSetName = 'DownloadFirmwareToPanel',
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the id of the panel to which to download the firmware.')]
         [Parameter(
             ParameterSetName = 'DownloadFirmwareToReader',
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The panel id parameter.')]
+            HelpMessage = 'Specifies the id of the panel to which to download the firmware.')]
         [int]
         $PanelID,
 
@@ -54,7 +64,7 @@ function Invoke-DownloadFirmware {
             ParameterSetName = 'DownloadFirmwareToReader',
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The reader id parameter.')]
+            HelpMessage = 'Specifies the id of the reader to which to download the firmware.')]
         [int]
         $ReaderID,
 

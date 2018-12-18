@@ -36,7 +36,7 @@ function Get-Camera {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The camera id parameter.')]
+            HelpMessage = 'Specifies the id of the camera to get.')]
         [int]
         $CameraID = $null
     )

@@ -1,18 +1,14 @@
 <#
     .SYNOPSIS
-    Gets the badge last location.
+    Gets a badge last location.
 
     .DESCRIPTION
-    Gets all badge last locations or a single badge last location if a badge id is specified.
+    Gets all badge last locations or the last location of a specific badge if a badge id is specified.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
     .EXAMPLE
     Get-BadgeLastLocation
-
-    BadgeID       PersonID      PanelID       ReaderID      EventTime
-    -------       --------      -------       --------      ---------
-    4294967295    0             1             1             27/11/2017 08:56:38
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
@@ -40,7 +36,7 @@ function Get-BadgeLastLocation {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The badge id parameter.')]
+            HelpMessage = 'Specifies the badge id for which to get the last known location.')]
         [int]
         $BadgeID
     )

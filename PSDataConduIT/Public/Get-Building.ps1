@@ -36,21 +36,21 @@ function Get-Building {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The building id parameter.')]
+            HelpMessage = 'Specifies the id of the building to get.')]
         [int]
         $BuildingID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The building name parameter.')]
+            HelpMessage = 'Specifies the name of the building to get. Wildcards are permitted.')]
         [string]
         $Name,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id of the building(s) to get.')]
         [int]
         $SegmentID = -1
     )

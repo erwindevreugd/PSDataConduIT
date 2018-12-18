@@ -3,7 +3,7 @@
     Removes a visit type.
 
     .DESCRIPTION
-    Removes a visit type from the database.
+    Removes a visit type.
 
     If the result returns null, try the parameter "-Verbose" to get more details.
 
@@ -38,14 +38,14 @@ function Remove-VisitType {
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The visit type id parameter.')]
+            HelpMessage = 'Specifies the id of the visit type to remove.')]
         [int]
         $VisitTypeID,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
-            HelpMessage = 'The segment id parameter.')]
+            HelpMessage = 'Specifies the segment id parameter.')]
         [int]
         $SegmentID = -1,
 
