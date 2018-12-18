@@ -38,14 +38,14 @@ function Get-GuardTour {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the id of the guard tour to get.')]
         [int]
-        $GuardTourID = $null
+        $GuardTourID = $null,
 
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the name of the guard tour to get. Wildcards are permitted.')]
         [string]
-        $Name,
+        $Name
     )
 
     process {
