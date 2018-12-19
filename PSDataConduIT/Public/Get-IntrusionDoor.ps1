@@ -38,7 +38,35 @@ function Get-IntrusionDoor {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the id of the intrusion door to get.')]
         [int]
-        $IntrusionDoorID = $null
+        $IntrusionDoorID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the panel id of the intrusion door to get.')]
+        [int]
+        $PanelID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the device id of the intrusion door to get.')]
+        [int]
+        $DeviceID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the intrusion door to get. Wildcards are permitted.')]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the host name of the door output to get. Wildcards are permitted.')]
+        [string]
+        $HostName
     )
 
     process {
@@ -48,6 +76,22 @@ function Get-IntrusionDoor {
             $query += " AND ID=$IntrusionDoorID"
         }
 
+        if ($PanelID) {
+            $query += " AND PANELID=$PanelID"
+        }
+
+        if ($DeviceID) {
+            $query += " AND DEVICEID=$DeviceID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
+        }
+
+        if ($HostName) {
+            $query += " AND HOSTNAME like '$(ToWmiWildcard $HostName)'"
+        }
+        
         LogQuery $query
 
         $parameters = @{
