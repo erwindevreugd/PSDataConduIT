@@ -38,7 +38,35 @@ function Get-IntrusionZontOutput {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the id of the intrusion zone output to get.')]
         [int]
-        $IntrusionZoneOutputID = $null
+        $IntrusionZoneOutputID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the panel id of the intrusion zone output to get.')]
+        [int]
+        $PanelID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the device id of the intrusion zone output to get.')]
+        [int]
+        $DeviceID = $null,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the name of the intrusion zone output to get. Wildcards are permitted.')]
+        [string]
+        $Name,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the host name of the intruzion zone output to get. Wildcards are permitted.')]
+        [string]
+        $HostName
     )
 
     process {
@@ -46,6 +74,22 @@ function Get-IntrusionZontOutput {
 
         if ($IntrusionZoneOutputID) {
             $query += " AND ID=$IntrusionZoneOutputID"
+        }
+
+        if ($PanelID) {
+            $query += " AND PANELID=$PanelID"
+        }
+
+        if ($DeviceID) {
+            $query += " AND DEVICEID=$DeviceID"
+        }
+
+        if ($Name) {
+            $query += " AND NAME like '$(ToWmiWildcard $Name)'"
+        }
+
+        if ($HostName) {
+            $query += " AND HOSTNAME like '$(ToWmiWildcard $HostName)'"
         }
 
         LogQuery $query
