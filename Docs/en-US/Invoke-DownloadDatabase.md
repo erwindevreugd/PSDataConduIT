@@ -13,21 +13,23 @@ Download the database to the specified panel.
 ## SYNTAX
 
 ```
-Invoke-DownloadDatabase [[-Server] <String>] [[-Credential] <PSCredential>] -PanelID <Int32> [-Force] [-WhatIf]
- [-Confirm]
+Invoke-DownloadDatabase [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <Int32>] [-Force]
+ [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Downloads the database to the specified panel. 
+Downloads the database to the specified panel.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
+```
+Invoke-DownloadDatabase
 ```
 
-```
+This command downloads the database to all panels.
 
 ## PARAMETERS
 
@@ -37,7 +39,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -52,7 +54,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -62,14 +64,14 @@ Accept wildcard characters: False
 ```
 
 ### -PanelID
-The panel id parameter.
+Specifies the id of the panel to which to download the database.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
-Required: True
+Required: False
 Position: Named
 Default value: 0
 Accept pipeline input: True (ByPropertyName)
@@ -82,7 +84,7 @@ Forces the download database with out displaying a should process.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -102,7 +104,7 @@ Aliases: wi
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -117,10 +119,14 @@ Aliases: cf
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -129,6 +135,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

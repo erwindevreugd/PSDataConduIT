@@ -10,12 +10,10 @@
     .EXAMPLE
     Get-DataConduITService
 
-    Name                                     Server                       IsStarted
-    ----                                     ------                       ---------
-    LS DataConduIT Service                   WS-084                       True
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
 function Get-DataConduITService {
     [CmdletBinding()]

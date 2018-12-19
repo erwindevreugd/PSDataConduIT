@@ -8,33 +8,48 @@ schema: 2.0.0
 # Invoke-DownloadFirmware
 
 ## SYNOPSIS
-Downloads firmware to the specified panel or reader.
+Downloads firmware to the specified panel(s) or reader(s).
 
 ## SYNTAX
 
-### DownloadFirmwareToPanel (Default)
+### DownloadFirmwareToAll (Default)
 ```
-Invoke-DownloadFirmware [[-Server] <String>] [[-Credential] <PSCredential>] -PanelID <Int32> [-Force] [-WhatIf]
- [-Confirm]
+Invoke-DownloadFirmware [[-Server] <String>] [[-Credential] <PSCredential>] [-Force] [-WhatIf] [-Confirm]
+ [<CommonParameters>]
 ```
 
 ### DownloadFirmwareToReader
 ```
 Invoke-DownloadFirmware [[-Server] <String>] [[-Credential] <PSCredential>] -PanelID <Int32> -ReaderID <Int32>
- [-Force] [-WhatIf] [-Confirm]
+ [-Force] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### DownloadFirmwareToPanel
+```
+Invoke-DownloadFirmware [[-Server] <String>] [[-Credential] <PSCredential>] -PanelID <Int32> [-Force] [-WhatIf]
+ [-Confirm] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Downloads firmware to the specified panel or reader. 
+Downloads firmware to the specified panel(s) or reader(s).
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
+```
+Get-Panel | Invoke-DownloadFirmware
 ```
 
+This command downloads the firmware to all panels.
+
+### EXAMPLE 2
 ```
+Get-Reader | Invoke-DownloadFirmware
+```
+
+This command downloads the firmware to all reader.
 
 ## PARAMETERS
 
@@ -44,7 +59,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -59,7 +74,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -69,12 +84,12 @@ Accept wildcard characters: False
 ```
 
 ### -PanelID
-The panel id parameter.
+Specifies the id of the panel to which to download the firmware.
 
 ```yaml
 Type: Int32
-Parameter Sets: (All)
-Aliases: 
+Parameter Sets: DownloadFirmwareToReader, DownloadFirmwareToPanel
+Aliases:
 
 Required: True
 Position: Named
@@ -84,12 +99,12 @@ Accept wildcard characters: False
 ```
 
 ### -ReaderID
-The reader id parameter.
+Specifies the id of the reader to which to download the firmware.
 
 ```yaml
 Type: Int32
 Parameter Sets: DownloadFirmwareToReader
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -104,7 +119,7 @@ Forces the download firmware with out displaying a should process.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -124,7 +139,7 @@ Aliases: wi
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -139,10 +154,14 @@ Aliases: cf
 
 Required: False
 Position: Named
-Default value: None
+Default value: False
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -151,6 +170,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

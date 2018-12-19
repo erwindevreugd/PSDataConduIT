@@ -8,22 +8,23 @@ schema: 2.0.0
 # Set-BadgeUseLimit
 
 ## SYNOPSIS
-Sets the use limit for a given badge.
+Set the use limit for a given badge.
 
 ## SYNTAX
 
 ```
 Set-BadgeUseLimit [[-Server] <String>] [[-Credential] <PSCredential>] -BadgeKey <Int32> -UseLimit <Int32>
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Sets the use limit for a given badge. 
+Sets the use limit for a given badge.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 
 ```
@@ -36,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -51,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -61,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -BadgeKey
-The badge key parameter.
+Specifies the badge key of the badge for which to set the use-limit.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -76,12 +77,12 @@ Accept wildcard characters: False
 ```
 
 ### -UseLimit
-The use limit for the badge.
+Specifies the new use limit for the badge.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -90,6 +91,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -97,6 +102,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

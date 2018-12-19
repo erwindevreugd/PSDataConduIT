@@ -8,39 +8,31 @@ schema: 2.0.0
 # Get-AccessLevelAssignment
 
 ## SYNOPSIS
-Gets an accesslevel assignment.
+Gets an access level assignment.
 
 ## SYNTAX
 
 ```
 Get-AccessLevelAssignment [[-Server] <String>] [[-Credential] <PSCredential>] [-AccessLevelID <Int32>]
- [-BadgeKey <Int32>]
+ [-BadgeKey <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all accesslevel assignments. 
+Gets all access level assignments.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-AccessLevelAssignment
 ```
 
-AccessLevelID BadgeKey      Activate               Deactivate
-------------- --------      --------               ----------
-1             1
-
-### -------------------------- EXAMPLE 2 --------------------------
+### EXAMPLE 2
 ```
 Get-AccessLevelAssignment -BadgeKey 1
 ```
-
-AccessLevelID BadgeKey      Activate               Deactivate
-------------- --------      --------               ----------
-1             1
 
 ## PARAMETERS
 
@@ -50,7 +42,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -65,7 +57,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -75,12 +67,12 @@ Accept wildcard characters: False
 ```
 
 ### -AccessLevelID
-The accesslevel id.
+Specifies the access level id of the access level assignment(s) to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -90,12 +82,12 @@ Accept wildcard characters: False
 ```
 
 ### -BadgeKey
-The badge key.
+Specifies the badge key of the access level assignment(s) to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -104,6 +96,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -111,6 +107,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

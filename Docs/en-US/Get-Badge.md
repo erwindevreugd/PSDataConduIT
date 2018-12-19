@@ -14,23 +14,20 @@ Gets a badge.
 
 ```
 Get-Badge [[-Server] <String>] [[-Credential] <PSCredential>] [-BadgeID <Int64>] [-BadgeKey <Int32>]
+ [-PersonID <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all badges or a single badge if a badge id or badgekey is specified. 
+Gets all badges or a single badge if a badge id or badgekey is specified.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-Badge
 ```
-
-BadgeID       BadgeKey      PersonID      Status        Activate               Deactivate             BadgeTypeID
--------       --------      --------      ------        --------               ----------             -----------
-1039236244    2             2             1             01/08/2017 00:00:00    01/08/2022 00:00:00    1
 
 ## PARAMETERS
 
@@ -40,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -55,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -65,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -BadgeID
-The badge id parameter.
+Specifies the badge id of the badge to get.
 
 ```yaml
 Type: Int64
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -80,12 +77,12 @@ Accept wildcard characters: False
 ```
 
 ### -BadgeKey
-The badge key parameter.
+Specifies the badge key of the badge to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -94,6 +91,25 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### -PersonID
+Specifies the person id for which to get the badge(s).
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -101,6 +117,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

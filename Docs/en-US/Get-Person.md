@@ -13,24 +13,21 @@ Gets a person.
 ## SYNTAX
 
 ```
-Get-Person [[-Server] <String>] [[-Credential] <PSCredential>] [-PersonID <Int32>]
+Get-Person [[-Server] <String>] [[-Credential] <PSCredential>] [-PersonID <Int32>] [-Firstname <String>]
+ [-Midname <String>] [-Lastname <String>] [-SSNO <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all persons or a single person if a person id is specified. 
+Gets all persons or a single person if a person id is specified.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-Person
 ```
-
-PersonID      Lastname             Midname    Firstname
---------      --------             -------    ---------
-1             Lake                 A          Lisa
 
 ## PARAMETERS
 
@@ -40,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -55,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -65,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -PersonID
-The person id parameter.
+Specifies the id of the person to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -79,6 +76,74 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### -Firstname
+Specifies the first name of the person to get.
+Wildcards are permitted.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Midname
+Specifies the mid name of the person to get.
+Wildcards are permitted.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Lastname
+Specifies the last name of the person to get.
+Wildcards are permitted.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -SSNO
+Specifies the ssno of the person to get.
+Wildcards are permitted.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -86,6 +151,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

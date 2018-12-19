@@ -14,23 +14,20 @@ Gets a output panel.
 
 ```
 Get-OutputPanel [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <Int32>] [-AlarmPanelID <Int32>]
+ [-Name <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all output panels or a single output panel if a alarm panel id is specified. 
+Gets all output panels or a single output panel if a panel id and an alarm panel id are specified.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-OutputPanel
 ```
-
-PanelID       AlarmPanelID  Name                           Type
--------       ------------  ----                           ----
-1             65            OutputPanel                    OutputPanel
 
 ## PARAMETERS
 
@@ -40,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -55,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -65,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -PanelID
-The panel id parameter.
+Specifies the panel id of the output panel(s) to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -80,12 +77,12 @@ Accept wildcard characters: False
 ```
 
 ### -AlarmPanelID
-The alarm panel id parameter.
+Specifies the alarm panel id of the output panel(s) to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -94,6 +91,26 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### -Name
+Specifies the name of the output panel to get.
+Wildcards are permitted.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -101,6 +118,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

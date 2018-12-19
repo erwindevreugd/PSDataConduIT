@@ -14,23 +14,20 @@ Gets the default access group for the given badge type.
 
 ```
 Get-DefaultAccessGroup [[-Server] <String>] [[-Credential] <PSCredential>] -BadgeTypeID <Int32>
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets the default access group for the given badge type. 
+Gets the default access group for the given badge type.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-DefaultAccessGroup
 ```
-
-AccessGroupID Name                                     SegmentID
-------------- ----                                     ---------
-1             All                                      0
 
 ## PARAMETERS
 
@@ -40,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -55,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -65,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -BadgeTypeID
-The badge type id parameter.
+Specifies the badge type id for which to get the default access group(s).
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -79,6 +76,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -86,6 +87,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

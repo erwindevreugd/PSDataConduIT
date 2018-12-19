@@ -14,23 +14,22 @@ Gets reader mode.
 
 ```
 Get-ReaderMode [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <Int32>] [-ReaderID <Int32>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets the reader mode for all readers or the reader mode for a single reader if a panel id and reader id is specified. 
+Gets the reader mode for all readers or the reader mode for a single reader if a panel id and reader id is specified.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-ReaderMode
 ```
 
-PanelID       ReaderID      Name                 Mode
--------       --------      ----                 ----
-1             1             Reader 1             CardOnly
+PanelID       ReaderID      Name                 Mode -------       --------      ----                 ---- 1             1             Reader 1             CardOnly
 
 ## PARAMETERS
 
@@ -40,7 +39,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -55,7 +54,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -70,7 +69,7 @@ The panel id parameter.
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -85,7 +84,7 @@ The reader id parameter.
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -94,6 +93,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -101,6 +104,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

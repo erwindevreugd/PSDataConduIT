@@ -15,13 +15,13 @@ Signs in a visit.
 ### SignInByAssignedBadgeID (Default)
 ```
 Invoke-VisitSignIn [[-Server] <String>] [[-Credential] <PSCredential>] -VisitID <Int32>
- -AssignedBadgeID <Int64> [-PassThru]
+ -AssignedBadgeID <Int64> [-PassThru] [<CommonParameters>]
 ```
 
 ### SignInByBadgeTypeID
 ```
 Invoke-VisitSignIn [[-Server] <String>] [[-Credential] <PSCredential>] -VisitID <Int32> -BadgeTypeID <Int32>
- [-PrinterName <String>] [-PassThru]
+ [-PrinterName <String>] [-PassThru] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -31,7 +31,7 @@ If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 
 ```
@@ -44,7 +44,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -59,7 +59,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -69,12 +69,12 @@ Accept wildcard characters: False
 ```
 
 ### -VisitID
-The visit id parameter.
+Specifies the id of the visit to sign in.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -84,12 +84,12 @@ Accept wildcard characters: False
 ```
 
 ### -AssignedBadgeID
-The assigned badge id parameter.
+Specifies the badge id of the badge that is used to sign in.
 
 ```yaml
 Type: Int64
 Parameter Sets: SignInByAssignedBadgeID
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -99,12 +99,12 @@ Accept wildcard characters: False
 ```
 
 ### -BadgeTypeID
-The badge type id parameter.
+Specifies the id of the badge type that is used to sign in.
 
 ```yaml
 Type: Int32
 Parameter Sets: SignInByBadgeTypeID
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -114,12 +114,12 @@ Accept wildcard characters: False
 ```
 
 ### -PrinterName
-The printer name parameter.
+Specifies the name of the printer that is used to sign in.
 
 ```yaml
 Type: String
 Parameter Sets: SignInByBadgeTypeID
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -135,7 +135,7 @@ By default, this cmdlet does not generate any output.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -144,6 +144,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -151,6 +155,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

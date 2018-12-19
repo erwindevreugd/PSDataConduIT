@@ -21,6 +21,8 @@
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
 function Invoke-DownloadFirmware {
     [Alias("Download-Firmware")]

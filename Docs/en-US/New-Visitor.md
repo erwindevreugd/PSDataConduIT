@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-Visitor
 
 ## SYNOPSIS
-Adds a new visitor.
+Creates a new visitor.
 
 ## SYNTAX
 
@@ -16,17 +16,17 @@ Adds a new visitor.
 New-Visitor [[-Server] <String>] [[-Credential] <PSCredential>] [-Firstname <String>] [-Midname <String>]
  -Lastname <String> [-SSNO <String>] [-Address <String>] [-City <String>] [-Email <String>]
  [-Extension <String>] [-OfficePhone <String>] [-Organization <String>] [-State <String>] [-Title <String>]
- [-ZipCode <String>]
+ [-ZipCode <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Adds a new visitor to the database. 
+Creates a new visitor.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 
 ```
@@ -39,7 +39,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -54,7 +54,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -64,12 +64,12 @@ Accept wildcard characters: False
 ```
 
 ### -Firstname
-The first name of the new visitor.
+Specifies the first name of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -79,12 +79,12 @@ Accept wildcard characters: False
 ```
 
 ### -Midname
-The mid name of the new visitor.
+Specifies the mid name of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -94,12 +94,12 @@ Accept wildcard characters: False
 ```
 
 ### -Lastname
-The last name of the new visitor.
+Specifies the last name of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -109,12 +109,12 @@ Accept wildcard characters: False
 ```
 
 ### -SSNO
-The social security number (SSNO) of the new visitor.
+Specifies the social security number (SSNO) of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -124,12 +124,12 @@ Accept wildcard characters: False
 ```
 
 ### -Address
-The address of the new visitor.
+Specifies the address of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -139,12 +139,12 @@ Accept wildcard characters: False
 ```
 
 ### -City
-The city of the new visitor.
+Specifies the city of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -154,12 +154,12 @@ Accept wildcard characters: False
 ```
 
 ### -Email
-The email of the new visitor.
+Specifies the email of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -169,12 +169,12 @@ Accept wildcard characters: False
 ```
 
 ### -Extension
-The extension of the new visitor.
+Specifies the extension of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -184,12 +184,12 @@ Accept wildcard characters: False
 ```
 
 ### -OfficePhone
-The office phone number of the new visitor.
+Specifies the office phone number of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -199,12 +199,12 @@ Accept wildcard characters: False
 ```
 
 ### -Organization
-The organization of the new visitor.
+Specifies the organization of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -214,12 +214,12 @@ Accept wildcard characters: False
 ```
 
 ### -State
-The state of the new visitor.
+Specifies the state of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -229,12 +229,12 @@ Accept wildcard characters: False
 ```
 
 ### -Title
-The title of the new visitor.
+Specifies the title of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -244,12 +244,12 @@ Accept wildcard characters: False
 ```
 
 ### -ZipCode
-The zip code of the new visitor.
+Specifies the zip code of the new visitor.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -258,6 +258,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -265,6 +269,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

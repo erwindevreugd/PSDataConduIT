@@ -12,6 +12,8 @@
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
 function Get-VisitEmailRecipient {
     [CmdletBinding()]

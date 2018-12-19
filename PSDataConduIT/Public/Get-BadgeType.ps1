@@ -10,14 +10,10 @@
     .EXAMPLE
     Get-BadgeType
 
-    BadgeTypeID   Name
-    -----------   ----
-    1             Employee
-    2             Visitor
-    3             Temporary
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
 function Get-BadgeType {
     [CmdletBinding()]

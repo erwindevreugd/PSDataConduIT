@@ -10,12 +10,10 @@
     .EXAMPLE
     Get-ReaderMode
 
-    PanelID       ReaderID      Name                 Mode
-    -------       --------      ----                 ----
-    1             1             Reader 1             CardOnly
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
 function Get-ReaderMode {
     [CmdletBinding()]

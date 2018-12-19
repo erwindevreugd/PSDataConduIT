@@ -15,23 +15,23 @@ Enables or disables first card unlock mode for a reader.
 ### Enable
 ```
 Invoke-SetFirstCardUnlockMode [[-Server] <String>] [[-Credential] <PSCredential>] -PanelID <Int32>
- -ReaderID <Int32> [-Enable] [-PassThru]
+ -ReaderID <Int32> [-Enable] [-PassThru] [<CommonParameters>]
 ```
 
 ### Disable
 ```
 Invoke-SetFirstCardUnlockMode [[-Server] <String>] [[-Credential] <PSCredential>] -PanelID <Int32>
- -ReaderID <Int32> [-Disable] [-PassThru]
+ -ReaderID <Int32> [-Disable] [-PassThru] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Enables or disables first card unlock mode for a reader. 
+Enables or disables first card unlock mode for a reader.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 
 ```
@@ -44,7 +44,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -59,7 +59,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -69,12 +69,12 @@ Accept wildcard characters: False
 ```
 
 ### -PanelID
-The panel id parameter.
+Specifies the panel id for which to set the first card unlock mode.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -84,12 +84,12 @@ Accept wildcard characters: False
 ```
 
 ### -ReaderID
-The reader id parameter.
+Specifies the reader id for which to set the first card unlock mode.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -104,7 +104,7 @@ Enables first card unlock mode.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: Enable
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -119,7 +119,7 @@ Disables first card unlock mode.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: Disable
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -135,7 +135,7 @@ By default, this cmdlet does not generate any output.
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -144,6 +144,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -151,6 +155,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

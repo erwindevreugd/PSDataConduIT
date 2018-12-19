@@ -14,23 +14,20 @@ Gets a timezone interval.
 
 ```
 Get-TimezoneInterval [[-Server] <String>] [[-Credential] <PSCredential>] [-TimezoneIntervalID <Int32>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all timezone intervals or a single timezone interval if an timezone interval id is specified. 
+Gets all timezone intervals or a single timezone interval if an timezone interval id is specified.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-TimezoneInterval
 ```
-
-Timezone                                 Mon   Tue   Wed   Thu   Fri   Sat   Sun   H1    H2    H3    H4    H5    H6    H7    H8
---------                                 ---   ---   ---   ---   ---   ---   ---   --    --    --    --    --    --    --    --
-Always                                   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]   \[X\]
 
 ## PARAMETERS
 
@@ -40,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -55,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -65,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -TimezoneIntervalID
-The timezone interval id parameter.
+Specifies the id of the timezone interval to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -79,6 +76,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -86,6 +87,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

@@ -16,6 +16,8 @@
 
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
 function Set-Context {
     [CmdletBinding()]

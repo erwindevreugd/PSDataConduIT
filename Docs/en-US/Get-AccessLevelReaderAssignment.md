@@ -8,40 +8,31 @@ schema: 2.0.0
 # Get-AccessLevelReaderAssignment
 
 ## SYNOPSIS
-Gets an accesslevel reader assignment.
+Gets an access level reader assignment.
 
 ## SYNTAX
 
 ```
 Get-AccessLevelReaderAssignment [[-Server] <String>] [[-Credential] <PSCredential>] [-AccessLevelID <Int32>]
- [-PanelID <Int32>] [-ReaderID <Int32>]
+ [-PanelID <Int32>] [-ReaderID <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all accesslevel reader assignments. 
+Gets all access level reader assignments.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-AccessLevelReaderAssignment
 ```
 
-AccessLevelID PanelID       ReaderID
-------------- -------       --------
-2             1             1
-2             1             2
-
-### -------------------------- EXAMPLE 2 --------------------------
+### EXAMPLE 2
 ```
 Get-AccessLevelReaderAssignment -AccessLevelID 1
 ```
-
-AccessLevelID PanelID       ReaderID
-------------- -------       --------
-1             1             1
 
 ## PARAMETERS
 
@@ -51,7 +42,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -66,7 +57,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -76,12 +67,12 @@ Accept wildcard characters: False
 ```
 
 ### -AccessLevelID
-The accesslevel id.
+Specifies the access level id of the access level reader assignment(s) to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -91,12 +82,12 @@ Accept wildcard characters: False
 ```
 
 ### -PanelID
-The panel id.
+Specifies the panel id of the access level reader assignment(s) to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -106,12 +97,12 @@ Accept wildcard characters: False
 ```
 
 ### -ReaderID
-The reader id.
+Specifies the reader id of the access level reader assignment(s) to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -120,6 +111,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -127,6 +122,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

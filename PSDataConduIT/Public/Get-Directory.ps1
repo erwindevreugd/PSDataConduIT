@@ -10,12 +10,10 @@
     .EXAMPLE
     Get-Directory
 
-    DirectoryID   Name                 Type                           Hostname             StartNode
-    -----------   ----                 ----                           --------             ---------
-    1             DOMAIN.local         MicrosoftActiveDirectory       DOMAIN.local         dc=DOAMIN, dc=local
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
 function Get-Directory {
     [CmdletBinding()]

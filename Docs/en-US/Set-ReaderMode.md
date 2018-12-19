@@ -14,17 +14,17 @@ Sets a reader to the specified reader mode.
 
 ```
 Set-ReaderMode [[-Server] <String>] [[-Credential] <PSCredential>] -PanelID <Int32> -ReaderID <Int32>
- -Mode <ReaderMode>
+ -Mode <ReaderMode> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Sets a reader to the specified reader mode. 
+Sets a reader to the specified reader mode.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 
 ```
@@ -37,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -52,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -62,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -PanelID
-The panel id parameter.
+Specifies the panel id of the reader for which to set the reader mode.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -77,12 +77,12 @@ Accept wildcard characters: False
 ```
 
 ### -ReaderID
-The reader id parameter.
+Specifies the reader id of the reader for which to set the reader mode.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -92,12 +92,12 @@ Accept wildcard characters: False
 ```
 
 ### -Mode
-The reader mode parameter.
+Specifies the new reader mode for the reader.
 
 ```yaml
 Type: ReaderMode
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 Accepted values: Locked, CardOnly, PinOrCard, PinAndCard, Unlocked, FacilityCodeOnly, CypherLock, Automatic
 
 Required: True
@@ -107,6 +107,10 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -114,6 +118,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

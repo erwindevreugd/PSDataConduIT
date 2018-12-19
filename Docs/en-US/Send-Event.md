@@ -15,17 +15,17 @@ Sends an event to DataConduIT.
 ```
 Send-Event [[-Server] <String>] [[-Credential] <PSCredential>] -Source <String> [-Device <String>]
  [-SubDevice <String>] -Message <String> [-BadgeID <Int64>] [-IsAccessGrant <Boolean>]
- [-IsAccessDeny <Boolean>] [-Time <DateTime>]
+ [-IsAccessDeny <Boolean>] [-Time <DateTime>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Sends an event to DataConduIT. 
+Sends an event to DataConduIT.
 
 If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Send-Event
 ```
@@ -38,7 +38,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -53,7 +53,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -63,12 +63,13 @@ Accept wildcard characters: False
 ```
 
 ### -Source
-The source parameter.
+Specifies the source used to send the event.
+This must match a configured "Logical Source" exactly.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -78,12 +79,13 @@ Accept wildcard characters: False
 ```
 
 ### -Device
-The device parameter.
+Specifies the device used to send the event.
+When specified this must match a configured "Logical Device" exactly.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -93,12 +95,13 @@ Accept wildcard characters: False
 ```
 
 ### -SubDevice
-The sub device parameter.
+Specifies the sub device used to send the event.
+When specified this must match a configured "Logical Sub-Device" exactly.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -108,12 +111,12 @@ Accept wildcard characters: False
 ```
 
 ### -Message
-The message parameter.
+Specifies the message parameter of the event.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -123,12 +126,12 @@ Accept wildcard characters: False
 ```
 
 ### -BadgeID
-The badge id parameter.
+Specifies the badge id parameter of the event.
 
 ```yaml
 Type: Int64
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -143,7 +146,7 @@ Indicates if this is an access granted event.
 ```yaml
 Type: Boolean
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -158,7 +161,7 @@ Indicates if this is an access denied event.
 ```yaml
 Type: Boolean
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -168,12 +171,13 @@ Accept wildcard characters: False
 ```
 
 ### -Time
-The time parameter.
+Specifies the time parameter of the event.
+The default value is the current date time.
 
 ```yaml
 Type: DateTime
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -182,6 +186,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -189,6 +197,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

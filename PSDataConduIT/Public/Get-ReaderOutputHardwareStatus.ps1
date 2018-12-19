@@ -11,15 +11,10 @@
 
     Get-ReaderOutputHardwareStatus
 
-    Name                           Status               Panel
-    ----                           ------               -----
-                                Secure               AccessPanel 1
-                                Secure               AccessPanel 1
-                                Secure               AccessPanel 1
-                                Secure               AccessPanel 1
-
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
 function Get-ReaderOutputHardwareStatus {
     [CmdletBinding()]
