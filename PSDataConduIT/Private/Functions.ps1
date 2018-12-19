@@ -3,7 +3,7 @@ function LogQuery($query) {
 }
 
 function ToDateTime($wmiDateTime) {
-    if ($wmiDateTime -eq $null) {
+    if ($null -eq $wmiDateTime) {
         return $null
     }
 
@@ -11,7 +11,7 @@ function ToDateTime($wmiDateTime) {
 }
 
 function ToWmiDateTime($dateTime) {
-    if ($dateTime -eq $null) {
+    if ($null -eq $dateTime) {
         return $null
     }
 
