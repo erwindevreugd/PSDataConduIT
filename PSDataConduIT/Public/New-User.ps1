@@ -38,7 +38,7 @@ function New-User {
         [PSCredential]
         $Credential = $Script:Credential,
 
-        [ValidateLength(1, 255)]
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -46,7 +46,7 @@ function New-User {
         [string]
         $Firstname,
 
-        [ValidateLength(1, 255)]
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -54,7 +54,7 @@ function New-User {
         [string]
         $Lastname,
 
-        [ValidateLength(1, 255)]
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,

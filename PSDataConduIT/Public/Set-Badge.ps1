@@ -34,6 +34,7 @@ function Set-Badge {
         [PSCredential]
         $Credential = $Script:Credential,
 
+        [ValidateRange(1, 2147483647)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -41,6 +42,7 @@ function Set-Badge {
         [int]
         $BadgeKey,
 
+        [ValidateRange(1, 9223372036854775807)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -83,6 +85,7 @@ function Set-Badge {
         [bool]
         $DestinationExempt,
 
+        [ValidateRange(1, 2147483647)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -97,6 +100,7 @@ function Set-Badge {
         [bool]
         $UseExtendedStrike,
 
+        [ValidateRange(1, 255)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,

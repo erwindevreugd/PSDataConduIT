@@ -34,6 +34,7 @@ function Set-BadgeUseLimit {
         [PSCredential]
         $Credential = $Script:Credential,
 
+        [ValidateRange(1, 2147483647)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -41,6 +42,7 @@ function Set-BadgeUseLimit {
         [int]
         $BadgeKey,
 
+        [ValidateRange(0, 255)]
         [Parameter(
             Mandatory = $true,
             HelpMessage = 'Specifies the new use limit for the badge.')]

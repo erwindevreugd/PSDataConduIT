@@ -34,6 +34,7 @@ function Set-VisitType {
         [PSCredential]
         $Credential = $Script:Credential,
 
+        [ValidateRange(1, 2147483647)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -41,6 +42,7 @@ function Set-VisitType {
         [int]
         $VisitTypeID,
 
+        [ValidateLength(1, 255)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,

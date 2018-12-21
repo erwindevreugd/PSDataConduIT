@@ -41,7 +41,7 @@ function Set-User {
         [int]
         $UserID,
 
-        [ValidateLength(0, 255)]
+        [ValidateLength(0, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -49,7 +49,7 @@ function Set-User {
         [string]
         $Firstname,
 
-        [ValidateLength(0, 255)]
+        [ValidateLength(0, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -57,7 +57,7 @@ function Set-User {
         [string]
         $Lastname,
 
-        [ValidateLength(1, 255)]
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -121,6 +121,7 @@ function Set-User {
         [nullable[bool]]
         $Enabled = $true,
 
+        [ValidateLength(0, 250)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,

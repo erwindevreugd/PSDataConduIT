@@ -34,6 +34,7 @@ function New-Cardholder {
         [PSCredential]
         $Credential = $Script:Credential,
 
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -41,6 +42,7 @@ function New-Cardholder {
         [string]
         $Firstname = $null,
 
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -48,6 +50,7 @@ function New-Cardholder {
         [string]
         $Midname = $null,
 
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -55,6 +58,7 @@ function New-Cardholder {
         [string]
         $Lastname,
 
+        [ValidateLength(0, 13)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -62,13 +66,15 @@ function New-Cardholder {
         [string]
         $SSNO = $null,
 
+        [ValidateLength(0, 80)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the email of the new cardholder.')]
-        [string]
+        [mailaddress]
         $Email = $null,
 
+        [ValidateLength(0, 8)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -76,6 +82,7 @@ function New-Cardholder {
         [int]
         $Floor = $null,
 
+        [ValidateLength(0, 250)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -83,6 +90,7 @@ function New-Cardholder {
         [string]
         $Address = $null,
 
+        [ValidateLength(0, 15)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -90,6 +98,7 @@ function New-Cardholder {
         [string]
         $ZipCode = $null,
 
+        [ValidateLength(0, 40)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -97,6 +106,7 @@ function New-Cardholder {
         [string]
         $City = $null,
 
+        [ValidateLength(0, 32)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -104,6 +114,7 @@ function New-Cardholder {
         [string]
         $State = $null,
 
+        [ValidateLength(0, 32)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -111,13 +122,15 @@ function New-Cardholder {
         [string]
         $Phone = $null,
 
+        [ValidateLength(0, 32)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the office phone number of the new cardholder.')]
         [string]
         $OfficePhone = $null,
-
+        
+        [ValidateLength(0, 8)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,

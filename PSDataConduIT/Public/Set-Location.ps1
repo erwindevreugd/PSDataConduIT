@@ -34,6 +34,7 @@ function Set-Location {
         [PSCredential]
         $Credential = $Script:Credential,
 
+        [ValidateRange(1, 2147483647)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -41,6 +42,7 @@ function Set-Location {
         [int]
         $LocationID,
 
+        [ValidateLength(1, 255)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,

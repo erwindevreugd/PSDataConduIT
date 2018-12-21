@@ -34,6 +34,7 @@ function New-Visitor {
         [PSCredential]
         $Credential = $Script:Credential,
 
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -41,6 +42,7 @@ function New-Visitor {
         [string]
         $Firstname = $null,
 
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -48,71 +50,93 @@ function New-Visitor {
         [string]
         $Midname = $null,
 
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the last name of the new visitor.')]
-        [string]$Lastname,
+        [string]
+        $Lastname,
 
+        [ValidateLength(1, 13)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the social security number (SSNO) of the new visitor.')]
-        [string]$SSNO = $null,
+        [string]
+        $SSNO = $null,
 
+        [ValidateLength(1, 250)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the address of the new visitor.')]
-        [string]$Address = $null,
+        [mailaddress]
+        $Address = $null,
 
+        [ValidateLength(0, 40)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the city of the new visitor.')]
-        [string]$City = $null,
+        [string]
+        $City = $null,
 
+        [ValidateLength(1, 80)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the email of the new visitor.')]
-        [string]$Email = $null,
+        [mailaddress]
+        $Email = $null,
 
+        [ValidateLength(0, 8)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the extension of the new visitor.')]
-        [string]$Extension = $null,
+        [string]
+        $Extension = $null,
 
+        [ValidateLength(0, 32)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the office phone number of the new visitor.')]
-        [string]$OfficePhone = $null,
+        [string]
+        $OfficePhone = $null,
 
+        [ValidateLength(1, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the organization of the new visitor.')]
-        [string]$Organization = $null,
+        [string]
+        $Organization = $null,
 
+        [ValidateLength(0, 32)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the state of the new visitor.')]
-        [string]$State = $null,
+        [string]
+        $State = $null,
 
+        [ValidateLength(0, 64)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the title of the new visitor.')]
-        [string]$Title = $null,
+        [string]
+        $Title = $null,
 
+        [ValidateLength(0, 15)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the zip code of the new visitor.')]
-        [string]$ZipCode = $null
+        [string]
+        $ZipCode = $null
     )
 
     process {

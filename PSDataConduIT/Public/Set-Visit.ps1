@@ -34,6 +34,7 @@ function Set-Visit {
         [PSCredential]
         $Credential = $Script:Credential,
 
+        [ValidateRange(1, 2147483647)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -41,6 +42,7 @@ function Set-Visit {
         [int]
         $VisitID,
 
+        [ValidateRange(1, 2147483647)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -48,6 +50,7 @@ function Set-Visit {
         [int]
         $VisitorID,
 
+        [ValidateRange(1, 2147483647)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -55,6 +58,7 @@ function Set-Visit {
         [int]
         $CardholderID,
 
+        [ValidateRange(1, 24)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -76,6 +80,7 @@ function Set-Visit {
         [datetime]
         $ScheduledTimeOut = ([DateTime]::Now).AddHours($Hours),
 
+        [ValidateLength(0, 128)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
@@ -87,7 +92,7 @@ function Set-Visit {
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the new list of email addresses for the visit.')]
-        [string]
+        [mailaddress[]]
         $EmailList
     )
 

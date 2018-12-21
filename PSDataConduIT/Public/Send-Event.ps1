@@ -63,6 +63,7 @@ function Send-Event {
         [string]
         $Message = [String]::Empty,
 
+        [ValidateRange(1, 9223372036854775807)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,

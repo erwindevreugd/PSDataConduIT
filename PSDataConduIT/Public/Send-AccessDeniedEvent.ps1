@@ -56,6 +56,7 @@ function Send-AccessDeniedEvent {
         [string]
         $SubDevice = [String]::Empty,
 
+        [ValidateRange(1, 9223372036854775807)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,

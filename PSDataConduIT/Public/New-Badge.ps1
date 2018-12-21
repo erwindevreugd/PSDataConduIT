@@ -34,6 +34,7 @@ function New-Badge {
         [PSCredential]
         $Credential = $Script:Credential,
 
+        [ValidateRange(1, 2147483647)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -41,6 +42,7 @@ function New-Badge {
         [int]
         $PersonID,
 
+        [ValidateRange(1, 9223372036854775807)]
         [Parameter(
             Mandatory = $true,
             ValueFromPipelineByPropertyName = $true,
@@ -111,6 +113,7 @@ function New-Badge {
         [string]
         $Pin,
 
+        [ValidateRange(0, 255)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
