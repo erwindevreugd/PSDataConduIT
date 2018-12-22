@@ -2,59 +2,65 @@
     .SYNOPSIS
     Updates the panel hardware status.
 
-    .DESCRIPTION   
+    .DESCRIPTION
     Updates the panel hardware status.
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
-function Invoke-UpdateHardwareStatus
-{
+function Invoke-UpdateHardwareStatus {
+    [Alias("Update-HardwareStatus")]
     [CmdletBinding()]
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server = $Script:Server,
-        
-        [Parameter(
-            Position=1,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential = $Script:Credential,
+            Position = 0,
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
+        [string]
+        $Server = $Script:Server,
 
         [Parameter(
-            Mandatory=$true, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The panel id parameter.')]
-        [int]$PanelID,
+            Position = 1,
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
+        [PSCredential]
+        $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$false,
-            HelpMessage='Returns an object that represents the panel. By default, this cmdlet does not generate any output.')]
-        [switch]$PassThru
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the id of the panel for which to update the hardware status.')]
+        [int]
+        $PanelID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $false,
+            HelpMessage = 'Returns an object that represents the panel. By default, this cmdlet does not generate any output.')]
+        [switch]
+        $PassThru
     )
 
     process {
         $parameters = @{
-            Server=$Server;
-            PanelID=$PanelID;
+            Server  = $Server;
+            PanelID = $PanelID;
         }
 
-        if($Credential -ne $null) {
+        if ($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($panel = Get-Panel @parameters) -eq $null) {
+        if (($panel = Get-Panel @parameters) -eq $null) {
             Write-Error -Message ("Panel id '$($PanelID)' not found")
             return
         }
@@ -63,7 +69,7 @@ function Invoke-UpdateHardwareStatus
 
         Write-Verbose -Message ("Updated hardware status for panel '$($panel.Name)'")
 
-        if($PassThru) {
+        if ($PassThru) {
             Write-Output $panel
         }
     }

@@ -13,17 +13,18 @@ Gets a division.
 ## SYNTAX
 
 ```
-Get-Division [[-Server] <String>] [[-Credential] <PSCredential>] [-DivisionID <Int32>] [-SegmentID <Int32>]
+Get-Division [[-Server] <String>] [[-Credential] <PSCredential>] [-DivisionID <Int32>] [-Name <String>]
+ [-SegmentID <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all divisions or a single division if a division id is specified. 
+Gets all divisions or a single division if a division id is specified.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-Division
 ```
@@ -36,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -51,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -61,12 +62,28 @@ Accept wildcard characters: False
 ```
 
 ### -DivisionID
-The category id parameter.
+Specifies the id of the division to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -Name
+Specifies the name of the division to get.
+Wildcards are permitted.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
 
 Required: False
 Position: Named
@@ -76,12 +93,12 @@ Accept wildcard characters: False
 ```
 
 ### -SegmentID
-The segment id parameter.
+Specifies the segment id of the division(s) to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -90,6 +107,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -97,6 +118,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

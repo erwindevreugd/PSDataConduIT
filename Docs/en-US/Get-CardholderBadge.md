@@ -13,24 +13,20 @@ Gets a badge.
 ## SYNTAX
 
 ```
-Get-CardholderBadge [[-Server] <String>] [[-Credential] <PSCredential>] -PersonID <Int32>
+Get-CardholderBadge [[-Server] <String>] [[-Credential] <PSCredential>] -PersonID <Int32> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all badges for a given cardholder. 
+Gets all badges for a given cardholder.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-CardholderBadge
 ```
-
-BadgeID       BadgeKey      PersonID      Status        Activate               Deactivate             BadgeTypeID
--------       --------      --------      ------        --------               ----------             -----------
-123456        6             1             1             19/10/2017 00:00:00    19/10/2022 00:00:00    1
 
 ## PARAMETERS
 
@@ -40,7 +36,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -55,7 +51,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -65,12 +61,12 @@ Accept wildcard characters: False
 ```
 
 ### -PersonID
-The person id parameter.
+Specifies the id of the person for which to get their badges.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases: CardholderID
 
 Required: True
 Position: Named
@@ -79,6 +75,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -86,6 +86,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

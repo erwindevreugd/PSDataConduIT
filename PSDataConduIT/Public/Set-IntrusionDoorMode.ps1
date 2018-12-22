@@ -2,66 +2,72 @@
     .SYNOPSIS
     Sets an intrusion door mode.
 
-    .DESCRIPTION   
+    .DESCRIPTION
     Sets an intrusion door mode.
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
     Set-IntrusionDoorMode
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
-function Get-IntrusionDoorMode
-{
+function Get-IntrusionDoorMode {
     [CmdletBinding()]
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server = $Script:Server,
-        
-        [Parameter(
-            Position=1,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential = $Script:Credential,
+            Position = 0,
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
+        [string]
+        $Server = $Script:Server,
 
         [Parameter(
-            Mandatory=$true, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The intrusion door id parameter.')]
-        [int]$IntrusionDoorID = $null,
+            Position = 1,
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
+        [PSCredential]
+        $Credential = $Script:Credential,
+
+        [ValidateRange(1, 2147483647)]
+        [Parameter(
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the id of the intrusion door for which to set the intrusion door mode.')]
+        [int]
+        $IntrusionDoorID = $null,
 
         [Parameter(
-            Mandatory=$true, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The intrusion door mode parameter.')]
-        [DoorMode]$Mode
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the new intrusion door mode for the intrusion door.')]
+        [DoorMode]
+        $Mode
     )
 
-    process { 
+    process {
         $parameters = @{
-            ComputerName=$Server;
-            Namespace=$Script:OnGuardNamespace;
+            ComputerName = $Server;
+            Namespace    = $Script:OnGuardNamespace;
         }
 
-        if($Credential -ne $null) {
+        if ($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($intrusionDoor = Get-IntrusionDoor @parameters -IntrusionDoorID $IntrusionDoorID) -eq $null) {
+        if (($intrusionDoor = Get-IntrusionDoor @parameters -IntrusionDoorID $IntrusionDoorID) -eq $null) {
             Write-Error -Message ("Intrusion door id '$($IntrusionDoorID)' not found")
             return
         }
 
         $intrusionDoor.SetMode.Invoke($Mode)
-        
+
         Write-Verbose -Message ("Intrusion door '$($intrusionDoor.Name)' mode set to '$($Mode)'")
     }
 }

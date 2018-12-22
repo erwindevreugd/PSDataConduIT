@@ -14,30 +14,20 @@ Gets an user account.
 
 ```
 Get-UserAccount [[-Server] <String>] [[-Credential] <PSCredential>] [-UserAccountID <Int32>]
+ [-DirectoryID <Int32>] [-AccountID <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all user accounts or a single user account if an user account id is specified. 
+Gets all user accounts or a single user account if an user account id is specified.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-UserAccount
 ```
-
-ComputerName  : SERVER
-Path          : \\\\SERVER\root\OnGuard:Lnl_UserAccount.ID=1,UserID=-1
-Server        : SERVER
-SuperClass    : Lnl_Element
-DirectoryID   : 1
-UserAccountID : 1
-UserID        : -1
-Credential    :
-Class         : Lnl_UserAccount
-AccountID     : S-1-5-21-0000000000-0000000000-000000000-0000
 
 ## PARAMETERS
 
@@ -47,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -62,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -72,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -UserAccountID
-The user account id parameter.
+Specifies the id of the user account to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -86,6 +76,41 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### -DirectoryID
+Specifies the directory id of the user account(s) to get.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -AccountID
+Specifies the account id of the user account(s) to get.
+Wildcards are permitted.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -93,6 +118,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

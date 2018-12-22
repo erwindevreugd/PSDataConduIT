@@ -9,35 +9,25 @@ schema: 2.0.0
 
 ## SYNOPSIS
 Gets a timezone.
-Get-TimeZone \[\[-Name\] \<string\[\]\>\] \[\<CommonParameters\>\]
-
-Get-TimeZone -Id \<string\[\]\> \[\<CommonParameters\>\]
-
-Get-TimeZone -ListAvailable \[\<CommonParameters\>\]
 
 ## SYNTAX
 
 ```
-Get-Timezone [[-Server] <String>] [[-Credential] <PSCredential>] [-TimezoneID <Int32>]
+Get-Timezone [[-Server] <String>] [[-Credential] <PSCredential>] [-TimezoneID <Int32>] [[-Name] <String>]
+ [-SegmentID <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all timezones or a single timezone if a timezone id is specified. 
+Gets all timezones or a single timezone if a timezone id is specified.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-Timezone
 ```
-
-TimezoneID    Name
-----------    ----
-1             Never
-2             Always
-0             Not Used
 
 ## PARAMETERS
 
@@ -47,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -62,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -72,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -TimezoneID
-The timezone id parameter.
+Specifies the id of the timezone to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -86,20 +76,58 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### -Name
+@{Text=}
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: 0
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -SegmentID
+Specifies the segment id of the timezone(s) to get.
+
+```yaml
+Type: Int32
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: 0
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ### System.String[]
-
+### System.String[]
+### System.String[]
 
 ## OUTPUTS
 
 ### System.Object
-
+### System.Object
+### System.Object
 ## NOTES
 
 ## RELATED LINKS
 
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
+[https://go.microsoft.com/fwlink/?LinkId=799468](https://go.microsoft.com/fwlink/?LinkId=799468)
+
+[https://go.microsoft.com/fwlink/?LinkId=799468](https://go.microsoft.com/fwlink/?LinkId=799468)
 
 [https://go.microsoft.com/fwlink/?LinkId=799468](https://go.microsoft.com/fwlink/?LinkId=799468)
 

@@ -13,25 +13,21 @@ Gets an area.
 ## SYNTAX
 
 ```
-Get-Area [[-Server] <String>] [[-Credential] <PSCredential>] [-AreaID <Int32>]
+Get-Area [[-Server] <String>] [[-Credential] <PSCredential>] [-AreaID <Int32>] [-Name <String>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all areas or a single area if an area id is specified. 
+Gets all areas or a single area if an area id is specified.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-Area
 ```
-
-AreaID        Name                                     AreaType
-------        ----                                     --------
-1             Area 1                                   GlobalArea
-2             Area 2                                   GlobalArea
 
 ## PARAMETERS
 
@@ -41,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -56,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -66,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -AreaID
-The area id parameter.
+Specifies the id of the area to get.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -80,6 +76,26 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### -Name
+Specifies the name of the area to get.
+Wildcards are permitted.
+
+```yaml
+Type: String
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -87,6 +103,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

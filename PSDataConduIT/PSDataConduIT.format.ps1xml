@@ -2,7 +2,7 @@
 <Configuration>
   <ViewDefinitions>
 
-    <!-- 
+    <!--
     DataConduIT.Context
     -->
     <View>
@@ -40,7 +40,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlDataConduITService
     -->
     <View>
@@ -78,7 +78,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAccessGroup
     -->
     <View>
@@ -116,7 +116,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAccessLevel
     -->
     <View>
@@ -154,7 +154,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAccessLevelReaderAssignment
     -->
     <View>
@@ -192,7 +192,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAccessLevelAssignment
     -->
     <View>
@@ -236,7 +236,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAccount
     -->
     <View>
@@ -253,7 +253,7 @@
                 <Width>13</Width>
             </TableColumnHeader>
             <TableColumnHeader>
-                <Width>13</Width>
+                <Width>50</Width>
             </TableColumnHeader>
             <TableColumnHeader>
                 <Width>13</Width>
@@ -269,7 +269,7 @@
                         <PropertyName>PersonID</PropertyName>
                     </TableColumnItem>
                     <TableColumnItem>
-                        <PropertyName>AccountID</PropertyName>
+                        <PropertyName>ExternalAccountID</PropertyName>
                     </TableColumnItem>
                     <TableColumnItem>
                         <PropertyName>DirectoryID</PropertyName>
@@ -280,7 +280,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlArea
     -->
     <View>
@@ -318,7 +318,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlBadge
     -->
     <View>
@@ -380,7 +380,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlBadge
     -->
     <View>
@@ -430,7 +430,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlBadgeType
     -->
     <View>
@@ -462,7 +462,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlCardholder
     -->
     <View>
@@ -506,7 +506,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlDirectory
     -->
     <View>
@@ -556,7 +556,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlMonitoringZone
     -->
     <View>
@@ -588,7 +588,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlPanel
     -->
     <View>
@@ -638,7 +638,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlPanelHardwareStatus
     -->
     <View>
@@ -670,7 +670,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAlarmPanelHardwareStatus
     -->
     <View>
@@ -708,7 +708,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlPerson
     -->
     <View>
@@ -752,7 +752,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlReader
     -->
     <View>
@@ -790,7 +790,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlReaderHardwareStatus
     -->
     <View>
@@ -828,7 +828,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlReaderMode
     -->
     <View>
@@ -872,7 +872,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlSegment
     -->
     <View>
@@ -904,7 +904,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlSegmentGroup
     -->
     <View>
@@ -936,7 +936,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlSegmentUnit
     -->
     <View>
@@ -968,7 +968,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlTimezone
     -->
     <View>
@@ -1000,7 +1000,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlTimezoneInterval
     -->
     <View>
@@ -1135,7 +1135,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlUser
     -->
     <View>
@@ -1149,13 +1149,18 @@
                 <Width>13</Width>
             </TableColumnHeader>
             <TableColumnHeader>
-                <Width>20</Width>
+                <Width>30</Width>
             </TableColumnHeader>
             <TableColumnHeader>
-                <Width>20</Width>
+                <Width>30</Width>
             </TableColumnHeader>
             <TableColumnHeader>
-                <Width>20</Width>
+                <Label>Internal User Name</Label>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Enabled</Label>
+                <Width>7</Width>
             </TableColumnHeader>
         </TableHeaders>
         <TableRowEntries>
@@ -1173,13 +1178,96 @@
                     <TableColumnItem>
                         <PropertyName>LogonID</PropertyName>
                     </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.Enabled) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>
         </TableRowEntries>
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
+    DataConduIT.LnlUserPermissionGroup
+    -->
+    <View>
+      <Name>DataConduITLnlUserPermissionGroupTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlUserPermissionGroup</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Can Login To DataConduIT</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Can Search Video</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Can View Live Video</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Can View Recorded Video</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Devices Excluded</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>PTZ Priority</Label>
+                <Width>15</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>UserPermissionGroupID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Type</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.CanLoginToDataConduIT) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.CanSearchVideo) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.CanViewLiveVideo) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.CanViewRecordedVideo) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <ScriptBlock>if($_.DevicesExcluded) { "[X]" } else { "[ ]" }</ScriptBlock>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>PTZPriority</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!--
     DataConduIT.LnlVisit
     -->
     <View>
@@ -1241,7 +1329,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlVisitor
     -->
     <View>
@@ -1285,13 +1373,13 @@
       </TableControl>
     </View>
 
-    <!-- 
-    DataConduIT.LnlVisitRecipient
+    <!--
+    DataConduIT.LnlVisitEmailRecipient
     -->
     <View>
-      <Name>DataConduITLnlVisitRecipient</Name>
+      <Name>DataConduITLnlVisitEmailRecipient</Name>
       <ViewSelectedBy>
-        <TypeName>DataConduIT.LnlVisitRecipient</TypeName>
+        <TypeName>DataConduIT.LnlVisitEmailRecipient</TypeName>
       </ViewSelectedBy>
       <TableControl>
         <TableHeaders>
@@ -1317,7 +1405,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlLoggedEvent
     -->
     <View>
@@ -1367,7 +1455,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAlarmPanel
     -->
     <View>
@@ -1404,14 +1492,14 @@
                     </TableColumnItem>
                     <TableColumnItem>
                         <PropertyName>Type</PropertyName>
-                    </TableColumnItem> 
+                    </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>
         </TableRowEntries>
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlReaderInput
     -->
     <View>
@@ -1455,7 +1543,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlReaderOutput
     -->
     <View>
@@ -1499,7 +1587,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAlarmInput
     -->
     <View>
@@ -1549,7 +1637,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAlarmOutput
     -->
     <View>
@@ -1599,7 +1687,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAlarmInputHardwareStatus
     -->
     <View>
@@ -1637,7 +1725,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlAlarmOutputHardwareStatus
     -->
     <View>
@@ -1675,7 +1763,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlReaderInputHardwareStatus
     -->
     <View>
@@ -1713,7 +1801,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlReaderOutputHardwareStatus
     -->
     <View>
@@ -1751,7 +1839,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlIntrusionArea
     -->
     <View>
@@ -1789,7 +1877,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlIntrusionDoor
     -->
     <View>
@@ -1821,7 +1909,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlIntrusionOutput
     -->
     <View>
@@ -1853,7 +1941,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlIntrusionZone
     -->
     <View>
@@ -1885,7 +1973,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlIntrusionZoneOutput
     -->
     <View>
@@ -1917,7 +2005,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlCamera
     -->
     <View>
@@ -1967,7 +2055,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlBadgeStatus
     -->
     <View>
@@ -1999,7 +2087,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlBuilding
     -->
     <View>
@@ -2031,39 +2119,7 @@
       </TableControl>
     </View>
 
-    <!-- 
-    DataConduIT.LnlBadgeStatus
-    -->
-    <View>
-      <Name>DataConduITLnlCategoryTable</Name>
-      <ViewSelectedBy>
-        <TypeName>DataConduIT.LnlCategory</TypeName>
-      </ViewSelectedBy>
-      <TableControl>
-        <TableHeaders>
-            <TableColumnHeader>
-                <Width>13</Width>
-            </TableColumnHeader>
-            <TableColumnHeader>
-                <Width>30</Width>
-            </TableColumnHeader>
-        </TableHeaders>
-        <TableRowEntries>
-            <TableRowEntry>
-                <TableColumnItems>
-                    <TableColumnItem>
-                        <PropertyName>CategoryID</PropertyName>
-                    </TableColumnItem>
-                    <TableColumnItem>
-                        <PropertyName>Name</PropertyName>
-                    </TableColumnItem>
-                </TableColumnItems>
-            </TableRowEntry>
-        </TableRowEntries>
-      </TableControl>
-    </View>
-
-    <!-- 
+    <!--
     DataConduIT.LnlVisitType
     -->
     <View>
@@ -2095,7 +2151,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlDepartment
     -->
     <View>
@@ -2127,7 +2183,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlDivision
     -->
     <View>
@@ -2159,7 +2215,39 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
+    DataConduIT.LnlGuardTour
+    -->
+    <View>
+      <Name>DataConduITLnlGuardTourTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlGuardTour</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>40</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>GuardTourID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!--
     DataConduIT.LnlTitle
     -->
     <View>
@@ -2191,7 +2279,39 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
+    DataConduIT.LnlTwoManType
+    -->
+    <View>
+      <Name>DataConduITLnlTwoManTypeTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlTwoManType</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>13</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>30</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>TwoManTypeID</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
+    <!--
     DataConduIT.LnlLocation
     -->
     <View>
@@ -2223,7 +2343,7 @@
       </TableControl>
     </View>
 
-    <!-- 
+    <!--
     DataConduIT.LnlHoliday
     -->
     <View>

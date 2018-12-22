@@ -13,26 +13,27 @@ Gets the context server and credentials used to connect to DataConduIT.
 ## SYNTAX
 
 ```
-Get-Context
+Get-Context [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets the context server and credentials used to connect to DataConduIT. 
+Gets the context server and credentials used to connect to DataConduIT.
+Use the Set-Context cmdlet to set these values.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-Context
 ```
 
-Credential                               Server                       EventSource
-----------                               ------                       -----------
-None                                     localhost                    Not Set
-
 ## PARAMETERS
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -41,6 +42,3 @@ None                                     localhost                    Not Set
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

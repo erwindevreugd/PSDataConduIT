@@ -13,22 +13,24 @@ Sets the context server and credentials used to connect to DataConduIT.
 ## SYNTAX
 
 ```
-Set-Context [-Server] <String> [[-Credential] <PSCredential>] [[-EventSource] <String>]
+Set-Context [-Server] <String> [[-Credential] <PSCredential>] [[-EventSource] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Sets the context server and credentials used to connect to DataConduIT. 
+Sets the context server and credentials used to connect to DataConduIT.
+When you use this command to set the Server and Credential values these will be stored within the Script scope.
+All cmdlets that are run within the same script will use these stored values as their Server and Credential parameters.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Set-Context -Server localhost
 ```
 
-### -------------------------- EXAMPLE 2 --------------------------
+### EXAMPLE 2
 ```
 Set-Context -Server SERVER -Credentials (Get-Credential)
 ```
@@ -41,7 +43,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -56,7 +58,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -67,11 +69,12 @@ Accept wildcard characters: False
 
 ### -EventSource
 The default event source used to send events to DataConduIT.
+When specified this value must match a configured "Logical Source" exactly.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 3
@@ -80,6 +83,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -87,6 +94,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

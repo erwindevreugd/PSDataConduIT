@@ -14,26 +14,20 @@ Gets the alarm input hardware status.
 
 ```
 Get-AlarmInputHardwareStatus [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <Int32>]
- [-AlarmPanelID <Int32>] [-InputID <Int32>] [-AlarmInputID <Int32>]
+ [-AlarmPanelID <Int32>] [-InputID <Int32>] [-AlarmInputID <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets the alarm input hardware status for all alarm input or the hardware status for a single alarm input if an alarm panel id is specified. 
+Gets the alarm input hardware status for all alarm input or the hardware status for a single alarm input if an alarm panel id is specified.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-AlarmInputHardwareStatus
 ```
-
-Name                           Status               Panel
-----                           ------               -----
-Alarm Input 1                  MaskedOpenFault      AccessPanel 1
-
-Online
 
 ## PARAMETERS
 
@@ -43,7 +37,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -58,7 +52,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -68,12 +62,12 @@ Accept wildcard characters: False
 ```
 
 ### -PanelID
-The panel id parameter.
+Specifies the panel id of the alarm input(s) for which to get the hardware status.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -83,12 +77,12 @@ Accept wildcard characters: False
 ```
 
 ### -AlarmPanelID
-The alarm panel id parameter.
+Specifies the alarm panel id of the alarm input(s) for which to get the hardware status.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -98,12 +92,12 @@ Accept wildcard characters: False
 ```
 
 ### -InputID
-The input id parameter.
+Specifies the input id of the alarm input(s) for which to get the hardware status.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -113,12 +107,12 @@ Accept wildcard characters: False
 ```
 
 ### -AlarmInputID
-The alarm input id parameter.
+Specifies the alarm input id of the alarm input for which to get the hardware status.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
@@ -127,6 +121,10 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -134,6 +132,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

@@ -2,78 +2,85 @@
     .SYNOPSIS
     Reset all cardholder use limits for a given panel.
 
-    .DESCRIPTION   
-    Reset all cardholder use limits for a given panel. 
-    
-    If the result return null, try the parameter "-Verbose" to get more details.
-    
+    .DESCRIPTION
+    Reset all cardholder use limits for a given panel.
+
+    If the result returns null, try the parameter "-Verbose" to get more details.
+
     .EXAMPLE
-    
+
     .LINK
     https://github.com/erwindevreugd/PSDataConduIT
+
+    .EXTERNALHELP PSDataConduIT-help.xml
 #>
-function Invoke-ResetUseLimit
-{
+function Invoke-ResetUseLimit {
+    [Alias("Reset-UseLimit")]
     [CmdletBinding(
         SupportsShouldProcess,
-        ConfirmImpact="High"
+        ConfirmImpact = "High"
     )]
     param
     (
         [Parameter(
-            Position=0, 
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The name of the server where the DataConduIT service is running or localhost.')]
-        [string]$Server = $Script:Server,
-        
-        [Parameter(
-            Position=1,
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The credentials used to authenticate the user to the DataConduIT service.')]
-        [PSCredential]$Credential = $Script:Credential,
+            Position = 0,
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The name of the server where the DataConduIT service is running or localhost.')]
+        [string]
+        $Server = $Script:Server,
 
         [Parameter(
-            Mandatory=$true, 
-            ValueFromPipelineByPropertyName=$true,
-            HelpMessage='The panel id parameter.')]
-        [int]$PanelID,
-        
-        [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$false,
-            HelpMessage='Returns an object that represents the panel. By default, this cmdlet does not generate any output.')]
-        [switch]$PassThru,
+            Position = 1,
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'The credentials used to authenticate the user to the DataConduIT service.')]
+        [PSCredential]
+        $Credential = $Script:Credential,
 
         [Parameter(
-            Mandatory=$false, 
-            ValueFromPipelineByPropertyName=$false,
-            HelpMessage='Forces the reset use limit with out displaying a should process.')]
-        [switch]$Force
+            Mandatory = $true,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies the if of the panel for which to reset all badge use limits.')]
+        [int]
+        $PanelID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $false,
+            HelpMessage = 'Returns an object that represents the panel. By default, this cmdlet does not generate any output.')]
+        [switch]
+        $PassThru,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $false,
+            HelpMessage = 'Forces the reset use limit with out displaying a should process.')]
+        [switch]
+        $Force
     )
 
     process {
         $parameters = @{
-            Server=$Server;
-            PanelID=$PanelID;
+            Server  = $Server;
+            PanelID = $PanelID;
         }
 
-        if($Credential -ne $null) {
+        if ($Credential -ne $null) {
             $parameters.Add("Credential", $Credential)
         }
 
-        if(($panel = Get-Panel @parameters) -eq $null) {
+        if (($panel = Get-Panel @parameters) -eq $null) {
             Write-Error -Message ("Panel id '$($PanelID)' not found")
             return
         }
-        
-        if($Force -or $PSCmdlet.ShouldProcess("$Server", "Reset use limits for all cardholders on panel '$($panel.Name)'")) {
+
+        if ($Force -or $PSCmdlet.ShouldProcess("$Server", "Reset use limits for all cardholders on panel '$($panel.Name)'")) {
             $panel.ResetUseLimit.Invoke() | Out-Null
             Write-Verbose -Message ("Reset all cardholder use limits for panel '$($panel.Name)'")
         }
 
-        if($PassThru) {
+        if ($PassThru) {
             Write-Output $panel
         }
     }

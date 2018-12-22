@@ -1,0 +1,31 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Execute Unit Tests",
+            "type": "shell",
+            "command": "Invoke-Pester -PesterOption @{IncludeVSCodeMarker=$true}",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$pester"
+            ]
+        },
+        {
+            "label": "Generate External Help",
+            "type": "shell",
+            "command": "${workspaceRoot}/Build-Help.ps1 -WorkspaceRoot ${workspaceRoot} -Verbose",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$pester"
+            ]
+        }
+    ]
+}

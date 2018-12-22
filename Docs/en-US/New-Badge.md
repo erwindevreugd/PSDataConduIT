@@ -8,7 +8,7 @@ schema: 2.0.0
 # New-Badge
 
 ## SYNOPSIS
-Adds a new badge.
+Creates a new badge.
 
 ## SYNTAX
 
@@ -16,16 +16,17 @@ Adds a new badge.
 New-Badge [[-Server] <String>] [[-Credential] <PSCredential>] -PersonID <Int32> -BadgeID <Int64>
  -BadgeTypeID <Int64> [-Activate <DateTime>] [-Deactivate <DateTime>] [-APBExempt] [-DestinationExempt]
  [-DeadboltOverride] [-ExtendedStrikeHeldTime] [-PassageMode] [-Pin <String>] [-UseLimit <Int32>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Adds a new badge to the database. 
+Creates a new badge.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 
 ```
@@ -38,7 +39,7 @@ The name of the server where the DataConduIT service is running or localhost.
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 1
@@ -53,7 +54,7 @@ The credentials used to authenticate the user to the DataConduIT service.
 ```yaml
 Type: PSCredential
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: 2
@@ -63,12 +64,12 @@ Accept wildcard characters: False
 ```
 
 ### -PersonID
-The id of the person/cardholder to which to add the new badge.
+Specifies the id of the person/cardholder to which to add the new badge.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -78,12 +79,12 @@ Accept wildcard characters: False
 ```
 
 ### -BadgeID
-The id of the new badge.
+Specifies the id of the new badge.
 
 ```yaml
 Type: Int64
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -93,12 +94,12 @@ Accept wildcard characters: False
 ```
 
 ### -BadgeTypeID
-The badge type id of the new badge.
+Specifies the badge type id of the new badge.
 
 ```yaml
 Type: Int64
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: Named
@@ -108,139 +109,150 @@ Accept wildcard characters: False
 ```
 
 ### -Activate
-The activation date of the badge.
+Specifies activation date of the badge.
+The default value is the current date time.
 
 ```yaml
 Type: DateTime
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
 Default value: ([DateTime]::Now)
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -Deactivate
-The deactivation date of the badge.
+Specifies deactivation date of the badge.
+The default value is the current date time + 5 years.
 
 ```yaml
 Type: DateTime
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
 Default value: ([DateTime]::Now).AddYears(5)
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -APBExempt
-Indicates whether the badge is exempted from anti-passback.
+Specifies whether the badge is exempted from anti-passback.
+When omitted the new badge will not be exempted from anti-passback.
 
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -DestinationExempt
-Indicates whether the badge is exempted from destination assurance.
+Specifies whether the badge is exempted from destination assurance.
+When omitted the new badge will not be exempted.
 
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -DeadboltOverride
-Indicates whether the badge is allowed to override deadbolt.
+Specifies whether the badge is allowed to override deadbolt.
+When omitted the new badge will not be allowed to override deadbolt.
 
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -ExtendedStrikeHeldTime
-Indicates whether the badge is using extended strike held time.
+Specifies whether the badge is using extended strike and held times.
+When omitted the new badge will not use extened strik and held times.
 
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -PassageMode
-Indicates whether the badge is allowed to use passage mode.
+Specifies whether the badge is allowed to use passage mode.
+When omitted the new badge will not be allowed to use passage mode.
 
 ```yaml
 Type: SwitchParameter
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
 Default value: False
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -Pin
-The pin code for the new badge.
+Specifies pin code for the new badge.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -UseLimit
-The use limit for the new badge.
+Specifies use limit for the new badge.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: False
 Position: Named
 Default value: 0
-Accept pipeline input: False
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
@@ -249,6 +261,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

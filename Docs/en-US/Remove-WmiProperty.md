@@ -13,17 +13,17 @@ Removes common wmi properties from the input object.
 ## SYNTAX
 
 ```
-Remove-WmiProperty [-InputObject] <PSObject>
+Remove-WmiProperty [-InputObject] <PSObject> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
 Removes common wmi properties from the input object.
 
-If the result return null, try the parameter "-Verbose" to get more details.
+If the result returns null, try the parameter "-Verbose" to get more details.
 
 ## EXAMPLES
 
-### -------------------------- EXAMPLE 1 --------------------------
+### EXAMPLE 1
 ```
 Get-Cardholder | Remove-WmiProperty | Export-CSV
 ```
@@ -36,7 +36,7 @@ The psobject parameter from which to remove the wmi properties.
 ```yaml
 Type: PSObject
 Parameter Sets: (All)
-Aliases: 
+Aliases:
 
 Required: True
 Position: 1
@@ -45,6 +45,10 @@ Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable.
+For more information, see about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
+
 ## INPUTS
 
 ## OUTPUTS
@@ -52,6 +56,3 @@ Accept wildcard characters: False
 ## NOTES
 
 ## RELATED LINKS
-
-[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
-

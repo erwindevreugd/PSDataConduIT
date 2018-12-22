@@ -3,7 +3,7 @@ function LogQuery($query) {
 }
 
 function ToDateTime($wmiDateTime) {
-    if($wmiDateTime -eq $null) {
+    if ($null -eq $wmiDateTime) {
         return $null
     }
 
@@ -11,7 +11,7 @@ function ToDateTime($wmiDateTime) {
 }
 
 function ToWmiDateTime($dateTime) {
-    if($dateTime -eq $null) {
+    if ($null -eq $dateTime) {
         return $null
     }
 
@@ -20,8 +20,9 @@ function ToWmiDateTime($dateTime) {
 
 function MapEnum($enum, $value, $default = $null) {
     try {
-        [Enum]::GetValues($enum) | Where-Object { $_ -eq $value }     
-    } catch {
+        [Enum]::GetValues($enum) | Where-Object { $_ -eq $value }
+    }
+    catch {
         Write-Error $_
         return $default
     }
@@ -29,4 +30,8 @@ function MapEnum($enum, $value, $default = $null) {
 
 function IntToIPAddress($i) {
     return [IPAddress][BitConverter]::GetBytes($i)
+}
+
+function ToWmiWildcard([string]$query) {
+    return $query.Replace("*", "%").Replace("?", "_")
 }
