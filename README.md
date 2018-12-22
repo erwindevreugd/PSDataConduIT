@@ -1,10 +1,15 @@
 # PSDataConduIT
 
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/erwindevreugd)
-
 A PowerShell module to access DataConduIT: the WMI namespace of Lenel OnGuard.
 
 ![PSDataConduIT in Action](Media/DataConduIT.gif)
+
+| Branch | Status |
+| ------ | ------ |
+| Master | [![Build status](https://dev.azure.com/erwindevreugd/DataConduIT/_apis/build/status/DataConduIT-CI-Master)](https://dev.azure.com/erwindevreugd/DataConduIT/_build/latest?definitionId=6) |
+| DEV | [![Build status](https://dev.azure.com/erwindevreugd/DataConduIT/_apis/build/status/DataConduIT-CI-Dev)](https://dev.azure.com/erwindevreugd/DataConduIT/_build/latest?definitionId=5) |
+
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/erwindevreugd)
 
 ## Requirements
 
