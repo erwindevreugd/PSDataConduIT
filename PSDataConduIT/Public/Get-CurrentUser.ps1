@@ -49,7 +49,7 @@ function Get-CurrentUser {
             $parameters.Add("Credential", $Credential)
         }
 
-        $userIdPattern = [regex]::new("([0-9])\w+")
+        $userIdPattern = [regex]::new("(\d+)")
 
         Invoke-WmiMethod @parameters | ForEach-Object {
 
