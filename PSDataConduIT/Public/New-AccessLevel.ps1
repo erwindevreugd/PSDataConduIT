@@ -47,7 +47,28 @@ function New-AccessLevel {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies the segment id to which to add the new access level.')]
         [int]
-        $SegmentID
+        $SegmentID,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies wheter the new access level has command authority.')]
+        [switch]
+        $HasCommandAuthority,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies wheter the new access level will be downloaded to intelligent readers.')]
+        [switch]
+        $DownloadToIntelligentReaders,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies wheter the new access level has first card unlock.')]
+        [switch]
+        $FirstCardUnlock
     )
 
     process {
@@ -68,8 +89,11 @@ function New-AccessLevel {
         }
 
         Set-WmiInstance @parameters -Arguments @{
-            Name      = $Name;
-            SegmentID = $SegmentID;
+            Name                         = $Name;
+            SegmentID                    = $SegmentID;
+            HasCommandAuthority          = $HasCommandAuthority.IsPresent;
+            DownloadToIntelligentReaders = $DownloadToIntelligentReaders.IsPresent;
+            FirstCardUnlock              = $FirstCardUnlock.IsPresent;
         } |
             Select-Object *, @{L = 'AccessLevelID'; E = {$_.ID}} |
             Get-AccessLevel
