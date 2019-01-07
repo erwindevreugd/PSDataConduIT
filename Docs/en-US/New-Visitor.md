@@ -14,7 +14,7 @@ Creates a new visitor.
 
 ```
 New-Visitor [[-Server] <String>] [[-Credential] <PSCredential>] [-Firstname <String>] [-Midname <String>]
- -Lastname <String> [-SSNO <String>] [-Address <String>] [-City <String>] [-Email <String>]
+ -Lastname <String> [-SSNO <String>] [-Address <MailAddress>] [-City <String>] [-Email <MailAddress>]
  [-Extension <String>] [-OfficePhone <String>] [-Organization <String>] [-State <String>] [-Title <String>]
  [-ZipCode <String>] [<CommonParameters>]
 ```
@@ -127,7 +127,7 @@ Accept wildcard characters: False
 Specifies the address of the new visitor.
 
 ```yaml
-Type: String
+Type: MailAddress
 Parameter Sets: (All)
 Aliases:
 
@@ -157,7 +157,7 @@ Accept wildcard characters: False
 Specifies the email of the new visitor.
 
 ```yaml
-Type: String
+Type: MailAddress
 Parameter Sets: (All)
 Aliases:
 

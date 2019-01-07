@@ -14,7 +14,7 @@ Udpates a cardholder.
 
 ```
 Set-Cardholder [[-Server] <String>] [[-Credential] <PSCredential>] -CardholderID <Int32> [-Firstname <String>]
- [-Midname <String>] [-Lastname <String>] [-SSNO <String>] [-Email <String>] [-Floor <Int32>]
+ [-Midname <String>] [-Lastname <String>] [-SSNO <String>] [-Email <MailAddress>] [-Floor <Int32>]
  [-Address <String>] [-ZipCode <String>] [-City <String>] [-State <String>] [-PhoneNumber <String>]
  [-OfficePhoneNumber <String>] [-Extension <String>] [-Birthday <DateTime>] [-AllowedVisitors <Boolean>]
  [<CommonParameters>]
@@ -143,7 +143,7 @@ Accept wildcard characters: False
 Specifies the new email of the cardholder.
 
 ```yaml
-Type: String
+Type: MailAddress
 Parameter Sets: (All)
 Aliases:
 

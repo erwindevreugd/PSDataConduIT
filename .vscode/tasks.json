@@ -18,7 +18,7 @@
         {
             "label": "Generate External Help",
             "type": "shell",
-            "command": "& '${workspaceRoot}/Build-Help.ps1' -WorkspaceRoot '${workspaceRoot} -Verbose",
+            "command": "& '${workspaceRoot}/Build-Help.ps1' -WorkspaceRoot '${workspaceRoot}' -Verbose",
             "group": {
                 "kind": "test",
                 "isDefault": true
