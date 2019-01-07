@@ -93,8 +93,7 @@ function Add-AccessLevelAssignment {
             ACCESSLEVELID = $AccessLevelID;
             ACTIVATE      = $Activate;
             DEACTIVATE    = $Deactivate
-        } |
-            Get-AccessLevelAssignment
+        } | Get-AccessLevelAssignment
 
         Write-Verbose -Message ("Added accesslevel '$($accessLevel.Name)' to badge key '$($badge.BadgeKey)'")
     }
