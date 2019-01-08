@@ -2359,6 +2359,14 @@
             <TableColumnHeader>
                 <Width>30</Width>
             </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Start Date</Label>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Day(s)</Label>
+                <Width>6</Width>
+            </TableColumnHeader>
         </TableHeaders>
         <TableRowEntries>
             <TableRowEntry>
@@ -2368,6 +2376,12 @@
                     </TableColumnItem>
                     <TableColumnItem>
                         <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>StartDate</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>ExtentDays</PropertyName>
                     </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>
