@@ -62,6 +62,7 @@ function New-User {
         [string]
         $LogonID,
 
+        [ValidateLength(1, 50)]
         [Parameter(
             Mandatory = $false,
             ValueFromPipelineByPropertyName = $true,
