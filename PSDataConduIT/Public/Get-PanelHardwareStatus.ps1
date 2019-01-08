@@ -58,6 +58,11 @@ function Get-PanelHardwareStatus {
 
         foreach ($panel in $panels) {
             try {
+                if ($panel.Type -eq "Logical Source") {
+                    Write-Verbose -Message "Skipping updating hardware status for Logical Source panel '$($panel.Name)'"
+                    continue
+                }
+
                 Write-Verbose -Message "Updating hardware status for panel '$($panel.Name)'"
                 $panel.UpdateHardwareStatus.Invoke() | Out-Null
 
