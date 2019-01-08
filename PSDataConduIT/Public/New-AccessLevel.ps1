@@ -83,7 +83,7 @@ function New-AccessLevel {
             $parameters.Add("Credential", $Credential)
         }
 
-        if ((Get-AccessLevel -Name $Name) -ne $null) {
+        if ((Get-AccessLevel -Server $Server -Credential $Credential -Name $Name) -ne $null) {
             Write-Error -Message ("An accesslevel with name '$($name)' already exists")
             return
         }

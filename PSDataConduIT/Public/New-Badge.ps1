@@ -133,7 +133,7 @@ function New-Badge {
             $parameters.Add("Credential", $Credential)
         }
 
-        if ((Get-Badge -BadgeID $BadgeID) -ne $null) {
+        if ((Get-Badge -Server $Server -Credential $Credential -BadgeID $BadgeID) -ne $null) {
             Write-Error -Message ("A badge with id '$($BadgeID)' already exists")
             return
         }

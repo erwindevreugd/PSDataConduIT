@@ -73,17 +73,17 @@ function Add-AccessLevelAssignment {
             $parameters.Add("Credential", $Credential)
         }
 
-        if (($accessLevel = Get-AccessLevel -AccessLevelID $AccessLevelID) -eq $null) {
+        if (($accessLevel = Get-AccessLevel -Server $Server -Credential $Credential -AccessLevelID $AccessLevelID) -eq $null) {
             Write-Error -Message ("Accesslevel with id '$($AccessLevelID)' not found")
             return
         }
 
-        if (($badge = Get-Badge -BadgeKey $BadgeKey) -eq $null) {
+        if (($badge = Get-Badge -Server $Server -Credential $Credential -BadgeKey $BadgeKey) -eq $null) {
             Write-Error -Message ("BadgeKey '$($BadgeKey)' not found")
             return
         }
 
-        if ((Get-AccessLevelAssignment -BadgeKey $BadgeKey -AccessLevelID $AccessLevelID) -ne $null) {
+        if ((Get-AccessLevelAssignment -Server $Server -Credential $Credential -BadgeKey $BadgeKey -AccessLevelID $AccessLevelID) -ne $null) {
             Write-Error -Message ("Accesslevel '$($accessLevel.Name)' is already assigned to BadgeKey '$($BadgeKey)'")
             return
         }
