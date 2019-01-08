@@ -708,6 +708,44 @@
       </TableControl>
     </View>
 
+        <!--
+    DataConduIT.LnlCameraHardwareStatus
+    -->
+    <View>
+      <Name>DataConduITLnlCameraHardwareStatusTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlCameraHardwareStatus</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Status</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Panel</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
     <!--
     DataConduIT.LnlPerson
     -->
