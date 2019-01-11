@@ -203,7 +203,6 @@ function Get-User {
                 Credential                  = $Credential;
                 UserID                      = $_.ID;
                 LogonID                     = $_.LogonID;
-                Password                    = $_.Password;
                 Firstname                   = $_.FirstName;
                 Lastname                    = $_.LastName;
                 AllowManualLogon            = $_.AllowManualLogon;

@@ -15,7 +15,7 @@ Creates a new visit.
 ```
 New-Visit [[-Server] <String>] [[-Credential] <PSCredential>] -VisitorID <Int32> -CardholderID <Int32>
  [-Hours <Int32>] [-ScheduledTimeIn <DateTime>] [-ScheduledTimeOut <DateTime>] [-Purpose <String>]
- [-EmailList <String>] [<CommonParameters>]
+ [-EmailList <MailAddress[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -158,7 +158,7 @@ Accept wildcard characters: False
 List of email addresses to add to the new visit.
 
 ```yaml
-Type: String
+Type: MailAddress[]
 Parameter Sets: (All)
 Aliases:
 

@@ -5,49 +5,50 @@ online version: https://github.com/erwindevreugd/PSDataConduIT
 schema: 2.0.0
 ---
 
-# Get-IntrusionOutput
+# Set-AccessLevel
 
 ## SYNOPSIS
-Gets an intrusion output.
+{{Fill in the Synopsis}}
 
 ## SYNTAX
 
 ```
-Get-IntrusionOutput [[-Server] <String>] [[-Credential] <PSCredential>] [-IntrusionOutputID <Int32>]
- [-PanelID <Int32>] [-DeviceID <Int32>] [-Name <String>] [-HostName <String>] [<CommonParameters>]
+Set-AccessLevel [[-Server] <String>] [[-Credential] <PSCredential>] -AccessLevelID <Int32> -Name <String>
+ [-HasCommandAuthority <Boolean>] [-DownloadToIntelligentReaders <Boolean>] [-FirstCardUnlock <Boolean>]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Gets all intrusion ouputs or a single intrusion output if an intrusion output id is specified.
-
-If the result returns null, try the parameter "-Verbose" to get more details.
+{{Fill in the Description}}
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
-Get-IntrusionOutput
-```
+
+{{ Add example description here }}
 
 ## PARAMETERS
 
-### -Server
-The name of the server where the DataConduIT service is running or localhost.
+### -AccessLevelID
+Specifies id of the access level to update.
 
 ```yaml
-Type: String
+Type: Int32
 Parameter Sets: (All)
 Aliases:
 
-Required: False
-Position: 1
-Default value: $Script:Server
+Required: True
+Position: Named
+Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
 ### -Credential
-The credentials used to authenticate the user to the DataConduIT service.
+The credentials used to authenticate the user to the DataConduIT service
 
 ```yaml
 Type: PSCredential
@@ -55,17 +56,17 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
-Default value: $Script:Credential
+Position: 1
+Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -IntrusionOutputID
-Specifies the id of the intrusion output to get.
+### -DownloadToIntelligentReaders
+Specifies wheter the access level will be downloaded to intelligent readers.
 
 ```yaml
-Type: Int32
+Type: Boolean
 Parameter Sets: (All)
 Aliases:
 
@@ -76,11 +77,11 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -PanelID
-Specifies the panel id of the intrusion output to get.
+### -FirstCardUnlock
+Specifies wheter the access level has first card unlock.
 
 ```yaml
-Type: Int32
+Type: Boolean
 Parameter Sets: (All)
 Aliases:
 
@@ -91,11 +92,11 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -DeviceID
-Specifies the device id of the intrusion output to get.
+### -HasCommandAuthority
+Specifies wheter the access level has command authority.
 
 ```yaml
-Type: Int32
+Type: Boolean
 Parameter Sets: (All)
 Aliases:
 
@@ -107,24 +108,22 @@ Accept wildcard characters: False
 ```
 
 ### -Name
-Specifies the name of the intrusion output to get.
-Wildcards are permitted.
+Specifies the new name of the access level.
 
 ```yaml
 Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -HostName
-Specifies the host name of the output output to get.
-Wildcards are permitted.
+### -Server
+The name of the server where the DataConduIT service is running or localhost
 
 ```yaml
 Type: String
@@ -132,7 +131,7 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
+Position: 0
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
@@ -144,8 +143,20 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
+### System.String
+
+### System.Management.Automation.PSCredential
+
+### System.Int32
+
+### System.Boolean
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
+

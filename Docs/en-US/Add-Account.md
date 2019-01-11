@@ -5,46 +5,31 @@ online version: https://github.com/erwindevreugd/PSDataConduIT
 schema: 2.0.0
 ---
 
-# Invoke-UnmaskReaderInput
+# Add-Account
 
 ## SYNOPSIS
-Unmasks a reader input.
+{{Fill in the Synopsis}}
 
 ## SYNTAX
 
 ```
-Invoke-UnmaskReaderInput [[-Server] <String>] [[-Credential] <PSCredential>] [-PanelID <Int32>]
- [-ReaderID <Int32>] [-ReaderInputID <Int32>] [-PassThru] [<CommonParameters>]
+Add-Account [[-Server] <String>] [[-Credential] <PSCredential>] -ExternalAccountID <String>
+ -DirectoryID <Int32> -PersonID <Int32> [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Unmasks a raeder input.
-
-If the result returns null, try the parameter "-Verbose" to get more details.
+{{Fill in the Description}}
 
 ## EXAMPLES
 
-### EXAMPLE 1
+### Example 1
+```powershell
+PS C:\> {{ Add example code here }}
 ```
 
-```
+{{ Add example description here }}
 
 ## PARAMETERS
-
-### -Server
-The name of the server where the DataConduIT service is running or localhost.
-
-```yaml
-Type: String
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: 1
-Default value: $Script:Server
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
 
 ### -Credential
 The credentials used to authenticate the user to the DataConduIT service.
@@ -55,70 +40,69 @@ Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: 2
-Default value: $Script:Credential
+Position: 1
+Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -PanelID
-Specifies the panel id of the reader input(s) to unmask.
+### -DirectoryID
+Specifies the directory id of the account(s) to add.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -ReaderID
-Specifies the reader id of the reader input(s) to unmask.
+### -ExternalAccountID
+Specifies the Active Directory Security Identifier of the account to add.
 
 ```yaml
-Type: Int32
+Type: String
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -ReaderInputID
-Specifies the reader input id of the reader input(s) to unmask.
+### -PersonID
+Specifies the person id of the account to add.
 
 ```yaml
 Type: Int32
 Parameter Sets: (All)
 Aliases:
 
-Required: False
+Required: True
 Position: Named
-Default value: 0
+Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -PassThru
-Returns an object that represents the reader input.
-By default, this cmdlet does not generate any output.
+### -Server
+The name of the server where the DataConduIT service is running or localhost.
 
 ```yaml
-Type: SwitchParameter
+Type: String
 Parameter Sets: (All)
 Aliases:
 
 Required: False
-Position: Named
-Default value: False
-Accept pipeline input: False
+Position: 0
+Default value: None
+Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
@@ -128,8 +112,18 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 
 ## INPUTS
 
+### System.String
+
+### System.Management.Automation.PSCredential
+
+### System.Int32
+
 ## OUTPUTS
 
+### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://github.com/erwindevreugd/PSDataConduIT](https://github.com/erwindevreugd/PSDataConduIT)
+
