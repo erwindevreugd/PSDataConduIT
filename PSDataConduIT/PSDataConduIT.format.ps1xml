@@ -708,6 +708,44 @@
       </TableControl>
     </View>
 
+        <!--
+    DataConduIT.LnlCameraHardwareStatus
+    -->
+    <View>
+      <Name>DataConduITLnlCameraHardwareStatusTable</Name>
+      <ViewSelectedBy>
+        <TypeName>DataConduIT.LnlCameraHardwareStatus</TypeName>
+      </ViewSelectedBy>
+      <TableControl>
+        <TableHeaders>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Width>20</Width>
+            </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+            <TableRowEntry>
+                <TableColumnItems>
+                    <TableColumnItem>
+                        <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Status</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>Panel</PropertyName>
+                    </TableColumnItem>
+                </TableColumnItems>
+            </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+
     <!--
     DataConduIT.LnlPerson
     -->
@@ -2359,6 +2397,14 @@
             <TableColumnHeader>
                 <Width>30</Width>
             </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Start Date</Label>
+                <Width>30</Width>
+            </TableColumnHeader>
+            <TableColumnHeader>
+                <Label>Day(s)</Label>
+                <Width>6</Width>
+            </TableColumnHeader>
         </TableHeaders>
         <TableRowEntries>
             <TableRowEntry>
@@ -2368,6 +2414,12 @@
                     </TableColumnItem>
                     <TableColumnItem>
                         <PropertyName>Name</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>StartDate</PropertyName>
+                    </TableColumnItem>
+                    <TableColumnItem>
+                        <PropertyName>ExtentDays</PropertyName>
                     </TableColumnItem>
                 </TableColumnItems>
             </TableRowEntry>

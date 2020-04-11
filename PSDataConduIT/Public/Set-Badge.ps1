@@ -98,7 +98,14 @@ function Set-Badge {
             ValueFromPipelineByPropertyName = $true,
             HelpMessage = 'Specifies whether the badge uses extended strike times.')]
         [bool]
-        $UseExtendedStrike,
+        $ExtendedStrikeHeldTime,
+
+        [Parameter(
+            Mandatory = $false,
+            ValueFromPipelineByPropertyName = $true,
+            HelpMessage = 'Specifies whether the badge is allowed to use passage mode.')]
+        [bool]
+        $PassageMode,
 
         [ValidateRange(1, 255)]
         [Parameter(
@@ -172,9 +179,14 @@ function Set-Badge {
             $updateSet.Add("EMBOSSED", $Embossed)
         }
 
-        if ($UseExtendedStrike -and $UseExtendedStrike -ne $badge.EXTEND_STRIKE_HELD) {
-            Write-Verbose -Message ("Updating use extended strike '$($badge.EXTEND_STRIKE_HELD)' to '$($UseExtendedStrike)' on badge key '$($badge.BADGEKEY)'")
-            $updateSet.Add("EXTEND_STRIKE_HELD", $UseExtendedStrike)
+        if ($ExtendedStrikeHeldTime -and $ExtendedStrikeHeldTime -ne $badge.EXTEND_STRIKE_HELD) {
+            Write-Verbose -Message ("Updating use extended strike held time '$($badge.EXTEND_STRIKE_HELD)' to '$($ExtendedStrikeHeldTime)' on badge key '$($badge.BADGEKEY)'")
+            $updateSet.Add("EXTEND_STRIKE_HELD", $ExtendedStrikeHeldTime)
+        }
+
+        if ($PassageMode -and $PassageMode -ne $badge.PASSAGE_MODE) {
+            Write-Verbose -Message ("Updating passage mode '$($badge.PASSAGE_MODE)' to '$($PassageMode)' on badge key '$($badge.BADGEKEY)'")
+            $updateSet.Add("PASSAGE_MODE", $PassageMode)
         }
 
         if ($IssueCode -and $IssueCode -ne $badge.ISSUECODE) {

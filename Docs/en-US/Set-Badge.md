@@ -15,8 +15,8 @@ Updates a badge.
 ```
 Set-Badge [[-Server] <String>] [[-Credential] <PSCredential>] -BadgeKey <Int32> [-BadgeID <Int64>]
  [-Activate <DateTime>] [-Deactivate <DateTime>] [-APBExempt <Boolean>] [-DeadBoltOverride <Boolean>]
- [-DestinationExempt <Boolean>] [-Embossed <Int32>] [-UseExtendedStrike <Boolean>] [-IssueCode <Int32>]
- [<CommonParameters>]
+ [-DestinationExempt <Boolean>] [-Embossed <Int32>] [-ExtendedStrikeHeldTime <Boolean>]
+ [-PassageMode <Boolean>] [-IssueCode <Int32>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -183,21 +183,6 @@ Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
 
-### -UseExtendedStrike
-Specifies whether the badge uses extended strike times.
-
-```yaml
-Type: Boolean
-Parameter Sets: (All)
-Aliases:
-
-Required: False
-Position: Named
-Default value: False
-Accept pipeline input: True (ByPropertyName)
-Accept wildcard characters: False
-```
-
 ### -IssueCode
 Specifies the new issue code of the badge.
 
@@ -209,6 +194,36 @@ Aliases:
 Required: False
 Position: Named
 Default value: 0
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -ExtendedStrikeHeldTime
+Specifies whether the badge uses extended strike times.
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -PassageMode
+Specifies whether the badge is allowed to use passage mode.
+
+```yaml
+Type: Boolean
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```

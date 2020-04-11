@@ -14,9 +14,9 @@ Creates a new cardholder.
 
 ```
 New-Cardholder [[-Server] <String>] [[-Credential] <PSCredential>] [-Firstname <String>] [-Midname <String>]
- -Lastname <String> [-SSNO <String>] [-Email <String>] [-Floor <Int32>] [-Address <String>] [-ZipCode <String>]
- [-City <String>] [-State <String>] [-Phone <String>] [-OfficePhone <String>] [-Extension <String>]
- [-Birthday <DateTime>] [-AllowedVisitors] [<CommonParameters>]
+ -Lastname <String> [-SSNO <String>] [-Email <MailAddress>] [-Floor <Int32>] [-Address <String>]
+ [-ZipCode <String>] [-City <String>] [-State <String>] [-Phone <String>] [-OfficePhone <String>]
+ [-Extension <String>] [-Birthday <DateTime>] [-AllowedVisitors] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -127,7 +127,7 @@ Accept wildcard characters: False
 Specifies the email of the new cardholder.
 
 ```yaml
-Type: String
+Type: MailAddress
 Parameter Sets: (All)
 Aliases:
 

@@ -115,15 +115,19 @@ For more information, see about_CommonParameters (http://go.microsoft.com/fwlink
 ### System.String[]
 ### System.String[]
 ### System.String[]
+### System.String[]
 
 ## OUTPUTS
 
 ### System.Object
 ### System.Object
 ### System.Object
+### System.Object
 ## NOTES
 
 ## RELATED LINKS
+
+[https://go.microsoft.com/fwlink/?LinkId=799468](https://go.microsoft.com/fwlink/?LinkId=799468)
 
 [https://go.microsoft.com/fwlink/?LinkId=799468](https://go.microsoft.com/fwlink/?LinkId=799468)
 

@@ -189,6 +189,202 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Add-Account</command:name>
+      <command:verb>Add</command:verb>
+      <command:noun>Account</command:noun>
+      <maml:description>
+        <maml:para>{{Fill in the Synopsis}}</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>{{Fill in the Description}}</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Add-Account</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>The name of the server where the DataConduIT service is running or localhost.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none">
+          <maml:name>Credential</maml:name>
+          <maml:Description>
+            <maml:para>The credentials used to authenticate the user to the DataConduIT service.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+          <dev:type>
+            <maml:name>PSCredential</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>DirectoryID</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the directory id of the account(s) to add.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>ExternalAccountID</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the Active Directory Security Identifier of the account to add.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>PersonID</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the person id of the account to add.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none">
+        <maml:name>Credential</maml:name>
+        <maml:Description>
+          <maml:para>The credentials used to authenticate the user to the DataConduIT service.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+        <dev:type>
+          <maml:name>PSCredential</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>DirectoryID</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the directory id of the account(s) to add.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>ExternalAccountID</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the Active Directory Security Identifier of the account to add.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>PersonID</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the person id of the account to add.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>The name of the server where the DataConduIT service is running or localhost.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.PSCredential</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Int32</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; {{ Add example code here }}</dev:code>
+        <dev:remarks>
+          <maml:para>{{ Add example description here }}</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://github.com/erwindevreugd/PSDataConduIT</maml:linkText>
+        <maml:uri>https://github.com/erwindevreugd/PSDataConduIT</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Disable-User</command:name>
       <command:verb>Disable</command:verb>
       <command:noun>User</command:noun>
@@ -6522,11 +6718,16 @@
       <command:noun>Location</command:noun>
       <maml:description>
         <maml:para>Gets a location.</maml:para>
+        <maml:para>Gets information about the current working location or a location stack.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
       <maml:para>Gets all locations or a single location if a location id is specified.</maml:para>
       <maml:para>If the result returns null, try the parameter "-Verbose" to get more details.</maml:para>
+      <maml:para>The Get-Location cmdlet gets an object that represents the current directory, much like the pwd (print working directory) command.</maml:para>
+      <maml:para>When you move between Windows PowerShell drives, Windows PowerShell retains your location in each drive. You can use Get-Location to find your location in each drive.</maml:para>
+      <maml:para>You can use Get-Location to get the current directory at run time and use it in functions and scripts, such as in a function that displays the current directory in the Windows PowerShell prompt.</maml:para>
+      <maml:para>You can also use the Get-Location cmdlet to display the locations in a location stack. For more information, see the Notes and the descriptions of the Stack and StackName parameters.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -6680,6 +6881,14 @@
           <maml:para></maml:para>
         </maml:description>
       </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>None</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>You cannot pipe input to this cmdlet.</maml:para>
+        </maml:description>
+      </command:inputType>
     </command:inputTypes>
     <command:returnValues>
       <command:returnValue>
@@ -6730,10 +6939,28 @@
           <maml:para></maml:para>
         </maml:description>
       </command:returnValue>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Management.Automation.PathInfo or System.Management.Automation.PathInfoStack</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>If you use the Stack or StackName parameters, Get-Location returns a StackInfo object. Otherwise, it returns a PathInfo object.</maml:para>
+        </maml:description>
+      </command:returnValue>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
+        <maml:para>The Get-Location cmdlet is designed to work with the data exposed by any provider. To list the providers in your session, type "Get-PSProvider". For more information, see about_Providers.</maml:para>
+        <maml:para>The ways that the PSProvider, PSDrive, Stack, and StackName parameters interact depends on the provider. Some combinations will result in errors, such as specifying both a drive and a provider that does not expose that drive. If no parameters are specified, Get-Location returns the PathInfo object for the provider that contains the current working location.</maml:para>
+        <maml:para>A "stack" is a last-in, first-out list in which only the most recently added item is accessible. You add items to a stack in the order that you use them, and then retrieve them for use in the reverse order.  Windows PowerShell lets you store provider locations in location stacks. Windows PowerShell creates an unnamed default location stack and you can create multiple named location stacks. If you do not specify a stack name, Windows PowerShell uses the current location stack. By default, the unnamed default location is the current location stack, but you can use the Set-Location cmdlet to change the current location stack.</maml:para>
+        <maml:para>To manage location stacks, use the Windows PowerShell Location cmdlets, as follows.</maml:para>
+        <maml:para>-- To add a location to a location stack, use the Push-Location cmdlet.</maml:para>
+        <maml:para>-- To get a location from a location stack, use the Pop-Location cmdlet.</maml:para>
+        <maml:para>-- To display the locations in the current location stack, use the Stack parameter of the Get-Location cmdlet. To display the locations in a named location stack, use the StackName parameter of the Get-Location cmdlet.</maml:para>
+        <maml:para>-- To create a new location stack, use the StackName parameter of the Push-Location cmdlet. If you specify a stack that does not exist, Push-Location creates the stack.</maml:para>
+        <maml:para>-- To make a location stack the current location stack, use the StackName parameter of the Set-Location cmdlet.</maml:para>
         <maml:para></maml:para>
+        <maml:para>The unnamed default location stack is fully accessible only when it is the current location stack. If you make a named location stack the current location stack, you cannot no longer use Push-Location or Pop-Location cmdlets add or get items from the default stack or use Get-Location command to display the locations in the unnamed stack. To make the unnamed stack the current stack, use the StackName parameter of the Set-Location cmdlet with a value of $null or an empty string ("").</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -6742,6 +6969,95 @@
         <dev:code>Get-Location</dev:code>
         <dev:remarks>
           <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt;get-location
+Path
+----
+C:\WINDOWS</dev:code>
+        <dev:remarks>
+          <maml:para>This command displays your location in the current Windows PowerShell drive.</maml:para>
+          <maml:para>For example, if you are in the Windows directory of the C: drive, it displays the path to that directory.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>The first command uses the Set-Location cmdlet to set the current location to the Windows subdirectory of the C: drive.
+PS C:\&gt;set-location C:\Windows
+
+The second command uses the Set-Location cmdlet to change the location to the HKLM:\Software\Microsoft registry key. When you change to a location in the HKLM: drive, Windows PowerShell retains your location in the C: drive.
+PS C:\WINDOWS&gt; set-location HKLM:\Software\Microsoft
+PS HKLM:\Software\Microsoft&gt;
+
+The third command uses the Set-Location cmdlet to change the location to the "HKCU:\Control Panel\Input Method" registry key.
+PS C:\&gt;PS HKLM:\Software\Microsoft&gt; set-location 'HKCU:\Control Panel\Input Method'
+PS HKCU:\Control Panel\Input Method&gt;
+
+The fourth command uses the Get-Location cmdlet to find the current location on the C: drive. It uses the PSDrive parameter to specify the drive.
+PS C:\&gt;PS HKCU:\Control Panel\Input Method&gt; get-location -psdrive c
+Path
+----
+C:\WINDOWS
+
+The fifth command uses the Set-Location cmdlet to return to the C: drive. Even though the command does not specify a subdirectory, Windows PowerShell returns you to the saved location.
+PS C:\&gt;PS HKCU:\Control Panel\Input Method&gt; set-location C:
+PS C:\WINDOWS&gt;
+
+The sixth command uses the Get-Location cmdlet to find the current location in the drives supported by the Windows PowerShell registry provider. Get-Location returns the location of the most recently accessed registry drive, HKCU.
+PS C:\WINDOWS&gt; get-location -psprovider registry
+Path
+----
+HKCU:\Control Panel\Input Method
+
+
+To see the current location in the HKLM: drive, you need to use the PSDrive parameter to specify the drive. The seventh command does just this:
+PS C:\WINDOWS&gt; get-location -psdrive HKLM
+Path
+----
+HKLM:\Software\Microsoft</dev:code>
+        <dev:remarks>
+          <maml:para>These commands demonstrate the use of Get-Location to display your current location in different Windows PowerShell drives.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>The first command sets the current location to the Windows directory on the C: drive.
+PS C:\&gt;set-location C:\Windows
+
+The second command uses the Push-Location cmdlet to push the current location (C:\Windows) onto the current location stack and change to the System32 subdirectory. Because no stack is specified, the current location is pushed onto the current location stack. By default, the current location stack is the unnamed default location stack.
+C:\WINDOWS&gt;push-location System32
+
+The third command uses the StackName parameter of the Push-Location cmdlet to push the current location (C:\Windows\System32) onto the Stack2 stack and to change the current location to the WindowsPowerShell subirectory. If the Stack2 stack does not exist, Push-Location creates it.
+C:\Windows\System32&gt;push-location WindowsPowerShell -StackName Stack2
+
+The fourth command uses the Stack parameter of the Get-Location cmdlet to get the locations in the current location stack. By default, the current stack is the unnamed default location stack.
+C:\WINDOWS\system32\WindowsPowerShell&gt;get-location -stack
+Path
+----
+C:\WINDOWS
+
+The fifth command uses the StackName parameter of the Get-Location cmdlet to get the locations in the Stack2 stack.
+C:\WINDOWS\system32\WindowsPowerShell&gt;get-location -stackname Stack2
+Path
+----
+C:\WINDOWS\system32</dev:code>
+        <dev:remarks>
+          <maml:para>These commands show how to use the Stack and StackName parameters of Get-Location to list the locations in the current location stack and alternate location stacks. For more information about location stacks, see the Notes.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>PS C:\&gt;function prompt { 'PowerShell: ' + (get-location) + '&gt; '}
+PowerShell: C:\WINDOWS&gt;</dev:code>
+        <dev:remarks>
+          <maml:para>This example shows how to customize the Windows PowerShell prompt. The function that defines the prompt includes a Get-Location command, which is run whenever the prompt appears in the console.</maml:para>
+          <maml:para>The format of the default Windows PowerShell prompt is defined by a special function called "prompt". You can change the prompt in your console by creating a new function called "prompt".</maml:para>
+          <maml:para>To see the current prompt function, type the following command:</maml:para>
+          <maml:para>get-content function:prompt</maml:para>
+          <maml:para>The command begins with the "function" keyword followed by the function name, "prompt". The function body appears within braces ( {} ).</maml:para>
+          <maml:para>This command defines a new prompt that begins with the string "PowerShell: ". To append the current location, it uses a Get-Location command, which runs when the prompt function is called. The prompt ends with the string "&gt; ".</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -6761,6 +7077,26 @@
       <maml:navigationLink>
         <maml:linkText>https://go.microsoft.com/fwlink/?LinkID=113321</maml:linkText>
         <maml:uri>https://go.microsoft.com/fwlink/?LinkID=113321</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://go.microsoft.com/fwlink/p/?linkid=290497</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Pop-Location</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Push-Location</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Set-Location</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>about_Providers</maml:linkText>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -9736,8 +10072,24 @@
           <maml:para></maml:para>
         </maml:description>
       </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String[]</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
     </command:inputTypes>
     <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
       <command:returnValue>
         <dev:type>
           <maml:name>System.Object</maml:name>
@@ -9781,6 +10133,10 @@
       <maml:navigationLink>
         <maml:linkText>Online Version:</maml:linkText>
         <maml:uri>https://github.com/erwindevreugd/PSDataConduIT</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>https://go.microsoft.com/fwlink/?LinkId=799468</maml:linkText>
+        <maml:uri>https://go.microsoft.com/fwlink/?LinkId=799468</maml:uri>
       </maml:navigationLink>
       <maml:navigationLink>
         <maml:linkText>https://go.microsoft.com/fwlink/?LinkId=799468</maml:linkText>
@@ -17197,6 +17553,39 @@
           </dev:type>
           <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>DownloadToIntelligentReaders</maml:name>
+          <maml:Description>
+            <maml:para>Specifies wheter the new access level will be downloaded to intelligent readers.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>FirstCardUnlock</maml:name>
+          <maml:Description>
+            <maml:para>Specifies wheter the new access level has first card unlock.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>HasCommandAuthority</maml:name>
+          <maml:Description>
+            <maml:para>Specifies wheter the new access level has command authority.</maml:para>
+          </maml:Description>
+          <dev:type>
+            <maml:name>SwitchParameter</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>False</dev:defaultValue>
+        </command:parameter>
       </command:syntaxItem>
     </command:syntax>
     <command:parameters>
@@ -17247,6 +17636,42 @@
           <maml:uri />
         </dev:type>
         <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>DownloadToIntelligentReaders</maml:name>
+        <maml:Description>
+          <maml:para>Specifies wheter the new access level will be downloaded to intelligent readers.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>FirstCardUnlock</maml:name>
+        <maml:Description>
+          <maml:para>Specifies wheter the new access level has first card unlock.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>HasCommandAuthority</maml:name>
+        <maml:Description>
+          <maml:para>Specifies wheter the new access level has command authority.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="false" variableLength="false">SwitchParameter</command:parameterValue>
+        <dev:type>
+          <maml:name>SwitchParameter</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>False</dev:defaultValue>
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
@@ -17993,9 +18418,9 @@
           <maml:Description>
             <maml:para>Specifies the email of the new cardholder.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">MailAddress</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>MailAddress</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -18199,9 +18624,9 @@
         <maml:Description>
           <maml:para>Specifies the email of the new cardholder.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">MailAddress</command:parameterValue>
         <dev:type>
-          <maml:name>String</maml:name>
+          <maml:name>MailAddress</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -19565,9 +19990,9 @@
           <maml:Description>
             <maml:para>List of email addresses to add to the new visit.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">MailAddress[]</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>MailAddress[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -19676,9 +20101,9 @@
         <maml:Description>
           <maml:para>List of email addresses to add to the new visit.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">MailAddress[]</command:parameterValue>
         <dev:type>
-          <maml:name>String</maml:name>
+          <maml:name>MailAddress[]</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -19800,9 +20225,9 @@
           <maml:Description>
             <maml:para>Specifies the address of the new visitor.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">MailAddress</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>MailAddress</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -19824,9 +20249,9 @@
           <maml:Description>
             <maml:para>Specifies the email of the new visitor.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">MailAddress</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>MailAddress</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -19983,9 +20408,9 @@
         <maml:Description>
           <maml:para>Specifies the address of the new visitor.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">MailAddress</command:parameterValue>
         <dev:type>
-          <maml:name>String</maml:name>
+          <maml:name>MailAddress</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -20007,9 +20432,9 @@
         <maml:Description>
           <maml:para>Specifies the email of the new visitor.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">MailAddress</command:parameterValue>
         <dev:type>
-          <maml:name>String</maml:name>
+          <maml:name>MailAddress</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -23353,6 +23778,258 @@
   </command:command>
   <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
     <command:details>
+      <command:name>Set-AccessLevel</command:name>
+      <command:verb>Set</command:verb>
+      <command:noun>AccessLevel</command:noun>
+      <maml:description>
+        <maml:para>{{Fill in the Synopsis}}</maml:para>
+      </maml:description>
+    </command:details>
+    <maml:description>
+      <maml:para>{{Fill in the Description}}</maml:para>
+    </maml:description>
+    <command:syntax>
+      <command:syntaxItem>
+        <maml:name>Set-AccessLevel</maml:name>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+          <maml:name>Server</maml:name>
+          <maml:Description>
+            <maml:para>The name of the server where the DataConduIT service is running or localhost</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none">
+          <maml:name>Credential</maml:name>
+          <maml:Description>
+            <maml:para>The credentials used to authenticate the user to the DataConduIT service</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+          <dev:type>
+            <maml:name>PSCredential</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>AccessLevelID</maml:name>
+          <maml:Description>
+            <maml:para>Specifies id of the access level to update.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+          <dev:type>
+            <maml:name>Int32</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>DownloadToIntelligentReaders</maml:name>
+          <maml:Description>
+            <maml:para>Specifies wheter the access level will be downloaded to intelligent readers.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>FirstCardUnlock</maml:name>
+          <maml:Description>
+            <maml:para>Specifies wheter the access level has first card unlock.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>HasCommandAuthority</maml:name>
+          <maml:Description>
+            <maml:para>Specifies wheter the access level has command authority.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>Name</maml:name>
+          <maml:Description>
+            <maml:para>Specifies the new name of the access level.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <dev:type>
+            <maml:name>String</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+      </command:syntaxItem>
+    </command:syntax>
+    <command:parameters>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>AccessLevelID</maml:name>
+        <maml:Description>
+          <maml:para>Specifies id of the access level to update.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Int32</command:parameterValue>
+        <dev:type>
+          <maml:name>Int32</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="1" aliases="none">
+        <maml:name>Credential</maml:name>
+        <maml:Description>
+          <maml:para>The credentials used to authenticate the user to the DataConduIT service</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">PSCredential</command:parameterValue>
+        <dev:type>
+          <maml:name>PSCredential</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>DownloadToIntelligentReaders</maml:name>
+        <maml:Description>
+          <maml:para>Specifies wheter the access level will be downloaded to intelligent readers.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>FirstCardUnlock</maml:name>
+        <maml:Description>
+          <maml:para>Specifies wheter the access level has first card unlock.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>HasCommandAuthority</maml:name>
+        <maml:Description>
+          <maml:para>Specifies wheter the access level has command authority.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="true" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>Name</maml:name>
+        <maml:Description>
+          <maml:para>Specifies the new name of the access level.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="0" aliases="none">
+        <maml:name>Server</maml:name>
+        <maml:Description>
+          <maml:para>The name of the server where the DataConduIT service is running or localhost</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <dev:type>
+          <maml:name>String</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+    </command:parameters>
+    <command:inputTypes>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Management.Automation.PSCredential</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Int32</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.Boolean</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:inputType>
+    </command:inputTypes>
+    <command:returnValues>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>System.Object</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para></maml:para>
+        </maml:description>
+      </command:returnValue>
+    </command:returnValues>
+    <maml:alertSet>
+      <maml:alert>
+        <maml:para></maml:para>
+      </maml:alert>
+    </maml:alertSet>
+    <command:examples>
+      <command:example>
+        <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt; {{ Add example code here }}</dev:code>
+        <dev:remarks>
+          <maml:para>{{ Add example description here }}</maml:para>
+        </dev:remarks>
+      </command:example>
+    </command:examples>
+    <command:relatedLinks>
+      <maml:navigationLink>
+        <maml:linkText>https://github.com/erwindevreugd/PSDataConduIT</maml:linkText>
+        <maml:uri>https://github.com/erwindevreugd/PSDataConduIT</maml:uri>
+      </maml:navigationLink>
+    </command:relatedLinks>
+  </command:command>
+  <command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+    <command:details>
       <command:name>Set-Badge</command:name>
       <command:verb>Set</command:verb>
       <command:noun>Badge</command:noun>
@@ -23488,18 +24165,6 @@
           <dev:defaultValue>0</dev:defaultValue>
         </command:parameter>
         <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
-          <maml:name>UseExtendedStrike</maml:name>
-          <maml:Description>
-            <maml:para>Specifies whether the badge uses extended strike times.</maml:para>
-          </maml:Description>
-          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
-          <dev:type>
-            <maml:name>Boolean</maml:name>
-            <maml:uri />
-          </dev:type>
-          <dev:defaultValue>False</dev:defaultValue>
-        </command:parameter>
-        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
           <maml:name>IssueCode</maml:name>
           <maml:Description>
             <maml:para>Specifies the new issue code of the badge.</maml:para>
@@ -23510,6 +24175,30 @@
             <maml:uri />
           </dev:type>
           <dev:defaultValue>0</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>ExtendedStrikeHeldTime</maml:name>
+          <maml:Description>
+            <maml:para>Specifies whether the badge uses extended strike times.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
+        </command:parameter>
+        <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+          <maml:name>PassageMode</maml:name>
+          <maml:Description>
+            <maml:para>Specifies whether the badge is allowed to use passage mode.</maml:para>
+          </maml:Description>
+          <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+          <dev:type>
+            <maml:name>Boolean</maml:name>
+            <maml:uri />
+          </dev:type>
+          <dev:defaultValue>None</dev:defaultValue>
         </command:parameter>
       </command:syntaxItem>
     </command:syntax>
@@ -23635,18 +24324,6 @@
         <dev:defaultValue>0</dev:defaultValue>
       </command:parameter>
       <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
-        <maml:name>UseExtendedStrike</maml:name>
-        <maml:Description>
-          <maml:para>Specifies whether the badge uses extended strike times.</maml:para>
-        </maml:Description>
-        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
-        <dev:type>
-          <maml:name>Boolean</maml:name>
-          <maml:uri />
-        </dev:type>
-        <dev:defaultValue>False</dev:defaultValue>
-      </command:parameter>
-      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
         <maml:name>IssueCode</maml:name>
         <maml:Description>
           <maml:para>Specifies the new issue code of the badge.</maml:para>
@@ -23657,6 +24334,30 @@
           <maml:uri />
         </dev:type>
         <dev:defaultValue>0</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>ExtendedStrikeHeldTime</maml:name>
+        <maml:Description>
+          <maml:para>Specifies whether the badge uses extended strike times.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
+      </command:parameter>
+      <command:parameter required="false" variableLength="true" globbing="false" pipelineInput="True (ByPropertyName)" position="named" aliases="none">
+        <maml:name>PassageMode</maml:name>
+        <maml:Description>
+          <maml:para>Specifies whether the badge is allowed to use passage mode.</maml:para>
+        </maml:Description>
+        <command:parameterValue required="true" variableLength="false">Boolean</command:parameterValue>
+        <dev:type>
+          <maml:name>Boolean</maml:name>
+          <maml:uri />
+        </dev:type>
+        <dev:defaultValue>None</dev:defaultValue>
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
@@ -24204,9 +24905,9 @@
           <maml:Description>
             <maml:para>Specifies the new email of the cardholder.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">MailAddress</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>MailAddress</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -24423,9 +25124,9 @@
         <maml:Description>
           <maml:para>Specifies the new email of the cardholder.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">MailAddress</command:parameterValue>
         <dev:type>
-          <maml:name>String</maml:name>
+          <maml:name>MailAddress</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>
@@ -24981,11 +25682,14 @@
       <command:noun>Location</command:noun>
       <maml:description>
         <maml:para>Updates a location.</maml:para>
+        <maml:para>Sets the current working location to a specified location.</maml:para>
       </maml:description>
     </command:details>
     <maml:description>
       <maml:para>Updates a location.</maml:para>
       <maml:para>If the result returns null, try the parameter "-Verbose" to get more details.</maml:para>
+      <maml:para>The Set-Location cmdlet sets the working location to a specified location. That location could be a directory, a sub-directory, a registry location, or any provider path.</maml:para>
+      <maml:para>You can also use the StackName parameter of the Set-Location cmdlet to make a named location stack the current location stack. For more information about location stacks, see the Notes.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -25115,6 +25819,14 @@
           <maml:para></maml:para>
         </maml:description>
       </command:inputType>
+      <command:inputType>
+        <dev:type>
+          <maml:name>System.String</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>You can pipe a string that contains a path (but not a literal path) to Set-Location.</maml:para>
+        </maml:description>
+      </command:inputType>
     </command:inputTypes>
     <command:returnValues>
       <command:returnValue>
@@ -25165,10 +25877,27 @@
           <maml:para></maml:para>
         </maml:description>
       </command:returnValue>
+      <command:returnValue>
+        <dev:type>
+          <maml:name>None, System.Management.Automation.PathInfo, System.Management.Automation.PathInfoStack</maml:name>
+        </dev:type>
+        <maml:description>
+          <maml:para>When you use the PassThru parameter, Set-Location generates a System.Management.Automation.PathInfo object that represents the location. Otherwise, this cmdlet does not generate any output.</maml:para>
+        </maml:description>
+      </command:returnValue>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
+        <maml:para>The Set-Location cmdlet is designed to work with the data exposed by any provider. To list the providers available in your session, type "Get-PSProvider". For more information, see about_Providers.</maml:para>
+        <maml:para>A "stack" is a last-in, first-out list in which only the most recently added item is accessible. You add items to a stack in the order that you use them, and then retrieve them for use in the reverse order.  Windows PowerShell lets you store provider locations in location stacks. Windows PowerShell creates an unnamed default location stack and you can create multiple named location stacks. If you do not specify a stack name, Windows PowerShell uses the current location stack. By default, the unnamed default location is the current location stack, but you can use the Set-Location cmdlet to change the current location stack.</maml:para>
+        <maml:para>To manage location stacks, use the Windows PowerShell Location cmdlets, as follows.</maml:para>
+        <maml:para>-- To add a location to a location stack, use the Push-Location cmdlet.</maml:para>
+        <maml:para>-- To get a location from a location stack, use the Pop-Location cmdlet.</maml:para>
+        <maml:para>-- To display the locations in the current location stack, use the Stack parameter of the Get-Location cmdlet. To display the locations in a named location stack, use the StackName parameter of the Get-Location cmdlet.</maml:para>
+        <maml:para>-- To create a new location stack, use the StackName parameter of the Push-Location cmdlet. If you specify a stack that does not exist, Push-Location creates the stack.</maml:para>
+        <maml:para>-- To make a location stack the current location stack, use the StackName parameter of the Set-Location cmdlet.</maml:para>
         <maml:para></maml:para>
+        <maml:para>The unnamed default location stack is fully accessible only when it is the current location stack. If you make a named location stack the current location stack, you cannot no longer use Push-Location or Pop-Location cmdlets add or get items from the default stack or use Get-Location command to display the locations in the unnamed stack. To make the unnamed stack the current stack, use the StackName parameter of the Set-Location cmdlet with a value of $null or an empty string ("").</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
@@ -25177,6 +25906,41 @@
         <dev:code></dev:code>
         <dev:remarks>
           <maml:para></maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 1 --------------------------</maml:title>
+        <dev:code>PS C:\&gt;set-location HKLM:
+PS HKLM:\&gt;</dev:code>
+        <dev:remarks>
+          <maml:para>This command set the current location to the root of the HKLM: drive.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 2 --------------------------</maml:title>
+        <dev:code>PS C:\&gt;set-location env: -passthru
+
+Path
+----
+Env:\
+PS Env:\&gt;</dev:code>
+        <dev:remarks>
+          <maml:para>This command sets the current location to the root of the Env: drive. It uses the Passthru parameter to direct Windows PowerShell to return a PathInfo (System.Management.Automation.PathInfo) object that represents the Env: location.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 3 --------------------------</maml:title>
+        <dev:code>PS C:\&gt;set-location C:</dev:code>
+        <dev:remarks>
+          <maml:para>This command sets the current location C: drive in the file system provider.</maml:para>
+        </dev:remarks>
+      </command:example>
+      <command:example>
+        <maml:title>-------------------------- EXAMPLE 4 --------------------------</maml:title>
+        <dev:code>PS C:\&gt;set-location -stackName WSManPaths</dev:code>
+        <dev:remarks>
+          <maml:para>This command makes the WSManPaths location stack the current location stack.</maml:para>
+          <maml:para>The location cmdlets use the current location stack unless a different location stack is specified in the command. For information about location stacks, see the Notes.</maml:para>
         </dev:remarks>
       </command:example>
     </command:examples>
@@ -25196,6 +25960,26 @@
       <maml:navigationLink>
         <maml:linkText>https://go.microsoft.com/fwlink/?LinkID=113397</maml:linkText>
         <maml:uri>https://go.microsoft.com/fwlink/?LinkID=113397</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Online Version:</maml:linkText>
+        <maml:uri>http://go.microsoft.com/fwlink/p/?linkid=293912</maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Get-Location</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Pop-Location</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Push-Location</maml:linkText>
+        <maml:uri></maml:uri>
+      </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>about_Providers</maml:linkText>
+        <maml:uri></maml:uri>
       </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
@@ -26043,9 +26827,9 @@
           <maml:Description>
             <maml:para>Specifies the new list of email addresses for the visit.</maml:para>
           </maml:Description>
-          <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+          <command:parameterValue required="true" variableLength="false">MailAddress[]</command:parameterValue>
           <dev:type>
-            <maml:name>String</maml:name>
+            <maml:name>MailAddress[]</maml:name>
             <maml:uri />
           </dev:type>
           <dev:defaultValue>None</dev:defaultValue>
@@ -26166,9 +26950,9 @@
         <maml:Description>
           <maml:para>Specifies the new list of email addresses for the visit.</maml:para>
         </maml:Description>
-        <command:parameterValue required="true" variableLength="false">String</command:parameterValue>
+        <command:parameterValue required="true" variableLength="false">MailAddress[]</command:parameterValue>
         <dev:type>
-          <maml:name>String</maml:name>
+          <maml:name>MailAddress[]</maml:name>
           <maml:uri />
         </dev:type>
         <dev:defaultValue>None</dev:defaultValue>

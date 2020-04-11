@@ -15,7 +15,7 @@ Updates a visit.
 ```
 Set-Visit [[-Server] <String>] [[-Credential] <PSCredential>] -VisitID <Int32> -VisitorID <Int32>
  -CardholderID <Int32> [-Hours <Int32>] [-ScheduledTimeIn <DateTime>] [-ScheduledTimeOut <DateTime>]
- [-Purpose <String>] [-EmailList <String>] [<CommonParameters>]
+ [-Purpose <String>] [-EmailList <MailAddress[]>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -173,7 +173,7 @@ Accept wildcard characters: False
 Specifies the new list of email addresses for the visit.
 
 ```yaml
-Type: String
+Type: MailAddress[]
 Parameter Sets: (All)
 Aliases:
 

@@ -14,7 +14,7 @@ Creates a new access level.
 
 ```
 New-AccessLevel [[-Server] <String>] [[-Credential] <PSCredential>] -Name <String> [-SegmentID <Int32>]
- [<CommonParameters>]
+ [-HasCommandAuthority] [-DownloadToIntelligentReaders] [-FirstCardUnlock] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -87,6 +87,51 @@ Aliases:
 Required: False
 Position: Named
 Default value: 0
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -DownloadToIntelligentReaders
+Specifies wheter the new access level will be downloaded to intelligent readers.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -FirstCardUnlock
+Specifies wheter the new access level has first card unlock.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: True (ByPropertyName)
+Accept wildcard characters: False
+```
+
+### -HasCommandAuthority
+Specifies wheter the new access level has command authority.
+
+```yaml
+Type: SwitchParameter
+Parameter Sets: (All)
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
 Accept pipeline input: True (ByPropertyName)
 Accept wildcard characters: False
 ```
