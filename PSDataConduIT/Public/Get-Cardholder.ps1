@@ -86,11 +86,11 @@ function Get-Cardholder {
         }
 
         if ($Firstname) {
-            $query += " AND MIDNAME like '$(ToWmiWildcard $Midname)'"
+            $query += " AND FIRSTNAME like '$(ToWmiWildcard $Firstname)'"
         }
 
         if ($Midname) {
-            $query += " AND FIRSTNAME like '$(ToWmiWildcard $Firstname)'"
+            $query += " AND MIDNAME like '$(ToWmiWildcard $Midname)'"
         }
 
         if ($Lastname) {
